@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_textview_padding"
+    >
+
+    <TextView
+        android:id="@+id/textfield_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_question_margin"
+        android:textSize="@dimen/activity_text_size"
+        android:text="@string/string_question"
+        android:layout_alignParentTop="true"
+        />
+
+    <EditText
+        android:id="@+id/edittext_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/string_answer"
+        android:textSize="@dimen/activity_text_size"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        />
+
+    <Button
+        android:id="@+id/button_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_confirm"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/button_logoff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_logoff"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false"
+        />
+
+</RelativeLayout>
