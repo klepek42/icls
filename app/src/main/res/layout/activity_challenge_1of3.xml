@@ -15,7 +15,7 @@
         android:text="@string/string_question_1of3"
         android:layout_alignParentTop="true"
         />
-
+<!--
     <RadioGroup
         android:id="@+id/radiogroup_1of3"
         android:layout_width="wrap_content"
@@ -41,6 +41,32 @@
             android:textSize="@dimen/activity_text_size"
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
+
+-->
+<!-- Falls keine RadioButtons muss Naming angepasst werden unten -->
+    <CheckBox android:id="@+id/radiobutton_answer_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_answer_1"
+        android:textSize="@dimen/activity_text_size"
+        android:onClick="onCheckBoxClicked"
+        android:layout_above="@id/radiobutton_answer_2"/>
+
+    <CheckBox android:id="@+id/radiobutton_answer_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_answer_2"
+        android:textSize="@dimen/activity_text_size"
+        android:onClick="onCheckBoxClicked"
+        android:layout_centerVertical="true"/>
+
+    <CheckBox android:id="@+id/radiobutton_answer_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_answer_3"
+        android:textSize="@dimen/activity_text_size"
+        android:onClick="onCheckBoxClicked"
+        android:layout_below="@id/radiobutton_answer_2"/>
 
 
     <Button

@@ -3,16 +3,25 @@
     <string name="string_question_1_2">Das ist ein toller Dummy-Text für eine Frage der Challenges 1 und 2</string>
     <string name="string_question_3">Das ist ein toller Dummy-Text für eine Frage der Challenge 3</string>
     <string name="string_question_1of3">Das ist ein toller Dummy-Text für eine Frage der Challenge 1 of 3</string>
+    <string name="string_no_challenges_left">Es sind keine weiteren Fragen vorhanden. Alle Aufgaben in dieser Kategorie wurden erfolgreich absolviert.</string>
     <string name="string_think_answer">Überlegen Sie sich die Antwort auf die Frage und drücken Sie anschließend auf "Weiter"</string> <!-- Name des Buttons könnte per Java zur Laufzeit ausgelesen werden -->
     <string name="string_answer">Antwort</string>
     <string name="string_answer_1">Antwort 1</string>
     <string name="string_answer_2">Antwort 2</string>
     <string name="string_answer_3">Antwort 3</string>
     <string name="string_feedback_answer_result">Ihre Antwort war [richtig/falsch]</string> <!--- [] = per Laufzeit verändert -->
-    <string name="string_feedback_answer_correct_answer">Die richtige Antwort ist [Antwort]</string> <!--- [] = per Laufzeit verändert -->
-    <string name="string_feedback_up_down_grade">Die Frage wird [hoch-/runtergestuft]</string> <!--- [] = per Laufzeit verändert -->
+    <string name="string_feedback_correct_answer">Die richtige Antwort ist [Antwort]</string> <!--- [] = per Laufzeit verändert -->
+    <string name="string_feedback_up_down_grade">Diese Frage wird [hoch-/runtergestuft]</string> <!--- [] = per Laufzeit verändert -->
+    <string name="string_feedback">Mögliche Antworten lauten: </string> <!--- [] = per Laufzeit verändert -->
+    <string name="string_answer_1_bulleted">&#8226; Antwort 1\n</string>
+    <string name="string_answer_2_bulleted">&#8226; Antwort 2\n</string>
+    <string name="string_answer_3_bulleted">&#8226; Antwort 3\n</string>
+    <string name="string_was_answer_correct">War ihre Antwort dabei?</string>
 
-
+    <string name="string_button_answer_wrong">Nein</string>
+    <string name="string_button_answer_correct">Ja</string>
     <string name="string_confirm">Weiter</string>
+    <string name="string_ok">Ok</string>
     <string name="string_logoff">Abmelden</string>
+
 </resources>
