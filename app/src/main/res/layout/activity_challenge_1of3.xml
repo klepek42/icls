@@ -12,19 +12,36 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_question_margin"
         android:textSize="@dimen/activity_text_size"
-        android:text="@string/string_question_1_2"
+        android:text="@string/string_question_1of3"
         android:layout_alignParentTop="true"
         />
 
-    <EditText
-        android:id="@+id/edittext_answer"
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:id="@+id/radiogroup_1of3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/string_answer"
-        android:textSize="@dimen/activity_text_size"
-        android:gravity="center"
         android:layout_centerVertical="true"
-        />
+    >
+        <RadioButton android:id="@+id/radiobutton_answer_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_answer_1"
+            android:textSize="@dimen/activity_text_size"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/radiobutton_answer_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_answer_2"
+            android:textSize="@dimen/activity_text_size"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/radiobutton_answer_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_answer_3"
+            android:textSize="@dimen/activity_text_size"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
 
     <Button
         android:id="@+id/button_confirm"

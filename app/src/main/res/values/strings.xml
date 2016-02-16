@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name">icls</string>
-    <string name="string_question">Das ist ein toller Dummy-Text für eine Frage der Challenges</string>
+    <string name="string_question_1_2">Das ist ein toller Dummy-Text für eine Frage der Challenges 1 und 2</string>
+    <string name="string_question_3">Das ist ein toller Dummy-Text für eine Frage der Challenge 3</string>
+    <string name="string_question_1of3">Das ist ein toller Dummy-Text für eine Frage der Challenge 1 of 3</string>
+    <string name="string_think_answer">Überlegen Sie sich die Antwort auf die Frage und drücken Sie anschließend auf "Weiter"</string> <!-- Name des Buttons könnte per Java zur Laufzeit ausgelesen werden -->
     <string name="string_answer">Antwort</string>
-    <string name="string_confirm">Bestätigen</string>
+    <string name="string_answer_1">Antwort 1</string>
+    <string name="string_answer_2">Antwort 2</string>
+    <string name="string_answer_3">Antwort 3</string>
+    <string name="string_feedback_answer_result">Ihre Antwort war [richtig/falsch]</string> <!--- [] = per Laufzeit verändert -->
+    <string name="string_feedback_answer_correct_answer">Die richtige Antwort ist [Antwort]</string> <!--- [] = per Laufzeit verändert -->
+    <string name="string_feedback_up_down_grade">Die Frage wird [hoch-/runtergestuft]</string> <!--- [] = per Laufzeit verändert -->
+
+
+    <string name="string_confirm">Weiter</string>
     <string name="string_logoff">Abmelden</string>
 </resources>

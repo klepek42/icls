@@ -12,19 +12,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_question_margin"
         android:textSize="@dimen/activity_text_size"
-        android:text="@string/string_question_1_2"
+        android:text="@string/string_question_3"
         android:layout_alignParentTop="true"
         />
 
-    <EditText
-        android:id="@+id/edittext_answer"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textview_think_answer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/string_answer"
+        android:hint="@string/string_think_answer"
         android:textSize="@dimen/activity_text_size"
-        android:gravity="center"
         android:layout_centerVertical="true"
         />
+    <!--android:color= (noch) nicht definiert -->
 
     <Button
         android:id="@+id/button_confirm"
