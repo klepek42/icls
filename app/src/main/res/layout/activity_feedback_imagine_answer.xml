@@ -44,17 +44,6 @@
         android:layout_below="@id/textview_correct_answer_2"
         />
 
-    <TextView
-        android:id="@+id/textview_was_answer_correct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/string_was_answer_correct"
-        android:textSize="@dimen/activity_text_size"
-        android:layout_centerVertical="true"
-        android:layout_above="@id/button_answer_correct"
-        android:layout_marginBottom="@dimen/activity_feedback_margin"
-        />
-
 
     <Button
         android:id="@+id/button_answer_wrong"
@@ -65,6 +54,17 @@
         android:layout_alignParentRight="true"
         android:textAllCaps="false"
         android:layout_above="@id/button_logoff"
+        />
+
+    <Button
+        android:id="@+id/button_logoff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_logoff"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false"
         />
 
 
@@ -78,15 +78,15 @@
         android:textAllCaps="false"
         />
 
-    <Button
-        android:id="@+id/button_logoff"
+    <TextView
+        android:id="@+id/textview_was_answer_correct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_logoff"
+        android:hint="@string/string_was_answer_correct"
         android:textSize="@dimen/activity_text_size"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:textAllCaps="false"
+        android:layout_centerVertical="true"
+        android:layout_above="@id/button_answer_correct"
+        android:layout_marginBottom="@dimen/activity_feedback_margin"
         />
 
 </RelativeLayout>
