@@ -10,7 +10,7 @@ public class Init extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_challenge_free_answer);
+        setContentView(R.layout.layout_start_menu);
     }
 }
 

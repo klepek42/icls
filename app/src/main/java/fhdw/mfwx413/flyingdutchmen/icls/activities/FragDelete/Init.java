@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.AskDelete;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.FragDelete;
 
 import android.app.Activity;
 import android.os.Bundle;

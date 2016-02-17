@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.AskLogout;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.FragLogout;
 
 import android.app.Activity;
 import android.os.Bundle;
