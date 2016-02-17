@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_padding">
+
+    <TextView
+        android:id="@+id/textFieldStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_start"
+        android:textSize="@dimen/activity_text_size_caption"
+        android:layout_marginTop="@dimen/activity_margin_start"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:id="@+id/chooseUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:text="@string/string_user_name"
+        android:spinnerMode="dropdown"
+        android:layout_marginTop="@dimen/activity_margin_user"
+        android:layout_below="@+id/textFieldStart" />
+
+    <Button
+        android:id="@+id/buttonAddUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_add"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonChangeUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_change"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonAddUser"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonAcceptUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_accept"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonChangeUser"
+        android:textAllCaps="false" />
+</RelativeLayout>

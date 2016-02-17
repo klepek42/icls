@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_padding">
+
+    <TextView
+        android:id="@+id/textFieldCreateUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_registration"
+        android:textSize="@dimen/activity_text_size_caption"
+        android:layout_marginTop="@dimen/activity_margin_user"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/nameOfUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/string_user_name"
+        android:textSize="@dimen/activity_text_size"
+        android:gravity="center"
+        android:layout_below="@+id/textFieldCreateUser"
+        android:layout_marginTop="@dimen/activity_margin_input" />
+
+    <Button
+        android:id="@+id/buttonAbortNewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_abort"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonSaveNewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_save"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonAbortNewUser"
+        android:textAllCaps="false" />
+</RelativeLayout>

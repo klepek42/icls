@@ -1,5 +1,33 @@
 <resources>
     <string name="app_name">icls</string>
+    <string name="string_start">Start</string>
+    <string name="string_add">+</string>
+    <string name="string_change">Bearbeiten</string>
+    <string name="string_accept">Akzeptieren</string>
+    <string name="string_registration">Registrieren</string>
+    <string name="string_user_name">Name</string>
+    <string name="string_abort">Abbrechen</string>
+    <string name="string_save">Speichern</string>
+    <string name="string_delete">Löschen</string>
+    <string name="string_choose_file">Kartei auswählen</string>
+    <string name="string_statistics">Statistik</string>
+    <string name="string_settings">Einstellungen</string>
+    <string name="string_logout">Abmelden</string>
+    <string name="string_start_learning">Lernmodus</string>
+    <string name="string_file_name">Karteiname</string>
+    <string name="string_all_challenges">Challenges insgesamt</string>
+    <string name="string_due_challenges">Challenges fällig</string>
+    <string name="string_class_one">Klasse 1</string>
+    <string name="string_class_two">Klasse 2</string>
+    <string name="string_class_three">Klasse 3</string>
+    <string name="string_class_four">Klasse 4</string>
+    <string name="string_class_five">Klasse 5</string>
+    <string name="string_class_six">Klasse 6</string>
+    <string name="string_number_of">Anzahl</string>
+    <string name="string_period">Dauer</string>
+    <string name="string_set_time">Zeiteinheit</string>
+    <string name="string_settings_default">Zurücksetzen</string>
+
     <string name="string_question_1_2">Das ist ein toller Dummy-Text für eine Frage der Challenges 1 und 2</string>
     <string name="string_question_3">Das ist ein toller Dummy-Text für eine Frage der Challenge 3</string>
     <string name="string_question_1of3">Das ist ein toller Dummy-Text für eine Frage der Challenge 1 of 3</string>

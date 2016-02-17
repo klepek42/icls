@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_padding">
+
+    <TextView
+        android:id="@+id/textFieldChooseFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_choose_file"
+        android:textSize="@dimen/activity_text_size_caption"
+        android:layout_marginTop="@dimen/activity_margin_start"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:id="@+id/choseRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:text="@string/string_user_name"
+        android:spinnerMode="dropdown"
+        android:layout_marginTop="@dimen/activity_margin_user"
+        android:layout_below="@+id/textFieldChooseFile" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_logout"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonStatistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_statistics"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonLogout"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_settings"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonStatistics"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonStartLearning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_start_learning"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonSettings"
+        android:textAllCaps="false" />
+</RelativeLayout>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_padding">
+
+    <TextView
+        android:id="@+id/textFieldStatistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_statistics"
+        android:textSize="@dimen/activity_text_size_caption"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textFieldFileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_file_name"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_statistics"
+        android:layout_below="@+id/textFieldStatistics" />
+
+    <TextView
+        android:id="@+id/textFieldNumberAllChallenges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_all_challenges"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_below="@+id/textFieldFileName" />
+
+    <TextView
+        android:id="@+id/textFieldNumberDueChallenges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_due_challenges"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_below="@+id/textFieldNumberAllChallenges" />
+
+    <TextView
+        android:id="@+id/textFieldClass1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_class_one"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_below="@+id/textFieldNumberDueChallenges" />
+
+    <TextView
+        android:id="@+id/textFieldNumberOfClass1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_number_of"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldNumberDueChallenges"
+        android:layout_toRightOf="@+id/textFieldClass1" />
+
+    <TextView
+        android:id="@+id/textFieldClass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_class_two"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_below="@+id/textFieldClass1" />
+
+    <TextView
+        android:id="@+id/textFieldNumberOfClass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_number_of"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldClass1"
+        android:layout_toRightOf="@+id/textFieldClass2" />
+
+    <TextView
+        android:id="@+id/textFieldClass3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_class_three"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_below="@+id/textFieldClass2" />
+
+    <TextView
+        android:id="@+id/textFieldNumberOfClass3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_number_of"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldClass2"
+        android:layout_toRightOf="@+id/textFieldClass3" />
+
+    <TextView
+        android:id="@+id/textFieldClass4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_class_four"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_below="@+id/textFieldClass3" />
+
+    <TextView
+        android:id="@+id/textFieldNumberOfClass4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_number_of"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldClass3"
+        android:layout_toRightOf="@+id/textFieldClass4" />
+
+    <TextView
+        android:id="@+id/textFieldClass5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_class_five"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_below="@+id/textFieldClass4" />
+
+    <TextView
+        android:id="@+id/textFieldNumberOfClass5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_number_of"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldClass4"
+        android:layout_toRightOf="@+id/textFieldClass5" />
+
+    <TextView
+        android:id="@+id/textFieldClass6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_class_six"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_below="@+id/textFieldClass5" />
+
+    <TextView
+        android:id="@+id/textFieldNumberOfClass6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_number_of"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldClass5"
+        android:layout_toRightOf="@+id/textFieldClass6" />
+
+    <Button
+        android:id="@+id/buttonStartLearning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lernmodus"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abmelden"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonStartLearning"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/buttonBackToChooseFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kartei auswählen"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonLogout"
+        android:textAllCaps="false" />
+</RelativeLayout>
