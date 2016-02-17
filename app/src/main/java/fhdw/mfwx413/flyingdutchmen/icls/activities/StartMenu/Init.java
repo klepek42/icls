@@ -13,6 +13,3 @@ public class Init extends Activity {
         setContentView(R.layout.activity_challenge_free_answer);
     }
 }
-
-// nur eine Testzeile für einen test-commit.
-//Loesche die beim naechsten mal wieder raus...
