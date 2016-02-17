@@ -2,7 +2,18 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="activity_text_size">20dp</dimen>
+    <dimen name="activity_padding">16dp</dimen>
+    <dimen name="activity_text_size">24dp</dimen>
+    <dimen name="activity_text_size_caption">48dp</dimen>
+    <dimen name="activity_margin_start">150dp</dimen>
+    <dimen name="activity_margin_user">90dp</dimen>
+    <dimen name="activity_margin_input">120dp</dimen>
+    <dimen name="activity_margin_statistics">30dp</dimen>
+    <dimen name="activity_margin_gap_vertical">10dp</dimen>
+    <dimen name="activity_margin_gap_horizontal">50dp</dimen>
+    <dimen name="activity_margin_gap_middel">20dp</dimen>
+    <dimen name="activity_width_dropdown">200dp</dimen>
+    <dimen name="activity_height_dropdown">35dp</dimen>
     <dimen name="activity_textview_padding">20dp</dimen>
     <dimen name="activity_question_margin">65dp</dimen>
     <dimen name="activity_feedback_margin">25dp</dimen>
