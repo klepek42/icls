@@ -7,27 +7,28 @@
     >
 
     <TextView
-        android:id="@+id/textview_question"
+        android:id="@+id/textFieldFeedbackText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_question_margin"
         android:textSize="@dimen/activity_text_size"
-        android:text="@string/string_question_3"
+        android:text="@string/string_feedback_answer_result"
         android:layout_alignParentTop="true"
         />
 
     <TextView
-        android:id="@+id/textview_think_answer"
+        android:id="@+id/textFieldCorrectAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/string_think_answer"
+        android:layout_marginTop="@dimen/activity_feedback_margin"
         android:textSize="@dimen/activity_text_size"
-        android:layout_centerVertical="true"
+        android:text="@string/string_feedback_correct_answer"
+        android:layout_below="@id/textFieldFeedbackText"
         />
-    <!--android:color= (noch) nicht definiert -->
+
 
     <Button
-        android:id="@+id/button_confirm"
+        android:id="@+id/buttonContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_confirm"
@@ -37,8 +38,19 @@
         android:textAllCaps="false"
         />
 
+    <TextView
+        android:id="@+id/textFieldChallengeUpDownGrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/string_feedback_up_down_grade"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_centerVertical="true"
+        android:layout_above="@id/buttonContinue"
+        android:layout_marginBottom="@dimen/activity_feedback_margin_bottom"
+        />
+
     <Button
-        android:id="@+id/button_logoff"
+        android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_logoff"

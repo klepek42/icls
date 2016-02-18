@@ -40,16 +40,17 @@
     <string name="string_feedback_answer_result">Ihre Antwort war [richtig/falsch]</string> <!--- [] = per Laufzeit verändert -->
     <string name="string_feedback_correct_answer">Die richtige Antwort ist [Antwort]</string> <!--- [] = per Laufzeit verändert -->
     <string name="string_feedback_up_down_grade">Diese Frage wird [hoch-/runtergestuft]</string> <!--- [] = per Laufzeit verändert -->
-    <string name="string_feedback">Mögliche Antworten lauten: </string> <!--- [] = per Laufzeit verändert -->
-    <string name="string_answer_1_bulleted">&#8226; Antwort 1\n</string>
-    <string name="string_answer_2_bulleted">&#8226; Antwort 2\n</string>
-    <string name="string_answer_3_bulleted">&#8226; Antwort 3\n</string>
+    <string name="string_feedback">Die richtigen Antworten lauten: \n \n
+    &#8226; Antwort 1\n
+    &#8226; Antwort 2\n
+        &#8226; Antwort 3\n
+    </string> <!--- [] = per Laufzeit verändert -->
     <string name="string_was_answer_correct">War ihre Antwort dabei?</string>
 
     <string name="string_button_answer_wrong">Nein</string>
     <string name="string_button_answer_correct">Ja</string>
     <string name="string_confirm">Weiter</string>
-    <string name="string_ok">Ok</string>
+    <string name="string_ok">Bestätigen</string>
     <string name="string_logoff">Abmelden</string>
 
 </resources>

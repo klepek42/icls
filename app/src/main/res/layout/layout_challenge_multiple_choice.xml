@@ -7,7 +7,7 @@
     >
 
     <TextView
-        android:id="@+id/textview_question"
+        android:id="@+id/textFieldQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_question_margin"
@@ -15,62 +15,37 @@
         android:text="@string/string_question_1of3"
         android:layout_alignParentTop="true"
         />
-<!--
-    <RadioGroup
-        android:id="@+id/radiogroup_1of3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-    >
-        <RadioButton android:id="@+id/radiobutton_answer_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/string_answer_1"
-            android:textSize="@dimen/activity_text_size"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radiobutton_answer_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/string_answer_2"
-            android:textSize="@dimen/activity_text_size"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radiobutton_answer_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/string_answer_3"
-            android:textSize="@dimen/activity_text_size"
-            android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>
 
--->
-<!-- Falls keine RadioButtons muss Naming angepasst werden unten -->
-    <CheckBox android:id="@+id/radiobutton_answer_2"
+    <CheckBox android:id="@+id/checkboxAnswer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_answer_2"
         android:textSize="@dimen/activity_text_size"
-        android:onClick="onCheckBoxClicked"
         android:layout_centerVertical="true"/>
+      <!--  android:onClick="onCheckBoxClicked" -->
 
-    <CheckBox android:id="@+id/radiobutton_answer_1"
+
+    <CheckBox android:id="@+id/checkboxAnswer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_answer_1"
         android:textSize="@dimen/activity_text_size"
-        android:onClick="onCheckBoxClicked"
-        android:layout_above="@id/radiobutton_answer_2"/>
+        android:layout_above="@id/checkboxAnswer1"/>
+    <!--  android:onClick="onCheckBoxClicked" -->
 
-    <CheckBox android:id="@+id/radiobutton_answer_3"
+
+    <CheckBox android:id="@+id/checkboxAnswer3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_answer_3"
         android:textSize="@dimen/activity_text_size"
-        android:onClick="onCheckBoxClicked"
-        android:layout_below="@id/radiobutton_answer_2"/>
+        android:layout_below="@id/checkboxAnswer1"/>
+    <!--  android:onClick="onCheckBoxClicked" -->
+
 
 
     <Button
-        android:id="@+id/button_confirm"
+        android:id="@+id/buttonConfirmAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_confirm"
@@ -81,7 +56,7 @@
         />
 
     <Button
-        android:id="@+id/button_logoff"
+        android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_logoff"
