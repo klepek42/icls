@@ -40,7 +40,7 @@
         android:text="@string/string_change"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/buttonAddUser"
+        android:layout_centerHorizontal="true"
         android:textAllCaps="false" />
 
     <Button
@@ -50,6 +50,6 @@
         android:text="@string/string_accept"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/buttonChangeUser"
+        android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 </RelativeLayout>

@@ -41,6 +41,6 @@
         android:text="@string/string_save"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/buttonAbortNewUser"
+        android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 </RelativeLayout>

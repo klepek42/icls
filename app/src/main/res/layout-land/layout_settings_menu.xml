@@ -29,7 +29,7 @@
         android:text="@string/string_period"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldSettingsMenu"
         android:layout_toRightOf="@+id/textFieldPeriodClass1" />
 
@@ -41,7 +41,7 @@
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldSettingsMenu"
         android:layout_toRightOf="@+id/periodClass1" />
 
@@ -62,7 +62,7 @@
         android:text="@string/string_period"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldPeriodClass1"
         android:layout_toRightOf="@+id/textFieldPeriodClass2" />
 
@@ -74,7 +74,7 @@
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldPeriodClass1"
         android:layout_toRightOf="@+id/periodClass2" />
 
@@ -95,7 +95,7 @@
         android:text="@string/string_period"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldPeriodClass2"
         android:layout_toRightOf="@+id/textFieldPeriodClass3" />
 
@@ -107,7 +107,7 @@
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldPeriodClass2"
         android:layout_toRightOf="@+id/periodClass3" />
 
@@ -118,7 +118,9 @@
         android:text="@string/string_class_four"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_below="@+id/textFieldPeriodClass3" />
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldSettingsMenu"
+        android:layout_toRightOf="@+id/dropDownSetTimeUnit1" />
 
     <EditText
         android:id="@+id/periodClass4"
@@ -128,8 +130,8 @@
         android:text="@string/string_period"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
-        android:layout_below="@+id/textFieldPeriodClass3"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
+        android:layout_below="@+id/textFieldSettingsMenu"
         android:layout_toRightOf="@+id/textFieldPeriodClass4" />
 
     <Spinner
@@ -140,8 +142,8 @@
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
-        android:layout_below="@+id/textFieldPeriodClass3"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
+        android:layout_below="@+id/textFieldSettingsMenu"
         android:layout_toRightOf="@+id/periodClass4" />
 
     <TextView
@@ -151,7 +153,9 @@
         android:text="@string/string_class_five"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_below="@+id/textFieldPeriodClass4" />
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldPeriodClass4"
+        android:layout_toRightOf="@+id/dropDownSetTimeUnit2" />
 
     <EditText
         android:id="@+id/periodClass5"
@@ -161,7 +165,7 @@
         android:text="@string/string_period"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldPeriodClass4"
         android:layout_toRightOf="@+id/textFieldPeriodClass5" />
 
@@ -173,7 +177,7 @@
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldPeriodClass4"
         android:layout_toRightOf="@+id/periodClass5" />
 
@@ -184,7 +188,9 @@
         android:text="@string/string_class_six"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_below="@+id/textFieldPeriodClass5" />
+        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_below="@+id/textFieldPeriodClass5"
+        android:layout_toRightOf="@+id/dropDownSetTimeUnit3" />
 
     <EditText
         android:id="@+id/periodClass6"
@@ -194,7 +200,7 @@
         android:text="@string/string_period"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldPeriodClass5"
         android:layout_toRightOf="@+id/textFieldPeriodClass6" />
 
@@ -206,7 +212,7 @@
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_statistics"
         android:layout_below="@+id/textFieldPeriodClass5"
         android:layout_toRightOf="@+id/periodClass6" />
 

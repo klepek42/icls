@@ -89,7 +89,7 @@
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
-        android:layout_below="@+id/textFieldNumberDueChallenges"
+        android:layout_below="@+id/textFieldDueChallenges"
         android:layout_toRightOf="@+id/textFieldClass1" />
 
     <TextView
@@ -139,7 +139,9 @@
         android:text="@string/string_class_four"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_below="@+id/textFieldClass3" />
+        android:layout_marginLeft="@dimen/activity_margin_class_land"
+        android:layout_below="@+id/textFieldDueChallenges"
+        android:layout_toRightOf="@+id/textFieldNumberOfClass1" />
 
     <TextView
         android:id="@+id/textFieldNumberOfClass4"
@@ -149,7 +151,7 @@
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
-        android:layout_below="@+id/textFieldClass3"
+        android:layout_below="@+id/textFieldDueChallenges"
         android:layout_toRightOf="@+id/textFieldClass4" />
 
     <TextView
@@ -159,7 +161,9 @@
         android:text="@string/string_class_five"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_below="@+id/textFieldClass4" />
+        android:layout_marginLeft="@dimen/activity_margin_class_land"
+        android:layout_below="@+id/textFieldClass4"
+        android:layout_toRightOf="@+id/textFieldNumberOfClass2" />
 
     <TextView
         android:id="@+id/textFieldNumberOfClass5"
@@ -179,7 +183,9 @@
         android:text="@string/string_class_six"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_below="@+id/textFieldClass5" />
+        android:layout_marginLeft="@dimen/activity_margin_class_land"
+        android:layout_below="@+id/textFieldClass5"
+        android:layout_toRightOf="@+id/textFieldNumberOfClass3" />
 
     <TextView
         android:id="@+id/textFieldNumberOfClass6"

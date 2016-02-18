@@ -41,7 +41,7 @@
         android:text="@string/string_save"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/buttonAbortChange"
+        android:layout_centerHorizontal="true"
         android:textAllCaps="false" />
 
     <Button
@@ -51,6 +51,6 @@
         android:text="@string/string_delete"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/buttonSaveChange"
+        android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 </RelativeLayout>

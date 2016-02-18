@@ -15,8 +15,8 @@
     <string name="string_logout">Abmelden</string>
     <string name="string_start_learning">Lernmodus</string>
     <string name="string_file_name">Karteiname</string>
-    <string name="string_all_challenges">Challenges insgesamt</string>
-    <string name="string_due_challenges">Challenges fällig</string>
+    <string name="string_all_challenges">Aufgaben insges.</string>
+    <string name="string_due_challenges">Aufgaben fällig</string>
     <string name="string_class_one">Klasse 1</string>
     <string name="string_class_two">Klasse 2</string>
     <string name="string_class_three">Klasse 3</string>
