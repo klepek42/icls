@@ -7,45 +7,48 @@
     >
 
     <TextView
-        android:id="@+id/textview_question"
+        android:id="@+id/textFieldCorrectAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_question_margin"
+        android:layout_marginTop="@dimen/activity_feedback_margin"
         android:textSize="@dimen/activity_text_size"
-        android:text="@string/string_question_1_2"
+        android:text="@string/string_feedback"
         android:layout_alignParentTop="true"
         />
 
-    <EditText
-        android:id="@+id/edittext_answer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/string_answer"
-        android:textSize="@dimen/activity_text_size"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        />
 
     <Button
-        android:id="@+id/button_confirm"
+        android:id="@+id/buttonWasAnswerWrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_confirm"
+        android:text="@string/string_button_answer_wrong"
         android:textSize="@dimen/activity_text_size"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
         />
 
     <Button
-        android:id="@+id/button_logoff"
+        android:id="@+id/buttonWasAnswerCorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_logoff"
+        android:text="@string/string_button_answer_correct"
         android:textSize="@dimen/activity_text_size"
+        android:layout_above="@id/buttonLogout"
+        android:textAllCaps="false"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:textAllCaps="false"
+        />
+
+    <TextView
+        android:id="@+id/textFieldWasAnswerCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/string_was_answer_correct"
+        android:textSize="@dimen/activity_text_size"
+        android:layout_centerVertical="true"
+        android:layout_above="@id/buttonWasAnswerCorrect"
+        android:layout_marginBottom="@dimen/activity_feedback_margin"
         />
 
 </RelativeLayout>

@@ -7,39 +7,26 @@
     >
 
     <TextView
-        android:id="@+id/textview_feedback_text"
+        android:id="@+id/textFieldQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_question_margin"
         android:textSize="@dimen/activity_text_size"
-        android:text="@string/string_feedback_answer_result"
+        android:text="@string/string_question_3"
         android:layout_alignParentTop="true"
         />
 
     <TextView
-        android:id="@+id/textview_correct_answer"
+        android:id="@+id/textFieldThinkAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_feedback_margin"
-        android:textSize="@dimen/activity_text_size"
-        android:text="@string/string_feedback_correct_answer"
-        android:layout_below="@id/textview_feedback_text"
-        />
-
-
-    <TextView
-        android:id="@+id/textview_up_down_grade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/string_feedback_up_down_grade"
+        android:hint="@string/string_think_answer"
         android:textSize="@dimen/activity_text_size"
         android:layout_centerVertical="true"
-        android:layout_above="@id/button_confirm"
-        android:layout_marginBottom="@dimen/activity_feedback_margin_bottom"
         />
 
     <Button
-        android:id="@+id/button_confirm"
+        android:id="@+id/buttonConfirmThinkAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_confirm"
@@ -50,7 +37,7 @@
         />
 
     <Button
-        android:id="@+id/button_logoff"
+        android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_logoff"
