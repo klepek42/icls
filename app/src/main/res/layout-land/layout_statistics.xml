@@ -199,16 +199,6 @@
         android:layout_toRightOf="@+id/textFieldClass6" />
 
     <Button
-        android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Abmelden"
-        android:textSize="@dimen/activity_text_size"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:textAllCaps="false" />
-
-    <Button
         android:id="@+id/buttonStartLearning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
