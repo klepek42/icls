@@ -13,5 +13,3 @@ public class Init extends Activity {
         setContentView(R.layout.layout_start_menu);
     }
 }
-
-// irgend ein Testkommentar hin
