@@ -31,7 +31,7 @@
     <string name="string_question_1_2">Das ist ein toller Dummy-Text für eine Frage der Challenges 1 und 2</string>
     <string name="string_question_3">Das ist ein toller Dummy-Text für eine Frage der Challenge 3</string>
     <string name="string_question_1of3">Das ist ein toller Dummy-Text für eine Frage der Challenge 1 of 3</string>
-    <string name="string_no_challenges_left">Es sind keine weiteren Fragen vorhanden. Alle Aufgaben in dieser Kategorie wurden erfolgreich absolviert.</string>
+    <string name="string_no_challenges_left">Es sind momentan keine Fragen (mehr) fällig.</string>
     <string name="string_think_answer">Überlegen Sie sich die Antwort auf die Frage und drücken Sie anschließend auf "Weiter"</string> <!-- Name des Buttons könnte per Java zur Laufzeit ausgelesen werden -->
     <string name="string_answer">Antwort</string>
     <string name="string_answer_1">Antwort 1</string>
