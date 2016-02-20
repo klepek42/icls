@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.Challenge1Of3;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.EditUser;
 
 import android.app.Activity;
 import android.os.Bundle;
