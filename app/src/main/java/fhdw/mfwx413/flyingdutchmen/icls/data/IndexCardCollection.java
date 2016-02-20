@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class IndexCardCollection {
 
+    private IndexCard merrorIndexCard;
     private ArrayList<IndexCard> mIndexCardList;
 
 
@@ -18,10 +19,21 @@ public class IndexCardCollection {
         mIndexCardList = new ArrayList<IndexCard>();
     }
 
-    public IndexCard getIndexCard (int indexCardId){
-        return mIndexCardList.get(indexCardId);
-        //Schleife reinbauen, die die IndexCardCollection auf den übergebeben Key durchsucht und
-        // die entsprechende IndexCard zurückgibt
+    //method requires the id of a concrete index card as key
+    public IndexCard getIndexCard (int key){
+        //return mIndexCardList.get(indexCardId);
+        int i;
+        for ( i = 0; i < mIndexCardList.size(); i++)
+        {
+            if (mIndexCardList.get(i).getmID() == key)
+            {
+                return mIndexCardList.get(i);
+            }
+        }
+        //nur um den Fall abzufangen, dass der übergebene key nicht existiert
+        //muss definitiv noch geändert werden!!!
+        return merrorIndexCard;
+        //Todo: was passiert, wenn der übergebene key nicht existiert?
     }
 
     public void addIndexCard(IndexCard indexCard){

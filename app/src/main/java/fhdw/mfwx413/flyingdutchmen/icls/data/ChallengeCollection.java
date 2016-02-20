@@ -1,5 +1,6 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  * notwendig
  * Im Moment gehe ich aber stark davon aus, dass wir die Klasse brauchen werden
  */
-public class ChallengeCollection {
+public class ChallengeCollection implements Serializable{
 
     private ArrayList<Challenge> mChallengeList;
 
