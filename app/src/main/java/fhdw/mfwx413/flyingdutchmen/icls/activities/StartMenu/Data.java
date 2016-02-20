@@ -1,5 +1,6 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.StartMenu;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 /**
@@ -8,6 +9,6 @@ import android.os.Bundle;
  * Updated by Max Schumacher on 20.02.2016
  */
 public class Data {
-    public Data(Init init, Bundle savedInstanceState) {
+    public Data(Activity activity, Bundle savedInstanceState) {
     }
 }

@@ -13,6 +13,14 @@ public class ApplicationLogic {
     public ApplicationLogic(Data Data, Gui Gui) {
         mData = Data;
         mGui = Gui;
+        initialUpdateDataToGui();
+    }
+
+    private void initialUpdateDataToGui() {
+
+    }
+
+    public void buttonAddUserClicked() {
 
     }
 }

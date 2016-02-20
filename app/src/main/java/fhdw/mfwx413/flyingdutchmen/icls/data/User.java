@@ -1,10 +1,12 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
+import java.io.Serializable;
+
 /**
  * Responsibility: Max Schumacher
  * Created by Max Schumacher on 20.02.2016
  */
-public class User {
+public class User implements Serializable {
 
     // UserID (unique)
     protected int mID;
