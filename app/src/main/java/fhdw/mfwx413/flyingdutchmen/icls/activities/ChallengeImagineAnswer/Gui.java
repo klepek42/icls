@@ -25,4 +25,12 @@ public class Gui {
         mTextFieldQuestion.setText(text);
     }
 
+    public Button getmButtonLogout() {
+        return mButtonLogout;
+    }
+
+    public Button getmButtonConfirmThinkAnswer() {
+        return mButtonConfirmThinkAnswer;
+    }
+
 }

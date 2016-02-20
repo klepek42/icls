@@ -3,15 +3,8 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeImagineAnswer;
 import android.app.Activity;
 import android.os.Bundle;
 
-/*
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer.ApplicationLogic;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer.Data;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer.EventToListenerMapping;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer.Gui;
-*/
-
 /**
- * Responsibility Edgar Klepek
+ * Responsibility: Edgar Klepek
  */
 public class Init extends Activity {
 

@@ -1,6 +1,9 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeImagineAnswer;
 
+import android.app.Activity;
+
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Responsibility: Edgar Klepek
@@ -27,11 +30,13 @@ public class ApplicationLogic {
     }
 
     public void onButtonConfirmFreeAnswerClicked(){
-
+        // TEST
+        Navigation.startActivityFeedbackImagineAnswer(mData.getActivity());
     }
 
     public void onButtonLogoutClicked(){
-
+        // TEST
+        Navigation.startActivityStartMenu(mData.getActivity());
     }
 
     //Todo zurücktaste realisieren

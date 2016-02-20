@@ -11,6 +11,10 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 public class Data {
     private static final int DEFAULT_CURRENT_CHALLENGE_ID = 1;
 
+    public Activity getActivity() {
+        return mActivity;
+    }
+
     private Activity mActivity;
     private ChallengeCollection mChallengeCollection;
     private int mCurrentChallengeId;

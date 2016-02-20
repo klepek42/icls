@@ -9,14 +9,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.StartMenu.Init">
+        <!-- <activity android:name=".activities.StartMenu.Init"> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.AddNewUser.Init" />
-        <activity android:name=".activities.FragDelete.Init"/>
+        <activity android:name=".activities.ChallengeFreeAnswer.Init" />
+        <activity android:name=".activities.ChallengeMultipleChoice.Init" />
+        <activity android:name=".activities.ChallengeImagineAnswer.Init" />
         <activity android:name=".activities.ChooseFile.Init" />
+        <activity android:name=".activities.EditUser.Init" />
+        <activity android:name=".activities.FeedbackChallengeRest.Init" />
+        <activity android:name=".activities.FeedbackImagineAnswer.Init" />
+        <activity android:name=".activities.FinalEndOfChallenges.Init" />
+        <activity android:name=".activities.SettingsMenu.Init" />
+        <activity android:name=".activities.Statistics.Init" />
     </application>
 
 </manifest>
