@@ -11,12 +11,12 @@
         <activity android:name=".activities.StartMenu.Init">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.AddNewUser.Init" />
-        <activity android:name=".activities.FragDelete.Init"></activity>
+        <activity android:name=".activities.FragDelete.Init"/>
+        <activity android:name=".activities.ChooseFile.Init" />
     </application>
 
 </manifest>

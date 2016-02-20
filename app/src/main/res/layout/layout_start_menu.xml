@@ -38,7 +38,7 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/buttonChangeUser"
+        android:id="@+id/buttonEditUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_change"
@@ -50,7 +50,7 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/buttonAcceptUser"
+        android:id="@+id/buttonConfirmUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_accept"
