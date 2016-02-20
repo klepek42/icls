@@ -17,6 +17,7 @@ public class ApplicationLogic {
         initialUpdateGui();
     }
 
+    // initialize the Gui by setting the questiontext
     private void initialUpdateGui() {
         Challenge challenge;
         int currentChallengeId;
@@ -27,6 +28,7 @@ public class ApplicationLogic {
         mGui.setQuestionText(challenge.getmQuestiontext());
     }
 
+    //method that is invoked if the confirm button is clicked
     public void onButtonConfirmFreeAnswerClicked(){
         int challengeId = mData.getmCurrentChallengeId();
         Challenge challenge;
@@ -34,10 +36,14 @@ public class ApplicationLogic {
         boolean isAnswerCorrect;
 
         isAnswerCorrect = false;
+        //save the given question from the input textfield
         givenAnswer = mGui.getmGivenAnswer().getText().toString();
+
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
 
+        //analyze if the given answer was correct or not
         switch (challenge.getMcorrectAnswer()){
+            // if one, there only one answer saved in the challenge and this is the right one
             case 1:
                 if (givenAnswer.equals(challenge.getmAnswerOne())){
                     System.out.println("Die Antwort ist korrekt!");
@@ -50,6 +56,7 @@ public class ApplicationLogic {
                     isAnswerCorrect = false;
                 }
                 break;
+            //if three, there are two answers saved in the challenge and both are right
             case 3:
                 if (givenAnswer.equals(challenge.getmAnswerOne()) || givenAnswer.equals(challenge.getmAnswerTwo())){
                     System.out.println("Die Antwort ist korrekt!");
@@ -60,6 +67,7 @@ public class ApplicationLogic {
                     isAnswerCorrect = false;
                 }
                 break;
+            //if seven, there are three answers saved in the challenge and all three are right
             case 7:
                 if (givenAnswer.equals(challenge.getmAnswerTwo()) || givenAnswer.equals(challenge.getmAnswerTwo()) || givenAnswer.equals(challenge.getmAnswerThree())){
                     System.out.println("Die Antwort ist korrekt!");
@@ -73,6 +81,7 @@ public class ApplicationLogic {
             default: System.out.println("Fatal Error");
         }
 
+      //call the Feedback-Activity and send the required data
       //  Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
 
     }

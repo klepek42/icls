@@ -10,6 +10,8 @@ import java.util.ArrayList;
  * notwendig
  * Im Moment gehe ich aber stark davon aus, dass wir die Klasse brauchen werden
  */
+
+// defines a list of challenges
 public class ChallengeCollection implements Serializable{
 
     private ArrayList<Challenge> mChallengeList;

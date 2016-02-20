@@ -11,6 +11,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
  */
 public class IndexCardDatabase {
 
+    //hier muss natürlich eigentlich die csv-Datei ausgelesen werden
     public static IndexCardCollection getIndexCards() {
 
         IndexCardCollection allIndexCards;

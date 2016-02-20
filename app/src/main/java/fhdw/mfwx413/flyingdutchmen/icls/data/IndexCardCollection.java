@@ -19,9 +19,9 @@ public class IndexCardCollection {
         mIndexCardList = new ArrayList<IndexCard>();
     }
 
-    //method requires the id of a concrete index card as key
+    //method requires the id of a concrete indexCard as key
+    //this is not the id of the current indexCardCollection but the id, that is deposit in the csv
     public IndexCard getIndexCard (int key){
-        //return mIndexCardList.get(indexCardId);
         int i;
         for ( i = 0; i < mIndexCardList.size(); i++)
         {

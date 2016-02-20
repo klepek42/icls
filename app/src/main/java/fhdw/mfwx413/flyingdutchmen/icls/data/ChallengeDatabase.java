@@ -9,15 +9,18 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
  */
 public class ChallengeDatabase {
 
+    //the challengeDatabase is based on an already imported list of indexCards
     private static IndexCardCollection allIndexCards;
 
     public static ChallengeCollection getAllChallenges(){
 
+        //import all indexCards
         allIndexCards = IndexCardDatabase.getIndexCards();
 
         ChallengeCollection allChallenges;
         allChallenges = new ChallengeCollection();
 
+        //in zukunft muss hier natürlich die csv-Datei ausgelesen werden
         allChallenges.addChallenge(
                 new Challenge(1, "Wie heißt der Torwart der deutschen Nationalmanschaft?", "Manuel Neuer", "", "", 1, 1, allIndexCards.getIndexCard(6))
         );
