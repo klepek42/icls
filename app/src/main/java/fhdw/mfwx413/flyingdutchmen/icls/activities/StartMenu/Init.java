@@ -6,8 +6,8 @@ import android.os.Bundle;
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 /**
- * Responsibility: Max Schumacher
- * Created by Max Schumacher on 20.02.2016
+ * Responsibility: Max
+ * Created by Max on 20.02.2016
  */
 
 public class Init extends Activity {

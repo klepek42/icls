@@ -3,9 +3,13 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.StartMenu;
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 import android.app.Activity;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Spinner;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 /**
  * Responsibility: Max Schumacher
@@ -30,7 +34,14 @@ public class Gui {
         buttonConfirmUser = (Button) activity.findViewById(R.id.buttonConfirmUser);
         buttonEditUser = (Button) activity.findViewById(R.id.buttonEditUser);
 
+        /*
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, fhdw.mfwx413a.flyingdutchmen.icls.data.csv, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        chooseUser.setAdapter(adapter);
+         */
+
     }
+
 
     public TextView getTextFieldStart() {
         return textFieldStart;

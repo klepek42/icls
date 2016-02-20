@@ -49,6 +49,18 @@ public class User implements Serializable {
         return mPeriodClass6;
     }
 
+    // constructor (For import from csv into java structures)
+    public User(int mID, String mName, int mPeriodClass1, int mPeriodClass2, int mPeriodClass3, int mPeriodClass4, int mPeriodClass5, int mPeriodClass6) {
+        this.mID = mID;
+        this.mName = mName;
+        this.mPeriodClass1 = mPeriodClass1;
+        this.mPeriodClass2 = mPeriodClass2;
+        this.mPeriodClass3 = mPeriodClass3;
+        this.mPeriodClass4 = mPeriodClass4;
+        this.mPeriodClass5 = mPeriodClass5;
+        this.mPeriodClass6 = mPeriodClass6;
+    }
+
     // For creation of new User with default settings for periodClasses (Activity: AddNewUser)
     public void setCreateUser(String mName) {
         this.mID = getNextId();
