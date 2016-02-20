@@ -1,9 +1,11 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
+import java.io.Serializable;
+
 /**
  * Responsibility: Jonas Krabs
  */
-public class Challenge {
+public class Challenge implements Serializable{
 
     private int mID;
     private String mQuestiontext;

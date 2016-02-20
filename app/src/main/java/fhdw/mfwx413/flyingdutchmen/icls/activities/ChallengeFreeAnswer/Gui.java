@@ -33,4 +33,12 @@ public class Gui {
     public EditText getmGivenAnswer() {
         return mGivenAnswer;
     }
+
+    public Button getmButtonLogout() {
+        return mButtonLogout;
+    }
+
+    public Button getmButtonConfirmFreeAnswer() {
+        return mButtonConfirmFreeAnswer;
+    }
 }

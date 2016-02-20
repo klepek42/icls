@@ -15,7 +15,7 @@ public class Init extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        initData();
+        initData(savedInstanceState);
         initGui();
         initApplicationLogic();
         initEventToListenerMapping();
@@ -33,7 +33,13 @@ public class Init extends Activity {
         mGui = new Gui(this);
     }
 
-    private void initData(){
-        mData = new Data(this);
+    private void initData(Bundle savedInstanceState){
+        mData = new Data(this, savedInstanceState);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        mData.saveDataFromBundle(outState);
+        super.onSaveInstanceState(outState);
     }
 }
