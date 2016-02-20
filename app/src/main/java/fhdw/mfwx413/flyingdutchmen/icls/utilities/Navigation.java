@@ -3,7 +3,10 @@ package fhdw.mfwx413.flyingdutchmen.icls.utilities;
 import android.app.Activity;
 import android.content.Intent;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
+import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
+import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 
 /**
  * Created by edgar on 13.02.2016
@@ -53,7 +56,8 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityFeedbackChallengeRest(Activity callingActivity){
+    //changed by Jonas 20.02.2016
+    public static void startActivityFeedbackChallengeRest(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile, boolean isAnswerCorrect){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackChallengeRest.Init.class);
         callingActivity.startActivity(intent);

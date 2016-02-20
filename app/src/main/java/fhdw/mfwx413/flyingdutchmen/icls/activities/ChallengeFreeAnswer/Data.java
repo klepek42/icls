@@ -38,7 +38,7 @@ public class Data {
             //Testweise (hier muss in Zukunft der intent übertrag realisiert werden)
             mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
             mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges();
-            mChosenUser = new User();
+            mChosenUser = new User(1, "Testuser", 5, 60, 1440, 10080, 43200, 259200);
             mChosenFile = IndexCardDatabase.getIndexCards().getIndexCard(4);
         }
         else{
@@ -68,4 +68,12 @@ public class Data {
     public ChallengeCollection getmDueChallengesOfUserInFile() {
         return mDueChallengesOfUserInFile;
     }
+
+    public Activity getActivity() {
+        return mActivity;
+    }
+
+    public User getmChosenUser() {return mChosenUser;}
+
+    public IndexCard getmChosenFile() {return mChosenFile;}
 }

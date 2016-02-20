@@ -1,6 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Responsibility: Jonas Krabs
@@ -32,6 +33,7 @@ public class ApplicationLogic {
         String givenAnswer;
         boolean isAnswerCorrect;
 
+        isAnswerCorrect = false;
         givenAnswer = mGui.getmGivenAnswer().getText().toString();
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
 
@@ -70,6 +72,8 @@ public class ApplicationLogic {
                 break;
             default: System.out.println("Fatal Error");
         }
+
+      //  Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
 
     }
 
