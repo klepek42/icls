@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_start"
         android:textSize="@dimen/activity_text_size_caption"
+        android:textColor="#008CFF"
         android:layout_marginTop="@dimen/activity_margin_start"
         android:layout_centerHorizontal="true" />
 
@@ -29,6 +30,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_add"
         android:textSize="@dimen/activity_text_size"
+        android:background="@color/lightBlue"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:textAllCaps="false" />
@@ -39,6 +42,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_change"
         android:textSize="@dimen/activity_text_size"
+        android:background="@color/lightBlue"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false" />
@@ -49,6 +54,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_accept"
         android:textSize="@dimen/activity_text_size"
+        android:background="@color/lightBlue"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:textAllCaps="false" />
