@@ -81,14 +81,14 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityStartMenu(Activity callingActivity, int currentChallengeId, int numberCorrectChallenges){
+    public static void startActivityStartMenu(Activity callingActivity){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.StartMenu.Init.class);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
 
-    public static void startActivityStatistics(Activity callingActivity, int currentChallengeId, int numberCorrectChallenges){
+    public static void startActivityStatistics(Activity callingActivity){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.Statistics.Init.class);
         callingActivity.startActivity(intent);
