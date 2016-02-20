@@ -27,6 +27,10 @@
     <string name="string_period">Dauer</string>
     <string name="string_set_time">Zeiteinheit</string>
     <string name="string_settings_default">Zurücksetzen</string>
+    <string name="string_ask_logout">Abmelden?</string>
+    <string name="string_ask_delete">Löschen?</string>
+    <string name="string_yes">Ja</string>
+    <string name="string_no">Nein</string>
 
     <string name="string_question_1_2">Das ist ein toller Dummy-Text für eine Frage der Challenges 1 und 2</string>
     <string name="string_question_3">Das ist ein toller Dummy-Text für eine Frage der Challenge 3</string>
