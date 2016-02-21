@@ -24,6 +24,7 @@ public class Gui {
     private Button buttonLogout;
     private Button buttonSettings;
     private Button buttonStartLearning;
+    private Spinner files;
 
     public Gui(Activity activity) {
         textFieldChooseFile = (TextView) activity.findViewById(R.id.textFieldChooseFile);
@@ -56,6 +57,10 @@ public class Gui {
 
     public Button getButtonStartLearning() {
         return buttonStartLearning;
+    }
+
+    public Spinner getFiles() {
+        return files;
     }
 
 }

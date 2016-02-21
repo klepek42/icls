@@ -11,6 +11,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+
 /**
  * Responsibility: Max Schumacher
  * Created by edgar on 17.02.2016
@@ -56,4 +57,5 @@ public class Gui {
     public Button getButtonEditUser() {
         return buttonEditUser;
     }
+
 }
