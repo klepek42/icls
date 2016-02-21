@@ -28,12 +28,12 @@ public class ApplicationLogic {
 
     // Übergabeparameter fehlen noch
     public void onButtonConfirmUserClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity());
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
     // Übergabeparameter fehlen noch
     public void onButtonEditUserClicked() {
-        Navigation.startActivityEditUser(mData.getActivity());
+        Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
 
 }

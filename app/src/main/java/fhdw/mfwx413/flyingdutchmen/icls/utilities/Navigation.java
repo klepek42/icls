@@ -10,7 +10,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 
 /**
  * Created by edgar on 13.02.2016
- * Updated by Max on 20.12.2016: startActivityAddNewUser
+ * Updated by Max on 20.02.2016: startActivityAddNewUser
+ * Updated by Max on 21.02.2016: startActivityChooseFile, startActivityEditUser
  */
 public class Navigation {
 
@@ -42,14 +43,14 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityChooseFile(Activity callingActivity){
+    public static void startActivityChooseFile(Activity callingActivity, User chosenUser){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile.Init.class);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
 
-    public static void startActivityEditUser(Activity callingActivity){
+    public static void startActivityEditUser(Activity callingActivity, User chosenUser){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.EditUser.Init.class);
         callingActivity.startActivity(intent);
