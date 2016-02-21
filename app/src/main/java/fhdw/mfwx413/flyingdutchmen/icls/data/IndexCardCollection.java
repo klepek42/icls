@@ -2,12 +2,10 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import java.util.ArrayList;
 
-/**
- * Created by Krabs on 18.02.2016.
- * das ist eine testklasse... ich kann noch nicht absehen, ob wir sie wirklich brauchen
- * solange das einlesen aus den csv-Dateien noch nicht realisiert ist, ist sie aber auf jeden Fall
- * notwendig
- * Im Moment gehe ich aber stark davon aus, dass wir die Klasse brauchen werden
+ /**
+ * Responsibility Jonas Krabs
+ * This Class defines a Collection of indexCards and gives the opportunity to add
+ * an indexCard and to get a specific one
  */
 public class IndexCardCollection {
 
@@ -33,7 +31,7 @@ public class IndexCardCollection {
         //nur um den Fall abzufangen, dass der übergebene key nicht existiert
         //muss definitiv noch geändert werden!!!
         return merrorIndexCard;
-        //Todo: was passiert, wenn der übergebene key nicht existiert?
+        //Todo Jonas: Den Fall behandeln, was passiert, wenn ein Key übergeben wird, der nicht existiert
     }
 
     public void addIndexCard(IndexCard indexCard){

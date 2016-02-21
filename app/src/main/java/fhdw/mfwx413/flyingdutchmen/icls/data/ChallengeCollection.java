@@ -4,11 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by Krabs on 18.02.2016.
- * das ist eine testklasse... ich kann noch nicht absehen, ob wir sie wirklich brauchen
- * solange das einlesen aus den csv-Dateien noch nicht realisiert ist, ist sie aber auf jeden Fall
- * notwendig
- * Im Moment gehe ich aber stark davon aus, dass wir die Klasse brauchen werden
+ * Responsibility Jonas Krabs
+ * This Class defines a Collection of Challenges and gives the opportunity to add
+ * a challenge and to get a specific one
  */
 
 // defines a list of challenges

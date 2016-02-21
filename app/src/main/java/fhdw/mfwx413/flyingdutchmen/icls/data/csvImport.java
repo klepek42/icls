@@ -136,9 +136,9 @@ public class csvImport {
     }
 
     // Import all challenges from challenges.csv and return the resulting ArrayList
-    public static ArrayList<String> importAllChallengesCsv(Context context) {
+    public static List<String[]> importAllChallengesCsv(Context context) {
 
-        ArrayList<String> challengeList = new ArrayList<String>();
+       // ArrayList<String> challengeList = new ArrayList<String>();
 
         List<String[]> list = new ArrayList<String[]>();
         String next[] = {};
@@ -160,11 +160,12 @@ public class csvImport {
             e.printStackTrace();
         }
 
+        /**
         // Go through the list and add only the users to it
         for (int i = 1; i < list.size(); i++) {
             challengeList.add(list.get(i)[0]);
-        }
-        return challengeList;
+        }*/
+        return list;
     }
 
 

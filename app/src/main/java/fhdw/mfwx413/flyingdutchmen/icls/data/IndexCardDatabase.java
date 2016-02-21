@@ -6,17 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Krabs on 18.02.2016.
- * das ist eine testklasse... ich kann noch nicht absehen, ob wir sie wirklich brauchen
- * solange das einlesen aus den csv-Dateien noch nicht realisiert ist, ist sie aber auf jeden Fall
- * notwendig
- * Im Moment gehe ich aber stark davon aus, dass wir die Klasse brauchen werden
- * Auf diese weise wie hier die IndexCard angelegt werden müssen sie auch hinterher in der csv-Datei
- * hinterlegt sein: id, Bezeichnung
- */
+ * Responsibility Jonas Krabs
+ * this class provides the IndexCards in Form of an IndexCardCollection
+ * It converts the Strings from the csv-File into the Java-Structure IndexCard
+ * */
+
 public class IndexCardDatabase {
 
-    //hier muss natürlich eigentlich die csv-Datei ausgelesen werden
     public static IndexCardCollection getIndexCards(Context context) {
 
         IndexCardCollection allIndexCards;

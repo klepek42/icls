@@ -1,3 +1,5 @@
-challengeId, questionText, answer1, answer2, answer3, correctAnswer, layoutType, indexId
-1, Was ist ein Seewolf?, Krebs, Nagetier, Fisch, 4, 4, 5
-2, Wieviel Zähne umfasst das menschliche Gebiss?, 32, , , 1, 1, 5
+1,Was ist ein Seewolf?,Krebs,Nagetier,Fisch,4,4,3
+2,Wieviel Zähne umfasst das menschliche Gebiss?,32,,,1,1,3
+3,Wie heißt der Torwart der deutschen Nationalmanschaft?,Manuel Neuer,,,1,1,2
+4,Wie heißt der höchste Berg Europas,Mont Blanc,,,1,1,1
+5,Welches Musikfestival fand bis 2014 jährlich am Nürburgring statt?,Rock am Ring,,,1,1,5

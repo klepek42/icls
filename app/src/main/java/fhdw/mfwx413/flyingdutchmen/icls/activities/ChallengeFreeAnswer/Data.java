@@ -18,7 +18,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.User;
  */
 public class Data {
 
-    private static final int DEFAULT_CURRENT_CHALLENGE_ID = 2;
+    private static final int DEFAULT_CURRENT_CHALLENGE_ID = 1;
     // static variables for bundle
     private static final String KEY_CURRENT_CHALLENGE_ID = "K1";
     private static final String KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";
@@ -36,6 +36,7 @@ public class Data {
         //Intent intent;
 
         if(bundle == null) {
+            //Todo Jonas: intent auslesen, wenn Activiy aufgerufen wird
             //if bundle isn't filled, the data will be initialized by the extras of the intent
             //intent = mActivity.getIntent();
             //Testweise (hier muss in Zukunft der intent übertrag realisiert werden)

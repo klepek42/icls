@@ -44,6 +44,7 @@ public class ApplicationLogic {
         //analyze if the given answer was correct or not
         switch (challenge.getMcorrectAnswer()){
             // if one, there only one answer saved in the challenge and this is the right one
+            //Todo Jonas: Testausgaben entfernen (erst wenn Feedback soweit realisiert ist)
             case 1:
                 if (givenAnswer.equals(challenge.getmAnswerOne())){
                     System.out.println("Die Antwort ist korrekt!");
@@ -78,19 +79,19 @@ public class ApplicationLogic {
                     isAnswerCorrect = false;
                 }
                 break;
+            //Todo Jonas: falls keine der angegeben Nummern zutrifft, toast mit Fehlermeldung öffnen und App schließen
             default: System.out.println("Fatal Error");
         }
 
+      //Todo Jonas: Aufrufen des Feedbacks bei Bestätigung der Antwort
       //call the Feedback-Activity and send the required data
       //  Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
 
     }
 
-    public void onButtonLogoutClicked(){
-
+    public void onButtonLogoutClicked() {
+        //Todo Jonas: realisieren des LogOut-Buttons; Aufruf der Karteiauswahl
     }
-
-    //Todo zurücktaste realisieren
 
 
 }

@@ -2,13 +2,13 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import android.content.Context;
 
+import java.util.List;
+
 /**
- * Created by Krabs on 18.02.2016.
- * das ist eine testklasse... ich kann noch nicht absehen, ob wir sie wirklich brauchen
- * solange das einlesen aus den csv-Dateien noch nicht realisiert ist, ist sie aber auf jeden Fall
- * notwendig
- * Im Moment gehe ich aber stark davon aus, dass wir die Klasse brauchen werden
- */
+ * Responsibility Jonas Krabs
+ * this class provides the Challenges in Form of a ChallengeCollection
+ * It converts the Strings from the csv-File into the Java-Structure Challenge
+ * */
 public class ChallengeDatabase {
 
     //the challengeDatabase is based on an already imported list of indexCards
@@ -22,18 +22,25 @@ public class ChallengeDatabase {
         ChallengeCollection allChallenges;
         allChallenges = new ChallengeCollection();
 
-        //in zukunft muss hier natürlich die csv-Datei ausgelesen werden
-        allChallenges.addChallenge(
-                new Challenge(1, "Wie heißt der Torwart der deutschen Nationalmanschaft?", "Manuel Neuer", "", "", 1, 1, allIndexCards.getIndexCard(2))
-        );
+        List<String[]> StringCollectionFromCSV;
 
-        allChallenges.addChallenge(
-                new Challenge(2, "Wie heißt der höchste Berg Europas", "Mont Blanc", "", "", 1, 1, allIndexCards.getIndexCard(1))
-        );
+        // reading all Challenges from csv-File
+        // output ist a List<String[]>
+        StringCollectionFromCSV = csvImport.importAllChallengesCsv(context);
 
-        allChallenges.addChallenge(
-                new Challenge(3, "Welches Musikfestival fand bis 2014 jährlich am Nürburgring statt?", "Rock am Ring", "", "", 1, 1, allIndexCards.getIndexCard(5))
-        );
+        // converting the List<String[]> into a ChallengeCollection
+        for (int i = 0; i < StringCollectionFromCSV.size(); i++) {
+            allChallenges.addChallenge(
+                    new Challenge(
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[0]),
+                            StringCollectionFromCSV.get(i) [1],
+                            StringCollectionFromCSV.get(i) [2],
+                            StringCollectionFromCSV.get(i) [3],
+                            StringCollectionFromCSV.get(i) [4],
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[5]),
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[6]),
+                            allIndexCards.getIndexCard(Integer.parseInt(StringCollectionFromCSV.get(i)[7]))));
+        }
 
         return allChallenges;
     }
