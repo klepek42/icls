@@ -1,2 +1,3 @@
-1, 4, "Was ist ein Seewolf?", "Krebs", "Nagetier", "Fisch", 4
-2, 1 "Wieviel Zähne umfasst das menschliche Gebiss?", "32", , , 1
+challengeId, indexId, layoutType, questionText, answer1, answer2, answer3, correctAnswer
+1, 5, 4, Was ist ein Seewolf?, Krebs, Nagetier, Fisch, 4
+2, 5, 1 Wieviel Zähne umfasst das menschliche Gebiss?, 32, , , 1
