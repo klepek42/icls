@@ -26,7 +26,7 @@ public class ApplicationLogic {
     }
 
     public void onButtonBackToChooseFileClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity());
+        //Navigation.startActivityChooseFile(mData.getActivity());
     }
 
     // Start learning mode and open the activity

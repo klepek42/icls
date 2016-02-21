@@ -34,12 +34,6 @@ public class Gui {
         buttonConfirmUser = (Button) activity.findViewById(R.id.buttonConfirmUser);
         buttonEditUser = (Button) activity.findViewById(R.id.buttonEditUser);
 
-        /*
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, fhdw.mfwx413a.flyingdutchmen.icls.data.csv, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        chooseUser.setAdapter(adapter);
-         */
-
     }
 
 

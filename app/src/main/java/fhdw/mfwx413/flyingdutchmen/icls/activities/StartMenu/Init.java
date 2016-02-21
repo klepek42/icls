@@ -3,8 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.StartMenu;
 import android.app.Activity;
 import android.os.Bundle;
 
-import fhdw.mfwx413.flyingdutchmen.icls.R;
-
 /**
  * Responsibility: Max
  * Created by Max on 20.02.2016
@@ -34,7 +32,7 @@ public class Init extends Activity {
     }
 
     private void initApplicationLogic() {
-        mApplicationLogic = new ApplicationLogic(mData, mGui);
+        mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
     private void initEventToListenerMapping() {
