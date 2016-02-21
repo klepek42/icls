@@ -1,6 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -39,9 +40,9 @@ public class Data {
             //intent = mActivity.getIntent();
             //Testweise (hier muss in Zukunft der intent übertrag realisiert werden)
             mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
-            mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges();
+            mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges(mActivity);
             mChosenUser = new User(1, "Testuser", 5, 60, 1440, 10080, 43200, 259200);
-            mChosenFile = IndexCardDatabase.getIndexCards().getIndexCard(4);
+            mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
         }
         else{
             //restore Data if bundle is filled

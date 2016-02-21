@@ -109,10 +109,8 @@ public class csvImport {
     }
 
 
-    // Import the indexes from index.csv and return the resulting ArrayList
-    public static ArrayList<String> importIndexCsv(Context context) {
-
-        ArrayList<String> indexList = new ArrayList<String>();
+    // Import the index.csv and return results as List<String[]>
+    public static List<String[]> importIndexCsv(Context context) {
 
         List<String[]> list = new ArrayList<String[]>();
         String next[] = {};
@@ -121,7 +119,7 @@ public class csvImport {
             InputStreamReader csvStreamReader = new InputStreamReader(context.getAssets().open("index.csv"));
 
             CSVReader reader = new CSVReader(csvStreamReader);
-            // Fill the temporary list with the lines read from the csv file
+            // Fill the list with the lines read from the csv file
             for (;;) {
                 next = reader.readNext();
                 if (next != null) {
@@ -134,11 +132,7 @@ public class csvImport {
             e.printStackTrace();
         }
 
-        // Go through the list and add only the users to it
-        for (int i = 0; i < list.size(); i++) {
-            indexList.add(list.get(i)[0]);
-        }
-        return indexList;
+        return list;
     }
 
     // Import all challenges from challenges.csv and return the resulting ArrayList

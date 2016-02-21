@@ -31,7 +31,7 @@ public class Data {
 
     public Data(Activity activity) {
         mActivity = activity;
-        mChallengeCollection = ChallengeDatabase.getAllChallenges();
+        mChallengeCollection = ChallengeDatabase.getAllChallenges(mActivity);
         mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
     }
 

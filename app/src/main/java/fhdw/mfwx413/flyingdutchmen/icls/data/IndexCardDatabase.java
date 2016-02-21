@@ -1,5 +1,10 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
+import android.content.Context;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Krabs on 18.02.2016.
  * das ist eine testklasse... ich kann noch nicht absehen, ob wir sie wirklich brauchen
@@ -12,34 +17,21 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
 public class IndexCardDatabase {
 
     //hier muss natürlich eigentlich die csv-Datei ausgelesen werden
-    public static IndexCardCollection getIndexCards() {
+    public static IndexCardCollection getIndexCards(Context context) {
 
         IndexCardCollection allIndexCards;
         allIndexCards = new IndexCardCollection();
 
-        allIndexCards.addIndexCard(
-                new IndexCard(1, "Geographie")
-        );
+        List<String[]> StringCollectionFromCSV;
 
-        allIndexCards.addIndexCard(
-                new IndexCard(2, "Mathematik")
-        );
+        // reading all IndexCards from csv-File
+        // output ist a List<String[]>
+        StringCollectionFromCSV = csvImport.importIndexCsv(context);
 
-        allIndexCards.addIndexCard(
-                new IndexCard(3, "Literatur/Deutsch")
-        );
-
-        allIndexCards.addIndexCard(
-                new IndexCard(4, "Musik")
-        );
-
-        allIndexCards.addIndexCard(
-                new IndexCard(5, "Biologie")
-        );
-
-        allIndexCards.addIndexCard(
-                new IndexCard(6, "Sport")
-        );
+        //converting the List<String[]> into a IndexCardCollection
+        for (int i = 0; i < StringCollectionFromCSV.size(); i++) {
+            allIndexCards.addIndexCard(new IndexCard(Integer.parseInt(StringCollectionFromCSV.get(i)[0]), StringCollectionFromCSV.get(i)[1]));
+        }
 
         return allIndexCards;
     }
