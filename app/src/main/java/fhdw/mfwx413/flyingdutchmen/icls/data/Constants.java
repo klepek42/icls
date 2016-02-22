@@ -21,4 +21,7 @@ public class Constants {
     public static final int PERIOD_CLASS_6 = 259200;
     // end of constants for default period-classes
 
+    //Constant for default timestamp in format "yyyy.MM.dd.HH.mm.ss"
+    public static final String DEFAULT_TIMESTAMP = "2000.01.01.00.00.00";
+
 }

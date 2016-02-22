@@ -53,7 +53,7 @@
         android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_logoff"
+        android:text="@string/string_abort"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
