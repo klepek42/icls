@@ -22,7 +22,7 @@ public class ApplicationLogic {
     private Gui mGui;
     private Context context;
 
-    public static List<String[]> files = new ArrayList<>();
+    public static ArrayList<String> files = new ArrayList<>();
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
         mData = data;
@@ -56,9 +56,9 @@ public class ApplicationLogic {
     }
 
     private void fillSpinner() {
-        files = csvImport.importIndexCsv(context);
+        //files = csvImport.importIndexCsv(context);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, (List<String>) files);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, files);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         mGui.getFiles().setAdapter(adapter);
