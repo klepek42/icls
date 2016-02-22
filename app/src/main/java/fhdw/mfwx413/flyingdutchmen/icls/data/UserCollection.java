@@ -8,14 +8,26 @@ import java.util.ArrayList;
  */
 public class UserCollection implements Serializable{
 
+    private User mErrorUser;
     private ArrayList<User> mUserList;
 
     public UserCollection() {
         mUserList = new ArrayList<User>();
     }
 
-    public User getUser (int challengeId){
-        return mUserList.get(challengeId);
+    public User getUser (int key){
+    int i;
+    for ( i = 0; i < mUserList.size(); i++)
+    {
+        if (mUserList.get(i).getmID() == key)
+        {
+            return mUserList.get(i);
+        }
+    }
+    //nur um den Fall abzufangen, dass der übergebene key nicht existiert
+    //muss definitiv noch geändert werden!!!
+    return mErrorUser;
+    //Todo Jonas: Den Fall behandeln, was passiert, wenn ein Key übergeben wird, der nicht existiert
 
     }
 

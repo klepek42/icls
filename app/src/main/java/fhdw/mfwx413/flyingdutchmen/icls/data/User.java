@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     // UserID (unique)
-    protected int mID;
+    private int mID;
     // UserName (unique)
     private String mName;
     // intervals for period-classes 1-6 in minutes
@@ -22,6 +22,10 @@ public class User implements Serializable {
 
     public String getmName() {
         return mName;
+    }
+
+    public int getmID() {
+        return mID;
     }
 
     // Get intervals of period-classes for the SettingsMenu (Activity: SettingsMenu)
