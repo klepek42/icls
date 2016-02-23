@@ -84,20 +84,21 @@ public class ApplicationLogic {
                     isAnswerCorrect = false;
                 }
                 break;
-            default: System.out.println("Fatal Error");
+            default:
                 Toast.makeText(mActivity, "Unerwarteter Wert in CorrectAnswer", Toast.LENGTH_SHORT).show();
                 mActivity.finish();
         }
 
-      //Todo Jonas: Aufrufen des Feedbacks bei Bestätigung der Antwort
       //call the Feedback-Activity and send the required data
-      //  Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
+      Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
 
     }
 
     public void onButtonAbortClicked() {
         //Todo Jonas: realisieren des LogOut-Buttons; Aufruf der Karteiauswahl
     }
+
+    //Todo Jonas: ZurückButton realisieren
 
 
 }

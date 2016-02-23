@@ -3,6 +3,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
 /**
  * Created by edgar on 13.02.2016
  * Updated by Max on 20.02.2016: Adding constants for default period-classes in minutes
+ * Updated by Jonas on 23.02.2016: Adding constants for navigation between activities
  */
 public class Constants {
     public static final String KEY_PARAM_ID = "X1";
@@ -23,5 +24,12 @@ public class Constants {
 
     //Constant for default timestamp in format "yyyy.MM.dd.HH.mm.ss"
     public static final String DEFAULT_TIMESTAMP = "2000.01.01.00.00.00";
+
+    //Constants for navigation between activities
+    public static final String KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE = "P1";
+    public static final String KEY_PARAM_CURRENT_CHALLENGE_ID = "P2";
+    public static final String KEY_PARAM_CHOSEN_USER = "P3";
+    public static final String KEY_PARAM_CHOSEN_FILE = "P4";
+    public static final String KEY_PARAM_IS_ANSWER_CORRECT = "P5";
 
 }

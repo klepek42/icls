@@ -12,6 +12,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.User;
  * Created by edgar on 13.02.2016
  * Updated by Max on 20.02.2016: startActivityAddNewUser
  * Updated by Max on 21.02.2016: startActivityChooseFile, startActivityEditUser
+ * Updated by Jonas on 23.02.2016: startActivityFeedbackChallengeRest
  */
 public class Navigation {
 
@@ -57,10 +58,15 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    //changed by Jonas 20.02.2016
+    //changed by Jonas 23.02.2016
     public static void startActivityFeedbackChallengeRest(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile, boolean isAnswerCorrect){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackChallengeRest.Init.class);
+        intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
+        intent.putExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, currentChallengeId);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
+        intent.putExtra(Constants.KEY_PARAM_IS_ANSWER_CORRECT, isAnswerCorrect);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
