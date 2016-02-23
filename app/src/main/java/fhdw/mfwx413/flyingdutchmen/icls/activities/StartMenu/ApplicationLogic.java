@@ -7,6 +7,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
+
+import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.csvImport;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
@@ -16,12 +18,14 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  * Updated by Max on 20.02.2016
  * Updated by Edgar on 21.02.2016
  */
-public class ApplicationLogic {
+public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
 
     private Data mData;
     private Gui mGui;
     private int count;
     private Context context;
+    private ArrayList<String> userNames = new ArrayList<>();
+    private String mselectedName;
     //public static ArrayList<String> users = new ArrayList<>();
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
@@ -40,17 +44,19 @@ public class ApplicationLogic {
     }
 
     public void onButtonConfirmUserClicked() {
+        mData.setmCurrentUser(mData.getmAllUsers().getUser(mselectedName));
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonEditUserClicked() {
+        mData.setmCurrentUser(mData.getmAllUsers().getUser(mselectedName));
         Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
 
     // Added by Edgar Klepek
     // Fill the spinner with data given by users.csv and show it
     private void fillSpinner() {
-        ArrayList<String> userNames = new ArrayList<>();
+
 
         for(int i = 0; i < mData.getmAllUsers().getSize(); i++) {
             userNames.add(mData.getmAllUsers().get(i).getmName());
@@ -65,6 +71,18 @@ public class ApplicationLogic {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         mGui.getChooseUser().setAdapter(adapter);
+        mGui.getChooseUser().setOnItemSelectedListener(this);
+
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        System.out.println(userNames.get(position));
+        mselectedName = userNames.get(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        //Spinner is always filled init of activity, therefore method doesnt need to be filled
+    }
 }

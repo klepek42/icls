@@ -49,4 +49,8 @@ public class Data {
         //eod
         return mActivity;
     }
+
+    public void setmCurrentUser(User mCurrentUser) {
+        this.mCurrentUser = mCurrentUser;
+    }
 }
