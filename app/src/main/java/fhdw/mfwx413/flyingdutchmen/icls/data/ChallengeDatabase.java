@@ -1,9 +1,9 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import android.content.Context;
-
+import android.util.Log;
 import java.util.List;
-
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
@@ -32,16 +32,21 @@ public class ChallengeDatabase {
 
         // converting the List<String[]> into a ChallengeCollection
         for (int i = 0; i < StringCollectionFromCSV.size(); i++) {
-            allChallenges.addChallenge(
-                    new Challenge(
-                            Integer.parseInt(StringCollectionFromCSV.get(i)[0]),
-                            StringCollectionFromCSV.get(i) [1],
-                            StringCollectionFromCSV.get(i) [2],
-                            StringCollectionFromCSV.get(i) [3],
-                            StringCollectionFromCSV.get(i) [4],
-                            Integer.parseInt(StringCollectionFromCSV.get(i)[5]),
-                            Integer.parseInt(StringCollectionFromCSV.get(i)[6]),
-                            allIndexCards.getIndexCard(Integer.parseInt(StringCollectionFromCSV.get(i)[7]))));
+            try {
+                allChallenges.addChallenge(
+                        new Challenge(
+                                Integer.parseInt(StringCollectionFromCSV.get(i)[0]),
+                                StringCollectionFromCSV.get(i)[1],
+                                StringCollectionFromCSV.get(i)[2],
+                                StringCollectionFromCSV.get(i)[3],
+                                StringCollectionFromCSV.get(i)[4],
+                                Integer.parseInt(StringCollectionFromCSV.get(i)[5]),
+                                Integer.parseInt(StringCollectionFromCSV.get(i)[6]),
+                                allIndexCards.getIndexCard(Integer.parseInt(StringCollectionFromCSV.get(i)[7]))));
+            }
+            catch (IdNotFoundException e){
+                Log.e("ICLS-LOG", "ChallengeCollection::getAllChallenges: ", e);
+            }
         }
 
         return allChallenges;

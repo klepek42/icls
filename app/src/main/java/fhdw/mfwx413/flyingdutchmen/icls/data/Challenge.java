@@ -12,17 +12,17 @@ public class Challenge implements Serializable{
     private String mAnswerOne;
     private String mAnswerTwo;
     private String mAnswerThree;
-    private int mcorrectAnswer;
+    private int mCorrectAnswer;
     private int mQuestionTypeLayout;
     private IndexCard mIndexCard;
 
-    public Challenge(int mID, String mQuestiontext, String mAnswerOne, String mAnswerTwo, String mAnswerThree, int mcorrectAnswer, int mQuestionTypeLayout, IndexCard mIndexCard) {
+    public Challenge(int mID, String mQuestiontext, String mAnswerOne, String mAnswerTwo, String mAnswerThree, int mCorrectAnswer, int mQuestionTypeLayout, IndexCard mIndexCard) {
         this.mID = mID;
         this.mQuestiontext = mQuestiontext;
         this.mAnswerOne = mAnswerOne;
         this.mAnswerTwo = mAnswerTwo;
         this.mAnswerThree = mAnswerThree;
-        this.mcorrectAnswer = mcorrectAnswer;
+        this.mCorrectAnswer = mCorrectAnswer;
         this.mQuestionTypeLayout = mQuestionTypeLayout;
         this.mIndexCard = mIndexCard;
     }
@@ -67,12 +67,12 @@ public class Challenge implements Serializable{
         this.mAnswerThree = mAnswerThree;
     }
 
-    public int getMcorrectAnswer() {
-        return mcorrectAnswer;
+    public int getmCorrectAnswer() {
+        return mCorrectAnswer;
     }
 
-    public void setMcorrectAnswer(int mcorrectAnswer) {
-        this.mcorrectAnswer = mcorrectAnswer;
+    public void setmCorrectAnswer(int mCorrectAnswer) {
+        this.mCorrectAnswer = mCorrectAnswer;
     }
 
     public int getmQuestionTypeLayout() {

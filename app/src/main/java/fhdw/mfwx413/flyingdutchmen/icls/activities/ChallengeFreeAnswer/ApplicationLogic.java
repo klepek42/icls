@@ -47,7 +47,7 @@ public class ApplicationLogic {
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
 
         //analyze if the given answer was correct or not
-        switch (challenge.getMcorrectAnswer()){
+        switch (challenge.getmCorrectAnswer()){
             // if one, there only one answer saved in the challenge and this is the right one
             //Todo Jonas: Testausgaben entfernen (erst wenn Feedback soweit realisiert ist)
             case 1:

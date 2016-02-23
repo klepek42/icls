@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.io.File;
 
@@ -12,6 +13,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.IdNotFoundException;
 
 /**
  * Responsibility: Jonas Krabs
@@ -43,7 +45,12 @@ public class Data {
             mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
             mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges(mActivity);
             mChosenUser = new User("Testuser", 5, 60, 1440, 10080, 43200, 259200);
-            mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
+            try {
+                mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
+            }
+            catch (IdNotFoundException e){
+                Log.e("ICLS-LOG", "ChallengeFreeAnswer::Data: ", e);
+            }
         }
         else{
             //restore Data if bundle is filled
