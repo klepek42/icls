@@ -35,17 +35,17 @@ public class ApplicationLogic {
 
         if (givenUser.isEmpty()){
             //Toast --> no input
-            Toast.makeText(mData.getActivity(), "Bitte einen Namen eingeben!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mData.getActivity(), "Bitte einen Namen eingeben!", Toast.LENGTH_LONG).show();
         }
         else {
             if (givenUser.matches("[a-zA-Z]")) {
                 //Toast accepted
-                Toast.makeText(mData.getActivity(), "Username wurde akzeptiert!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mData.getActivity(), "Username wurde akzeptiert!", Toast.LENGTH_LONG).show();
                 //Navigation to ChooseFile
                 Navigation.startActivityChooseFile(mData.getActivity(), mData.getmGivenUser());
             } else {
                 //Toast rejekted --> no special signs, no mutated vowels, no numbers
-                Toast.makeText(mData.getActivity(), "Der Username darf keine Umlaute, Sonderzeichen und Ziffern enthalten!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mData.getActivity(), "Der Username darf keine Leerzeichen, Umlaute, Sonderzeichen und Ziffern enthalten!", Toast.LENGTH_LONG).show();
             }
         }
     }
