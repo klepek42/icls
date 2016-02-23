@@ -23,7 +23,7 @@ public class Init extends Activity {
 
     //initialize the ApplicationLogic
     private void initApplicationLogic(){
-        mApplicationLogic = new ApplicationLogic(mData, mGui);
+        mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
     //initialize the EventToListenerMapping
