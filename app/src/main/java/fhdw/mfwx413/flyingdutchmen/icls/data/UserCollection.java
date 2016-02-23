@@ -43,5 +43,18 @@ public class UserCollection implements Serializable{
         return mUserList.get(index);
     }
 
+    //method to check whether a user exists or not
+    public boolean doesUserExist (User user){
+        int i;
+        for ( i = 0; i < mUserList.size(); i++)
+        {
+            if (mUserList.get(i).getmName().equals(user.getmName()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
