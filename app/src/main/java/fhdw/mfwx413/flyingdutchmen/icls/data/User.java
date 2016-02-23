@@ -53,7 +53,11 @@ public class User implements Serializable {
         return mPeriodClass6;
     }
 
-    // constructor (For import from csv into java structures)
+    // Empty constructor for addNewUser
+    public User() {
+    }
+
+    // Constructor (For import from csv into java structures)
     public User(String mName, int mPeriodClass1, int mPeriodClass2, int mPeriodClass3, int mPeriodClass4, int mPeriodClass5, int mPeriodClass6) {
         //this.mID = mID;
         this.mName = mName;
