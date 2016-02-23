@@ -15,25 +15,36 @@ public class Init extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData();
+        initData(savedInstanceState);
         initGui();
         initApplicationLogic();
         initEventToListenerMapping();
     }
 
+    // Initialize ApplicationLogic
     private void initApplicationLogic(){
-        mApplicationLogic = new ApplicationLogic(mData, mGui);
+        mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
+    // Initialize EventToListenerMapping
     private void initEventToListenerMapping() {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }
 
+    // Initialize Gui
     private void initGui() {
         mGui = new Gui(this);
     }
 
-    private void initData(){
-        mData = new Data(this);
+    // Initialize Data with saved data
+    private void initData(Bundle savedInstanceState){
+        mData = new Data(this, savedInstanceState);
+    }
+
+    // Save Data when activity stops
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        mData.saveDataFromBundle(outState);
+        super.onSaveInstanceState(outState);
     }
 }

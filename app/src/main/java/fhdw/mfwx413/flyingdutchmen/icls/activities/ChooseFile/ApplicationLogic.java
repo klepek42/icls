@@ -33,12 +33,12 @@ public class ApplicationLogic {
 
     // Noch nicht fertig
     public void onButtonStatisticsClicked() {
-        Navigation.startActivityStatistics(mData.getActivity());
+        //Navigation.startActivityStatistics(mData.getActivity());
     }
 
     public void onButtonLogoutClicked() {
         // Abmelden-Fragment
-        Navigation.startActivityStatistics(mData.getActivity());
+        Navigation.startActivityStartMenu(mData.getActivity());
     }
 
     public void onButtonSettingsClicked() {
@@ -47,7 +47,7 @@ public class ApplicationLogic {
 
     public void onButtonStartLearningClicked() {
         // Start Lernmodus mit fälligen Fragen oder Ende-Screen
-        Navigation.startActivityStatistics(mData.getActivity());
+        Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
     }
 
     private void fillSpinner() {

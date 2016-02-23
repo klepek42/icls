@@ -12,18 +12,18 @@ public class EventToListenerMapping implements View.OnClickListener {
 
     public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
         mApplicationLogic = applicationLogic;
-        gui.getmButtonLogout().setOnClickListener(this);
+        gui.getmButtonAbort().setOnClickListener(this);
         gui.getmButtonConfirmThinkAnswer().setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.buttonConfirmFreeAnswer:
-                mApplicationLogic.onButtonConfirmFreeAnswerClicked();
+            case R.id.buttonConfirmThinkAnswer:
+                mApplicationLogic.onButtonConfirmThinkAnswerClicked();
                 break;
-            case R.id.buttonLogout:
-                mApplicationLogic.onButtonLogoutClicked();
+            case R.id.buttonAbort:
+                mApplicationLogic.onButtonAbortClicked();
                 break;
         }
 

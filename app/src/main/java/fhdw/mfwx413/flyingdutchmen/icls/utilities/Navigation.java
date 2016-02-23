@@ -30,9 +30,13 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityChallengeImagineAnswer(Activity callingActivity){
+    public static void startActivityChallengeImagineAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeImagineAnswer.Init.class);
+        intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
+        intent.putExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, currentChallengeId);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
@@ -72,9 +76,14 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityFeedbackImagineAnswer(Activity callingActivity){
+    //changed by Edgar 23.02.2016
+    public static void startActivityFeedbackImagineAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackImagineAnswer.Init.class);
+        intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
+        intent.putExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, currentChallengeId);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
@@ -100,9 +109,11 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityStatistics(Activity callingActivity){
+    public static void startActivityStatistics(Activity callingActivity, User chosenUser, IndexCard chosenFile){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.Statistics.Init.class);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }

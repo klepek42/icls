@@ -10,23 +10,25 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Edgar Klepek
  */
 public class Gui {
+
     private TextView mTextFieldQuestion;
-    private Button mButtonLogout;
+    private Button mButtonAbort;
     private Button mButtonConfirmThinkAnswer;
 
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_challenge_imagine_answer);
         mTextFieldQuestion = (TextView) activity.findViewById(R.id.textFieldQuestion);
-        mButtonLogout = (Button) activity.findViewById(R.id.buttonLogout);
+        mButtonAbort = (Button) activity.findViewById(R.id.buttonAbort);
         mButtonConfirmThinkAnswer = (Button) activity.findViewById(R.id.buttonConfirmThinkAnswer);
     }
 
+    // Display a given text as the questions text
     public void setQuestionText (String text){
         mTextFieldQuestion.setText(text);
     }
 
-    public Button getmButtonLogout() {
-        return mButtonLogout;
+    public Button getmButtonAbort() {
+        return mButtonAbort;
     }
 
     public Button getmButtonConfirmThinkAnswer() {

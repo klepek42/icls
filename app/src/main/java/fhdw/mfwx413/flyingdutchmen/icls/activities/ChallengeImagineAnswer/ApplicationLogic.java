@@ -12,10 +12,12 @@ public class ApplicationLogic {
 
     private Data mData;
     private Gui mGui;
+    private Activity mActivity;
 
-    public ApplicationLogic(Data data, Gui gui) {
+    public ApplicationLogic(Data data, Gui gui, Activity activity) {
         mData = data;
         mGui = gui;
+        mActivity = activity;
         initialUpdateGui();
     }
 
@@ -24,18 +26,17 @@ public class ApplicationLogic {
         int currentChallengeId;
 
         currentChallengeId = mData.getmCurrentChallengeId();
-        challenge = mData.getmChallengeCollection().getChallenge(currentChallengeId);
+        challenge = mData.getmDueChallengesOfUserInFile().getChallenge(currentChallengeId);
 
         mGui.setQuestionText(challenge.getmQuestiontext());
     }
 
-    public void onButtonConfirmFreeAnswerClicked(){
-        // TEST
-        Navigation.startActivityFeedbackImagineAnswer(mData.getActivity());
+    public void onButtonConfirmThinkAnswerClicked(){
+        Navigation.startActivityFeedbackImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
     }
 
-    public void onButtonLogoutClicked(){
-        // TEST
+
+    public void onButtonAbortClicked(){
         Navigation.startActivityStartMenu(mData.getActivity());
     }
 

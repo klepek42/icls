@@ -32,7 +32,7 @@ public class ApplicationLogic {
     // Start learning mode and open the activity
     public void onButtonStartLearning() {
         // NUR ZU TESTZWECKEN; SPÄTER AUFRUF VON FUNKTIONEN FÜR CHALLENGES
-        Navigation.startActivityChallengeImagineAnswer(mData.getActivity());
+        Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
     }
 
     //Todo zurücktaste realisieren

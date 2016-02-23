@@ -109,7 +109,7 @@ public class csvImport {
     }
 
 
-    // Import the index.csv and return results as List<String[]>
+    // Import the index.csv and return the results as list
     public static List<String[]> importIndexCsv(Context context) {
 
         List<String[]> list = new ArrayList<String[]>();
@@ -135,7 +135,7 @@ public class csvImport {
         return list;
     }
 
-    // Import all challenges from challenges.csv and return the resulting ArrayList
+    // Import all challenges from challenges.csv and return the resulting list
     public static List<String[]> importAllChallengesCsv(Context context) {
 
        // ArrayList<String> challengeList = new ArrayList<String>();
