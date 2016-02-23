@@ -18,10 +18,10 @@
     />
 
      <Button
-        android:id="@+id/buttonContinue"
+        android:id="@+id/buttonStatistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_confirm"
+        android:text="@string/string_statistics"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -29,10 +29,10 @@
         />
 
     <Button
-        android:id="@+id/buttonLogout"
+        android:id="@+id/buttonBackToChooseFile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_logoff"
+        android:text="@string/string_choose_file"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
