@@ -1,5 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 
+import android.widget.Toast;
+
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
@@ -30,18 +32,22 @@ public class ApplicationLogic {
         Boolean acceptUser;
 
         givenUser = mGui.getmNameOfUser().getText().toString();
-        acceptUser = false;
 
-        if (givenUser.matches("[a-zA-Z]")) {
-            acceptUser = true;
-            //Toast accepted
-            //Navigation to ChooseFile
+        if (givenUser.isEmpty()){
+            //Toast --> no input
+            Toast.makeText(mData.getActivity(), "Bitte einen Namen eingeben!", Toast.LENGTH_SHORT).show();
         }
         else {
-            acceptUser = false;
-            //Toast rejekted --> no special signs, no mutated vowels, no numbers
+            if (givenUser.matches("[a-zA-Z]")) {
+                //Toast accepted
+                Toast.makeText(mData.getActivity(), "Username wurde akzeptiert!", Toast.LENGTH_SHORT).show();
+                //Navigation to ChooseFile
+                Navigation.startActivityChooseFile(mData.getActivity(), mData.getmGivenUser());
+            } else {
+                //Toast rejekted --> no special signs, no mutated vowels, no numbers
+                Toast.makeText(mData.getActivity(), "Der Username darf keine Umlaute, Sonderzeichen und Ziffern enthalten!", Toast.LENGTH_SHORT).show();
+            }
         }
-        //Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonAbortNewUserClicked(){
