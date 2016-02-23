@@ -14,7 +14,7 @@ public class Gui {
 
     private TextView mTextFieldQuestion;
     private EditText mGivenAnswer;
-    private Button mButtonLogout;
+    private Button mButtonAbort;
     private Button mButtonConfirmFreeAnswer;
 
 
@@ -23,7 +23,7 @@ public class Gui {
         activity.setContentView(R.layout.layout_challenge_free_answer);
         mTextFieldQuestion = (TextView) activity.findViewById(R.id.textFieldQuestion);
         mGivenAnswer = (EditText) activity.findViewById(R.id.givenAnswer);
-        mButtonLogout = (Button) activity.findViewById(R.id.buttonLogout);
+        mButtonAbort = (Button) activity.findViewById(R.id.buttonAbort);
         mButtonConfirmFreeAnswer = (Button) activity.findViewById(R.id.buttonConfirmFreeAnswer);
     }
 
@@ -36,8 +36,8 @@ public class Gui {
         return mGivenAnswer;
     }
 
-    public Button getmButtonLogout() {
-        return mButtonLogout;
+    public Button getmButtonAbort() {
+        return mButtonAbort;
     }
 
     public Button getmButtonConfirmFreeAnswer() {

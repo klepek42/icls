@@ -1,5 +1,8 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer;
 
+import android.app.Activity;
+import android.widget.Toast;
+
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
@@ -10,10 +13,12 @@ public class ApplicationLogic {
 
     private Data mData;
     private Gui mGui;
+    private Activity mActivity;
 
-    public ApplicationLogic(Data data, Gui gui) {
+    public ApplicationLogic(Data data, Gui gui, Activity activity) {
         mData = data;
         mGui = gui;
+        mActivity = activity;
         initialUpdateGui();
     }
 
@@ -79,19 +84,21 @@ public class ApplicationLogic {
                     isAnswerCorrect = false;
                 }
                 break;
-            //Todo Jonas: falls keine der angegeben Nummern zutrifft, toast mit Fehlermeldung öffnen und App schließen
-            default: System.out.println("Fatal Error");
+            default:
+                Toast.makeText(mActivity, "Unerwarteter Wert in CorrectAnswer", Toast.LENGTH_SHORT).show();
+                mActivity.finish();
         }
 
-      //Todo Jonas: Aufrufen des Feedbacks bei Bestätigung der Antwort
       //call the Feedback-Activity and send the required data
-      //  Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
+      Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
 
     }
 
-    public void onButtonLogoutClicked() {
+    public void onButtonAbortClicked() {
         //Todo Jonas: realisieren des LogOut-Buttons; Aufruf der Karteiauswahl
     }
+
+    //Todo Jonas: ZurückButton realisieren
 
 
 }
