@@ -50,7 +50,7 @@
         />
 
     <Button
-        android:id="@+id/buttonLogout"
+        android:id="@+id/buttonAbort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_abort"
