@@ -1,23 +1,38 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import java.text.SimpleDateFormat;
-import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 
 /**
  * Created by Daniel on 22.02.2016.
  * Responsibility: Daniel zur Linden
  */
-public class UserFortschritt {
-    private int mUserID;
+public class UserProgress {
+    private String mUserName;
     private int mChallengeID;
     private int mZeitklasse;
     private String mTimeStampBeantwortung;
 
-    public UserFortschritt(int mUserID, int mChallengeID, int mZeitklasse, String mTimeStampBeantwortung) {
-        this.mUserID = mUserID;
+    public UserProgress(String UserName, int ChallengeID, int Zeitklasse, String TimeStampBeantwortung) {
+        this.mUserName = UserName;
+        this.mChallengeID = ChallengeID;
+        this.mZeitklasse = Zeitklasse;
+        this.mTimeStampBeantwortung = TimeStampBeantwortung;
+    }
+
+    public String getmUserName() {
+        return mUserName;
+    }
+
+    public void setmUserName(String mUserName) {
+        this.mUserName = mUserName;
+    }
+
+    public int getmChallengeID() {
+        return mChallengeID;
+    }
+
+    public void setmChallengeID(int mChallengeID) {
         this.mChallengeID = mChallengeID;
-        this.mZeitklasse = mZeitklasse;
-        this.mTimeStampBeantwortung = mTimeStampBeantwortung;
     }
 
     public int getmZeitklasse() {

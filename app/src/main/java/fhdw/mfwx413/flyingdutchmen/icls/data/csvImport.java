@@ -203,9 +203,9 @@ public class csvImport {
 
 
     // Import progress data from progress.csv and return the resulting ArrayList
-    public static ArrayList<String> importProgressCsv(Context context) {
+    public static  List<String[]> importProgressCsv(Context context) {
 
-        ArrayList<String> progressList = new ArrayList<String>();
+        //ArrayList<String> progressList = new ArrayList<String>();
 
         List<String[]> list = new ArrayList<String[]>();
         String next[] = {};
@@ -228,10 +228,10 @@ public class csvImport {
         }
 
         // Go through the list and add only the users to it
-        for (int i = 0; i < list.size(); i++) {
+        /*for (int i = 0; i < list.size(); i++) {
             progressList.add(list.get(i)[0]);
-        }
-        return progressList;
+        }*/
+        return list;
     }
 
 
