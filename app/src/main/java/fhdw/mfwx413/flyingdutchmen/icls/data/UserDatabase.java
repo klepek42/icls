@@ -1,7 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import android.content.Context;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,9 +9,7 @@ import java.util.List;
  */
 public class UserDatabase {
 
-    /**
     public static UserCollection getUser(Context context) {
-
 
         UserCollection allUsers;
         allUsers = new UserCollection();
@@ -24,10 +22,19 @@ public class UserDatabase {
 
         //converting the List<String[]> into a IndexCardCollection
         for (int i = 0; i < StringCollectionFromCSV.size(); i++) {
-            allUsers.addUser(new User(Integer.parseInt(StringCollectionFromCSV.get(i)[0]), StringCollectionFromCSV.get(i)[1]));
+            allUsers.addUser(
+                    new User(
+                            StringCollectionFromCSV.get(i)[0],
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[1]),
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[2]),
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[3]),
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[4]),
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[5]),
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[6])
+                            )
+                    );
         }
 
         return allUsers;
-
-    }**/
+    }
 }

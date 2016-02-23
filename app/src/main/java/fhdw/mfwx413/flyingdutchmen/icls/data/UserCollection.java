@@ -15,11 +15,11 @@ public class UserCollection implements Serializable{
         mUserList = new ArrayList<User>();
     }
 
-    public User getUser (int key){
+    public User getUser (String key){
     int i;
     for ( i = 0; i < mUserList.size(); i++)
     {
-        if (mUserList.get(i).getmID() == key)
+        if (mUserList.get(i).getmName().equals(key))
         {
             return mUserList.get(i);
         }
@@ -27,12 +27,21 @@ public class UserCollection implements Serializable{
     //nur um den Fall abzufangen, dass der übergebene key nicht existiert
     //muss definitiv noch geändert werden!!!
     return mErrorUser;
-    //Todo Jonas: Den Fall behandeln, was passiert, wenn ein Key übergeben wird, der nicht existiert
+    //Todo Max: Den Fall behandeln, was passiert, wenn ein Key übergeben wird, der nicht existiert
 
     }
 
     public void addUser(User user){
         mUserList.add(user);
     }
+
+    public int getSize() {
+        return mUserList.size();
+    }
+
+    public User get(int index){
+        return mUserList.get(index);
+    }
+
 
 }

@@ -22,7 +22,7 @@ public class ApplicationLogic {
     private Gui mGui;
     private int count;
     private Context context;
-    public static ArrayList<String> users = new ArrayList<>();
+    //public static ArrayList<String> users = new ArrayList<>();
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
         mData = data;
@@ -50,12 +50,18 @@ public class ApplicationLogic {
     // Added by Edgar Klepek
     // Fill the spinner with data given by users.csv and show it
     private void fillSpinner() {
-        users = csvImport.importUserCsv(context);
+        ArrayList<String> userNames = new ArrayList<>();
+
+        for(int i = 0; i < mData.getmAllUsers().getSize(); i++) {
+            userNames.add(mData.getmAllUsers().get(i).getmName());
+        }
+
+        //userNames = csvImport.importUserCsv(context);
         // ZUM TESTEN; KANN SPÄTER WIEDER WEG
-        count = users.size();
+        count = userNames.size();
         Log.d("users.size: ", "" + count);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, users);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, userNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         mGui.getChooseUser().setAdapter(adapter);

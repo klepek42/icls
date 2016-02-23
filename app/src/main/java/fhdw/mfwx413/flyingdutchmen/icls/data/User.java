@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     // UserID (unique)
-    private int mID;
+    //private int mID;
     // UserName (unique)
     private String mName;
     // intervals for period-classes 1-6 in minutes
@@ -24,9 +24,9 @@ public class User implements Serializable {
         return mName;
     }
 
-    public int getmID() {
+    /**public int getmID() {
         return mID;
-    }
+    }**/
 
     // Get intervals of period-classes for the SettingsMenu (Activity: SettingsMenu)
     public int getmPeriodClass1() {
@@ -54,8 +54,8 @@ public class User implements Serializable {
     }
 
     // constructor (For import from csv into java structures)
-    public User(int mID, String mName, int mPeriodClass1, int mPeriodClass2, int mPeriodClass3, int mPeriodClass4, int mPeriodClass5, int mPeriodClass6) {
-        this.mID = mID;
+    public User(String mName, int mPeriodClass1, int mPeriodClass2, int mPeriodClass3, int mPeriodClass4, int mPeriodClass5, int mPeriodClass6) {
+        //this.mID = mID;
         this.mName = mName;
         this.mPeriodClass1 = mPeriodClass1;
         this.mPeriodClass2 = mPeriodClass2;
@@ -67,7 +67,7 @@ public class User implements Serializable {
 
     // For creation of new User with default settings for periodClasses (Activity: AddNewUser)
     public void setCreateUser(String mName) {
-        this.mID = getNextId();
+        //this.mID = getNextId();
         this.mName = mName;
         this.mPeriodClass1 = Constants.PERIOD_CLASS_1;
         this.mPeriodClass2 = Constants.PERIOD_CLASS_2;
@@ -102,11 +102,11 @@ public class User implements Serializable {
         this.mName = mName;
     }
 
-    /** TO BE CHANGED **/
+    /** TO BE CHANGED
      // Create unique UserID's
     protected static int index = 0;
     protected static int getNextId() {
         return ++index;
-    }
+    }**/
 
 }
