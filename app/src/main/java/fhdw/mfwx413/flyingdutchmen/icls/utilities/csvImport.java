@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.data;
+package fhdw.mfwx413.flyingdutchmen.icls.utilities;
 
 import android.content.Context;
 

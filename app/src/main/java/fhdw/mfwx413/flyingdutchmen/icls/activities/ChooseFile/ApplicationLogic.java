@@ -1,15 +1,10 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
-import fhdw.mfwx413.flyingdutchmen.icls.data.csvImport;
-import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
+
 import android.content.Context;
-import android.util.Log;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by edgar on 13.02.2016
