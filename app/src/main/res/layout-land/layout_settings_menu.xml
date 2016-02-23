@@ -230,7 +230,7 @@
         android:id="@+id/buttonConfirmSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_ok"
+        android:text="@string/string_confirm"
         android:textSize="@dimen/activity_text_size"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

@@ -1,10 +1,30 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 
+import android.view.View;
+
+import fhdw.mfwx413.flyingdutchmen.icls.R;
+
 /**
- * Created by edgar on 17.02.2016.
+ * Responsibility: Luisa Leifer
  */
 public class EventToListenerMapping {
-    public EventToListenerMapping(Gui mGui, ApplicationLogic mApplicationLogic) {
+    //private ApplicationLogic mApplicationLogic;
 
+    public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
+        /*mApplicationLogic = applicationLogic;
+        gui.getmButtonAbortNewUser().setOnClickListener(this);
+        gui.getmButtonSaveNewUser().setOnClickListener(this);*/
     }
+
+    /*@Override
+    public void onClick(View v){
+        switch (v.getId()) {
+            case R.id.buttonAbortNewUser:
+                mApplicationLogic.onButtonAbortNewUserClicked();
+                break;
+            case R.id.buttonSaveNewUser:
+                mApplicationLogic.onButtonSaveNewUserClicked();
+                break;
+        }
+    }*/
 }

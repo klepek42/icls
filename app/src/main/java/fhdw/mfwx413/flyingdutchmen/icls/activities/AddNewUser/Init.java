@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by edgar on 13.02.2016.
+ * Responsibility: Luisa Leifer
  */
 public class Init extends Activity {
 

@@ -1,7 +1,10 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
+
 /**
- * Created by edgar on 17.02.2016.
+ * Responsibility: Luisa Leifer
  */
 public class ApplicationLogic {
 
@@ -23,10 +26,25 @@ public class ApplicationLogic {
     }
 
     public void onButtonSaveNewUserClicked(){
+        String givenUser;
+        Boolean acceptUser;
 
+        givenUser = mGui.getmNameOfUser().getText().toString();
+        acceptUser = false;
+
+        if (givenUser.matches("[a-zA-Z]")) {
+            acceptUser = true;
+            //Toast accepted
+            //Navigation to ChooseFile
+        }
+        else {
+            acceptUser = false;
+            //Toast rejekted --> no special signs, no mutated vowels, no numbers
+        }
+        //Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonAbortNewUserClicked(){
-
+        Navigation.startActivityStartMenu(mData.getActivity());
     }
 }

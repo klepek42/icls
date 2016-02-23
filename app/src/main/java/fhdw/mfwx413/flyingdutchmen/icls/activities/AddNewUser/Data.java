@@ -2,28 +2,34 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 
 import android.app.Activity;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
+
 /**
- * Created by edgar on 17.02.2016.
+ * Responsibility: Luisa Leifer
  */
 public class Data {
 
-    private static final String DEFAULT_CURRENT_USER = "";
+    private static final String DEFAULT_GIVEN_USER = "";
 
     private Activity mActivity;
-    //private UserCollection mUserCollection;
-    private String mCurrentUser;
+    private UserCollection mUserCollection;
+    private String mGivenUser;
 
     public Data(Activity activity) {
         mActivity = activity;
         //mUserCollection = UserDatabase.getAllUsers();
-        mCurrentUser = DEFAULT_CURRENT_USER;
+        mGivenUser = DEFAULT_GIVEN_USER;
     }
 
-    public String getmCurrentUser() {
-        return mCurrentUser;
+    public String getmGivenUser() {
+        return mGivenUser;
     }
 
-    /*public UserCollection getmChallengeCollection() {
+    public Activity getActivity() {
+        return mActivity;
+    }
+
+    /*public UserCollection getmUserCollection() {
         return mUserCollection;
     }*/
 }

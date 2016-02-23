@@ -8,7 +8,7 @@ import android.widget.TextView;
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 /**
- * Created by edgar on 17.02.2016.
+ * Responsibility: Luisa Leifer
  */
 public class Gui {
 
@@ -26,7 +26,15 @@ public class Gui {
         mButtonSaveNewUser = (Button) activity.findViewById(R.id.buttonSaveNewUser);
     }
 
-    public EditText getmGivenAnswer() {
+    public EditText getmNameOfUser() {
         return mNameOfUser;
+    }
+
+    public Button getmButtonAbortNewUser() {
+        return mButtonAbortNewUser;
+    }
+
+    public Button getmButtonSaveNewUser() {
+        return mButtonSaveNewUser;
     }
 }
