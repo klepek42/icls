@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightGrey"
     android:padding="@dimen/activity_textview_padding"
     >
 
@@ -23,6 +24,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_no"
         android:textSize="@dimen/activity_text_size"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_alignParentRight="true"
         android:textAllCaps="false"
         android:layout_alignParentBottom="true"
@@ -34,6 +37,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_yes"
         android:textSize="@dimen/activity_text_size"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_above="@id/buttonLogout"
         android:textAllCaps="false"
         android:layout_alignParentBottom="true"
