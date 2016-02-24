@@ -7,6 +7,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 
 /**
  * Responsibility: Luisa Leifer
@@ -52,16 +53,17 @@ public class ApplicationLogic {
                 UserCollection uc = mData.getmAllUsers();
                 if(uc.doesUserExist(newUser) == false) {
                     mData.getmAllUsers().addUser(newUser);
+
+                    // Export all users + new user to users.csv (create new csv file)
+                    UserDatabase.writeAllUsers(uc);
+
+                    //Navigation to ChooseFile
+                    Navigation.startActivityChooseFile(mData.getActivity(), mData.getmGivenUser());
                 }
                 else {
                     Toast.makeText(mData.getActivity(), "Username bereits vorhanden!", Toast.LENGTH_LONG).show();
                 }
 
-                // Export all users + new user to users.csv (create new csv file)
-                // csvExport.exportUserToCsv();
-
-                //Navigation to ChooseFile
-                Navigation.startActivityChooseFile(mData.getActivity(), mData.getmGivenUser());
             } else {
                 //Toast rejekted --> no special signs, no mutated vowels, no numbers
                 Toast.makeText(mData.getActivity(), "Der Username darf keine Leerzeichen, Umlaute, Sonderzeichen und Ziffern enthalten!", Toast.LENGTH_LONG).show();

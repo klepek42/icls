@@ -1,9 +1,13 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import android.content.Context;
+import android.util.Log;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
@@ -39,4 +43,35 @@ public class UserDatabase {
 
         return allUsers;
     }
+
+
+    public static void writeAllUsers(UserCollection uc) {
+        List<String[]> userList = new ArrayList<String[]>();
+
+        try {
+            // UserCollection >>> List<String[]>
+            for(int i = 0; i < uc.getSize(); i++) { // ArrayList mit User Objekten
+                // String userName = userList.get(i).getmName();
+                String [] userAsString = new String[7];
+                User user = uc.get(i);
+
+                userAsString[0] = user.getmName();
+                userAsString[1] = Integer.toString(user.getmPeriodClass1());
+                userAsString[2] = Integer.toString(user.getmPeriodClass2());
+                userAsString[3] = Integer.toString(user.getmPeriodClass3());
+                userAsString[4] = Integer.toString(user.getmPeriodClass4());
+                userAsString[5] = Integer.toString(user.getmPeriodClass5());
+                userAsString[6] = Integer.toString(user.getmPeriodClass6());
+
+                userList.add(i, userAsString);
+            }
+            csvExport.saveUserToCsv(userList);
+        }
+        catch (IOException e){
+            Log.e("ICLS-ERROR", "UserDatabase::writeAllUsers::saveUserToCsv(): ", e);
+        }
+
+
+    }
+
 }
