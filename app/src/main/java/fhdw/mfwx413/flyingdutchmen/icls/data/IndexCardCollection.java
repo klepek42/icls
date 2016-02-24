@@ -44,4 +44,12 @@ public class IndexCardCollection {
         mIndexCardList.add(indexCard);
     }
 
+    public int getSize() {
+        return mIndexCardList.size();
+    }
+
+    public IndexCard get(int index){
+        return mIndexCardList.get(index);
+    }
+
 }

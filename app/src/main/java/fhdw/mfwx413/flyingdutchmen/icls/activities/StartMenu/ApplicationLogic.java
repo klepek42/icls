@@ -23,7 +23,6 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
     private Context context;
     private ArrayList<String> userNames = new ArrayList<>();
     private String mselectedName;
-    //public static ArrayList<String> users = new ArrayList<>();
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
         mData = data;
@@ -54,12 +53,10 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
     // Fill the spinner with data given by users.csv and show it
     private void fillSpinner() {
 
-
         for(int i = 0; i < mData.getmAllUsers().getSize(); i++) {
             userNames.add(mData.getmAllUsers().get(i).getmName());
         }
 
-        //userNames = csvImport.importUserCsv(context);
         // ZUM TESTEN; KANN SPÄTER WIEDER WEG
         count = userNames.size();
         Log.d("users.size: ", "" + count);

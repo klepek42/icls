@@ -19,17 +19,16 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
 public class Gui {
 
     private TextView textFieldChooseFile;
-    private Spinner chooseRegister;
     private Button buttonStatistics;
     private Button buttonLogout;
     private Button buttonSettings;
     private Button buttonStartLearning;
-    private Spinner files;
+    private Spinner chooseFile;
 
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_choose_file);
         textFieldChooseFile = (TextView) activity.findViewById(R.id.textFieldChooseFile);
-        chooseRegister = (Spinner) activity.findViewById(R.id.chooseRegister);
+        chooseFile = (Spinner) activity.findViewById(R.id.chooseRegister);
         buttonStatistics = (Button) activity.findViewById(R.id.buttonStatistics);
         buttonLogout = (Button) activity.findViewById(R.id.buttonLogout);
         buttonSettings = (Button) activity.findViewById(R.id.buttonSettings);
@@ -38,10 +37,6 @@ public class Gui {
 
     public TextView getTextFieldChooseFile() {
         return textFieldChooseFile;
-    }
-
-    public Spinner getChooseRegister() {
-        return chooseRegister;
     }
 
     public Button getButtonStatistics() {
@@ -60,8 +55,8 @@ public class Gui {
         return buttonStartLearning;
     }
 
-    /*public Spinner getFiles() {
-        return files;
-    }*/
+    public Spinner getChosenFile() {
+        return chooseFile;
+    }
 
 }

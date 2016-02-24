@@ -21,15 +21,10 @@ public class Data {
     private UserCollection mAllUsers;
 
     public Data(Activity activity, Bundle savedInstanceState) {
-
         mActivity = activity;
-
         mAllUsers = UserDatabase.getAllUser(mActivity);
-        //DEBUG
-        //mCurrentUser = new User("Test", 1, 2, 3, 4, 5, 6);
-        //eod
-        Log.d("mAllUsers: ", "" + mAllUsers);
 
+        Log.d("mAllUsers: ", "" + mAllUsers);
     }
 
     public UserCollection getmAllUsers() {

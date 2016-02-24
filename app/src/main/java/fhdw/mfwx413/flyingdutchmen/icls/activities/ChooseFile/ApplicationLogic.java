@@ -1,8 +1,12 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 import android.content.Context;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 
@@ -11,13 +15,14 @@ import java.util.ArrayList;
  * Updated by Max on 20.12.2016
  */
 
-public class ApplicationLogic {
+public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
 
     private Data mData;
     private Gui mGui;
     private Context context;
-
-    public static ArrayList<String> files = new ArrayList<>();
+    private int count;
+    private ArrayList<String> indexCards = new ArrayList<>();
+    private String mSelectedIndexCard;
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
         mData = data;
@@ -33,33 +38,54 @@ public class ApplicationLogic {
 
     // Noch nicht fertig
     public void onButtonStatisticsClicked() {
-        //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
-        //Navigation.startActivityStatistics(mData.getActivity());
+        //Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), this);
     }
 
     public void onButtonLogoutClicked() {
-        // Abmelden-Fragment
+        //TODO Max: Abmelden-Fragment
         Navigation.startActivityStartMenu(mData.getActivity());
     }
 
     public void onButtonSettingsClicked() {
         Navigation.startActivitySettingMenu(mData.getActivity());
-        //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonStartLearningClicked() {
         //TODO Max: Start Lernmodus mit fälligen Fragen oder Ende-Screen
+        // getIndexCard erwartet int, es ist aber nur String als Übergabeparameter vorhanden
+        //mData.setmCurrentIndex(mData.getmAllIndexCards().getIndexCard());
+        //mData.setmCurrentIndex(mData.getmAllIndexCards().getIndexCard(mSelectedIndexCard));
         //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
         Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
     }
 
     private void fillSpinner() {
-        //files = csvImport.importIndexCsv(context);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, files);
+        for(int i = 0; i < mData.getmAllIndexCards().getSize(); i++) {
+            indexCards.add(mData.getmAllIndexCards().get(i).getmName());
+        }
+
+        // ZUM TESTEN; KANN SPÄTER WIEDER WEG
+        count = indexCards.size();
+        Log.d("users.size: ", "" + count);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, indexCards);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        mGui.getChooseRegister().setAdapter(adapter);
+        mGui.getChosenFile().setAdapter(adapter);
+        mGui.getChosenFile().setOnItemSelectedListener(this);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        System.out.println(indexCards.get(position));
+        mSelectedIndexCard = indexCards.get(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        //Spinner is always filled init of activity, therefore method doesnt need to be filled
     }
 
 }
