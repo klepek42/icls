@@ -85,9 +85,12 @@ public class ApplicationLogic {
                 }
                 break;
             default:
+                //Todo Jonas: richtiges Exception Handling statt einfach nur zu schließen
                 Toast.makeText(mActivity, "Unerwarteter Wert in CorrectAnswer", Toast.LENGTH_SHORT).show();
                 mActivity.finish();
         }
+
+        //Todo Jonas: UserFortschritt aktualisieren und in csv-Datei speichern
 
       //call the Feedback-Activity and send the required data
       Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
