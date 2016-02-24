@@ -33,6 +33,7 @@ public class ApplicationLogic {
 
     // Noch nicht fertig
     public void onButtonStatisticsClicked() {
+        //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
         //Navigation.startActivityStatistics(mData.getActivity());
     }
 
@@ -43,10 +44,12 @@ public class ApplicationLogic {
 
     public void onButtonSettingsClicked() {
         Navigation.startActivitySettingMenu(mData.getActivity());
+        //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonStartLearningClicked() {
-        // Start Lernmodus mit fälligen Fragen oder Ende-Screen
+        //TODO Max: Start Lernmodus mit fälligen Fragen oder Ende-Screen
+        //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
         Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
     }
 

@@ -21,7 +21,7 @@ public class Data {
 
     public Data(Activity activity) {
         mActivity = activity;
-        mAllUsers = UserDatabase.getUser(mActivity);
+        mAllUsers = UserDatabase.getAllUser(mActivity);
         //mUserCollection = UserDatabase.getAllUsers();
         //mGivenUser = DEFAULT_GIVEN_USER;
     }

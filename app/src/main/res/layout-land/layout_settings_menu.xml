@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightYellow"
+    android:background="@color/lightGrey"
     android:padding="@dimen/activity_padding">
 
     <TextView
@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_settings"
         android:textSize="@dimen/activity_text_size_caption"
+        android:textColor="@color/colorPrimary"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -223,6 +224,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_abort"
         android:textSize="@dimen/activity_text_size"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:textAllCaps="false" />
@@ -233,6 +236,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_confirm"
         android:textSize="@dimen/activity_text_size"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false" />
@@ -243,6 +248,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_settings_default"
         android:textSize="@dimen/activity_text_size"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:textAllCaps="false" />

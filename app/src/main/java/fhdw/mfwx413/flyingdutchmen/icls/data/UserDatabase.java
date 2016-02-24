@@ -11,7 +11,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
  */
 public class UserDatabase {
 
-    public static UserCollection getUser(Context context) {
+    public static UserCollection getAllUser(Context context) {
 
         UserCollection allUsers;
         allUsers = new UserCollection();
