@@ -1,8 +1,11 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 
+import android.app.Activity;
 import android.widget.Toast;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -12,10 +15,12 @@ public class ApplicationLogic {
 
     private Data mData;
     private Gui mGui;
+    private Activity mActivity;
 
-    public ApplicationLogic(Data data, Gui gui) {
+    public ApplicationLogic(Data data, Gui gui, Activity activity) {
         mData = data;
         mGui = gui;
+        mActivity = activity;
         initialUpdateGui();
     }
 
@@ -29,18 +34,32 @@ public class ApplicationLogic {
 
     public void onButtonSaveNewUserClicked(){
         String givenUser;
-        Boolean acceptUser;
-
         givenUser = mGui.getmNameOfUser().getText().toString();
+
+        User newUser = new User();
+        newUser.setCreateUser(givenUser);
 
         if (givenUser.isEmpty()){
             //Toast --> no input
             Toast.makeText(mData.getActivity(), "Bitte einen Namen eingeben!", Toast.LENGTH_LONG).show();
         }
         else {
-            if (givenUser.matches("[a-zA-Z]")) {
+            if (givenUser.matches("[a-zA-Z]++")) {
                 //Toast accepted
                 Toast.makeText(mData.getActivity(), "Username wurde akzeptiert!", Toast.LENGTH_LONG).show();
+
+                //save new User and check if not exists
+                UserCollection uc = mData.getmAllUsers();
+                if(uc.doesUserExist(newUser) == false) {
+                    mData.getmAllUsers().addUser(newUser);
+                }
+                else {
+                    Toast.makeText(mData.getActivity(), "Username bereits vorhanden!", Toast.LENGTH_LONG).show();
+                }
+
+                // Export all users + new user to users.csv (create new csv file)
+                // csvExport.exportUserToCsv();
+
                 //Navigation to ChooseFile
                 Navigation.startActivityChooseFile(mData.getActivity(), mData.getmGivenUser());
             } else {

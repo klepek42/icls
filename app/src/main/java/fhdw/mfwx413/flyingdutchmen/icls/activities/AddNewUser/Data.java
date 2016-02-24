@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 
 /**
  * Responsibility: Luisa Leifer
@@ -15,11 +16,12 @@ public class Data {
     }
 
     private Activity mActivity;
-    private UserCollection mUserCollection;
     private User mGivenUser;
+    private UserCollection mAllUsers;
 
     public Data(Activity activity) {
         mActivity = activity;
+        mAllUsers = UserDatabase.getUser(mActivity);
         //mUserCollection = UserDatabase.getAllUsers();
         //mGivenUser = DEFAULT_GIVEN_USER;
     }
@@ -31,4 +33,8 @@ public class Data {
     /*public UserCollection getmUserCollection() {
         return mUserCollection;
     }*/
+
+    public UserCollection getmAllUsers() {
+        return mAllUsers;
+    }
 }
