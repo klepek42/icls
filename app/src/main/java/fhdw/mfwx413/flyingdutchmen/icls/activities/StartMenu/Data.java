@@ -24,7 +24,7 @@ public class Data {
 
         mActivity = activity;
 
-        mAllUsers = UserDatabase.getUser(mActivity);
+        mAllUsers = UserDatabase.getAllUser(mActivity);
         //DEBUG
         //mCurrentUser = new User("Test", 1, 2, 3, 4, 5, 6);
         //eod

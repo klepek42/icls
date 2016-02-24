@@ -29,7 +29,7 @@ public class ApplicationLogic {
         int currentUser;
 
         currentUser = mData.getmCurrentUser();
-        user = mData.getmUserCollection().getUser(currentUser);*/
+        user = mData.getmUserCollection().getAllUser(currentUser);*/
     }
 
     public void onButtonSaveNewUserClicked(){
