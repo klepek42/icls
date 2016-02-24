@@ -38,6 +38,7 @@ public class EventToListenerMapping implements View.OnClickListener {
             case R.id.buttonStartLearning:
                 mApplicationLogic.onButtonStartLearningClicked();
                 break;
+            //TODO Max: ZurückButton
         }
     }
 }

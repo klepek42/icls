@@ -68,7 +68,7 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
 
         // ZUM TESTEN; KANN SPÄTER WIEDER WEG
         count = indexCards.size();
-        Log.d("users.size: ", "" + count);
+        Log.d("indexCards.size: ", "" + count);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, indexCards);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -85,7 +85,7 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        //Spinner is always filled init of activity, therefore method doesnt need to be filled
+        //Spinner is always filled at the time of the initialization of activity, therefore method doesn't need to be filled
     }
 
 }

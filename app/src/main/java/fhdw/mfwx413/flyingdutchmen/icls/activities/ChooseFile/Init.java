@@ -38,4 +38,11 @@ public class Init extends Activity {
     private void initEventToListenerMapping() {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }
+
+    //save data if activity stops
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        mData.saveDataFromBundle(outState);
+        super.onSaveInstanceState(outState);
+    }
 }
