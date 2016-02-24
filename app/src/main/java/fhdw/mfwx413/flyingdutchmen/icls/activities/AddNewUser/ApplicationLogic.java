@@ -46,12 +46,13 @@ public class ApplicationLogic {
         }
         else {
             if (givenUser.matches("[a-zA-Z]++")) {
-                //Toast accepted
-                Toast.makeText(mData.getActivity(), "Username wurde akzeptiert!", Toast.LENGTH_LONG).show();
-
                 //save new User and check if not exists
                 UserCollection uc = mData.getmAllUsers();
+
                 if(uc.doesUserExist(newUser) == false) {
+                    //Toast accepted
+                    Toast.makeText(mData.getActivity(), "Username wurde akzeptiert!", Toast.LENGTH_LONG).show();
+
                     mData.getmAllUsers().addUser(newUser);
 
                     // Export all users + new user to users.csv (create new csv file)
