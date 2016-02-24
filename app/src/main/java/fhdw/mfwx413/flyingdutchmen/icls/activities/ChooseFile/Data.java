@@ -30,6 +30,7 @@ public class Data {
         mActivity = activity;
         intent = activity.getIntent();
         mCurrentUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
+        Log.d("mCurrentUser", "" + mCurrentUser.getmName());
         allUserProgresses = UserProgressDatabase.getAllUserProgresses(mActivity);
         mAllIndexCards = IndexCardDatabase.getIndexCards(mActivity);
     }

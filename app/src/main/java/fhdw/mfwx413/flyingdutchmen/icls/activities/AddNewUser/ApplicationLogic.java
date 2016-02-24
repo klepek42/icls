@@ -59,6 +59,7 @@ public class ApplicationLogic {
                     UserDatabase.writeAllUsers(uc);
 
                     //Navigation to ChooseFile
+                    mData.setmCurrentUser(mData.getmAllUsers().getUser(givenUser));
                     Navigation.startActivityChooseFile(mData.getActivity(), mData.getmGivenUser());
                 }
                 else {
