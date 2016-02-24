@@ -45,7 +45,7 @@ public class ChallengeDatabase {
                                 allIndexCards.getIndexCard(Integer.parseInt(StringCollectionFromCSV.get(i)[7]))));
             }
             catch (IdNotFoundException e){
-                Log.e("ICLS-LOG", "ChallengeCollection::getAllChallenges: ", e);
+                Log.e("ICLS-ERROR", "ChallengeDatabase::getAllChallenges: ", e);
             }
         }
 
