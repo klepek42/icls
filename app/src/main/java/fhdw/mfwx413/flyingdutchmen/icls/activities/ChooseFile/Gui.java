@@ -27,6 +27,7 @@ public class Gui {
     private Spinner files;
 
     public Gui(Activity activity) {
+        activity.setContentView(R.layout.layout_choose_file);
         textFieldChooseFile = (TextView) activity.findViewById(R.id.textFieldChooseFile);
         chooseRegister = (Spinner) activity.findViewById(R.id.chooseRegister);
         buttonStatistics = (Button) activity.findViewById(R.id.buttonStatistics);
@@ -59,8 +60,8 @@ public class Gui {
         return buttonStartLearning;
     }
 
-    public Spinner getFiles() {
+    /*public Spinner getFiles() {
         return files;
-    }
+    }*/
 
 }

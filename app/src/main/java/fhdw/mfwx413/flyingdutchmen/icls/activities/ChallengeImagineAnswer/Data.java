@@ -6,6 +6,7 @@ import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
@@ -34,7 +35,8 @@ public class Data {
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
-        //Intent intent;
+        // Intent intent;
+        // intent = activity.getIntent();
         // Auslesen des Intents sobald vorhanden
 
         if(bundle == null) {

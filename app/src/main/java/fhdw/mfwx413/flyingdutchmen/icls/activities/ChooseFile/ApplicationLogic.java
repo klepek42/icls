@@ -56,7 +56,7 @@ public class ApplicationLogic {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, files);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        mGui.getFiles().setAdapter(adapter);
+        mGui.getChooseRegister().setAdapter(adapter);
     }
 
 }
