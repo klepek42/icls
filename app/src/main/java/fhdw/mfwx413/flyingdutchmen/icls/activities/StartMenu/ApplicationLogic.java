@@ -15,6 +15,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  * Updated by Max on 20.02.2016
  * Updated by Edgar on 21.02.2016
  */
+//Klasse muss nach Änderung nichts mehr implementieren
 public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
 
     private Data mData;
@@ -65,10 +66,13 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         mGui.getChooseUser().setAdapter(adapter);
+        //diese Zeile müsste auch gelöscht werden
         mGui.getChooseUser().setOnItemSelectedListener(this);
 
     }
 
+
+    //Die beiden @Override-methoden müssten gelöscht werden
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         System.out.println(userNames.get(position));
@@ -79,4 +83,11 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
     public void onNothingSelected(AdapterView<?> parent) {
         //Spinner is always filled init of activity, therefore method doesnt need to be filled
     }
+
+    /*Neu hinzunehmen:
+    public void onUserSelected(){
+        System.out.println(userNames.get(position));
+        mselectedName = userNames.get(position);
+    }
+    */
 }
