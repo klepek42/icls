@@ -90,4 +90,51 @@ public class Challenge implements Serializable{
     public void setmIndexCard(IndexCard mIndexCard) {
         this.mIndexCard = mIndexCard;
     }
+
+    // Pascal Heß 25.02.2016
+    // Method, that delivers the String of the correct answer
+    // is used in both Feedback-Application-Logic-Classes
+
+    public String getmCorrectAnswerString() {
+        String stringCorrectAnswer = null;
+
+        //Switch-Statement is not correct! --> ChallengeFreeAnswer/ApplicationLogic
+        switch (mCorrectAnswer){
+            // if one, answer one is correct
+            case 1:
+                stringCorrectAnswer = this.mAnswerOne;
+                break;
+            // if two, answer two is correct
+            case 2:
+                stringCorrectAnswer = this.mAnswerTwo;
+                break;
+            //if three, answer one and two are correct
+            case 3:
+                stringCorrectAnswer = this.mAnswerOne;
+                stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerTwo);
+                break;
+            //if four, three is correct
+            case 4:
+                stringCorrectAnswer = this.mAnswerThree;
+                break;
+            //if five, answer one and three are correct
+            case 5:
+                stringCorrectAnswer = this.mAnswerOne;
+                stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerThree);
+                break;
+            //if six, answer two and three are correct
+            case 6:
+                stringCorrectAnswer = this.mAnswerTwo;
+                stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerThree);
+                break;
+            //if seven, all answers are correct
+            case 7:
+                stringCorrectAnswer = this.mAnswerOne;
+                stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerTwo);
+                stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerThree);
+                break;
+        }
+        return stringCorrectAnswer;
+        //Todo Jonas Exception Handling
+    }
 }
