@@ -34,7 +34,7 @@ public class Data {
                 mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
             }
             catch (IdNotFoundException e){
-                Log.e("ICLS-LOG", "ChallengeFreeAnswer::Data: ", e);
+                Log.e("ICLS-LOG", "FinalEndOfChallenges::Data: ", e);
             }
         }
         else{

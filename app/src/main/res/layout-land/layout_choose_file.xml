@@ -33,41 +33,42 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
-        android:paddingLeft="@dimen/activity_padding_button"
-        android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/buttonStatistics"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="284dp"
         android:layout_height="wrap_content"
-        android:text="@string/string_statistics"
-        android:textSize="@dimen/activity_text_size"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:paddingLeft="@dimen/activity_padding_button"
-        android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/buttonLogout"
-        android:layout_marginLeft="@dimen/activity_margin_gap_vertical"
-        android:textAllCaps="false" />
+        android:layout_centerHorizontal="true" >
 
-    <Button
-        android:id="@+id/buttonSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/string_settings"
-        android:textSize="@dimen/activity_text_size"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:paddingLeft="@dimen/activity_padding_button"
-        android:paddingRight="@dimen/activity_padding_button"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/buttonStatistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_vertical"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/buttonStatistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_statistics"
+            android:textSize="@dimen/activity_text_size"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/buttonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_settings"
+            android:textSize="@dimen/activity_text_size"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/buttonStartLearning"
@@ -77,11 +78,8 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
-        android:paddingLeft="@dimen/activity_padding_button"
-        android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/buttonSettings"
-        android:layout_marginLeft="@dimen/activity_margin_gap_vertical"
+        android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 
 </RelativeLayout>

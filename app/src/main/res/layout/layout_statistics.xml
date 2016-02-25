@@ -30,7 +30,8 @@
         android:text="@string/string_file_name"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldStatistics"
         android:layout_toRightOf="@+id/textFieldFileName" />
 
@@ -50,7 +51,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldFileNameText"
         android:layout_toRightOf="@+id/textFieldAllChallenges" />
 
@@ -70,7 +72,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldNumberAllChallenges"
         android:layout_toRightOf="@+id/textFieldDueChallenges" />
 
@@ -90,7 +93,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldNumberDueChallenges"
         android:layout_toRightOf="@+id/textFieldClass1" />
 
@@ -110,7 +114,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldClass1"
         android:layout_toRightOf="@+id/textFieldClass2" />
 
@@ -130,7 +135,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldClass2"
         android:layout_toRightOf="@+id/textFieldClass3" />
 
@@ -150,7 +156,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldClass3"
         android:layout_toRightOf="@+id/textFieldClass4" />
 
@@ -170,7 +177,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldClass4"
         android:layout_toRightOf="@+id/textFieldClass5" />
 
@@ -190,7 +198,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldClass5"
         android:layout_toRightOf="@+id/textFieldClass6" />
 
