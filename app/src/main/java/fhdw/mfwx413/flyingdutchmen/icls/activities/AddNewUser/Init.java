@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Responsibility: Luisa Leifer
@@ -42,6 +43,6 @@ public class Init extends Activity {
     // Back to layout_start_menu (back button)
     @Override
     public void onBackPressed() {
-        setContentView(R.layout.layout_start_menu);
+        Navigation.startActivityStartMenu(mData.getActivity());
     }
 }

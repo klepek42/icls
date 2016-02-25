@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Responsibility: Edgar Klepek
@@ -53,6 +54,6 @@ public class Init extends Activity {
     // Back to layout_choose_file (back button)
     @Override
     public void onBackPressed() {
-        setContentView(R.layout.layout_choose_file);
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
 }

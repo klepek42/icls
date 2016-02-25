@@ -20,8 +20,8 @@ public class Data {
     private Activity mActivity;
     private ChallengeCollection mChallengeCollection;
     private int mCurrentChallengeId;
-    private String currentUser;
-    private String getCurrentIndexCard;
+    private User mCurrentUser;
+    private IndexCard mCurrentIndexCard;
     private int mPeriodClass1;
     private int mPeriodClass2;
     private int mPeriodClass3;
@@ -43,15 +43,15 @@ public class Data {
         return mChallengeCollection;
     }
 
-    public String getCurrentUser() {
+    public User getmCurrentUser() {
         //currentUser = User.getmName();
-        return currentUser;
+        return mCurrentUser;
 
     }
 
-    public String getCurrentIndexcard() {
+    public IndexCard getmCurrentIndexcard() {
         //getCurrentIndexCard = IndexCard.getmName();
-        return getCurrentIndexCard;
+        return mCurrentIndexCard;
     }
 
     //public int get
