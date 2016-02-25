@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by H00052647 on 23.02.2016.
+ * Created by Daniel on 23.02.2016.
+ * Responsibility: Daniel zur Linden
  */
 public class UserProgressCollection implements Serializable{
 
