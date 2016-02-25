@@ -3,6 +3,8 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.FinalEndOfChallenges;
 import android.app.Activity;
 import android.os.Bundle;
 
+import fhdw.mfwx413.flyingdutchmen.icls.R;
+
 /**
  * Responsibility: Luisa Leifer
  */
@@ -46,5 +48,11 @@ public class Init extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         mData.saveDataFromBundle(outState);
         super.onSaveInstanceState(outState);
+    }
+
+    // Back to layout_choose_file (back button)
+    @Override
+    public void onBackPressed() {
+        setContentView(R.layout.layout_choose_file);
     }
 }

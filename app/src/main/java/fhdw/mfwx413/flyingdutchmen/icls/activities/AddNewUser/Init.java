@@ -3,6 +3,8 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 import android.app.Activity;
 import android.os.Bundle;
 
+import fhdw.mfwx413.flyingdutchmen.icls.R;
+
 /**
  * Responsibility: Luisa Leifer
  */
@@ -37,4 +39,9 @@ public class Init extends Activity {
         mData = new Data(this);
     }
 
+    // Back to layout_start_menu (back button)
+    @Override
+    public void onBackPressed() {
+        setContentView(R.layout.layout_start_menu);
+    }
 }
