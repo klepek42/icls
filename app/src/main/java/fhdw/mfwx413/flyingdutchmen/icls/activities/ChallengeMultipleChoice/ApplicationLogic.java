@@ -96,6 +96,11 @@ public class ApplicationLogic {
 
 
         Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
+        givenAnswer = 0; //variable to store the given Answer as an integer
+        isCheckBoxAnswer1Clicked = false;
+        isCheckBoxAnswer2Clicked = false;
+        isCheckBoxAnswer3Clicked = false;
+
     }
 
 
