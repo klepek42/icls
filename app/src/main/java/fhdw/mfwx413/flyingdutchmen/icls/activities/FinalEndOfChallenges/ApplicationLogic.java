@@ -1,7 +1,6 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.FinalEndOfChallenges;
 
 import android.app.Activity;
-import android.widget.Toast;
 
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 

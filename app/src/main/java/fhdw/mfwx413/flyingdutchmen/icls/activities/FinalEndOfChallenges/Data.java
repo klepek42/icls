@@ -1,9 +1,11 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.FinalEndOfChallenges;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
@@ -24,18 +26,13 @@ public class Data {
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
-        //Intent intent;
+        Intent intent;
 
         if(bundle == null) {
             //if bundle isn't filled, the data will be initialized by the extras of the intent
-            //intent = mActivity.getIntent();
-            mChosenUser = new User("Testuser", 5, 60, 1440, 10080, 43200, 259200);
-            try {
-                mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
-            }
-            catch (IdNotFoundException e){
-                Log.e("ICLS-LOG", "FinalEndOfChallenges::Data: ", e);
-            }
+            intent = mActivity.getIntent();
+            mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
+            mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
         }
         else{
             //restore Data if bundle is filled
