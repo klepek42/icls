@@ -2,7 +2,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import java.util.ArrayList;
 
-import fhdw.mfwx413.flyingdutchmen.icls.utilities.IdNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
  * Responsibility Jonas Krabs

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.widget.Toast;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -34,7 +35,7 @@ public class ApplicationLogic {
     }
 
     //method that is invoked if the confirm button is clicked
-    public void onButtonConfirmFreeAnswerClicked(){
+    public void onButtonConfirmFreeAnswerClicked()throws InvalidCorrectAnswerTypeException{
         int challengeId = mData.getmCurrentChallengeId();
         Challenge challenge;
         String givenAnswer;
@@ -49,45 +50,34 @@ public class ApplicationLogic {
         //analyze if the given answer was correct or not
         switch (challenge.getmCorrectAnswer()){
             // if one, there only one answer saved in the challenge and this is the right one
-            //Todo Jonas: Testausgaben entfernen (erst wenn Feedback soweit realisiert ist)
             case 1:
                 if (givenAnswer.equals(challenge.getmAnswerOne())){
-                    System.out.println("Die Antwort ist korrekt!");
                     isAnswerCorrect = true;
                 }
                 else {
-                    System.out.println("Die Antwort ist leider falsch");
-                    System.out.println("givenAnswer: " + givenAnswer);
-                    System.out.println("hinterlegte Antwort: " + challenge.getmAnswerOne());
                     isAnswerCorrect = false;
                 }
                 break;
             //if three, there are two answers saved in the challenge and both are right
             case 3:
                 if (givenAnswer.equals(challenge.getmAnswerOne()) || givenAnswer.equals(challenge.getmAnswerTwo())){
-                    System.out.println("Die Antwort ist korrekt!");
                     isAnswerCorrect = true;
                 }
                 else {
-                    System.out.println("Die Antwort ist leider falsch");
                     isAnswerCorrect = false;
                 }
                 break;
             //if seven, there are three answers saved in the challenge and all three are right
             case 7:
                 if (givenAnswer.equals(challenge.getmAnswerTwo()) || givenAnswer.equals(challenge.getmAnswerTwo()) || givenAnswer.equals(challenge.getmAnswerThree())){
-                    System.out.println("Die Antwort ist korrekt!");
                     isAnswerCorrect = true;
                 }
                 else {
-                    System.out.println("Die Antwort ist leider falsch");
                     isAnswerCorrect = false;
                 }
                 break;
             default:
-                //Todo Jonas: richtiges Exception Handling statt einfach nur zu schließen
-                Toast.makeText(mActivity, "Unerwarteter Wert in CorrectAnswer", Toast.LENGTH_SHORT).show();
-                mActivity.finish();
+                throw new InvalidCorrectAnswerTypeException("ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: Ungültiger Wert für CorrectAnswer: " + challenge.getmCorrectAnswer());
         }
 
         //Todo Jonas: UserFortschritt aktualisieren und in csv-Datei speichern
@@ -97,8 +87,12 @@ public class ApplicationLogic {
 
     }
 
-    public void onButtonAbortClicked() {
+    public void goBackToChooseFile() {
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+    }
+
+    public void showErrorToastOfInvalidAnswerType(){
+        Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
     }
 
 

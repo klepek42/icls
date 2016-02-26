@@ -3,13 +3,10 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.FinalEndOfChallenges;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
-import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
-import fhdw.mfwx413.flyingdutchmen.icls.utilities.IdNotFoundException;
 
 /**
  * Responsibility: Luisa Leifer

@@ -2,7 +2,9 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackImagineAnswer;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -30,10 +32,17 @@ public class ApplicationLogic {
         mGui.setTextViewWasAnswerCorrect();
 
         //delivers String with the correct answer(s)
-        correctAnswer = mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmCorrectAnswerString();
+        try {
+            correctAnswer = mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmCorrectAnswerString();
 
-        //set feedback field with the real correct answer
-        mGui.setTextViewCorrectAnswer(correctAnswer);
+            //set feedback field with the real correct answer
+            mGui.setTextViewCorrectAnswer(correctAnswer);
+        }
+        catch (InvalidCorrectAnswerTypeException e){
+            Log.e("ICLS-ERROR", "FeedbackImagineAnswer::ApplicationLogic::initialUpdateGui ", e);
+            Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
+            Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+        }
     }
 
     public void onButtonWasAnswerCorrect (){
