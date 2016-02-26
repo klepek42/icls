@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Responsibilty: Pascal Heß
+ * Responsibility: Pascal Heß
  */
 
 public class Init extends Activity {

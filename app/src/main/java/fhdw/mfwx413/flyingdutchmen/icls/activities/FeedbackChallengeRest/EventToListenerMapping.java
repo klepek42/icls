@@ -17,7 +17,6 @@ public class EventToListenerMapping implements View.OnClickListener {
         gui.getmButtonAbort().setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId())

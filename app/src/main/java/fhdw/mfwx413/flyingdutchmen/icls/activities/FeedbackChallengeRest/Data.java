@@ -3,15 +3,11 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackChallengeRest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
-import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
-import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
-import fhdw.mfwx413.flyingdutchmen.icls.utilities.IdNotFoundException;
 
 
 /**
@@ -27,7 +23,6 @@ public class Data {
     private static final String KEY_CHOSEN_USER = "K3";
     private static final String KEY_CHOSEN_FILE = "K4";
     private static final String KEY_IS_ANSWER_CORRECT = "K5";
-
 
     private Activity mActivity;
     private ChallengeCollection mDueChallengesOfUserInFile;
@@ -53,7 +48,6 @@ public class Data {
             //restore Data if bundle is filled
             restoreDataFromBundle(bundle);
         }
-
     }
 
     //save data in bundle if activity stops

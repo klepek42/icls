@@ -36,7 +36,9 @@ public class Gui {
 
     // display the correct answer, that is saved in the challenge
     public void setFeedbackTextCorrectAnswer(String text) {
-        mTextViewCorrectAnswer.setText(text);
+        String correctAnswerIs = "Richtige Antwort: ";
+        correctAnswerIs = correctAnswerIs.concat(text);
+        mTextViewCorrectAnswer.setText(correctAnswerIs);
     }
 
     // display whether the question was down- or upgraded

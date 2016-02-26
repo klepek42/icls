@@ -27,4 +27,8 @@ public class ChallengeCollection implements Serializable{
     public void addChallenge(Challenge challenge){
         mChallengeList.add(challenge);
     }
+
+    public int getSize(){
+        return mChallengeList.size();
+    }
 }
