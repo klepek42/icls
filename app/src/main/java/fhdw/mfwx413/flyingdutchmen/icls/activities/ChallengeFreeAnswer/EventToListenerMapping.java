@@ -25,7 +25,6 @@ public class EventToListenerMapping implements View.OnClickListener{
             case R.id.buttonAbort:
                 mApplicationLogic.onButtonAbortClicked();
                 break;
-            //Todo Jonas: ZurückButton realisieren
         }
     }
 }

@@ -98,10 +98,8 @@ public class ApplicationLogic {
     }
 
     public void onButtonAbortClicked() {
-        //Todo Jonas: realisieren des LogOut-Buttons; Aufruf der Karteiauswahl
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
-
-    //Todo Jonas: ZurückButton realisieren
 
 
 }
