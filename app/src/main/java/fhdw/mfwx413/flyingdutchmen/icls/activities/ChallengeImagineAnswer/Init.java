@@ -54,6 +54,6 @@ public class Init extends Activity {
     // Back to layout_choose_file (back button)
     @Override
     public void onBackPressed() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+        mApplicationLogic.onButtonAbortClicked();
     }
 }
