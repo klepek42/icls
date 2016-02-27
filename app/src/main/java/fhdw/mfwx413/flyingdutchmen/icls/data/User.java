@@ -24,10 +24,6 @@ public class User implements Serializable {
         return mName;
     }
 
-    /**public int getmID() {
-        return mID;
-    }**/
-
     // Get intervals of period-classes for the SettingsMenu (Activity: SettingsMenu)
     public int getmPeriodClass1() {
         return mPeriodClass1;
@@ -105,12 +101,5 @@ public class User implements Serializable {
     public void setmName(String mName){
         this.mName = mName;
     }
-
-    /** TO BE CHANGED
-     // Create unique UserID's
-    protected static int index = 0;
-    protected static int getNextId() {
-        return ++index;
-    }**/
 
 }

@@ -2,8 +2,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.StartMenu;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 

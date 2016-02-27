@@ -9,21 +9,25 @@ import java.util.ArrayList;
  */
 public class UserProgressCollection implements Serializable{
 
-        private ArrayList<UserProgress> mUserProgresses;
+    private ArrayList<UserProgress> mUserProgresses;
 
 
-        public UserProgressCollection() {
-            mUserProgresses = new ArrayList<UserProgress>();
-        }
-
-        public UserProgress getUserProgress(int Id){
-            return mUserProgresses.get(Id);
-
-        }
-
-        public void addUserProgress(UserProgress userProgress){
-            mUserProgresses.add(userProgress);
-        }
+    public UserProgressCollection() {
+        mUserProgresses = new ArrayList<UserProgress>();
     }
+
+    public UserProgress getUserProgress(int Id){
+        return mUserProgresses.get(Id);
+
+    }
+
+    public void addUserProgress(UserProgress userProgress){
+        mUserProgresses.add(userProgress);
+    }
+
+    public int getSize(){
+        return mUserProgresses.size();
+    }
+}
 
 

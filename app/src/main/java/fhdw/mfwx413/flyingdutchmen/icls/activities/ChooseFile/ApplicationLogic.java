@@ -1,13 +1,11 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
-import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+
 import java.util.ArrayList;
 
 /**
@@ -15,7 +13,7 @@ import java.util.ArrayList;
  * Updated by Max on 20.12.2016
  */
 
-public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
+public class ApplicationLogic {
 
     private Data mData;
     private Gui mGui;
@@ -38,7 +36,7 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
 
     // Added by Edgar 27.02
     public void onButtonStatisticsClicked() {
-        Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getmCurrentIndex());
+        Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
     }
 
     public void onButtonLogoutClicked() {
@@ -47,23 +45,23 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
     }
 
     public void onButtonSettingsClicked() {
-        Navigation.startActivitySettingMenu(mData.getActivity());
-        Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivitySettingMenu(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonStartLearningClicked() {
         //TODO Max: Start Lernmodus mit fälligen Fragen oder Ende-Screen
         // getIndexCard erwartet int, es ist aber nur String als Übergabeparameter vorhanden
-        //mData.setmCurrentIndex(mData.getmAllIndexCards().getIndexCard());
-        //mData.setmCurrentIndex(mData.getmAllIndexCards().getIndexCard(mSelectedIndexCard));
+        // Erster Parameter ist auf Grund der IndexCard.csv ein int als ID, dann erst Name.
+
+        //mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCard(mSelectedIndexCard));
         //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
         Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
     }
 
     private void fillSpinner() {
 
-        for(int i = 0; i < mData.getmAllIndexCards().getSize(); i++) {
-            indexCards.add(mData.getmAllIndexCards().get(i).getmName());
+        for(int i = 0; i < mData.getAllIndexCards().getSize(); i++) {
+            indexCards.add(mData.getAllIndexCards().get(i).getmName());
         }
 
         // ZUM TESTEN; KANN SPÄTER WIEDER WEG
@@ -74,20 +72,11 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         mGui.getChosenFile().setAdapter(adapter);
-        mGui.getChosenFile().setOnItemSelectedListener(this);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onUserSelected(int position){
         System.out.println(indexCards.get(position));
         mSelectedIndexCard = indexCards.get(position);
-        // Bei Auswahl ein IndexCard Objekt rausfischen und irgendwie als mCurrentIndex für Data und Bundle übergeben
-        // mSelectedIndexCard ist leider nur ein String und kein IndexCard
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Spinner is always filled init of activity, therefore method doesnt need to be filled
     }
 
 }

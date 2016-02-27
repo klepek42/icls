@@ -46,7 +46,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        //Spinner is always filled init of activity, therefore method doesnt need to be filled
+        //Spinner is always filled with init of activity, therefore method doesn't need to be filled
     }
 
 
