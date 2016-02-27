@@ -1,12 +1,13 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 
 /**
  * Created by Daniel on 22.02.2016.
  * Responsibility: Daniel zur Linden
  */
-public class UserProgress {
+public class UserProgress implements Serializable{
     private String mUserName;
     private int mChallengeID;
     private int mZeitklasse;

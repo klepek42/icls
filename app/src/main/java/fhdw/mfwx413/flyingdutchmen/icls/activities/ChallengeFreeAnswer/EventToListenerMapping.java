@@ -27,7 +27,7 @@ public class EventToListenerMapping implements View.OnClickListener{
                 }
                 catch (InvalidCorrectAnswerTypeException e){
                     Log.e("ICLS-ERROR", "ChallengeFreeAnswer::EventToListenerMapping::onClick ", e);
-                    mApplicationLogic.showErrorToastOfInvalidAnswerType();
+                    mApplicationLogic.showErrorUnexpectedError();
                     mApplicationLogic.goBackToChooseFile();
                 }
                 break;

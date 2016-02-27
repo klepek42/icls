@@ -1,9 +1,13 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import android.content.Context;
+import android.util.Log;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
@@ -109,5 +113,30 @@ public class UserProgressDatabase {
         return UserProgresses;
     }
 
+    //write all UserProgresses to csv-file
+    public static void writeAllUserProgresses(UserProgressCollection userProgressCollection){
+        List<String[]> userProgressList = new ArrayList<String[]>();
+
+        try {
+            // UserProgressCollection >>> List<String[]>
+            for(int i = 0; i < userProgressCollection.getSize(); i++) { // ArrayList with Progress objects
+                //convert a progress object into a String array (necessary for writing ist into csv)
+                String [] userProgressAsString = new String[4];
+                UserProgress userProgress = userProgressCollection.getUserProgress(i);
+
+                userProgressAsString[0] = userProgress.getmUserName();
+                userProgressAsString[1] = Integer.toString(userProgress.getmChallengeID());
+                userProgressAsString[2] = Integer.toString(userProgress.getmZeitklasse());
+                userProgressAsString[3] = userProgress.getmTimeStampBeantwortung();
+
+                userProgressList.add(i, userProgressAsString);
+            }
+            csvExport.saveProgressToCsv(userProgressList);
+        }
+        catch (IOException e){
+            Log.e("ICLS-ERROR", "UserProgressDatabase::writeAllUserProgresses::saveUserToCsv(): ", e);
+        }
+
+    }
 
 }

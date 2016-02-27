@@ -1,15 +1,19 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer;
 
 import android.app.Activity;
+import android.util.Log;
 import android.widget.Toast;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Responsibility: Jonas Krabs
  */
+//Todo Jonas: Alle Klassen mit Verantwortlichkeit vernünftig kommentieren
 public class ApplicationLogic {
 
     private Data mData;
@@ -80,19 +84,54 @@ public class ApplicationLogic {
                 throw new InvalidCorrectAnswerTypeException("ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: Ungültiger Wert für CorrectAnswer: " + challenge.getmCorrectAnswer());
         }
 
-        //Todo Jonas: UserFortschritt aktualisieren und in csv-Datei speichern
+        try {
+            updateUserProgress(isAnswerCorrect);
 
-      //call the Feedback-Activity and send the required data
-      Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
+            //call the Feedback-Activity and send the required data
+            Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
 
+        }
+        catch (UserProgressNotFoundException e){
+            Log.e("ICLS-LOG", "ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: ", e);
+            showErrorUnexpectedError();
+            Navigation.startActivityStartMenu(mActivity);
+        }
     }
 
     public void goBackToChooseFile() {
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
 
-    public void showErrorToastOfInvalidAnswerType(){
+    public void showErrorUnexpectedError(){
         Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
+    }
+
+    public void updateUserProgress(boolean isAnswerCorrect) throws UserProgressNotFoundException{
+        boolean userProgressFound = false;
+        for (int i = 0; i < mData.getmAllUserProgresses().getSize(); i++){
+            if (mData.getmAllUserProgresses().getUserProgress(i).getmUserName().equals(mData.getmChosenUser().getmName()) &&
+                    mData.getmAllUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
+                int actualTimeClass = mData.getmAllUserProgresses().getUserProgress(i).getmZeitklasse();
+                userProgressFound = true;
+                mData.getmAllUserProgresses().getUserProgress(i).setCurrentTimeStamp();
+                if (isAnswerCorrect == true) {
+                    if (actualTimeClass < 5 ) {
+                        mData.getmAllUserProgresses().getUserProgress(i).setmZeitklasse(actualTimeClass + 1);
+                    }
+                }
+                else {
+                    if (actualTimeClass > 1 ) {
+                        mData.getmAllUserProgresses().getUserProgress(i).setmZeitklasse(actualTimeClass - 1);
+                    }
+                }
+                UserProgressDatabase.writeAllUserProgresses(mData.getmAllUserProgresses());
+            }
+        }
+        if (userProgressFound == false){
+            throw new UserProgressNotFoundException("ChallengeFreeAnswer::ApplicationLogic::updateUserProgress:"
+                    + " CurrentUserName: " + mData.getmChosenUser().getmName()
+                    + "ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
+        }
     }
 
 

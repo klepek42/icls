@@ -9,6 +9,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
@@ -22,12 +24,14 @@ public class Data {
     private static final String KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";
     private static final String KEY_CHOSEN_USER = "K3";
     private static final String KEY_CHOSEN_FILE = "K4";
+    private static final String KEY_ALL_USER_PROGRESSES = "K5";
 
     private Activity mActivity;
     private ChallengeCollection mDueChallengesOfUserInFile;
     private int mCurrentChallengeId;
     private User mChosenUser;
     private IndexCard mChosenFile;
+    private UserProgressCollection mAllUserProgresses;
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
@@ -40,13 +44,14 @@ public class Data {
             //Testweise (hier muss in Zukunft der intent übertrag realisiert werden)
             mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
             mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges(mActivity);
-            mChosenUser = new User("Testuser", 5, 60, 1440, 10080, 43200, 259200);
+            mChosenUser = new User("Jonas", 5, 60, 1440, 10080, 43200, 259200);
             try {
                 mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
             }
             catch (IdNotFoundException e){
                 Log.e("ICLS-LOG", "ChallengeFreeAnswer::Data: ", e);
             }
+            mAllUserProgresses = UserProgressDatabase.getAllUserProgresses(mActivity);
         }
         else{
             //restore Data if bundle is filled
@@ -61,6 +66,7 @@ public class Data {
         bundle.putSerializable(KEY_DUE_CHALLENGES_OF_USER_IN_FILE, mDueChallengesOfUserInFile);
         bundle.putSerializable(KEY_CHOSEN_USER, mChosenUser);
         bundle.putSerializable(KEY_CHOSEN_FILE, mChosenFile);
+        bundle.putSerializable(KEY_ALL_USER_PROGRESSES, mAllUserProgresses);
     }
 
     //restore data from given bundle
@@ -69,6 +75,7 @@ public class Data {
         mDueChallengesOfUserInFile = (ChallengeCollection) bundle.getSerializable(KEY_DUE_CHALLENGES_OF_USER_IN_FILE);
         mChosenUser = (User) bundle.getSerializable(KEY_CHOSEN_USER);
         mChosenFile = (IndexCard) bundle.getSerializable(KEY_CHOSEN_FILE);
+        mAllUserProgresses = (UserProgressCollection) bundle.getSerializable(KEY_ALL_USER_PROGRESSES);
     }
 
     public int getmCurrentChallengeId() {
@@ -84,6 +91,10 @@ public class Data {
     }
 
     public User getmChosenUser() {return mChosenUser;}
+
+    public UserProgressCollection getmAllUserProgresses() {
+        return mAllUserProgresses;
+    }
 
     public IndexCard getmChosenFile() {return mChosenFile;}
 }
