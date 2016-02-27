@@ -50,6 +50,32 @@ public class csvExport {
         mWriter.close();
     }
 
+    // Save data in csv and rebuild it
+    //public static void saveToCsv(String fileName, UserCollection givenData) throws IOException {
+    public static void saveProgressToCsv( List<String[]> progressList) throws IOException {
+
+        Context mContext;
+        CSVWriter mWriter;
+
+        // Read the android path where the file should be saved (/downloads for testing)
+        String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
+        String fileName = "progress.csv";
+        String filePath = baseDir + File.separator + fileName;
+        Log.d("path", "" + filePath);
+        //String downloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        mWriter = new CSVWriter(new FileWriter(filePath));
+
+        List<String[]> test = progressList;
+
+        // Write all data to the file
+        //mWriter.writeNext(writeData);
+        mWriter.writeAll(test);
+
+        // Quit the output stream
+        mWriter.close();
+    }
+
+
 /*
     public void write(String fileName, String data) {
         Writer writer;

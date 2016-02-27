@@ -25,14 +25,14 @@ public class ApplicationLogic {
     private void initialUpdateGui() {
         // Demodaten
         mGui.setmTextFieldFileNameText(mData.getmChosenFile().getmName().toString());
-        mGui.setmTextFieldNumberAllChallenges("42");
-        mGui.setmTextFieldNumberDueChallenges("13");
-        mGui.setmTextFieldNumberOfClass1("22");
-        mGui.setmTextFieldNumberOfClass2("5");
-        mGui.setmTextFieldNumberOfClass3("7");
-        mGui.setmTextFieldNumberOfClass4("3");
-        mGui.setmTextFieldNumberOfClass5("4");
-        mGui.setmTextFieldNumberOfClass6("1");
+        mGui.setmTextFieldNumberAllChallenges(String.valueOf(mData.getmNumberAllChallenges()));
+        mGui.setmTextFieldNumberDueChallenges("13"); //mData.getmNumberDueChallenges().toString();
+        mGui.setmTextFieldNumberOfClass1("22");      //mData.getmNumberOfPeriodClass1.toString();
+        mGui.setmTextFieldNumberOfClass2("5");       //mData.getmNumberOfPeriodClass2.toString();
+        mGui.setmTextFieldNumberOfClass3("7");       //mData.getmNumberOfPeriodClass3.toString();
+        mGui.setmTextFieldNumberOfClass4("3");       //mData.getmNumberOfPeriodClass4.toString();
+        mGui.setmTextFieldNumberOfClass5("4");       //mData.getmNumberOfPeriodClass5.toString();
+        mGui.setmTextFieldNumberOfClass6("1");       //mData.getmNumberOfPeriodClass6.toString();
     }
 
     public void onButtonBackToChooseFileClicked() {;
