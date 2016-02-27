@@ -3,7 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -32,7 +31,9 @@ public class Data {
     private ChallengeCollection mAllChallenges;
     private ChallengeCollection mChallengesCurrentIndexCard;
     private UserProgressCollection mUserProgressForCurrentIndexCard;
-    private UserProgressCollection UserProgressForCurrentIndexCardAndCurrentUser;
+    private UserProgressCollection mUserProgressForCurrentIndexCardAndCurrentUser;
+    private ChallengeCollection mDueChallenges;
+    private Challenge mChacheChallenge;
 
     public Data(Activity activity, Bundle savedInstanceState) {
         Intent intent;
@@ -88,7 +89,7 @@ public class Data {
         this.mCurrentIndexCard = mCurrentIndexCard;
     }
 
-    // Beginn Algorithmus DueChallenges. Aufruf der Methoden in ApplicationLogic bei
+    // Beginn Algorithmus DueChallenges. Aufruf der Methoden in ApplicationLogic bei onButtonStartLearningClicked
 
      //I. -> Aus allen Challenges die mit passender Indexcard sortieren: Liste aller Fragen der gewählten IndexCard (L1)
     public ChallengeCollection getChallengesForSelectedIndexCard(){
@@ -118,10 +119,10 @@ public class Data {
     public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() {
         for(int m=0; m<mUserProgressForCurrentIndexCard.getSize(); m++) {
             if(mUserProgressForCurrentIndexCard.getUserProgress(m).getmUserName().equals(mCurrentUser.getmName())) {
-                UserProgressForCurrentIndexCardAndCurrentUser.addUserProgress(allUserProgresses.getUserProgress(m));
+                mUserProgressForCurrentIndexCardAndCurrentUser.addUserProgress(allUserProgresses.getUserProgress(m));
             }
         }
-        return UserProgressForCurrentIndexCardAndCurrentUser;
+        return mUserProgressForCurrentIndexCardAndCurrentUser;
     }
 
     // IV. -> Aktuelles Tagesdatum zwischenspeichern und in Format yyyy.MM.dd.HH.mm.ss umwandeln
@@ -130,15 +131,24 @@ public class Data {
         return timestamp.toString();
     }
 
-    /**
     // V. -> UserSettings zwischenspeichern
 
-     //
-     VI. -> Aus vorheriger Liste (L3) jeden Timestamp-Eintrag >= Timestamp+UserSetting der Klasse
+     // VI. -> Aus vorheriger Liste (L3) jeden Timestamp-Eintrag >= Timestamp+UserSetting der Klasse: Liste fälliger Challenges (L4)
 
-     /**Klasse1: wenn LastPlayed+SettingsKlasse1 größerGleich Tagesdatum, dann auf dueChallengeList. Sonst, nächster Satz
+     //Klasse1: wenn LastPlayed+SettingsKlasse1 größerGleich Tagesdatum, dann auf dueChallengeList.
 
+     /** public ChallengeCollection getDueChallengeList(){
+         for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
+             if(mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmZeitklasse() == 1 && ) {
+                 int mCacheId = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmChallengeID();
 
-     VII. -> 1.Eintrag von L3 auslesen und je nach FrageTypLayout nächste Acitivity rufen (case Anweisung). Parameter übergeben.
-    */
+                 // mChacheChallenge = ChallengeCollection.getChallenge(mCacheId);
+                 // mDueChallenges.addChallenge();
+             }
+         }
+         return mDueChallenges;
+     }*/
+
+    // VII. -> Einträge von L4 auslesen und je nach FrageTypLayout entsprechende Acitivity rufen. Parameter übergeben.
+
 }
