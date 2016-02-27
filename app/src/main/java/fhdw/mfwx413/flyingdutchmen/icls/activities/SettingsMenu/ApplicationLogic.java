@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -33,26 +32,36 @@ public class ApplicationLogic{
     private void initialUpdateDataToGui() {
         fillAllSpinner();
         fillAllTimePeriods();
+       // System.out.println(mData.getCurrentUser().getmPeriodClass1());
     }
 
     //simple method to convert a given string period value from a given unit into minutes and return as int
     //Todo Daniel: make it work
-    private int convertChosenPeriodInMinutes (String chosenPeriod, String chosenTimeUnit)
+    private int convertChosenPeriod(String originalPeriod, String originalTimeUnit, String wantedTimeUnit)
     {
-    int chosenPeriodInt;
-        chosenPeriodInt = Integer.parseInt(chosenPeriod);
-        switch (chosenTimeUnit) {
+    int originalPeriodInt;
+        originalPeriodInt = Integer.parseInt(originalPeriod);
+        switch (wantedTimeUnit) {
             case "Minute(n)":
-                //Nothing to do
-            break;
+                switch (originalTimeUnit) {
+                    case "Minute(n)": break;
+                    case "Stunde(n)": originalPeriodInt = originalPeriodInt * 60; break;
+                    case "Tage(e)":   originalPeriodInt = originalPeriodInt * 60 * 24; break;
+                }
             case "Stunde(n)":
-                chosenPeriodInt = chosenPeriodInt * 60;
-            break;
-            case "Tage(e)":
-                chosenPeriodInt = chosenPeriodInt * 60 * 24;
-            break;
+                switch (originalTimeUnit) {
+                    case "Minute(n)": originalPeriodInt = originalPeriodInt / 60; break;
+                    case "Stunde(n)": break;
+                    case "Tage(e)":   originalPeriodInt = originalPeriodInt * 24; break;
+                }
+            case "Tag(e)":
+                switch (originalTimeUnit) {
+                    case "Minute(n)": originalPeriodInt = originalPeriodInt / 24 / 60; break;
+                    case "Stunde(n)": originalPeriodInt = originalPeriodInt / 24;
+                    case "Tage(e)":   break;
+                }
         }
-        return chosenPeriodInt;
+        return originalPeriodInt;
     }
 
 
@@ -149,12 +158,12 @@ public class ApplicationLogic{
                 !chosenPeriodClass5.isEmpty() &&
                 !chosenPeriodClass6.isEmpty()
                 ){
-            chosenPeriodClass1Int = convertChosenPeriodInMinutes(chosenPeriodClass1, chosenTimeUnitClass1);
-            chosenPeriodClass2Int = convertChosenPeriodInMinutes(chosenPeriodClass2, chosenTimeUnitClass2);
-            chosenPeriodClass3Int = convertChosenPeriodInMinutes(chosenPeriodClass3, chosenTimeUnitClass3);
-            chosenPeriodClass4Int = convertChosenPeriodInMinutes(chosenPeriodClass4, chosenTimeUnitClass4);
-            chosenPeriodClass5Int = convertChosenPeriodInMinutes(chosenPeriodClass5, chosenTimeUnitClass5);
-            chosenPeriodClass6Int = convertChosenPeriodInMinutes(chosenPeriodClass6, chosenTimeUnitClass6);
+            chosenPeriodClass1Int = convertChosenPeriod(chosenPeriodClass1, chosenTimeUnitClass1, "Minute(n)");
+            chosenPeriodClass2Int = convertChosenPeriod(chosenPeriodClass2, chosenTimeUnitClass2, "Minute(n)");
+            chosenPeriodClass3Int = convertChosenPeriod(chosenPeriodClass3, chosenTimeUnitClass3, "Minute(n)");
+            chosenPeriodClass4Int = convertChosenPeriod(chosenPeriodClass4, chosenTimeUnitClass4, "Minute(n)");
+            chosenPeriodClass5Int = convertChosenPeriod(chosenPeriodClass5, chosenTimeUnitClass5, "Minute(n)");
+            chosenPeriodClass6Int = convertChosenPeriod(chosenPeriodClass6, chosenTimeUnitClass6, "Minute(n)");
         }
         else
         {
