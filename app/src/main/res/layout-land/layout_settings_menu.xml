@@ -37,8 +37,8 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit1"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
@@ -70,8 +70,8 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit2"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
@@ -103,8 +103,8 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit3"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
@@ -138,8 +138,8 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit4"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
@@ -173,8 +173,8 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit5"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
@@ -208,8 +208,8 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit6"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
