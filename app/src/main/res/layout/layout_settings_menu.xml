@@ -37,15 +37,18 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit1"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldSettingsMenu"
-        android:layout_toRightOf="@+id/periodClass1" />
+        android:layout_toRightOf="@+id/periodClass1"
+        />
+    <!-- android:layout_width="@dimen/activity_width_dropdown"
+    android:layout_height="@dimen/activity_height_dropdown"-->
 
     <TextView
         android:id="@+id/textFieldPeriodClass2"
@@ -70,15 +73,16 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit2"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldPeriodClass1"
-        android:layout_toRightOf="@+id/periodClass2" />
+        android:layout_toRightOf="@+id/periodClass2"
+        />
 
     <TextView
         android:id="@+id/textFieldPeriodClass3"
@@ -103,15 +107,16 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit3"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldPeriodClass2"
-        android:layout_toRightOf="@+id/periodClass3" />
+        android:layout_toRightOf="@+id/periodClass3"
+        />
 
     <TextView
         android:id="@+id/textFieldPeriodClass4"
@@ -136,15 +141,16 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit4"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldPeriodClass3"
-        android:layout_toRightOf="@+id/periodClass4" />
+        android:layout_toRightOf="@+id/periodClass4"
+        />
 
     <TextView
         android:id="@+id/textFieldPeriodClass5"
@@ -169,15 +175,16 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit5"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldPeriodClass4"
-        android:layout_toRightOf="@+id/periodClass5" />
+        android:layout_toRightOf="@+id/periodClass5"
+        />
 
     <TextView
         android:id="@+id/textFieldPeriodClass6"
@@ -202,15 +209,17 @@
 
     <Spinner
         android:id="@+id/dropDownSetTimeUnit6"
-        android:layout_width="@dimen/activity_width_dropdown"
-        android:layout_height="@dimen/activity_height_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
         android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_statistics"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldPeriodClass5"
-        android:layout_toRightOf="@+id/periodClass6" />
+        android:layout_toRightOf="@+id/periodClass6"
+        />
+
 
     <Button
         android:id="@+id/buttonAbortSettings"
