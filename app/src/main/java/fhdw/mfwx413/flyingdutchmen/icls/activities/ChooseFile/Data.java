@@ -32,6 +32,7 @@ public class Data {
     private ChallengeCollection mAllChallenges;
     private ChallengeCollection mChallengesCurrentIndexCard;
     private UserProgressCollection mUserProgressForCurrentIndexCard;
+    private UserProgressCollection UserProgressForCurrentIndexCardAndCurrentUser;
 
     public Data(Activity activity, Bundle savedInstanceState) {
         Intent intent;
@@ -49,11 +50,11 @@ public class Data {
             restoreDataFromBundle(savedInstanceState);
         }
 
-        // TEST
+        /** TEST
         String CurrentTime;
         CurrentTime = getCurrentTimeStamp();
         Log.d("Current Time: ", "" + CurrentTime);
-        //EOT
+        */
 
 
 
@@ -87,32 +88,42 @@ public class Data {
         this.mCurrentIndexCard = mCurrentIndexCard;
     }
 
-    /** Beginn Algorithmus DueChallenges
+    // Beginn Algorithmus DueChallenges. Aufruf der Methoden in ApplicationLogic bei
 
      //I. -> Aus allen Challenges die mit passender Indexcard sortieren: Liste aller Fragen der gewählten IndexCard (L1)
     public ChallengeCollection getChallengesForSelectedIndexCard(){
         for(int i=0; i<mAllChallenges.getSize(); i++) {
-            if(mAllChallenges[7][i] = mCurrentIndexCard.getmID()){
-                mChallengesCurrentIndexCard.addChallenge(mAllChallenges[][i]);
+            if(mAllChallenges.getChallenge(i).getmIndexCard().getmID() == mCurrentIndexCard.getmID()) {
+                mChallengesCurrentIndexCard.addChallenge(mAllChallenges.getChallenge(i));
             }
         }
         return mChallengesCurrentIndexCard;
+
     }
 
-     II. -> Aus UserProgressCollection die mit übrig gebliebener ChallengeId sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard (L2)
+     // II. -> Aus UserProgressCollection die mit übrig gebliebener ChallengeId sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard (L2)
     public UserProgressCollection getUserProgressForCurrentIndexCard() {
         for(int k=0; k<allUserProgresses.getSize(); k++){
-            for(int l=0; l<mChallengesCurrentIndexCard.size; l++){
-                if(allUserProgresses[1][k] = mChallengesCurrentIndexCard[7][l]{
-                    mUserProgressForCurrentIndexCard.addUserProgress(allUserProgresses[][k]);
+            for(int l=0; l<mChallengesCurrentIndexCard.getSize(); l++) {
+                if(allUserProgresses.getUserProgress(k).getmChallengeID() == mChallengesCurrentIndexCard.getChallenge(l).getmID()) {
+                    mUserProgressForCurrentIndexCard.addUserProgress(allUserProgresses.getUserProgress(k));
                 }
             }
         }
+        return mUserProgressForCurrentIndexCard;
     }
 
      // III. -> Aus vorheriger Liste (L2) den ausgewählten User sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard & gewähltem User (L3)
 
-     */
+    public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() {
+        for(int m=0; m<mUserProgressForCurrentIndexCard.getSize(); m++) {
+            if(mUserProgressForCurrentIndexCard.getUserProgress(m).getmUserName().equals(mCurrentUser.getmName())) {
+                UserProgressForCurrentIndexCardAndCurrentUser.addUserProgress(allUserProgresses.getUserProgress(m));
+            }
+        }
+        return UserProgressForCurrentIndexCardAndCurrentUser;
+    }
+
     // IV. -> Aktuelles Tagesdatum zwischenspeichern und in Format yyyy.MM.dd.HH.mm.ss umwandeln
     public String getCurrentTimeStamp() {
         Timestamp timestamp = new Timestamp(new Date().getTime());

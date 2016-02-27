@@ -1,5 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 import android.content.Context;
@@ -21,6 +23,9 @@ public class ApplicationLogic {
     private int count;
     private ArrayList<String> indexCards = new ArrayList<>();
     private String mSelectedIndexCard;
+    private ChallengeCollection mChallengesCurrentIndexCard;
+    private UserProgressCollection mUserProgressForCurrentIndexCard;
+    private UserProgressCollection mUserProgressForCurrentIndexCardAndCurrentUser;
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
         mData = data;
@@ -36,6 +41,8 @@ public class ApplicationLogic {
 
     // Added by Edgar 27.02
     public void onButtonStatisticsClicked() {
+        Log.d("CurrentindexCard: ", "" + mData.getCurrentIndexCard());
+        Log.d("CurrentUser: ", "" + mData.getCurrentUser());
         Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
     }
 
@@ -49,12 +56,30 @@ public class ApplicationLogic {
     }
 
     public void onButtonStartLearningClicked() {
-        //TODO Max: Start Lernmodus mit fälligen Fragen oder Ende-Screen
-        // getIndexCard erwartet int, es ist aber nur String als Übergabeparameter vorhanden
-        // Erster Parameter ist auf Grund der IndexCard.csv ein int als ID, dann erst Name.
-
+        // getIndexCard erwartet int, es ist aber nur String als Übergabeparameter vorhanden (s.IndexCardCollection)
         //mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCard(mSelectedIndexCard));
+
+        mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
+        if(mChallengesCurrentIndexCard == null) {
+            //TODO Max: Vernünftiges Fehlerhandling
+            //Log.d("Keine Challenges für aktuelle IndexCard verfügbar.", "");
+        }
+
+        mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
+        if(mUserProgressForCurrentIndexCard == null) {
+            //TODO Max: Vernünftiges Fehlerhandling
+        }
+
+        mUserProgressForCurrentIndexCardAndCurrentUser = mData.getUserProgressForCurrentIndexCardAndCurrentUser();
+        if(mUserProgressForCurrentIndexCardAndCurrentUser == null) {
+            //TODO Max: Vernünftiges Fehlerhandling
+        }
+
+
         //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
+
+        //TODO Max: Aufruf der Methoden des DueChallenges Algorithmus. Wenn DueChallenges-Liste leer, dann EndeScreen
+
         Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
     }
 
