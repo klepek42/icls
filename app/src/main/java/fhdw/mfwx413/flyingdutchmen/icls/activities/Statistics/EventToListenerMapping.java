@@ -26,7 +26,6 @@ public class EventToListenerMapping implements View.OnClickListener {
                 mApplicationLogic.onButtonStartLearning();
                 break;
         }
-
     }
 
 }

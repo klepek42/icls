@@ -1,6 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 
 import android.app.Activity;
+import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
@@ -22,8 +23,6 @@ public class Data {
     public Data(Activity activity) {
         mActivity = activity;
         mAllUsers = UserDatabase.getAllUser(mActivity);
-        //mUserCollection = UserDatabase.getAllUsers();
-        //mGivenUser = DEFAULT_GIVEN_USER;
     }
 
     public User getmGivenUser() {
@@ -37,4 +36,13 @@ public class Data {
     public UserCollection getmAllUsers() {
         return mAllUsers;
     }
+
+    public User getCurrentUser() {
+        return mGivenUser;
+    }
+
+    public void setmCurrentUser(User mCurrentUser) {
+        this.mGivenUser = mCurrentUser;
+    }
+
 }

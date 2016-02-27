@@ -14,8 +14,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  * Responsibility: Max
  * Updated by Max on 20.02.2016
  * Updated by Edgar on 21.02.2016
+ * Updated by Jonas on 26.02.2016
  */
-public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
+public class ApplicationLogic{
 
     private Data mData;
     private Gui mGui;
@@ -65,18 +66,12 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         mGui.getChooseUser().setAdapter(adapter);
-        mGui.getChooseUser().setOnItemSelectedListener(this);
-
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    //Set selected User from Spinner
+    public void onUserSelected(int position){
         System.out.println(userNames.get(position));
         mselectedName = userNames.get(position);
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-//Spinner is always filled at the time of the initialization of activity, therefore method doesn't need to be filled
-    }
 }

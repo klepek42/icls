@@ -7,7 +7,8 @@ import java.util.List;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
- * Created by H00052647 on 23.02.2016.
+ * Created by Daniel on 23.02.2016.
+ * Responsibility: Daniel zur Linden
  */
 public class UserProgressDatabase {
 

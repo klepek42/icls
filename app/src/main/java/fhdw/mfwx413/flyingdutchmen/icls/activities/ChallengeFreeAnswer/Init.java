@@ -8,7 +8,9 @@ import android.os.Bundle;
  */
 public class Init extends Activity {
 
-    public Data mData;
+// Pascal Heß 24.02.2016
+//  public Data mData; replaced with:
+    private Data mData;
     private Gui mGui;
     private ApplicationLogic mApplicationLogic;
 
@@ -46,5 +48,11 @@ public class Init extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         mData.saveDataFromBundle(outState);
         super.onSaveInstanceState(outState);
+    }
+
+    // Back to layout_choose_file (back button)
+    @Override
+    public void onBackPressed() {
+        mApplicationLogic.goBackToChooseFile();
     }
 }

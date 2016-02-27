@@ -3,6 +3,9 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeImagineAnswer;
 import android.app.Activity;
 import android.os.Bundle;
 
+import fhdw.mfwx413.flyingdutchmen.icls.R;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
+
 /**
  * Responsibility: Edgar Klepek
  */
@@ -46,5 +49,11 @@ public class Init extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         mData.saveDataFromBundle(outState);
         super.onSaveInstanceState(outState);
+    }
+
+    // Back to layout_choose_file (back button)
+    @Override
+    public void onBackPressed() {
+        mApplicationLogic.onButtonAbortClicked();
     }
 }

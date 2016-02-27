@@ -36,9 +36,9 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
 
     }
 
-    // Noch nicht fertig
+    // Added by Edgar 27.02
     public void onButtonStatisticsClicked() {
-        //Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), this);
+        Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getmCurrentIndex());
     }
 
     public void onButtonLogoutClicked() {
@@ -68,7 +68,7 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
 
         // ZUM TESTEN; KANN SPÄTER WIEDER WEG
         count = indexCards.size();
-        Log.d("indexCards.size: ", "" + count);
+        Log.d("users.size: ", "" + count);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, indexCards);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -81,11 +81,13 @@ public class ApplicationLogic implements AdapterView.OnItemSelectedListener {
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         System.out.println(indexCards.get(position));
         mSelectedIndexCard = indexCards.get(position);
+        // Bei Auswahl ein IndexCard Objekt rausfischen und irgendwie als mCurrentIndex für Data und Bundle übergeben
+        // mSelectedIndexCard ist leider nur ein String und kein IndexCard
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        //Spinner is always filled at the time of the initialization of activity, therefore method doesn't need to be filled
+        // Spinner is always filled init of activity, therefore method doesnt need to be filled
     }
 
 }

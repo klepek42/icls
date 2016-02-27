@@ -37,7 +37,7 @@ public class ApplicationLogic {
 
 
     public void onButtonAbortClicked(){
-        Navigation.startActivityStartMenu(mData.getActivity());
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
 
     //Todo zurücktaste realisieren

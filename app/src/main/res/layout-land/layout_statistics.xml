@@ -30,7 +30,8 @@
         android:text="@string/string_file_name"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_statistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldStatistics"
         android:layout_toRightOf="@+id/textFieldFileName" />
 
@@ -50,7 +51,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldFileNameText"
         android:layout_toRightOf="@+id/textFieldAllChallenges" />
 
@@ -70,7 +72,8 @@
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldNumberAllChallenges"
         android:layout_toRightOf="@+id/textFieldDueChallenges" />
 
@@ -80,8 +83,10 @@
         android:layout_height="wrap_content"
         android:text="@string/string_class_one"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_below="@+id/textFieldDueChallenges" />
+        android:layout_marginTop="@dimen/activity_margin_statistics"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_landscape_margin_change_text"
+        android:layout_below="@+id/textFieldStatistics" />
 
     <TextView
         android:id="@+id/textFieldNumberOfClass1"
@@ -89,9 +94,9 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_marginTop="@dimen/activity_margin_statistics"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
-        android:layout_below="@+id/textFieldDueChallenges"
+        android:layout_below="@+id/textFieldStatistics"
         android:layout_toRightOf="@+id/textFieldClass1" />
 
     <TextView
@@ -101,6 +106,8 @@
         android:text="@string/string_class_two"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_landscape_margin_change_text"
         android:layout_below="@+id/textFieldClass1" />
 
     <TextView
@@ -121,6 +128,8 @@
         android:text="@string/string_class_three"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_landscape_margin_change_text"
         android:layout_below="@+id/textFieldClass2" />
 
     <TextView
@@ -141,9 +150,9 @@
         android:text="@string/string_class_four"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_class_land"
-        android:layout_below="@+id/textFieldDueChallenges"
-        android:layout_toRightOf="@+id/textFieldNumberOfClass1" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_landscape_margin_change_text"
+        android:layout_below="@+id/textFieldClass3" />
 
     <TextView
         android:id="@+id/textFieldNumberOfClass4"
@@ -153,7 +162,7 @@
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
-        android:layout_below="@+id/textFieldDueChallenges"
+        android:layout_below="@+id/textFieldClass3"
         android:layout_toRightOf="@+id/textFieldClass4" />
 
     <TextView
@@ -163,9 +172,9 @@
         android:text="@string/string_class_five"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_class_land"
-        android:layout_below="@+id/textFieldClass4"
-        android:layout_toRightOf="@+id/textFieldNumberOfClass2" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_landscape_margin_change_text"
+        android:layout_below="@+id/textFieldClass4" />
 
     <TextView
         android:id="@+id/textFieldNumberOfClass5"
@@ -185,9 +194,9 @@
         android:text="@string/string_class_six"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
-        android:layout_marginLeft="@dimen/activity_margin_class_land"
-        android:layout_below="@+id/textFieldClass5"
-        android:layout_toRightOf="@+id/textFieldNumberOfClass3" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_landscape_margin_change_text"
+        android:layout_below="@+id/textFieldClass5" />
 
     <TextView
         android:id="@+id/textFieldNumberOfClass6"
@@ -208,6 +217,8 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
+        android:paddingLeft="@dimen/activity_padding_button"
+        android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false" />
@@ -220,6 +231,8 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
+        android:paddingLeft="@dimen/activity_padding_button"
+        android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:textAllCaps="false" />

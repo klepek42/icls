@@ -1,8 +1,10 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer;
 
+import android.util.Log;
 import android.view.View;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 
 /**
  * Responsibility: Jonas Krabs
@@ -20,12 +22,18 @@ public class EventToListenerMapping implements View.OnClickListener{
     public void onClick(View v){
         switch (v.getId()) {
             case R.id.buttonConfirmFreeAnswer:
-                mApplicationLogic.onButtonConfirmFreeAnswerClicked();
+                try {
+                    mApplicationLogic.onButtonConfirmFreeAnswerClicked();
+                }
+                catch (InvalidCorrectAnswerTypeException e){
+                    Log.e("ICLS-ERROR", "ChallengeFreeAnswer::EventToListenerMapping::onClick ", e);
+                    mApplicationLogic.showErrorToastOfInvalidAnswerType();
+                    mApplicationLogic.goBackToChooseFile();
+                }
                 break;
             case R.id.buttonAbort:
-                mApplicationLogic.onButtonAbortClicked();
+                mApplicationLogic.goBackToChooseFile();
                 break;
-            //Todo Jonas: ZurückButton realisieren
         }
     }
 }

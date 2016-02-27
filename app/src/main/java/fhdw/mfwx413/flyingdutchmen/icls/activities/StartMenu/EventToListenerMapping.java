@@ -10,8 +10,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Max Schumacher
  * Updated by Max Schumacher on 20.02.2016
  */
-
-public class EventToListenerMapping implements View.OnClickListener {
+public class EventToListenerMapping implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private ApplicationLogic mApplicationLogic;
 
@@ -20,6 +19,7 @@ public class EventToListenerMapping implements View.OnClickListener {
         gui.getButtonAddUser().setOnClickListener(this);
         gui.getButtonConfirmUser().setOnClickListener(this);
         gui.getButtonEditUser().setOnClickListener(this);
+        gui.getChooseUser().setOnItemSelectedListener(this);
     }
 
     @Override
@@ -37,5 +37,17 @@ public class EventToListenerMapping implements View.OnClickListener {
                 break;
         }
     }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        mApplicationLogic.onUserSelected(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        //Spinner is always filled init of activity, therefore method doesnt need to be filled
+    }
+
 
 }

@@ -226,6 +226,8 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
+        android:paddingLeft="@dimen/activity_padding_button"
+        android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:textAllCaps="false" />
@@ -238,6 +240,8 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
+        android:paddingLeft="@dimen/activity_padding_button"
+        android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false" />
@@ -250,6 +254,8 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
+        android:paddingLeft="@dimen/activity_padding_button"
+        android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:textAllCaps="false" />
