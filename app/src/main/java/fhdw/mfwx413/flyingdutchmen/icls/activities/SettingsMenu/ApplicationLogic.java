@@ -46,20 +46,23 @@ public class ApplicationLogic{
                 switch (originalTimeUnit) {
                     case "Minute(n)": break;
                     case "Stunde(n)": originalPeriodInt = originalPeriodInt * 60; break;
-                    case "Tage(e)":   originalPeriodInt = originalPeriodInt * 60 * 24; break;
+                    case "Tag(e)":   originalPeriodInt = originalPeriodInt * 60 * 24; break;
                 }
+                break;
             case "Stunde(n)":
                 switch (originalTimeUnit) {
                     case "Minute(n)": originalPeriodInt = originalPeriodInt / 60; break;
                     case "Stunde(n)": break;
-                    case "Tage(e)":   originalPeriodInt = originalPeriodInt * 24; break;
+                    case "Tag(e)":   originalPeriodInt = originalPeriodInt * 24; break;
                 }
+                break;
             case "Tag(e)":
                 switch (originalTimeUnit) {
                     case "Minute(n)": originalPeriodInt = originalPeriodInt / 24 / 60; break;
                     case "Stunde(n)": originalPeriodInt = originalPeriodInt / 24;
-                    case "Tage(e)":   break;
+                    case "Tag(e)":   break;
                 }
+                break;
         }
         return originalPeriodInt;
     }
