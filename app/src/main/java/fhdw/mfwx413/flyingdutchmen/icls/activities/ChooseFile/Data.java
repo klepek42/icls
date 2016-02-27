@@ -88,6 +88,8 @@ public class Data {
     }
 
     /** Beginn Algorithmus DueChallenges
+
+     //I. -> Aus allen Challenges die mit passender Indexcard sortieren: Liste aller Fragen der gewählten IndexCard (L1)
     public ChallengeCollection getChallengesForSelectedIndexCard(){
         for(int i=0; i<mAllChallenges.getSize(); i++) {
             if(mAllChallenges[7][i] = mCurrentIndexCard.getmID()){
@@ -97,7 +99,7 @@ public class Data {
         return mChallengesCurrentIndexCard;
     }
 
-
+     II. -> Aus UserProgressCollection die mit übrig gebliebener ChallengeId sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard (L2)
     public UserProgressCollection getUserProgressForCurrentIndexCard() {
         for(int k=0; k<allUserProgresses.getSize(); k++){
             for(int l=0; l<mChallengesCurrentIndexCard.size; l++){
@@ -107,11 +109,25 @@ public class Data {
             }
         }
     }
-     */
 
+     // III. -> Aus vorheriger Liste (L2) den ausgewählten User sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard & gewähltem User (L3)
+
+     */
+    // IV. -> Aktuelles Tagesdatum zwischenspeichern und in Format yyyy.MM.dd.HH.mm.ss umwandeln
     public String getCurrentTimeStamp() {
         Timestamp timestamp = new Timestamp(new Date().getTime());
         return timestamp.toString();
     }
 
+    /**
+    // V. -> UserSettings zwischenspeichern
+
+     //
+     VI. -> Aus vorheriger Liste (L3) jeden Timestamp-Eintrag >= Timestamp+UserSetting der Klasse
+
+     /**Klasse1: wenn LastPlayed+SettingsKlasse1 größerGleich Tagesdatum, dann auf dueChallengeList. Sonst, nächster Satz
+
+
+     VII. -> 1.Eintrag von L3 auslesen und je nach FrageTypLayout nächste Acitivity rufen (case Anweisung). Parameter übergeben.
+    */
 }
