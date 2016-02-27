@@ -18,14 +18,14 @@ public class Init extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData();
+        initData(savedInstanceState);
         initGui();
         initApplicationLogic();
         initEventToListenerMapping();
     }
 
     private void initApplicationLogic(){
-        mApplicationLogic = new ApplicationLogic(mData, mGui);
+        mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
     private void initEventToListenerMapping() {
@@ -36,13 +36,20 @@ public class Init extends Activity {
         mGui = new Gui(this);
     }
 
-    private void initData(){
-        mData = new Data(this);
+    private void initData(Bundle savedInstanceState){
+        mData = new Data(this, savedInstanceState);
+    }
+
+    // Save data if activity stops
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        mData.saveDataFromBundle(outState);
+        super.onSaveInstanceState(outState);
     }
 
     // Back to layout_choose_file (back button)
     @Override
     public void onBackPressed() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmCurrentUser());
+        mApplicationLogic.onButtonBackToChooseFileClicked();
     }
 }

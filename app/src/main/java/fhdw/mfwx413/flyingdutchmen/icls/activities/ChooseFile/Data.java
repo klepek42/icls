@@ -31,6 +31,9 @@ public class Data {
         intent = activity.getIntent();
         mCurrentUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
         Log.d("mCurrentUser", "" + mCurrentUser.getmName());
+        // Bundle Speicherung und Laden fehlt noch!
+        // mCurrentIndex muss aus Übertragung geladen weredn
+        mCurrentIndex = new IndexCard(6, "Bier");
         allUserProgresses = UserProgressDatabase.getAllUserProgresses(mActivity);
         mAllIndexCards = IndexCardDatabase.getIndexCards(mActivity);
     }
@@ -45,6 +48,10 @@ public class Data {
 
     public Activity getActivity() {
         return mActivity;
+    }
+
+    public IndexCard getmCurrentIndex() {
+        return mCurrentIndex;
     }
 
     public void setmCurrentIndex(IndexCard mCurrentIndex) {

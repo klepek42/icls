@@ -29,13 +29,13 @@ public class Data {
         Intent intent;
 
         if(bundle == null) {
-            //if bundle isn't filled, the data will be initialized by the extras of the intent
+            // First start of the activity
             intent = mActivity.getIntent();
             mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
         }
         else{
-            //restore Data if bundle is filled
+            // Restore Data if bundle is filled
             restoreDataFromBundle(bundle);
         }
 
