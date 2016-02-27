@@ -2,6 +2,8 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
 
 import java.io.Serializable;
 
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
+
 /**
  * Responsibility: Jonas Krabs
  */
@@ -95,7 +97,7 @@ public class Challenge implements Serializable{
     // Method, that delivers the String of the correct answer
     // is used in both Feedback-Application-Logic-Classes
 
-    public String getmCorrectAnswerString() {
+    public String getmCorrectAnswerString() throws InvalidCorrectAnswerTypeException{
         String stringCorrectAnswer = null;
 
         //Switch-Statement is not correct! --> ChallengeFreeAnswer/ApplicationLogic
@@ -133,8 +135,9 @@ public class Challenge implements Serializable{
                 stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerTwo);
                 stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerThree);
                 break;
+            default:
+                throw new InvalidCorrectAnswerTypeException("Challenge::getmCorrectAnswerString: Ungültiger Wert für CorrectAnswer: " + mCorrectAnswer);
         }
         return stringCorrectAnswer;
-        //Todo Jonas Exception Handling
     }
 }

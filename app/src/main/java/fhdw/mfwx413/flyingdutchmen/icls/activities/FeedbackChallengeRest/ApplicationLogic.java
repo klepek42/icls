@@ -2,8 +2,10 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackChallengeRest;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 
@@ -29,20 +31,26 @@ public class ApplicationLogic {
         String correctAnswer;
 
         //delivers String with the correct answer(s)
-        correctAnswer = mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmCorrectAnswerString();
+        try {
+            correctAnswer = mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmCorrectAnswerString();
 
-        //set feedback field with the real correct answer
-        mGui.setFeedbackTextCorrectAnswer(correctAnswer);
+            //set feedback field with the real correct answer
+            mGui.setFeedbackTextCorrectAnswer(correctAnswer);
 
-        //if the answer was correct
-        if (mData.ismIsAnswerCorrect() == true) {
-            mGui.setFeedbackText("Die Antwort war korrekt");
-            mGui.setFeedbackTextUpDownGrade("Die Frage wird heraufgestuft");
+            //if the answer was correct
+            if (mData.ismIsAnswerCorrect() == true) {
+                mGui.setFeedbackText("Die Antwort war korrekt");
+                mGui.setFeedbackTextUpDownGrade("Die Frage wird heraufgestuft");
+            } else {
+                //if the answer was false
+                mGui.setFeedbackText("Die Antwort war falsch");
+                mGui.setFeedbackTextUpDownGrade("Die Frage wird wieder heruntergestuft");
+            }
         }
-        else {
-            //if the answer was false
-            mGui.setFeedbackText("Die Antwort war falsch");
-            mGui.setFeedbackTextUpDownGrade("Die Frage wird wieder heruntergestuft");
+        catch (InvalidCorrectAnswerTypeException e){
+            Log.e("ICLS-ERROR", "FeedbackChallengeRest::ApplicationLogic::initialUpdateGui ", e);
+            Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
+            Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
         }
 
     }

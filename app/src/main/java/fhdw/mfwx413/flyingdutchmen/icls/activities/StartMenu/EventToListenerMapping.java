@@ -10,7 +10,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Max Schumacher
  * Updated by Max Schumacher on 20.02.2016
  */
-//Todo Jonas: saubere trennung von EventToListenerMapping und ApplicationLogic realisieren
 public class EventToListenerMapping implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private ApplicationLogic mApplicationLogic;

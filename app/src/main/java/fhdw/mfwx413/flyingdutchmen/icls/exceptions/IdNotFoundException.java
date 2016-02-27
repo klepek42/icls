@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.utilities;
+package fhdw.mfwx413.flyingdutchmen.icls.exceptions;
 
 /**
  * Created by Krabs on 23.02.2016.

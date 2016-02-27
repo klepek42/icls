@@ -3,7 +3,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
 import android.content.Context;
 import android.util.Log;
 import java.util.List;
-import fhdw.mfwx413.flyingdutchmen.icls.utilities.IdNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
