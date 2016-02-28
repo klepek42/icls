@@ -68,7 +68,7 @@ public class ApplicationLogic {
                 Navigation.startActivityFinalEndOfChallenges(mData.getActivity());
                 //a challenge of type ChallengeFreeAnswer is due
             case 1:
-                Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
+                Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
                 break;
             //a challenge of type ChallengeImagineAnser is due
             case 2:

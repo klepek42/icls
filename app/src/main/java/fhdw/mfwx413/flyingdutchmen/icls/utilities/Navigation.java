@@ -24,9 +24,13 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityChallengeFreeAnswer(Activity callingActivity){
+    public static void startActivityChallengeFreeAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer.Init.class);
+        intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
+        intent.putExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, currentChallengeId);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }

@@ -1,8 +1,12 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackChallengeRest;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Responsibility: Pascal Heß
@@ -19,14 +23,20 @@ public class EventToListenerMapping implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.buttonLogout:
+        switch (v.getId()) {
+            case R.id.buttonAbort:
                 mApplicationLogic.onButtonAbortClicked();
                 break;
-            case R.id.buttonStatistics:
-                mApplicationLogic.onButtonContinue();
-                break;
+            case R.id.buttonContinue:
+                try {
+                    mApplicationLogic.onButtonContinue();
+                } catch (InvalidQuestionTypeLayoutException e) {
+                    Log.e("ICLS-Error", "FeedbackChallengeRest::ApplicationLogic::onButtonContinue", e);
+                    mApplicationLogic.errorToastFalseLayout();
+                    //here happens the same reaction as when you clicked on the abort Button
+                    mApplicationLogic.onButtonAbortClicked();
+                    break;
+                }
         }
     }
 }

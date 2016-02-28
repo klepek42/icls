@@ -42,6 +42,9 @@ public class ApplicationLogic {
     // Start learning mode and open the activity
     public void onButtonStartLearning() {
         // NUR ZU TESTZWECKEN; SPÄTER AUFRUF VON FUNKTIONEN FÜR CHALLENGES
-        Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
+
+        //Pascal Heß: There were changes in the class "Navigation". Now the method needs more parameters for being correctly called.
+        //Therefore the next commented line needs to be adapted.
+        //Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
     }
 }

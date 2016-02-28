@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 
@@ -57,20 +58,21 @@ public class ApplicationLogic {
 
     //method that is invoked if the continue button is clicked
     //call the next dua activity and send the required data
-    public void onButtonContinue(){
+    public void onButtonContinue() throws InvalidQuestionTypeLayoutException {
         int dueChallengeNumber;
 
-        //delivers int value, to decide which Activity has to be started
-        dueChallengeNumber = otherDueChallenges();
+
+            //delivers int value, to decide which Activity has to be started
+            dueChallengeNumber = otherDueChallenges();
 
             //it depends on the layoutType of the next challenge, which activity is to be started next
             switch (dueChallengeNumber) {
                 //no other challenge is due
                 case 0:
                     Navigation.startActivityFinalEndOfChallenges(mData.getActivity());
-                //a challenge of type ChallengeFreeAnswer is due
+                    //a challenge of type ChallengeFreeAnswer is due
                 case 1:
-                    Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
+                    Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
                     break;
                 //a challenge of type ChallengeImagineAnser is due
                 case 2:
@@ -80,15 +82,14 @@ public class ApplicationLogic {
                 case 3:
                     Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
                     break;
-                //Error handling is to be implemented here
-                case 4:
-                    Log.wtf("Fehler bei Errechnung des nächsten Challengetyps","Error");
-                    break;
+                default:
+                    throw new InvalidQuestionTypeLayoutException("FeedbackChallengeRest::ApplicationLogic::onButtonContinue");
             }
-    }
+
+        }
 
     public void onButtonAbortClicked() {
-        //Todo Pascal: What happens, when Abort-Button is clicked?
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
 
     //Methode delivers int value, whether there are other Challenges due or not
@@ -98,7 +99,7 @@ public class ApplicationLogic {
     //value: 3 --> another challenge is due, Type ChallengeMultipleChoice can be started
     //value: 4 --> Error
     public int otherDueChallenges() {
-        int dueChallengeNumber = 4;
+        int dueChallengeNumber = -1;
         int numberOfDueChallengesOfUserInFile;
         int currentChallengeId;
         int nextChallengeId;
@@ -120,4 +121,12 @@ public class ApplicationLogic {
         return dueChallengeNumber;
     }
 
+    //Method,that sets the next challenge ID. (old ID + 1)
+    //Todo Pascal Heß the methoed needs to be implemented and written
+    //--> Data Class of this activity, same for the other feedback activity
+
+    public void errorToastFalseLayout() {
+        Toast.makeText(mActivity, "Unerwartetes layout", Toast.LENGTH_SHORT).show();
+    }
 }
+
