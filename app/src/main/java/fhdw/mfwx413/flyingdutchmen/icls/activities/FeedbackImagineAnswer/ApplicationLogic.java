@@ -65,7 +65,7 @@ public class ApplicationLogic {
         switch (dueChallengeNumber) {
             //no other challenge is due
             case 0:
-                Navigation.startActivityFinalEndOfChallenges(mData.getActivity());
+                Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
                 //a challenge of type ChallengeFreeAnswer is due
             case 1:
                 Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
