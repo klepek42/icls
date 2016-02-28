@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,6 +21,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
  * Created by edgar on 17.02.2016.
@@ -36,11 +38,13 @@ public class Data {
     private UserProgressCollection mUserProgressForCurrentIndexCard;
     private UserProgressCollection mUserProgressForCurrentIndexCardAndCurrentUser;
     private ChallengeCollection mDueChallenges;
-    private Challenge mChacheChallenge;
-    private String mCurrentTime;
     private String mTimeStampBeantwortung;
-    private List<String> mTimeStampsLastAnsweredStrings;
-    private List<Date> mTimeStampsLastAnsweredDates;
+    private Date mLastAnsweredDate;
+    private SimpleDateFormat mLastAnsweredFormat;
+    private Date CurrentDate;
+    private int mCurrentClass;
+    private int mCacheChallengeId;
+    private Challenge mCacheChallenge;
 
     private int mPeriodClass1;
     private int mPeriodClass2;
@@ -49,7 +53,7 @@ public class Data {
     private int mPeriodClass5;
     private int mPeriodClass6;
 
-    public Data(Activity activity, Bundle savedInstanceState) {
+    public Data(Activity activity, Bundle savedInstanceState) throws ParseException {
         Intent intent;
         mActivity = activity;
         intent = activity.getIntent();
@@ -66,11 +70,12 @@ public class Data {
         }
 
         // TEST
-        // getCurrentTimeStamp();
+        // getCurrentTime();
         // Log.d("Current Time: ", "" + mCurrentTime);
 
         getCurrentUsersSettings();
 
+//        getTimeStampLastAnswered(0);
 
     }
 
@@ -112,7 +117,6 @@ public class Data {
             }
         }
         return mChallengesCurrentIndexCard;
-
     }
 
      // II. -> Aus UserProgressCollection die mit übrig gebliebener ChallengeId sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard (L2)
@@ -128,7 +132,6 @@ public class Data {
     }
 
      // III. -> Aus vorheriger Liste (L2) den ausgewählten User sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard & gewähltem User (L3)
-
     public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() {
         for(int m=0; m<mUserProgressForCurrentIndexCard.getSize(); m++) {
             if(mUserProgressForCurrentIndexCard.getUserProgress(m).getmUserName().equals(mCurrentUser.getmName())) {
@@ -138,35 +141,35 @@ public class Data {
         return mUserProgressForCurrentIndexCardAndCurrentUser;
     }
 
-    // IV. -> Aktuelles Tagesdatum zwischenspeichern und in Format yyyy.MM.dd.HH.mm.ss umwandeln
-    public void getCurrentTimeStamp() {
-        // mCurrentTime = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-
+    // IV. -> Aktuelles Tagesdatum zwischenspeichern
+    public void getCurrentTime() {
         Calendar date = Calendar.getInstance();
         long t = date.getTimeInMillis();
-        Date CurrentDate = new Date(t);
+        CurrentDate = new Date(t);
 
-        /** Date aftermPeriodClass1 = new Date(t + mPeriodClass1 * 60000);
-        Log.d("", "" + CurrentDate);
-        Log.d("", "" + aftermPeriodClass1);
-        */
+        //TEST
+        Log.d("CurrentDate: ", "" + CurrentDate);
+        //EOT
     }
 
     // V. TimeStampsLastAnswered zwischenspeichern und in passendes Format umwandeln
+    public void getTimeStampLastAnswered(int index) throws ParseException {
+        //mTimeStampBeantwortung = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(index).getmTimeStampAnswered();
+        //TEST
+        mTimeStampBeantwortung = allUserProgresses.getUserProgress(0).getmTimeStampAnswered();
+        //EOT
+        mLastAnsweredFormat = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+        mLastAnsweredDate = mLastAnsweredFormat.parse(mTimeStampBeantwortung);
+    }
 
-    /**public void getTimeStampsLastAnswered() {
-        for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
-            mTimeStampsLastAnsweredStrings.add(n, mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmTimeStampAnswered());
-            SimpleDateFormat mChacheLastAnswered = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-            mTimeStampsLastAnsweredDates.add(mChacheLastAnswered.parse(mTimeStampsLastAnsweredStrings.get(n)));
-
-
-                    //= mChacheLastAnswered.parse(mTimeStampsLastAnsweredStrings(n));
-        }
-    }*/
+    // Converts Date to Calendar
+    public static Calendar DateToCalendar(Date date){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal;
+    }
 
     // VI. -> UserSettings zwischenspeichern
-
     public void getCurrentUsersSettings() {
         mPeriodClass1 = mCurrentUser.getmPeriodClass1();
         mPeriodClass2 = mCurrentUser.getmPeriodClass2();
@@ -175,26 +178,49 @@ public class Data {
         mPeriodClass5 = mCurrentUser.getmPeriodClass5();
         mPeriodClass6 = mCurrentUser.getmPeriodClass6();
     }
+
      // VII. -> Aus vorheriger Liste (L3) jeden Timestamp-Eintrag >= Timestamp+UserSetting der Klasse: Liste fälliger Challenges (L4)
+     public ChallengeCollection getDueChallengeList() throws ParseException, IdNotFoundException {
+         getCurrentTime();
 
-     //Klasse1: wenn LastPlayed+SettingsKlasse1 größerGleich Tagesdatum, dann auf dueChallengeList.
+         //for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
+         for(int n=0; n<allUserProgresses.getSize(); n++) {
 
-     /**public ChallengeCollection getDueChallengeList(){
-         for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
+             getTimeStampLastAnswered(n);
 
-             //String Test;
-             //Test = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmTimeStampBeantwortung()+mPeriodClass1;
+             Calendar mLastAnsweredCalendar = DateToCalendar(mLastAnsweredDate);
 
-             if(mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmZeitklasse() == 1 && ) {
-                 int mCacheId = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmChallengeID();
+             Log.d("mLastAnsweredDate: ", "" + mLastAnsweredDate);
+             Log.d("mLastAnsweredCalendar: ", "" + mLastAnsweredCalendar);
 
-                 // mChacheChallenge = ChallengeCollection.getChallenge(mCacheId);
-                 // mDueChallenges.addChallenge();
+             //mCurrentClass = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmPeriodClass();
+             mCurrentClass = allUserProgresses.getUserProgress(n).getmPeriodClass();
+
+             switch (mCurrentClass) {
+                 case 1: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass1);
+                     break;
+                 case 2: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass2);
+                     break;
+                 case 3: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass3);
+                     break;
+                 case 4: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass4);
+                     break;
+                 case 5: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass5);
+                     break;
+                 case 6: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass6);
+                     break;
+                 default: //TODO Max: Fehlerhandling, wenn keine Klasse in UserProgress
+                     break;
+             }
+
+             mLastAnsweredDate = mLastAnsweredCalendar.getTime();
+
+             if(mLastAnsweredDate.before(CurrentDate) || mLastAnsweredDate.equals(CurrentDate)) {
+                 mCacheChallengeId = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmChallengeID();
+                 mCacheChallenge = mAllChallenges.getChallengeByKey(mCacheChallengeId);
+                 mDueChallenges.addChallenge(mCacheChallenge);
              }
          }
          return mDueChallenges;
-     }*/
-
-    // VIII. -> Einträge von L4 auslesen und je nach FrageTypLayout entsprechende Acitivity rufen. Parameter übergeben.
-
+     }
 }

@@ -99,7 +99,7 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityFinalEndOfChallenges(Activity callingActivity){
+    public static void startActivityFinalEndOfChallenges(Activity callingActivity, User chosenUser, IndexCard chosenFile){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FinalEndOfChallenges.Init.class);
         callingActivity.startActivity(intent);

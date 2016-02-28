@@ -2,12 +2,14 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 import android.content.Context;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 /**
@@ -26,6 +28,8 @@ public class ApplicationLogic {
     private ChallengeCollection mChallengesCurrentIndexCard;
     private UserProgressCollection mUserProgressForCurrentIndexCard;
     private UserProgressCollection mUserProgressForCurrentIndexCardAndCurrentUser;
+    private ChallengeCollection mDueChallenges;
+    private int mQuestionTypeLayout;
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
         mData = data;
@@ -40,9 +44,13 @@ public class ApplicationLogic {
     }
 
     // Added by Edgar 27.02
-    public void onButtonStatisticsClicked() {
+    public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException {
+        //TEST
         Log.d("CurrentindexCard: ", "" + mData.getCurrentIndexCard());
         Log.d("CurrentUser: ", "" + mData.getCurrentUser());
+        mData.getCurrentTime();
+        mData.getDueChallengeList();
+        //EOT
         Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
     }
 
@@ -55,7 +63,7 @@ public class ApplicationLogic {
         Navigation.startActivitySettingMenu(mData.getActivity(), mData.getCurrentUser());
     }
 
-    public void onButtonStartLearningClicked() {
+    public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException {
         // getIndexCard erwartet int, es ist aber nur String als Übergabeparameter vorhanden (s.IndexCardCollection)
         //mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCard(mSelectedIndexCard));
 
@@ -75,14 +83,24 @@ public class ApplicationLogic {
             //TODO Max: Vernünftiges Fehlerhandling
         }
 
+        mDueChallenges = mData.getDueChallengeList();
 
-        //Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
-
-        //TODO Max: Aufruf der Methoden des DueChallenges Algorithmus. Wenn DueChallenges-Liste leer, dann EndeScreen
-
-        //Pascal Heß: There were changes in the class "Navigation". Now the method needs more parameters for being correctly called.
-        //Therefore the next commented line needs to be adapted.
-        //Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
+        if(mDueChallenges.getSize() == 0) {
+            Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
+        }
+        else {
+            mQuestionTypeLayout = mDueChallenges.getChallenge(0).getmQuestionTypeLayout();
+            switch (mQuestionTypeLayout) {
+                case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard());
+                    break;
+                case 2: Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard());
+                    break;
+                case 3: Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard());
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     private void fillSpinner() {
