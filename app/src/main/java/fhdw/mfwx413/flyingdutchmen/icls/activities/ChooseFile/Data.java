@@ -3,8 +3,11 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
@@ -15,6 +18,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 
@@ -34,6 +38,15 @@ public class Data {
     private UserProgressCollection mUserProgressForCurrentIndexCardAndCurrentUser;
     private ChallengeCollection mDueChallenges;
     private Challenge mChacheChallenge;
+    private String mCurrentTime;
+    private String mTimeStampBeantwortung;
+
+    private int mPeriodClass1;
+    private int mPeriodClass2;
+    private int mPeriodClass3;
+    private int mPeriodClass4;
+    private int mPeriodClass5;
+    private int mPeriodClass6;
 
     public Data(Activity activity, Bundle savedInstanceState) {
         Intent intent;
@@ -51,12 +64,11 @@ public class Data {
             restoreDataFromBundle(savedInstanceState);
         }
 
-        /** TEST
-        String CurrentTime;
-        CurrentTime = getCurrentTimeStamp();
-        Log.d("Current Time: ", "" + CurrentTime);
-        */
+        // TEST
+        // getCurrentTimeStamp();
+        // Log.d("Current Time: ", "" + mCurrentTime);
 
+        getCurrentUsersSettings();
 
 
     }
@@ -126,20 +138,46 @@ public class Data {
     }
 
     // IV. -> Aktuelles Tagesdatum zwischenspeichern und in Format yyyy.MM.dd.HH.mm.ss umwandeln
-    public String getCurrentTimeStamp() {
-        Timestamp timestamp = new Timestamp(new Date().getTime());
-        return timestamp.toString();
+    public void getCurrentTimeStamp() {
+        // mCurrentTime = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
+
+        SimpleDateFormat mCurrentTime = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+
+
+        Calendar date = Calendar.getInstance();
+        long t = date.getTimeInMillis();
+        Date CurrentDate = new Date(t);
+
+        Date aftermPeriodClass1 = new Date(t + mPeriodClass1 * 60000);
+        Log.d("", "" + CurrentDate);
+        Log.d("", "" + aftermPeriodClass1);
+
+        mTimeStampBeantwortung
+
+
     }
 
     // V. -> UserSettings zwischenspeichern
 
+    public void getCurrentUsersSettings() {
+        mPeriodClass1 = mCurrentUser.getmPeriodClass1();
+        mPeriodClass2 = mCurrentUser.getmPeriodClass2();
+        mPeriodClass3 = mCurrentUser.getmPeriodClass3();
+        mPeriodClass4 = mCurrentUser.getmPeriodClass4();
+        mPeriodClass5 = mCurrentUser.getmPeriodClass5();
+        mPeriodClass6 = mCurrentUser.getmPeriodClass6();
+    }
      // VI. -> Aus vorheriger Liste (L3) jeden Timestamp-Eintrag >= Timestamp+UserSetting der Klasse: Liste fälliger Challenges (L4)
 
      //Klasse1: wenn LastPlayed+SettingsKlasse1 größerGleich Tagesdatum, dann auf dueChallengeList.
 
-     /** public ChallengeCollection getDueChallengeList(){
+     /**public ChallengeCollection getDueChallengeList(){
          for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
-             if(mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmPeriodClass() == 1 && ) {
+
+             //String Test;
+             //Test = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmTimeStampBeantwortung()+mPeriodClass1;
+
+             if(mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmZeitklasse() == 1 && ) {
                  int mCacheId = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmChallengeID();
 
                  // mChacheChallenge = ChallengeCollection.getChallenge(mCacheId);
