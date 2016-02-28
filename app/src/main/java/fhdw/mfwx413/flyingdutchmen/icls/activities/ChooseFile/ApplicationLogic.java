@@ -4,11 +4,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
-
 import android.content.Context;
 import android.util.Log;
 import android.widget.ArrayAdapter;
-
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -45,12 +43,6 @@ public class ApplicationLogic {
 
     // Added by Edgar 27.02
     public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException {
-        //TEST
-        Log.d("CurrentindexCard: ", "" + mData.getCurrentIndexCard());
-        Log.d("CurrentUser: ", "" + mData.getCurrentUser());
-        mData.getCurrentTime();
-        mData.getDueChallengeList();
-        //EOT
         Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
     }
 
@@ -64,8 +56,15 @@ public class ApplicationLogic {
     }
 
     public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException {
-        // getIndexCard erwartet int, es ist aber nur String als Übergabeparameter vorhanden (s.IndexCardCollection)
-        //mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCard(mSelectedIndexCard));
+        mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
+
+        //TEST
+        Log.d("CurrentindexCard: ", "" + mData.getCurrentIndexCard());
+        Log.d("CurrentUser: ", "" + mData.getCurrentUser());
+        mData.getCurrentUsersSettings();
+        mData.getCurrentTime();
+        mData.getDueChallengeList();
+        //EOT
 
         mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
         if(mChallengesCurrentIndexCard == null) {
@@ -111,17 +110,21 @@ public class ApplicationLogic {
 
         // ZUM TESTEN; KANN SPÄTER WIEDER WEG
         count = indexCards.size();
-        Log.d("users.size: ", "" + count);
+        Log.d("IndexCards.size: ", "" + count);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, indexCards);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        mGui.getChosenFile().setAdapter(adapter);
+        mGui.getChooseIndexCard().setAdapter(adapter);
     }
 
-    public void onUserSelected(int position){
+    public void onIndexCardSelected(int position){
         System.out.println(indexCards.get(position));
         mSelectedIndexCard = indexCards.get(position);
+
+        //TEST
+        Log.d("SelectedIndexCard: ", "" + mSelectedIndexCard);
+        //EOT
     }
 
 }

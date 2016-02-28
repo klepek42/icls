@@ -23,8 +23,6 @@ public class Data {
     public Data(Activity activity, Bundle savedInstanceState) {
         mActivity = activity;
         mAllUsers = UserDatabase.getAllUser(mActivity);
-
-        Log.d("mAllUsers: ", "" + mAllUsers);
     }
 
     public UserCollection getmAllUsers() {
@@ -32,20 +30,14 @@ public class Data {
     }
 
     public User getCurrentUser() {
-        //DEBUG
-        Log.d("mCurrentUser: ", "" + mCurrentUser);
-        //eod
         return mCurrentUser;
     }
 
     public Activity getActivity() {
-        //DEBUG
-        Log.d("mActivity: ", "" + mActivity);
-        //eod
         return mActivity;
     }
 
-    public void setmCurrentUser(User mCurrentUser) {
+    public void setCurrentUser(User mCurrentUser) {
         this.mCurrentUser = mCurrentUser;
     }
 }

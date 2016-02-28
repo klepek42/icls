@@ -2,7 +2,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
 import android.app.Activity;
 import android.os.Bundle;
-
 import java.text.ParseException;
 
 /**

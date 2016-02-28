@@ -4,13 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
@@ -25,7 +22,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
  * Created by edgar on 17.02.2016.
+ * Updated by Max on 20.12.2016
  */
+
 public class Data {
 
     private Activity mActivity;
@@ -68,15 +67,6 @@ public class Data {
         else {
             restoreDataFromBundle(savedInstanceState);
         }
-
-        // TEST
-        // getCurrentTime();
-        // Log.d("Current Time: ", "" + mCurrentTime);
-
-        getCurrentUsersSettings();
-
-//        getTimeStampLastAnswered(0);
-
     }
 
     public void saveDataFromBundle(Bundle savedInstanceState) {
@@ -107,9 +97,11 @@ public class Data {
         this.mCurrentIndexCard = mCurrentIndexCard;
     }
 
-    // Beginn Algorithmus DueChallenges. Aufruf der Methoden in ApplicationLogic bei onButtonStartLearningClicked
+    /**
+     * Start of methods to calculate due Challenges. Methods are called in ApplicationLogic at onButtonStartLearningClicked
+     */
 
-     //I. -> Aus allen Challenges die mit passender Indexcard sortieren: Liste aller Fragen der gewählten IndexCard (L1)
+    // I. -> Get ChallengesCollection with current Index out of all Challenges and save them as a new ChallengeCollection L1
     public ChallengeCollection getChallengesForSelectedIndexCard(){
         for(int i=0; i<mAllChallenges.getSize(); i++) {
             if(mAllChallenges.getChallenge(i).getmIndexCard().getmID() == mCurrentIndexCard.getmID()) {
@@ -119,7 +111,7 @@ public class Data {
         return mChallengesCurrentIndexCard;
     }
 
-     // II. -> Aus UserProgressCollection die mit übrig gebliebener ChallengeId sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard (L2)
+    // II. -> Get UserProgressesCollection with current Index out of all UserProgresses and save them as a new UserProgressCollection L2
     public UserProgressCollection getUserProgressForCurrentIndexCard() {
         for(int k=0; k<allUserProgresses.getSize(); k++){
             for(int l=0; l<mChallengesCurrentIndexCard.getSize(); l++) {
@@ -131,7 +123,7 @@ public class Data {
         return mUserProgressForCurrentIndexCard;
     }
 
-     // III. -> Aus vorheriger Liste (L2) den ausgewählten User sortieren: Liste des UserProgress mit allen Fragen der gewählten IndexCard & gewähltem User (L3)
+    // III. -> Get UserProgressCollection with current User out of L2 and save them as a new UserProgressCollection L3
     public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() {
         for(int m=0; m<mUserProgressForCurrentIndexCard.getSize(); m++) {
             if(mUserProgressForCurrentIndexCard.getUserProgress(m).getmUserName().equals(mCurrentUser.getmName())) {
@@ -141,7 +133,7 @@ public class Data {
         return mUserProgressForCurrentIndexCardAndCurrentUser;
     }
 
-    // IV. -> Aktuelles Tagesdatum zwischenspeichern
+    // IV. -> Save the current date
     public void getCurrentTime() {
         Calendar date = Calendar.getInstance();
         long t = date.getTimeInMillis();
@@ -152,24 +144,26 @@ public class Data {
         //EOT
     }
 
-    // V. TimeStampsLastAnswered zwischenspeichern und in passendes Format umwandeln
+    // V. -> Get TimeStamps out of L3 and save them in a comparable format
     public void getTimeStampLastAnswered(int index) throws ParseException {
-        //mTimeStampBeantwortung = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(index).getmTimeStampAnswered();
+        mTimeStampBeantwortung = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(index).getmTimeStampAnswered();
+
         //TEST
-        mTimeStampBeantwortung = allUserProgresses.getUserProgress(0).getmTimeStampAnswered();
+        //mTimeStampBeantwortung = allUserProgresses.getUserProgress(0).getmTimeStampAnswered();
         //EOT
+
         mLastAnsweredFormat = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
         mLastAnsweredDate = mLastAnsweredFormat.parse(mTimeStampBeantwortung);
     }
 
-    // Converts Date to Calendar
+    // Supporting method: Converts Date to Calendar
     public static Calendar DateToCalendar(Date date){
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         return cal;
     }
 
-    // VI. -> UserSettings zwischenspeichern
+    // VI. -> Save UserSettings of current User
     public void getCurrentUsersSettings() {
         mPeriodClass1 = mCurrentUser.getmPeriodClass1();
         mPeriodClass2 = mCurrentUser.getmPeriodClass2();
@@ -179,22 +173,18 @@ public class Data {
         mPeriodClass6 = mCurrentUser.getmPeriodClass6();
     }
 
-     // VII. -> Aus vorheriger Liste (L3) jeden Timestamp-Eintrag >= Timestamp+UserSetting der Klasse: Liste fälliger Challenges (L4)
+     // VII. -> Check every record of L3 for due challenges by adding the minutes from users settings of the particular PeriodClass to the TimeStampLastAnswered and compare to current Date. Save them as a new ChallengeCollection L4 if due.
      public ChallengeCollection getDueChallengeList() throws ParseException, IdNotFoundException {
          getCurrentTime();
 
-         //for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
-         for(int n=0; n<allUserProgresses.getSize(); n++) {
-
+         for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
              getTimeStampLastAnswered(n);
-
              Calendar mLastAnsweredCalendar = DateToCalendar(mLastAnsweredDate);
 
              Log.d("mLastAnsweredDate: ", "" + mLastAnsweredDate);
              Log.d("mLastAnsweredCalendar: ", "" + mLastAnsweredCalendar);
 
-             //mCurrentClass = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmPeriodClass();
-             mCurrentClass = allUserProgresses.getUserProgress(n).getmPeriodClass();
+             mCurrentClass = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmPeriodClass();
 
              switch (mCurrentClass) {
                  case 1: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass1);

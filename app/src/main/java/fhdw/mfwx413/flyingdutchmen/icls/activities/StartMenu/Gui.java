@@ -34,7 +34,6 @@ public class Gui {
         buttonAddUser = (Button) activity.findViewById(R.id.buttonAddUser);
         buttonConfirmUser = (Button) activity.findViewById(R.id.buttonConfirmUser);
         buttonEditUser = (Button) activity.findViewById(R.id.buttonEditUser);
-
     }
 
 

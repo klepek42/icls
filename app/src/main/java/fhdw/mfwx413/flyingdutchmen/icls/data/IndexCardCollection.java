@@ -40,6 +40,24 @@ public class IndexCardCollection {
         return foundIndexCard;
     }
 
+    public IndexCard getIndexCardByName (String name) throws IdNotFoundException {
+        int i;
+        IndexCard foundIndexCard;
+        foundIndexCard = new IndexCard(-1,"");
+        for (i = 0; i < mIndexCardList.size(); i++) {
+            if (mIndexCardList.get(i).getmName().equals(name)) {
+                foundIndexCard = mIndexCardList.get(i);
+                break;
+            }
+        }
+
+        if (foundIndexCard.getmID() == -1){
+            throw new IdNotFoundException("IndexCardCollection::getIndexCardByName: Ungültiger Name für IndexCard: " + name);
+        }
+
+        return foundIndexCard;
+    }
+
     public void addIndexCard(IndexCard indexCard){
         mIndexCardList.add(indexCard);
     }

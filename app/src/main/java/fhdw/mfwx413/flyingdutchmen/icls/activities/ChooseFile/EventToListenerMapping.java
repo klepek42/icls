@@ -34,6 +34,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
                 mApplicationLogic.onButtonLogoutClicked();
                 break;
             case R.id.buttonStatistics:
+                //TODO Max: Exception Handling
                 try {
                     mApplicationLogic.onButtonStatisticsClicked();
                 } catch (ParseException e) {
@@ -46,6 +47,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
                 mApplicationLogic.onButtonSettingsClicked();
                 break;
             case R.id.buttonStartLearning:
+                //TODO Max: Exception Handling
                 try {
                     mApplicationLogic.onButtonStartLearningClicked();
                 } catch (ParseException e) {
@@ -60,7 +62,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        mApplicationLogic.onUserSelected(position);
+        mApplicationLogic.onIndexCardSelected(position);
     }
 
     @Override

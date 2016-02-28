@@ -39,12 +39,12 @@ public class ApplicationLogic{
     }
 
     public void onButtonConfirmUserClicked() {
-        mData.setmCurrentUser(mData.getmAllUsers().getUser(mselectedName));
+        mData.setCurrentUser(mData.getmAllUsers().getUser(mselectedName));
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonEditUserClicked() {
-        mData.setmCurrentUser(mData.getmAllUsers().getUser(mselectedName));
+        mData.setCurrentUser(mData.getmAllUsers().getUser(mselectedName));
         Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
 
