@@ -37,13 +37,9 @@ public class Data {
     private UserProgressCollection mUserProgressForCurrentIndexCard;
     private UserProgressCollection mUserProgressForCurrentIndexCardAndCurrentUser;
     private ChallengeCollection mDueChallenges;
-    private String mTimeStampBeantwortung;
     private Date mLastAnsweredDate;
     private SimpleDateFormat mLastAnsweredFormat;
     private Date CurrentDate;
-    private int mCurrentClass;
-    private int mCacheChallengeId;
-    private Challenge mCacheChallenge;
 
     private int mPeriodClass1;
     private int mPeriodClass2;
@@ -146,6 +142,8 @@ public class Data {
 
     // V. -> Get TimeStamps out of L3 and save them in a comparable format
     public void getTimeStampLastAnswered(int index) throws ParseException {
+        String mTimeStampBeantwortung;
+
         mTimeStampBeantwortung = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(index).getmTimeStampAnswered();
 
         //TEST
@@ -175,6 +173,10 @@ public class Data {
 
      // VII. -> Check every record of L3 for due challenges by adding the minutes from users settings of the particular PeriodClass to the TimeStampLastAnswered and compare to current Date. Save them as a new ChallengeCollection L4 if due.
      public ChallengeCollection getDueChallengeList() throws ParseException, IdNotFoundException {
+         int mCurrentClass;
+         int mCacheChallengeId;
+         Challenge mCacheChallenge;
+
          getCurrentTime();
 
          for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
