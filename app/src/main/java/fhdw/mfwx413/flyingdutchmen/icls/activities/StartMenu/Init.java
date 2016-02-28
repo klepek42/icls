@@ -5,6 +5,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.io.FileNotFoundException;
+
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
+
 /**
  * Responsibility: Max
  * Created by Max on 20.02.2016
@@ -22,6 +26,15 @@ public class Init extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         //checkFirstRun(); (jonas)
         super.onCreate(savedInstanceState);
+
+        try {
+            csvExport.buildFolders();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        csvExport.copyAssets(this);
+
         initData(savedInstanceState);
         initGui();
         initApplicationLogic();

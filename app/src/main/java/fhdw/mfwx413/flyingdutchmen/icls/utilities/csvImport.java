@@ -43,7 +43,7 @@ public class csvImport {
         return list;
     }
 
-
+    /* UNNOETIG WEIL ALLES SOWIESO AUS KOMPLETTEM USER GELESEN WIRD
     // Import the user specific setting from users.csv and return the resulting ArrayList
     public static List<String[]> importSettingsFromUserCsv(Context context) {
 
@@ -68,6 +68,7 @@ public class csvImport {
         }
         return list;
     }
+    */
 
 
     // Import the index.csv and return the results as list
@@ -121,7 +122,7 @@ public class csvImport {
         return list;
     }
 
-/*
+/*  UNNOETIG WEIL EINFACH ALLE CHALLENGES GENOMMEN WERDEN UND WOANDERS GEFILTERT WIRD
     // Import all challenges from a specific index from challenges.csv and return the resulting ArrayList
     public static ArrayList<String> importChallengesFromFileCsv(Context context, int fileId) {
 

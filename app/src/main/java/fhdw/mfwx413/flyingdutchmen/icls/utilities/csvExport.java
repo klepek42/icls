@@ -1,6 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.utilities;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
@@ -9,8 +10,12 @@ import com.opencsv.CSVWriter;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,6 +29,71 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
  * Responsibility: 23.02.2016
  */
 public class csvExport {
+
+    private static Context context;
+
+    // Create ICLS folder (this function could also be implemented directly in copyAssets() )
+    public static void buildFolders() throws FileNotFoundException {
+        // Choose folder name and create File object
+        File iclsFolder = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/");
+        // Build directory
+        iclsFolder.mkdirs();
+
+        // INTERESSANT FUER DIE ERSTELLUNG DER DATEIEN
+        // Create a File object for the output file
+        //File outputFile = new File(wallpaperDirectory, "");
+        // Now attach the OutputStream to the file object, instead of a String representation
+        //FileOutputStream fos = new FileOutputStream(outputFile);
+    }
+
+    // TEST: Copy all assets and save them in external storage (SD card location) in ICLS folder
+    public static void copyAssets(Context context) {
+        AssetManager assetManager = context.getAssets();
+        String[] files = null;
+        try {
+            files = assetManager.list("");
+
+        } catch (IOException e) {
+            Log.e("IOException", "Failed to get asset file list.", e);
+        }
+        if (files != null) for (String filename : files) {
+            if (!filename.equals("sounds") && !filename.equals("images") && !filename.equals("webkit")) {
+                InputStream in = null;
+                OutputStream out = null;
+                try {
+                    in = assetManager.open(filename);
+                    File outFile = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/", filename);
+                    out = new FileOutputStream(outFile);
+                    copyFile(in, out);
+                } catch (IOException e) {
+                    Log.e("IOException", "Failed to copy asset file: " + filename, e);
+                } finally {
+                    if (in != null) {
+                        try {
+                            in.close();
+                        } catch (IOException e) {
+                            // ERROR
+                        }
+                    }
+                    if (out != null) {
+                        try {
+                            out.close();
+                        } catch (IOException e) {
+                            // ERROR
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private static void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while((read = in.read(buffer)) != -1){
+            out.write(buffer, 0, read);
+        }
+    }
 
     // Save data in csv and rebuild it
    //public static void saveToCsv(String fileName, UserCollection givenData) throws IOException {
@@ -49,6 +119,7 @@ public class csvExport {
         // Quit the output stream
         mWriter.close();
     }
+
 
     // Save data in csv and rebuild it
     //public static void saveToCsv(String fileName, UserCollection givenData) throws IOException {
