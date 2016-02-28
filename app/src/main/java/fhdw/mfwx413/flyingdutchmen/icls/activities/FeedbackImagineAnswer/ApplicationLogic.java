@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -46,13 +49,48 @@ public class ApplicationLogic {
     }
 
     public void onButtonWasAnswerCorrect (){
-        startNextActivity();
-        //Todo Pascal: Question has to be upgraded
+        boolean isAnswerCorrect = false;
+
+        try {
+            //User progress has to be updated (here it is a upgrade)
+            updateUserProgress(isAnswerCorrect);
+
+            //set the next challenge ID by adding 1; this is required to start the correct "next" activity
+            mData.incrementChallengeIdByOne();
+
+            //start the next activity
+            startNextActivity();
+        }
+        catch (UserProgressNotFoundException e) {
+            Log.e("ICLS-LOG", "ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: ", e);
+            showErrorUnexpectedError();
+            Navigation.startActivityStartMenu(mActivity);
+        }
     }
 
     public void onButtonWasAnswerWrong (){
-        startNextActivity();
-        //Todo Pascal: Question has to be downgraded
+        boolean isAnswerCorrect = false;
+
+        try {
+            //User progress has to be updated (here it is a downgrade)
+            updateUserProgress(isAnswerCorrect);
+
+            //set the next challenge ID by adding 1; this is required to start the correct "next" activity
+            mData.incrementChallengeIdByOne();
+
+            //start the next activity
+            startNextActivity();
+        }
+        catch (UserProgressNotFoundException e){
+            Log.e("ICLS-LOG", "ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: ", e);
+            showErrorUnexpectedError();
+            Navigation.startActivityStartMenu(mActivity);
+        }
+    }
+
+    //method that is invoked, if the standard back button (on the phone or tablet) is clicked
+    public void onStandardBackButtonClicked() {
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
 
     public void startNextActivity() {
@@ -112,5 +150,38 @@ public class ApplicationLogic {
         }
 
         return dueChallengeNumber;
+    }
+
+    //method, that saves the user progress (whether the question was answered correctly or not)
+    private void updateUserProgress(boolean isAnswerCorrect) throws UserProgressNotFoundException{
+        boolean userProgressFound = false;
+        for (int i = 0; i < mData.getmAllUserProgresses().getSize(); i++){
+            if (mData.getmAllUserProgresses().getUserProgress(i).getmUserName().equals(mData.getmChosenUser().getmName()) &&
+                    mData.getmAllUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
+                int actualTimeClass = mData.getmAllUserProgresses().getUserProgress(i).getmPeriodClass();
+                userProgressFound = true;
+                mData.getmAllUserProgresses().getUserProgress(i).setCurrentTimeStamp();
+                if (isAnswerCorrect == true) {
+                    if (actualTimeClass < 5 ) {
+                        mData.getmAllUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
+                    }
+                }
+                else {
+                    if (actualTimeClass > 1 ) {
+                        mData.getmAllUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
+                    }
+                }
+                UserProgressDatabase.writeAllUserProgresses(mData.getmAllUserProgresses());
+            }
+        }
+        if (userProgressFound == false){
+            throw new UserProgressNotFoundException("ChallengeFreeAnswer::ApplicationLogic::updateUserProgress:"
+                    + " CurrentUserName: " + mData.getmChosenUser().getmName()
+                    + "ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
+        }
+    }
+
+    public void showErrorUnexpectedError(){
+        Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
     }
 }

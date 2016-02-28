@@ -7,7 +7,10 @@ import android.os.Bundle;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
+import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 
 /**
  * Responsibility: Pascal Heß
@@ -22,6 +25,7 @@ public class Data {
     private static final String KEY_CHOSEN_USER = "K3";
     private static final String KEY_CHOSEN_FILE = "K4";
     private static final String KEY_IS_ANSWER_CORRECT = "K5";
+    private static final String KEY_ALL_USER_PROGRESSES = "K6";
 
     private Activity mActivity;
     private ChallengeCollection mDueChallengesOfUserInFile;
@@ -29,6 +33,7 @@ public class Data {
     private User mChosenUser;
     private IndexCard mChosenFile;
     private boolean mIsAnswerCorrect;
+    private UserProgressCollection mAllUserProgresses;
 
     //Constructor
     public Data(Activity activity, Bundle bundle) {
@@ -42,6 +47,8 @@ public class Data {
             mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
             mIsAnswerCorrect = intent.getBooleanExtra(Constants.KEY_PARAM_IS_ANSWER_CORRECT, DEFAULT_IS_ANSWER_CORRECT);
+            //Todo Pascal: next line is probably just a temporarily solution
+            mAllUserProgresses = UserProgressDatabase.getAllUserProgresses(mActivity);
         }
         else{
             //restore Data if bundle is filled
@@ -56,6 +63,7 @@ public class Data {
         bundle.putSerializable(KEY_CHOSEN_USER, mChosenUser);
         bundle.putSerializable(KEY_CHOSEN_FILE, mChosenFile);
         bundle.putBoolean(KEY_IS_ANSWER_CORRECT, mIsAnswerCorrect);
+        bundle.putSerializable(KEY_ALL_USER_PROGRESSES, mAllUserProgresses);
     }
 
     //restore data from given bundle
@@ -65,6 +73,7 @@ public class Data {
         mChosenUser = (User) bundle.getSerializable(KEY_CHOSEN_USER);
         mChosenFile = (IndexCard) bundle.getSerializable(KEY_CHOSEN_FILE);
         mIsAnswerCorrect = bundle.getBoolean(KEY_IS_ANSWER_CORRECT);
+        mAllUserProgresses = (UserProgressCollection) bundle.getSerializable(KEY_ALL_USER_PROGRESSES);
     }
 
     public ChallengeCollection getmDueChallengesOfUserInFile() {
@@ -87,4 +96,11 @@ public class Data {
         return mCurrentChallengeId;
     }
 
+    public void incrementChallengeIdByOne() {
+        mCurrentChallengeId = mCurrentChallengeId + 1;
+    }
+
+    public UserProgressCollection getmAllUserProgresses() {
+        return mAllUserProgresses;
+    }
 }
