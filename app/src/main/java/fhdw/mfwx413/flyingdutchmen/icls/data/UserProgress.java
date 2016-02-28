@@ -10,14 +10,14 @@ import java.text.SimpleDateFormat;
 public class UserProgress implements Serializable{
     private String mUserName;
     private int mChallengeID;
-    private int mZeitklasse;
-    private String mTimeStampBeantwortung;
+    private int mPeriodClass;
+    private String mTimeStampAnswered;
 
     public UserProgress(String UserName, int ChallengeID, int Zeitklasse, String TimeStampBeantwortung) {
         this.mUserName = UserName;
         this.mChallengeID = ChallengeID;
-        this.mZeitklasse = Zeitklasse;
-        this.mTimeStampBeantwortung = TimeStampBeantwortung;
+        this.mPeriodClass = Zeitklasse;
+        this.mTimeStampAnswered = TimeStampBeantwortung;
     }
 
     public String getmUserName() {
@@ -36,28 +36,28 @@ public class UserProgress implements Serializable{
         this.mChallengeID = mChallengeID;
     }
 
-    public int getmZeitklasse() {
-        return mZeitklasse;
+    public int getmPeriodClass() {
+        return mPeriodClass;
     }
 
-    public void setmZeitklasse(int mZeitklasse) {
-        this.mZeitklasse = mZeitklasse;
+    public void setmPeriodClass(int mPeriodClass) {
+        this.mPeriodClass = mPeriodClass;
     }
 
-    public String getmTimeStampBeantwortung() {
-        return mTimeStampBeantwortung;
+    public String getmTimeStampAnswered() {
+        return mTimeStampAnswered;
     }
 
-    public void setmTimeStampBeantwortung(String mTimeStampBeantwortung) {
-        this.mTimeStampBeantwortung = mTimeStampBeantwortung;
+    public void setmTimeStampAnswered(String mTimeStampAnswered) {
+        this.mTimeStampAnswered = mTimeStampAnswered;
     }
 
     public void setDefaultTimeStamp(){
-        setmTimeStampBeantwortung(Constants.DEFAULT_TIMESTAMP);
+        setmTimeStampAnswered(Constants.DEFAULT_TIMESTAMP);
     }
 
     public void setCurrentTimeStamp(){
-        setmTimeStampBeantwortung(new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date()));
+        setmTimeStampAnswered(new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date()));
     }
 
 }

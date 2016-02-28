@@ -111,17 +111,17 @@ public class ApplicationLogic {
         for (int i = 0; i < mData.getmAllUserProgresses().getSize(); i++){
             if (mData.getmAllUserProgresses().getUserProgress(i).getmUserName().equals(mData.getmChosenUser().getmName()) &&
                     mData.getmAllUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
-                int actualTimeClass = mData.getmAllUserProgresses().getUserProgress(i).getmZeitklasse();
+                int actualTimeClass = mData.getmAllUserProgresses().getUserProgress(i).getmPeriodClass();
                 userProgressFound = true;
                 mData.getmAllUserProgresses().getUserProgress(i).setCurrentTimeStamp();
                 if (isAnswerCorrect == true) {
                     if (actualTimeClass < 5 ) {
-                        mData.getmAllUserProgresses().getUserProgress(i).setmZeitklasse(actualTimeClass + 1);
+                        mData.getmAllUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
                     }
                 }
                 else {
                     if (actualTimeClass > 1 ) {
-                        mData.getmAllUserProgresses().getUserProgress(i).setmZeitklasse(actualTimeClass - 1);
+                        mData.getmAllUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
                     }
                 }
                 UserProgressDatabase.writeAllUserProgresses(mData.getmAllUserProgresses());

@@ -139,7 +139,7 @@ public class Data {
 
      /** public ChallengeCollection getDueChallengeList(){
          for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
-             if(mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmZeitklasse() == 1 && ) {
+             if(mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmPeriodClass() == 1 && ) {
                  int mCacheId = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmChallengeID();
 
                  // mChacheChallenge = ChallengeCollection.getChallenge(mCacheId);

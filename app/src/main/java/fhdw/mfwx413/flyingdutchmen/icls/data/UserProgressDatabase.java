@@ -126,8 +126,8 @@ public class UserProgressDatabase {
 
                 userProgressAsString[0] = userProgress.getmUserName();
                 userProgressAsString[1] = Integer.toString(userProgress.getmChallengeID());
-                userProgressAsString[2] = Integer.toString(userProgress.getmZeitklasse());
-                userProgressAsString[3] = userProgress.getmTimeStampBeantwortung();
+                userProgressAsString[2] = Integer.toString(userProgress.getmPeriodClass());
+                userProgressAsString[3] = userProgress.getmTimeStampAnswered();
 
                 userProgressList.add(i, userProgressAsString);
             }
