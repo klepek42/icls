@@ -52,4 +52,10 @@ public class Init extends Activity {
         mData.saveDataFromBundle(outState);
         super.onSaveInstanceState(outState);
     }
+
+    // Back to layout_choose_file (back button)
+    @Override
+    public void onBackPressed() {
+        mApplicationLogic.goBackToChooseFile();
+    }
 }

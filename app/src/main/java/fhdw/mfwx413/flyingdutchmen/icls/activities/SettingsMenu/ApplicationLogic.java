@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -252,7 +254,16 @@ public class ApplicationLogic{
             //chosen periods are valid
             Toast.makeText(mData.getActivity(), "Die Werte wurden gespeichert!", Toast.LENGTH_LONG).show();
             mData.getCurrentUser().setPeriodClasses(chosenPeriodClass1Int, chosenPeriodClass2Int, chosenPeriodClass3Int, chosenPeriodClass4Int, chosenPeriodClass5Int, chosenPeriodClass6Int);
-           //Todo Daniel: Add mData.getCurrentUser().setTimeUnits(mGui.getTimeUnit1().getSelectedItemPosition(), ...);
+
+            UserCollection uc = mData.getmAllUsers();
+           /* for (int i=0; i<uc.getSize(); i++)
+            {
+                if (uc.getUser(i).getmName().equals(mData.getCurrentUser().getmName()))
+                {
+                    uc.getUser(i) = mData.getCurrentUser();
+                }
+            }*/
+            UserDatabase.writeAllUsers(uc);
             Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
         }
         else {
@@ -262,8 +273,9 @@ public class ApplicationLogic{
     }
 
 
-    public void onButtonAbortSettingsClicked() {
-            Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+    public void goBackToChooseFile() {
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+        Toast.makeText(mData.getActivity(), "Abgebrochen und nichts gespeichert.", Toast.LENGTH_LONG).show();
     }
 
     //Set settings back to default values

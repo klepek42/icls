@@ -3,8 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice;
 import android.view.View;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.*;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.ApplicationLogic;
 
 /**
  * Responsibility: Daniel zur Linden
@@ -28,7 +26,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Appli
                     mApplicationLogic.onButtonConfirmAnswerClicked();
                     break;
                 case R.id.buttonAbort:
-                    mApplicationLogic.onButtonAbortClicked();
+                    mApplicationLogic.goBackToChooseFile();
                     break;
                 case R.id.checkboxAnswer1:
                     mApplicationLogic.onCheckBoxAnswer1Clicked();
@@ -39,10 +37,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Appli
                 case R.id.checkboxAnswer3:
                     mApplicationLogic.onCheckBoxAnswer3Clicked();
                     break;
-
-
-
-                    //Todo Daniel: ZurückButton realisieren
             }
         }
     }

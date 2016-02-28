@@ -21,7 +21,7 @@ public class EventToListenerMapping implements View.OnClickListener {
     public void onClick(View v){
         switch (v.getId()) {
             case R.id.buttonAbortSettings:
-                mApplicationLogic.onButtonAbortSettingsClicked();
+                mApplicationLogic.goBackToChooseFile();
                 break;
             case R.id.buttonConfirmSettings:
                 mApplicationLogic.onButtonConfirmSettingsClicked();

@@ -9,6 +9,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
@@ -27,6 +29,7 @@ public class Data {
     private int mCurrentChallengeId;
     private User mChosenUser;
     private IndexCard mChosenFile;
+    private UserProgressCollection mAllUserProgresses;
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
@@ -44,8 +47,9 @@ public class Data {
                 mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
             }
             catch (IdNotFoundException e){
-                Log.e("ICLS-LOG", "ChallengeFreeAnswer::Data: ", e);
+                Log.e("ICLS-LOG", "ChallengeMultipleChoice::Data: ", e);
             }
+            mAllUserProgresses = UserProgressDatabase.getAllUserProgresses(mActivity);
         }
         else{
             //restore Data if bundle is filled
@@ -83,6 +87,10 @@ public class Data {
     }
 
     public User getmChosenUser() {return mChosenUser;}
+
+    public UserProgressCollection getmAllUserProgresses() {
+        return mAllUserProgresses;
+    }
 
     public IndexCard getmChosenFile() {return mChosenFile;}
 }

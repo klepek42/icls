@@ -51,7 +51,7 @@
         android:id="@+id/buttonConfirmAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_confirm"
+        android:text="@string/string_next"
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
