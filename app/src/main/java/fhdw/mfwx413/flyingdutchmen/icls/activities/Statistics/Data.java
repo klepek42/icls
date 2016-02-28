@@ -133,28 +133,28 @@ public class Data {
 
     public int getmNumberOfPeriodClass1() {
         // TODO: Berechnung der fälligen Challenges in Klasse 1
-
+/*
         int numberDueChallenges = 0;
         UserProgressCollection mAllUserProgresses = UserProgressDatabase.getSpecificUserAndClassProgresses(mActivity, mChosenUser.toString(), "1");
         for(int i = 0; i < mAllUserProgresses.getSize(); i++) {
             UserProgress mUserProgress = mAllUserProgresses.getUserProgress(i);
 
 
-            /* if (mUserProgress.getmChallengeID() ==  && mUserProgress.getmUserName() == mChosenUser.getmName()) {
-            }*/
-        }
+             if (mUserProgress.getmChallengeID() ==  && mUserProgress.getmUserName() == mChosenUser.getmName()) {
+            }
+        }*/
 
         // TODO: Wert aus Berechnung einfügen
-        int numberOfPeriodClass1 = 0;
-        return numberOfPeriodClass1;
+        mNumberOfPeriodClass1 = 0;
+        return mNumberOfPeriodClass1;
     }
 
     public int getmNumberOfPeriodClass2() {
         // TODO: Berechnung der fälligen Challenges in Klasse 2
 
         // TODO: Wert aus Berechnung einfügen
-        int numberOfPeriodClass2 = 0;
-        return numberOfPeriodClass2;
+        mNumberOfPeriodClass2 = 0;
+        return mNumberOfPeriodClass2;
     }
 
     public int getmNumberOfPeriodClass3() {
