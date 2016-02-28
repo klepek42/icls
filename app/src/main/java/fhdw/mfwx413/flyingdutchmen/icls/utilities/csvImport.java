@@ -105,7 +105,7 @@ public class csvImport {
         try {
             InputStreamReader csvStreamReader = new InputStreamReader(context.getAssets().open("challenges.csv"));
 
-            CSVReader reader = new CSVReader(csvStreamReader);
+            CSVReader reader = new CSVReader(csvStreamReader, ';');
             // Fill the temporary list with the lines read from the csv file
             for (;;) {
                 next = reader.readNext();
