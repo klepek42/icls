@@ -23,6 +23,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
         gui.getButtonStatistics().setOnClickListener(this);
         gui.getButtonSettings().setOnClickListener(this);
         gui.getButtonStartLearning().setOnClickListener(this);
+        gui.getChooseIndexCard().setOnItemSelectedListener(this);
     }
 
 

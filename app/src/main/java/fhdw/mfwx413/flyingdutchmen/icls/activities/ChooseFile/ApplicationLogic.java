@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 /**
  * Created by edgar on 13.02.2016
@@ -43,6 +44,7 @@ public class ApplicationLogic {
 
     // Added by Edgar 27.02
     public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException {
+        mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
         Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
     }
 
@@ -58,15 +60,23 @@ public class ApplicationLogic {
     public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
 
+        /**
         //TEST
         Log.d("CurrentindexCard: ", "" + mData.getCurrentIndexCard());
         Log.d("CurrentUser: ", "" + mData.getCurrentUser());
         mData.getCurrentUsersSettings();
         mData.getCurrentTime();
-        mData.getDueChallengeList();
         //EOT
+        */
 
-        mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
+        try {
+            mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
+        }
+        catch (EmptyStackException e){
+            Log.e("List is empty: ", "mChallengesCurrentIndexCard");
+        }
+        
+
         if(mChallengesCurrentIndexCard == null) {
             //TODO Max: Vernünftiges Fehlerhandling
             //Log.d("Keine Challenges für aktuelle IndexCard verfügbar.", "");
@@ -75,11 +85,13 @@ public class ApplicationLogic {
         mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
         if(mUserProgressForCurrentIndexCard == null) {
             //TODO Max: Vernünftiges Fehlerhandling
+            //Log.d("Keine Challenges für aktuelle IndexCard verfügbar.", "");
         }
 
         mUserProgressForCurrentIndexCardAndCurrentUser = mData.getUserProgressForCurrentIndexCardAndCurrentUser();
         if(mUserProgressForCurrentIndexCardAndCurrentUser == null) {
             //TODO Max: Vernünftiges Fehlerhandling
+            //Log.d("Keine Challenges für aktuelle IndexCard und User verfügbar.", "");
         }
 
         mDueChallenges = mData.getDueChallengeList();

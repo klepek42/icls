@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.EmptyStackException;
+
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
@@ -98,17 +100,24 @@ public class Data {
      */
 
     // I. -> Get ChallengesCollection with current Index out of all Challenges and save them as a new ChallengeCollection L1
-    public ChallengeCollection getChallengesForSelectedIndexCard(){
+    public ChallengeCollection getChallengesForSelectedIndexCard() throws EmptyStackException {
+        mChallengesCurrentIndexCard = null;
         for(int i=0; i<mAllChallenges.getSize(); i++) {
             if(mAllChallenges.getChallenge(i).getmIndexCard().getmID() == mCurrentIndexCard.getmID()) {
                 mChallengesCurrentIndexCard.addChallenge(mAllChallenges.getChallenge(i));
             }
         }
+
+        if (mChallengesCurrentIndexCard == null){
+            throw new EmptyStackException();
+        }
+
         return mChallengesCurrentIndexCard;
     }
 
     // II. -> Get UserProgressesCollection with current Index out of all UserProgresses and save them as a new UserProgressCollection L2
-    public UserProgressCollection getUserProgressForCurrentIndexCard() {
+    public UserProgressCollection getUserProgressForCurrentIndexCard() throws EmptyStackException {
+        mUserProgressForCurrentIndexCard = null;
         for(int k=0; k<allUserProgresses.getSize(); k++){
             for(int l=0; l<mChallengesCurrentIndexCard.getSize(); l++) {
                 if(allUserProgresses.getUserProgress(k).getmChallengeID() == mChallengesCurrentIndexCard.getChallenge(l).getmID()) {
@@ -116,16 +125,27 @@ public class Data {
                 }
             }
         }
+
+        if (mUserProgressForCurrentIndexCard == null){
+            throw new EmptyStackException();
+        }
+
         return mUserProgressForCurrentIndexCard;
     }
 
     // III. -> Get UserProgressCollection with current User out of L2 and save them as a new UserProgressCollection L3
-    public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() {
+    public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() throws EmptyStackException {
+        mUserProgressForCurrentIndexCardAndCurrentUser = null;
         for(int m=0; m<mUserProgressForCurrentIndexCard.getSize(); m++) {
             if(mUserProgressForCurrentIndexCard.getUserProgress(m).getmUserName().equals(mCurrentUser.getmName())) {
                 mUserProgressForCurrentIndexCardAndCurrentUser.addUserProgress(allUserProgresses.getUserProgress(m));
             }
         }
+
+        if (mUserProgressForCurrentIndexCardAndCurrentUser == null){
+            throw new EmptyStackException();
+        }
+
         return mUserProgressForCurrentIndexCardAndCurrentUser;
     }
 
@@ -142,16 +162,16 @@ public class Data {
 
     // V. -> Get TimeStamps out of L3 and save them in a comparable format
     public void getTimeStampLastAnswered(int index) throws ParseException {
-        String mTimeStampBeantwortung;
+        String mTimeStampLastAnswered;
 
-        mTimeStampBeantwortung = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(index).getmTimeStampAnswered();
+        mTimeStampLastAnswered = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(index).getmTimeStampAnswered();
 
         //TEST
-        //mTimeStampBeantwortung = allUserProgresses.getUserProgress(0).getmTimeStampAnswered();
+        //mTimeStampLastAnswered = allUserProgresses.getUserProgress(0).getmTimeStampAnswered();
         //EOT
 
         mLastAnsweredFormat = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-        mLastAnsweredDate = mLastAnsweredFormat.parse(mTimeStampBeantwortung);
+        mLastAnsweredDate = mLastAnsweredFormat.parse(mTimeStampLastAnswered);
     }
 
     // Supporting method: Converts Date to Calendar
