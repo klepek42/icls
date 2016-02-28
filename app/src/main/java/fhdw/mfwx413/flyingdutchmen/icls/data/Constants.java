@@ -5,6 +5,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
  * Updated by Max on 20.02.2016: Adding constants for default period-classes in minutes
  * Updated by Daniel on 21.02.2016: Adding constant for default timestamp of a challenge
  * Updated by Jonas on 23.02.2016: Adding constants for navigation between activities
+ *
  */
 public class Constants {
     public static final String KEY_PARAM_ID = "X1";

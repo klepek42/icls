@@ -42,11 +42,16 @@ public class Init extends Activity {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }
 
-
     //save data if activity stops
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         mData.saveDataFromBundle(outState);
         super.onSaveInstanceState(outState);
+    }
+
+    // Back to layout_choose_file (back button)
+    @Override
+    public void onBackPressed() {
+        mApplicationLogic.onStandardBackButtonClicked();
     }
 }

@@ -57,10 +57,9 @@ public class ApplicationLogic {
     }
 
     //method that is invoked if the continue button is clicked
-    //call the next dua activity and send the required data
+    //call the next due activity and send the required data
     public void onButtonContinue() throws InvalidQuestionTypeLayoutException {
         int dueChallengeNumber;
-
 
             //delivers int value, to decide which Activity has to be started
             dueChallengeNumber = otherDueChallenges();
@@ -70,16 +69,19 @@ public class ApplicationLogic {
                 //no other challenge is due
                 case 0:
                     Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
-                    //a challenge of type ChallengeFreeAnswer is due
-                case 1:
+                case 1: //a challenge of type ChallengeFreeAnswer is due
+                    //set the next challenge ID by adding 1; this is required to start the correct "next" activity
+                    mData.incrementChallengeIdByOne();
                     Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
                     break;
-                //a challenge of type ChallengeImagineAnser is due
-                case 2:
+                case 2: //a challenge of type ChallengeImagineAnser is due
+                    //set the next challenge ID by adding 1; this is required to start the correct "next" activity
+                    mData.incrementChallengeIdByOne();
                     Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
                     break;
-                //a challenge of type ChallengeMultipleChoice is due
-                case 3:
+                case 3: //a challenge of type ChallengeMultipleChoice is due
+                    //set the next challenge ID by adding 1; this is required to start the correct "next" activity
+                    mData.incrementChallengeIdByOne();
                     Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
                     break;
                 default:
@@ -88,7 +90,13 @@ public class ApplicationLogic {
 
         }
 
+    //method that is invoked, if the abort button is clicked
     public void onButtonAbortClicked() {
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+    }
+
+    //method that is invoked, if the standard back button (on the phone or tablet) is clicked
+    public void onStandardBackButtonClicked() {
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
 
@@ -121,10 +129,7 @@ public class ApplicationLogic {
         return dueChallengeNumber;
     }
 
-    //Method,that sets the next challenge ID. (old ID + 1)
-    //Todo Pascal Heß the methoed needs to be implemented and written
-    //--> Data Class of this activity, same for the other feedback activity
-
+    //Error-Handling for the method which computes the nex activity-layout
     public void errorToastFalseLayout() {
         Toast.makeText(mActivity, "Unerwartetes layout", Toast.LENGTH_SHORT).show();
     }

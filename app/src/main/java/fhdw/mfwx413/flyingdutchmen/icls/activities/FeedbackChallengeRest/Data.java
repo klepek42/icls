@@ -87,4 +87,8 @@ public class Data {
     public boolean ismIsAnswerCorrect() {
         return mIsAnswerCorrect;
     }
+
+    public void incrementChallengeIdByOne() {
+        mCurrentChallengeId = mCurrentChallengeId + 1;
+    }
 }
