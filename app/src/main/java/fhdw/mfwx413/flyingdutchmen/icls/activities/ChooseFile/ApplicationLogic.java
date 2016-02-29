@@ -7,9 +7,10 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 import android.content.Context;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 
 /**
  * Created by edgar on 13.02.2016
@@ -42,6 +43,10 @@ public class ApplicationLogic {
 
     }
 
+    public void onStandardBackButtonClicked() {
+        Navigation.startActivityStartMenu(mData.getActivity());
+    }
+
     // Added by Edgar 27.02
     public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
@@ -60,30 +65,18 @@ public class ApplicationLogic {
     public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
 
-        /**
-        //TEST
-        Log.d("CurrentindexCard: ", "" + mData.getCurrentIndexCard());
-        Log.d("CurrentUser: ", "" + mData.getCurrentUser());
-        mData.getCurrentUsersSettings();
-        mData.getCurrentTime();
-        //EOT
-        */
-
         try {
             mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
         }
-        catch (EmptyStackException e){
-            Log.e("List is empty: ", "mChallengesCurrentIndexCard");
-        }
-        
-
-        if(mChallengesCurrentIndexCard == null) {
-            //TODO Max: Vernünftiges Fehlerhandling
-            //Log.d("Keine Challenges für aktuelle IndexCard verfügbar.", "");
+        catch (NullPointerException e){
+            Toast mNoChallengesForIndexCard = Toast.makeText(mData.getActivity(), "Für die ausgewählte IndexCard stehen keine Challenges zur Verfuegung!", Toast.LENGTH_LONG);
+            mNoChallengesForIndexCard.show();
         }
 
-        mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
-        if(mUserProgressForCurrentIndexCard == null) {
+        try {
+            mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
+        }
+        catch (NullPointerException e) {
             //TODO Max: Vernünftiges Fehlerhandling
             //Log.d("Keine Challenges für aktuelle IndexCard verfügbar.", "");
         }

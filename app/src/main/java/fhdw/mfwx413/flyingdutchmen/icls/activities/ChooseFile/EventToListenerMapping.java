@@ -57,7 +57,6 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
                     e.printStackTrace();
                 }
                 break;
-            //TODO Max: ZurückButton
         }
     }
 

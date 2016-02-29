@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.EmptyStackException;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
@@ -100,24 +101,26 @@ public class Data {
      */
 
     // I. -> Get ChallengesCollection with current Index out of all Challenges and save them as a new ChallengeCollection L1
-    public ChallengeCollection getChallengesForSelectedIndexCard() throws EmptyStackException {
-        mChallengesCurrentIndexCard = null;
+    public ChallengeCollection getChallengesForSelectedIndexCard() throws NullPointerException {
+        mChallengesCurrentIndexCard = new ChallengeCollection();
         for(int i=0; i<mAllChallenges.getSize(); i++) {
             if(mAllChallenges.getChallenge(i).getmIndexCard().getmID() == mCurrentIndexCard.getmID()) {
                 mChallengesCurrentIndexCard.addChallenge(mAllChallenges.getChallenge(i));
             }
         }
 
-        if (mChallengesCurrentIndexCard == null){
-            throw new EmptyStackException();
-        }
+        if (mChallengesCurrentIndexCard.getSize() == 0){
+            Toast mNoChallengesForIndexCard = Toast.makeText(getActivity(), "Für die ausgewählte IndexCard stehen keine Challenges zur Verfuegung!", Toast.LENGTH_LONG);
+            mNoChallengesForIndexCard.show();
 
+            throw new NullPointerException();
+        }
         return mChallengesCurrentIndexCard;
     }
 
     // II. -> Get UserProgressesCollection with current Index out of all UserProgresses and save them as a new UserProgressCollection L2
-    public UserProgressCollection getUserProgressForCurrentIndexCard() throws EmptyStackException {
-        mUserProgressForCurrentIndexCard = null;
+    public UserProgressCollection getUserProgressForCurrentIndexCard() throws NullPointerException {
+        mUserProgressForCurrentIndexCard = new UserProgressCollection();
         for(int k=0; k<allUserProgresses.getSize(); k++){
             for(int l=0; l<mChallengesCurrentIndexCard.getSize(); l++) {
                 if(allUserProgresses.getUserProgress(k).getmChallengeID() == mChallengesCurrentIndexCard.getChallenge(l).getmID()) {
@@ -126,24 +129,24 @@ public class Data {
             }
         }
 
-        if (mUserProgressForCurrentIndexCard == null){
-            throw new EmptyStackException();
+        if (mUserProgressForCurrentIndexCard.getSize() == 0){
+            throw new NullPointerException();
         }
 
         return mUserProgressForCurrentIndexCard;
     }
 
     // III. -> Get UserProgressCollection with current User out of L2 and save them as a new UserProgressCollection L3
-    public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() throws EmptyStackException {
-        mUserProgressForCurrentIndexCardAndCurrentUser = null;
+    public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() throws NullPointerException {
+        mUserProgressForCurrentIndexCardAndCurrentUser = new UserProgressCollection();
         for(int m=0; m<mUserProgressForCurrentIndexCard.getSize(); m++) {
             if(mUserProgressForCurrentIndexCard.getUserProgress(m).getmUserName().equals(mCurrentUser.getmName())) {
                 mUserProgressForCurrentIndexCardAndCurrentUser.addUserProgress(allUserProgresses.getUserProgress(m));
             }
         }
 
-        if (mUserProgressForCurrentIndexCardAndCurrentUser == null){
-            throw new EmptyStackException();
+        if (mUserProgressForCurrentIndexCardAndCurrentUser.getSize() == 0){
+            throw new NullPointerException();
         }
 
         return mUserProgressForCurrentIndexCardAndCurrentUser;

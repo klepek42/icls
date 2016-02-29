@@ -50,4 +50,9 @@ public class Init extends Activity {
         mData.saveDataFromBundle(outState);
         super.onSaveInstanceState(outState);
     }
+
+    @Override
+    public void onBackPressed() {
+        mApplicationLogic.onStandardBackButtonClicked();
+    }
 }
