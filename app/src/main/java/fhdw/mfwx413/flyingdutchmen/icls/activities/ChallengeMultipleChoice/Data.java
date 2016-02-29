@@ -17,7 +17,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
  * Responsibility: Daniel zur Linden
  */
 public class Data {
-    private static final int DEFAULT_CURRENT_CHALLENGE_ID = 1;
+    //for testing
+    private static final int DEFAULT_CURRENT_CHALLENGE_ID = 0;
     // static variables for bundle
     private static final String KEY_CURRENT_CHALLENGE_ID = "K1";
     private static final String KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";

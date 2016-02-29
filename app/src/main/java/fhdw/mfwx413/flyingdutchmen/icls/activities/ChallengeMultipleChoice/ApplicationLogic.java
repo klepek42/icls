@@ -37,6 +37,9 @@ public class ApplicationLogic {
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(currentChallengeId);
 
         mGui.setQuestionText(challenge.getmQuestiontext());
+        mGui.getmCheckBoxAnswer1().setText(challenge.getmAnswerOne());
+        mGui.getmCheckBoxAnswer2().setText(challenge.getmAnswerTwo());
+        mGui.getmCheckBoxAnswer3().setText(challenge.getmAnswerThree());
     }
 
     //Bauernvariante zur Überprüfung, ob eine CheckBox aktiv ist oder nicht - anders ginge es so: https://stackoverflow.com/questions/18336151/how-to-check-if-android-checkbox-is-checked-within-its-onclick-method-declared
@@ -107,16 +110,17 @@ public class ApplicationLogic {
 
         }
         catch (UserProgressNotFoundException e){
-            Log.e("ICLS-LOG", "ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmAnswerClicked: ", e);
+            Log.e("ICLS-LOG", "ChallengeMultipleChoice::ApplicationLogic::onButtonConfirmAnswerClicked: ", e);
             showErrorUnexpectedError();
             Navigation.startActivityStartMenu(mActivity);
         }
 
-        Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
         givenAnswer = 0;
         isCheckBoxAnswer1Clicked = false;
         isCheckBoxAnswer2Clicked = false;
         isCheckBoxAnswer3Clicked = false;
+        Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
+
 
     }
 
@@ -151,7 +155,7 @@ public class ApplicationLogic {
             }
         }
         if (userProgressFound == false){
-            throw new UserProgressNotFoundException("ChallengeFreeAnswer::ApplicationLogic::updateUserProgress:"
+            throw new UserProgressNotFoundException("ChallengeMultipleChoice::ApplicationLogic::updateUserProgress:"
                     + " CurrentUserName: " + mData.getmChosenUser().getmName()
                     + "ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
         }
