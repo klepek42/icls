@@ -33,12 +33,12 @@ public class Data {
     private IndexCard mChosenFile;
     private int mNumberAllChallenges;
     private int mNumberDueChallenges;
-    private int mNumberOfPeriodClass1;
-    private int mNumberOfPeriodClass2;
-    private int mNumberOfPeriodClass3;
-    private int mNumberOfPeriodClass4;
-    private int mNumberOfPeriodClass5;
-    private int mNumberOfPeriodClass6;
+    private int mNumberOfClass1;
+    private int mNumberOfClass2;
+    private int mNumberOfClass3;
+    private int mNumberOfClass4;
+    private int mNumberOfClass5;
+    private int mNumberOfClass6;
     private ChallengeCollection mAllChallenges;
 
     public Data(Activity activity, Bundle bundle) {
@@ -100,6 +100,7 @@ public class Data {
         return mNumberAllChallenges;
     }
 
+    // Get dueChallenges from Max
     public int getmNumberDueChallenges() {
         /*
         // TODO: Berechnung der Anzahl der fälligen Challenges der aktuellen Kartei und des aktuellen Users (Datumvergleich?)
@@ -127,11 +128,13 @@ public class Data {
             }
 
         }*/
-        int numberDueChallenges = getmNumberOfPeriodClass1() + getmNumberOfPeriodClass2() + getmNumberOfPeriodClass3() + getmNumberOfPeriodClass4() + getmNumberOfPeriodClass5() + getmNumberOfPeriodClass6();
+        int numberDueChallenges = getmNumberOfClass1() + getmNumberOfClass2() + getmNumberOfClass3() + getmNumberOfClass4() + getmNumberOfClass5() + getmNumberOfClass6();
         return numberDueChallenges;
     }
 
-    public int getmNumberOfPeriodClass1() {
+    // Get all challenges with class 1 from progress.csv
+    // First filter the user ("progress_userName.csv", then the index and the class
+    public int getmNumberOfClass1() {
         // TODO: Berechnung der fälligen Challenges in Klasse 1
 /*
         int numberDueChallenges = 0;
@@ -145,48 +148,48 @@ public class Data {
         }*/
 
         // TODO: Wert aus Berechnung einfügen
-        mNumberOfPeriodClass1 = 0;
-        return mNumberOfPeriodClass1;
+        mNumberOfClass1 = 0;
+        return mNumberOfClass1;
     }
 
-    public int getmNumberOfPeriodClass2() {
+    public int getmNumberOfClass2() {
         // TODO: Berechnung der fälligen Challenges in Klasse 2
 
         // TODO: Wert aus Berechnung einfügen
-        mNumberOfPeriodClass2 = 0;
-        return mNumberOfPeriodClass2;
+        mNumberOfClass2 = 0;
+        return mNumberOfClass2;
     }
 
-    public int getmNumberOfPeriodClass3() {
+    public int getmNumberOfClass3() {
         // TODO: Berechnung der fälligen Challenges in Klasse 3
 
         // TODO: Wert aus Berechnung einfügen
-        mNumberOfPeriodClass3 = 0;
-        return mNumberOfPeriodClass3;
+        mNumberOfClass3 = 0;
+        return mNumberOfClass3;
     }
 
-    public int getmNumberOfPeriodClass4() {
+    public int getmNumberOfClass4() {
         // TODO: Berechnung der fälligen Challenges in Klasse 4
 
         // TODO: Wert aus Berechnung einfügen
-        mNumberOfPeriodClass4 = 0;
-        return mNumberOfPeriodClass4;
+        mNumberOfClass4 = 0;
+        return mNumberOfClass4;
     }
 
-    public int getmNumberOfPeriodClass5() {
+    public int getmNumberOfClass5() {
         // TODO: Berechnung der fälligen Challenges in Klasse 5
 
         // TODO: Wert aus Berechnung einfügen
-        mNumberOfPeriodClass5 = 0;
-        return mNumberOfPeriodClass5;
+        mNumberOfClass5 = 0;
+        return mNumberOfClass5;
     }
 
-    public int getmNumberOfPeriodClass6() {
+    public int getmNumberOfClass6() {
         // TODO: Berechnung der fälligen Challenges in Klasse 6
 
         // TODO: Wert aus Berechnung einfügen
-        mNumberOfPeriodClass6 = 0;
-        return mNumberOfPeriodClass6;
+        mNumberOfClass6 = 0;
+        return mNumberOfClass6;
     }
 
 

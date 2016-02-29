@@ -35,7 +35,7 @@ public class csvExport {
     // Create ICLS folder (this function could also be implemented directly in copyAssets() )
     public static void buildFolders() throws FileNotFoundException {
         // Choose folder name and create File object
-        File iclsFolder = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/");
+        File iclsFolder = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/UserProgresses/");
         // Build directory
         iclsFolder.mkdirs();
 
@@ -57,7 +57,7 @@ public class csvExport {
             Log.e("IOException", "Failed to get asset file list.", e);
         }
         if (files != null) for (String filename : files) {
-            if (!filename.equals("sounds") && !filename.equals("images") && !filename.equals("webkit")) {
+            if (!filename.equals("sounds") && !filename.equals("images") && !filename.equals("webkit") && !filename.equals("progress.csv")) {
                 InputStream in = null;
                 OutputStream out = null;
                 try {
@@ -131,6 +131,30 @@ public class csvExport {
         // Read the android path where the file should be saved (/downloads for testing)
         String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
         String fileName = "progress.csv";
+        String filePath = baseDir + File.separator + fileName;
+        Log.d("path", "" + filePath);
+        //String downloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        mWriter = new CSVWriter(new FileWriter(filePath));
+
+        List<String[]> test = progressList;
+
+        // Write all data to the file
+        //mWriter.writeNext(writeData);
+        mWriter.writeAll(test);
+
+        // Quit the output stream
+        mWriter.close();
+    }
+
+    // FUER initiales UserProgress erzeugen
+    public static void saveUserProgressToCsv( List<String[]> progressList, String userName) throws IOException {
+
+        Context mContext;
+        CSVWriter mWriter;
+
+        // Read the android path where the file should be saved (/downloads for testing)
+        String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/UserProgresses";
+        String fileName = "progress_" + userName + ".csv";
         String filePath = baseDir + File.separator + fileName;
         Log.d("path", "" + filePath);
         //String downloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);

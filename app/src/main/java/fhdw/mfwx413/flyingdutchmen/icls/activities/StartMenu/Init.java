@@ -7,6 +7,14 @@ import android.util.Log;
 
 import java.io.FileNotFoundException;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 
 /**
@@ -20,21 +28,14 @@ public class Init extends Activity {
     private Gui mGui;
     private ApplicationLogic mApplicationLogic;
 
-    // private SharedPreferences prefs = null; (jonas)
+    // Jonas
+    private SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //checkFirstRun(); (jonas)
+        // Jonas
+        checkFirstRun();
         super.onCreate(savedInstanceState);
-
-        try {
-            csvExport.buildFolders();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        csvExport.copyAssets(this);
-
         initData(savedInstanceState);
         initGui();
         initApplicationLogic();
@@ -57,7 +58,7 @@ public class Init extends Activity {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }
 
-    /* Jonas
+    // Jonas
     //There are some things that have to be done, only on the first run of the app after the installation
     private void checkFirstRun() {
 
@@ -93,6 +94,14 @@ public class Init extends Activity {
 
         } else if (savedVersionCode == DOESNT_EXIST) {
 
+            try {
+                csvExport.buildFolders();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            csvExport.copyAssets(this);
+            createUserProgresses();
+
             Log.d("ICLS-INFO", "This is the first run after a new installation! App data will be installed!");
             //user-csv auf sd-card auslagern
             //index.csv auf sd-card auslagern
@@ -112,5 +121,22 @@ public class Init extends Activity {
         prefs.edit().putInt(PREF_VERSION_CODE_KEY, currentVersionCode).commit();
 
     }
-    */
+
+
+    private void createUserProgresses() {
+        UserCollection allUser = UserDatabase.getAllUser(this);
+        ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges(this);
+
+        for(int i = 0; i < allUser.getSize(); i++) {
+            UserProgressCollection userProgressCollection = new UserProgressCollection();
+
+
+            for(int j = 0; j < allChallenges.getSize(); j++) {
+                UserProgress userProgress = new UserProgress(allUser.get(i).getmName(), allChallenges.getChallenge(j).getmID(), 1, Constants.DEFAULT_TIMESTAMP);
+                userProgressCollection.addUserProgress(userProgress);
+            }
+            UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, allUser.get(i).getmName());
+        }
+
+    }
 }
