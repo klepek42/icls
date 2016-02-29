@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGrey"
+    android:background="@color/backgroundColor"
     android:padding="@dimen/activity_padding">
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_file_name"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_statistics"
+        android:layout_marginTop="@dimen/activity_margin_text_to_header"
         android:layout_below="@+id/textFieldStatistics" />
 
     <TextView
@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_file_name"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_statistics"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/activity_margin_text_to_header"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
         android:layout_below="@+id/textFieldStatistics"
@@ -50,6 +51,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
@@ -71,6 +73,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="@dimen/activity_portrait_margin_change_text"
@@ -83,7 +86,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_class_one"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_statistics"
+        android:layout_marginTop="@dimen/activity_margin_text_to_header"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="@dimen/activity_landscape_margin_change_text"
         android:layout_below="@+id/textFieldStatistics" />
@@ -94,7 +97,8 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_statistics"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/activity_margin_text_to_header"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldStatistics"
         android:layout_toRightOf="@+id/textFieldClass1" />
@@ -116,6 +120,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldClass1"
@@ -138,6 +143,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldClass2"
@@ -160,6 +166,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldClass3"
@@ -182,6 +189,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldClass4"
@@ -204,6 +212,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_number_of"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_marginTop="@dimen/activity_margin_gap_vertical"
         android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
         android:layout_below="@+id/textFieldClass5"

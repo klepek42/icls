@@ -3,28 +3,31 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGrey"
-    android:padding="@dimen/activity_textview_padding"
-    >
+    android:background="@color/backgroundColor"
+    android:padding="@dimen/activity_padding" >
 
     <TextView
         android:id="@+id/textFieldQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_question_margin"
-        android:textSize="@dimen/activity_text_size"
         android:text="@string/string_question_3"
-        android:layout_alignParentTop="true"
-        />
+        android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_question_margin"
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/textFieldThinkAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/string_think_answer"
+        android:text="@string/string_think_answer"
         android:textSize="@dimen/activity_text_size"
-        android:layout_centerVertical="true"
-        />
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <Button
         android:id="@+id/buttonConfirmThinkAnswer"
@@ -38,8 +41,7 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:textAllCaps="false"
-        />
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/buttonAbort"
@@ -53,7 +55,6 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:textAllCaps="false"
-        />
+        android:textAllCaps="false" />
 
 </RelativeLayout>

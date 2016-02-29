@@ -3,30 +3,31 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGrey"
-    android:padding="@dimen/activity_textview_padding"
-    >
+    android:background="@color/backgroundColor"
+    android:padding="@dimen/activity_padding" >
 
     <TextView
         android:id="@+id/textFieldFeedbackText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_question_margin"
-        android:textSize="@dimen/activity_text_size"
         android:text="@string/string_feedback_answer_result"
-        android:layout_alignParentTop="true"
-        />
+        android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_question_margin"
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/textFieldCorrectAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_feedback_margin"
-        android:textSize="@dimen/activity_text_size"
         android:text="@string/string_feedback_correct_answer"
-        android:layout_below="@id/textFieldFeedbackText"
-        />
-
+        android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_feedback_margin"
+        android:layout_below="@id/textFieldFeedbackText" />
 
     <Button
         android:id="@+id/buttonContinue"
@@ -40,19 +41,19 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:textAllCaps="false"
-        />
+        android:textAllCaps="false" />
 
     <TextView
         android:id="@+id/textFieldChallengeUpDownGrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/string_feedback_up_down_grade"
+        android:text="@string/string_feedback_up_down_grade"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_above="@id/buttonContinue"
-        android:layout_marginBottom="@dimen/activity_feedback_margin_bottom"
-        />
+        android:layout_marginBottom="@dimen/activity_feedback_margin_bottom" />
 
     <Button
         android:id="@+id/buttonAbort"
@@ -66,8 +67,6 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:textAllCaps="false"
-
-        />
+        android:textAllCaps="false" />
 
 </RelativeLayout>

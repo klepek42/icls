@@ -3,49 +3,47 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGrey"
-    android:padding="@dimen/activity_textview_padding"
-    >
+    android:background="@color/backgroundColor"
+    android:padding="@dimen/activity_padding" >
 
     <TextView
         android:id="@+id/textFieldQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_question_margin"
-        android:textSize="@dimen/activity_text_size"
         android:text="@string/string_question_multiple_choice"
-        android:layout_alignParentTop="true"
-        />
+        android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_question_margin"
+        android:layout_alignParentTop="true" />
 
     <CheckBox android:id="@+id/checkboxAnswer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_answer_2"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_centerVertical="true"
-        android:onClick="onCheckBoxAnswer1Clicked"
-        />
-
-
+        android:onClick="onCheckBoxAnswer1Clicked" />
 
     <CheckBox android:id="@+id/checkboxAnswer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_answer_1"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_above="@id/checkboxAnswer1"
         android:onClick="onCheckBoxAnswer2Clicked"/>
-
 
     <CheckBox android:id="@+id/checkboxAnswer3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_answer_3"
         android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
         android:layout_below="@id/checkboxAnswer1"
         android:onClick="onCheckBoxAnswer3Clicked"/>
-
-
 
     <Button
         android:id="@+id/buttonConfirmAnswer"
@@ -59,8 +57,7 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:textAllCaps="false"
-        />
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/buttonAbort"
@@ -74,7 +71,6 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:textAllCaps="false"
-        />
+        android:textAllCaps="false" />
 
 </RelativeLayout>

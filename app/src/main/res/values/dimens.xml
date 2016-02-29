@@ -9,17 +9,16 @@
     <dimen name="activity_margin_user">90dp</dimen>
     <dimen name="activity_margin_class_land">160dp</dimen>
     <dimen name="activity_margin_input">120dp</dimen>
-    <dimen name="activity_margin_statistics">30dp</dimen>
+    <dimen name="activity_margin_class">30dp</dimen>
     <dimen name="activity_margin_gap_vertical">10dp</dimen>
     <dimen name="activity_margin_gap_horizontal">50dp</dimen>
     <dimen name="activity_margin_gap_middel">20dp</dimen>
-    <dimen name="activity_width_dropdown">200dp</dimen>
-    <dimen name="activity_height_dropdown">35dp</dimen>
-    <dimen name="activity_textview_padding">20dp</dimen>
     <dimen name="activity_question_margin">65dp</dimen>
     <dimen name="activity_feedback_margin">25dp</dimen>
     <dimen name="activity_feedback_margin_bottom">50dp</dimen>
     <dimen name="activity_padding_button">8dp</dimen>
     <dimen name="activity_portrait_margin_change_text">230dp</dimen>
     <dimen name="activity_landscape_margin_change_text">520dp</dimen>
+    <dimen name="activity_margin_text_to_header">60dp</dimen>
+    <dimen name="activity_margin_edittext_to_header">50dp</dimen>
 </resources>
