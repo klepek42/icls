@@ -2,6 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fhdw.mfwx413.flyingdutchmen.icls">
 
+    <!--
+    The permission handling only works for running Android 5.1 or lower and SDK 22 or lower
+    Since Android 6.0 and SDK 23 the permission handling in Android changed.
+    When running Android 6.0 or higher and SDK 23 or higher users grant permissions to apps while the app is running, not when they install the app
+    So the statements in the manifest do not suffice anymore
+    For more information see these links:
+    http://developer.android.com/training/permissions/requesting.html
+    http://developer.android.com/guide/topics/security/permissions.html#normal-dangerous
+    #########################################
+    This is app is set up for Android 5.1 or lower and SDK 22 or lower
+    it does not support the permission handling for Android 6.0 or higher and SDK 23 or higher
+    This is a feature that could be implemented in the future
+    -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 

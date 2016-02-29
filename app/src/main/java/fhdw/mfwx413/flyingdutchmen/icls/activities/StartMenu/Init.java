@@ -97,23 +97,29 @@ public class Init extends Activity {
         } else if (savedVersionCode == DOESNT_EXIST) {
 
             Log.d("ICLS-INFO", "This is the first run after a new installation! App data will be installed!");
+            //build app folder on external storage
             try {
                 csvExport.buildFolders();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+            //copy app data from assets into app folder on external storage
             csvExport.copyAssets(this);
+            //create userprogresses and save in app folder
             createUserProgresses();
 
+            //check if all necessary files are installed
             if(csvImport.checkICLSFile() == true){
                 Log.d("ICLS-INFO", "Alle Dateien für die App wurden erfolgreich auf SD-Card kopiert");
                 Toast info = Toast.makeText(this, "AppData wurde erfolgreich angelegt", Toast.LENGTH_LONG);
                 info.show();
             }
             else{
+                //if there are any missing files, the app will be closed, becaue there would be an exception on runtime
                 Log.e("ICLS-ERROR", "Bei dem erzeugen der AppData ist ein Fehler aufgetreten");
                 Toast info = Toast.makeText(this, "Fehler beim erzeugen der AppData!", Toast.LENGTH_LONG);
                 info.show();
+                this.finish();
             }
             //user-csv auf sd-card auslagern
             //index.csv auf sd-card auslagern
@@ -135,6 +141,7 @@ public class Init extends Activity {
     }
 
 
+    //create a userprogress.csv file for each user and save it in app folder
     private void createUserProgresses() {
         UserCollection allUser = UserDatabase.getAllUser(this);
         ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges(this);
