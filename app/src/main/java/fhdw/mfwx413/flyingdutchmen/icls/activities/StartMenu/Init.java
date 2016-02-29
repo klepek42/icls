@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 
@@ -16,6 +17,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
  * Responsibility: Max
@@ -94,6 +96,7 @@ public class Init extends Activity {
 
         } else if (savedVersionCode == DOESNT_EXIST) {
 
+            Log.d("ICLS-INFO", "This is the first run after a new installation! App data will be installed!");
             try {
                 csvExport.buildFolders();
             } catch (FileNotFoundException e) {
@@ -102,7 +105,16 @@ public class Init extends Activity {
             csvExport.copyAssets(this);
             createUserProgresses();
 
-            Log.d("ICLS-INFO", "This is the first run after a new installation! App data will be installed!");
+            if(csvImport.checkICLSFile() == true){
+                Log.d("ICLS-INFO", "Alle Dateien für die App wurden erfolgreich auf SD-Card kopiert");
+                Toast info = Toast.makeText(this, "AppData wurde erfolgreich angelegt", Toast.LENGTH_LONG);
+                info.show();
+            }
+            else{
+                Log.e("ICLS-ERROR", "Bei dem erzeugen der AppData ist ein Fehler aufgetreten");
+                Toast info = Toast.makeText(this, "Fehler beim erzeugen der AppData!", Toast.LENGTH_LONG);
+                info.show();
+            }
             //user-csv auf sd-card auslagern
             //index.csv auf sd-card auslagern
             //idee (noch nicht kommuniziert): für jeden Benutzer eine einzelne progress.csv (z.B. progress_Jonas.csv) erstellen und unter assets abspeichern

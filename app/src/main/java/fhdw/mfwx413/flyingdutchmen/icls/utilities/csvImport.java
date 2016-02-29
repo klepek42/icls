@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.opencsv.CSVReader;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -181,5 +182,15 @@ public class csvImport {
         return list;
     }
 
-
+    public static boolean checkICLSFile(){
+        boolean allFilesExists = false;
+        File fileProgresses = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/UserProgresses");
+        File fileChallenges = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/challenges.csv");
+        File fileUsers = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/users.csv");
+        File fileIndex = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/index.csv");
+        if (fileProgresses.exists() && fileChallenges.exists() && fileUsers.exists() && fileIndex.exists()) {
+            allFilesExists = true;
+        }
+        return allFilesExists;
+    }
 }
