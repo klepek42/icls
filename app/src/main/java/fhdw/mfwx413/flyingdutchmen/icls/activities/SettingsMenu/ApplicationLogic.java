@@ -256,13 +256,13 @@ public class ApplicationLogic{
             mData.getCurrentUser().setPeriodClasses(chosenPeriodClass1Int, chosenPeriodClass2Int, chosenPeriodClass3Int, chosenPeriodClass4Int, chosenPeriodClass5Int, chosenPeriodClass6Int);
 
             UserCollection uc = mData.getmAllUsers();
-           /* for (int i=0; i<uc.getSize(); i++)
+           for (int i=0; i<uc.getSize(); i++)
             {
-                if (uc.getUser(i).getmName().equals(mData.getCurrentUser().getmName()))
+                if (uc.get(i).getmName().equals(mData.getCurrentUser().getmName()))
                 {
-                    uc.getUser(i) = mData.getCurrentUser();
+                    uc.get(i).setmName(mData.getCurrentUser().getmName());
                 }
-            }*/
+            }
             UserDatabase.writeAllUsers(uc);
             Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
         }
