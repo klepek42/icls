@@ -49,7 +49,7 @@ public class ApplicationLogic {
     }
 
     public void onButtonWasAnswerCorrect (){
-        boolean isAnswerCorrect = false;
+        boolean isAnswerCorrect = true;
 
         try {
             //User progress has to be updated (here it is a upgrade)
