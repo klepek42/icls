@@ -28,7 +28,7 @@ public class Init extends Activity {
 
     //initialize the ApplicationLogic
     private void initApplicationLogic(){
-        mApplicationLogic = new fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.ApplicationLogic(mData, mGui, this);
+        mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
     //initialize the EventToListenerMapping

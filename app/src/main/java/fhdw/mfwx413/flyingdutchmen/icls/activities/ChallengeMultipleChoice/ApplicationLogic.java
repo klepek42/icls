@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
@@ -16,12 +17,10 @@ public class ApplicationLogic {
     private fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Data mData;
     private fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Gui mGui;
     private Activity mActivity;
-    private int givenAnswer = 0; //variable to store the given Answer as an integer
-    private boolean isCheckBoxAnswer1Clicked = false;
-    private boolean isCheckBoxAnswer2Clicked = false;
-    private boolean isCheckBoxAnswer3Clicked = false;
-
-    //Todo Daniel: Exception Handling
+    private int givenAnswer; //variable to store the given Answer as an integer
+    private boolean isCheckBoxAnswer1Clicked;
+    private boolean isCheckBoxAnswer2Clicked;
+    private boolean isCheckBoxAnswer3Clicked;
 
     public ApplicationLogic(fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Data data, Gui gui, Activity activity) {
         mData = data;
@@ -37,6 +36,11 @@ public class ApplicationLogic {
 
         currentChallengeId = mData.getmCurrentChallengeId();
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(currentChallengeId);
+
+        givenAnswer = 0;
+        isCheckBoxAnswer1Clicked = false;
+        isCheckBoxAnswer2Clicked = false;
+        isCheckBoxAnswer3Clicked = false;
 
         mGui.setQuestionText(challenge.getmQuestiontext());
         mGui.getmCheckBoxAnswer1().setText(challenge.getmAnswerOne());
@@ -82,8 +86,7 @@ public class ApplicationLogic {
         }
     }
 
-
-    public void onButtonConfirmAnswerClicked(){
+    public void onButtonConfirmAnswerClicked() throws InvalidCorrectAnswerTypeException {
         int challengeId = mData.getmCurrentChallengeId();
         Challenge challenge;
         boolean isAnswerCorrect = false;
@@ -91,6 +94,7 @@ public class ApplicationLogic {
 
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
 
+    if (challenge.getmCorrectAnswer() >= 1 && challenge.getmCorrectAnswer() <=7){
 
         if (challenge.getmCorrectAnswer() == givenAnswer)
         {
@@ -103,10 +107,14 @@ public class ApplicationLogic {
             System.out.println("hinterlegte Antwort: " + challenge.getmAnswerOne());
             isAnswerCorrect = false;
         }
+    }
+
+    else {
+        throw new InvalidCorrectAnswerTypeException("ChallengeMultipleChoice::ApplicationLogic::onButtonConfirmAnswerClicked: Ungültiger Wert für CorrectAnswer: " + challenge.getmCorrectAnswer());
+    }
 
         try {
             updateUserProgress(isAnswerCorrect);
-
             //call the Feedback-Activity and send the required data
             Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
 
@@ -116,14 +124,6 @@ public class ApplicationLogic {
             showErrorUnexpectedError();
             Navigation.startActivityStartMenu(mActivity);
         }
-
-        givenAnswer = 0;
-        isCheckBoxAnswer1Clicked = false;
-        isCheckBoxAnswer2Clicked = false;
-        isCheckBoxAnswer3Clicked = false;
-        Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
-
-
     }
 
 

@@ -1,8 +1,10 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice;
 
+import android.util.Log;
 import android.view.View;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 
 /**
  * Responsibility: Daniel zur Linden
@@ -23,7 +25,13 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
         public void onClick(View v){
             switch (v.getId()) {
                 case R.id.buttonConfirmAnswer:
-                    mApplicationLogic.onButtonConfirmAnswerClicked();
+                    try {
+                        mApplicationLogic.onButtonConfirmAnswerClicked();
+                    } catch (InvalidCorrectAnswerTypeException e) {
+                        Log.e("ICLS-ERROR", "ChallengeFreeAnswer::EventToListenerMapping::onClick ", e);
+                        mApplicationLogic.showErrorUnexpectedError();
+                        mApplicationLogic.goBackToChooseFile();
+                    }
                     break;
                 case R.id.buttonAbort:
                     mApplicationLogic.goBackToChooseFile();

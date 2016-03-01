@@ -1,7 +1,9 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu;
 
+import android.app.Activity;
 import android.content.Context;
 
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -253,36 +257,60 @@ public class ApplicationLogic{
                 chosenPeriodClass2Int > chosenPeriodClass1Int )
         {
             //chosen periods are valid
-            Toast.makeText(mData.getActivity(), "Die Werte wurden gespeichert!", Toast.LENGTH_LONG).show();
-            mData.getCurrentUser().setPeriodClasses(chosenPeriodClass1Int, chosenPeriodClass2Int, chosenPeriodClass3Int, chosenPeriodClass4Int, chosenPeriodClass5Int, chosenPeriodClass6Int);
 
-            UserCollection uc = mData.getmAllUsers();
-           for (int i=0; i<uc.getSize(); i++)
-            {
-                if (uc.get(i).getmName().equals(mData.getCurrentUser().getmName()))
-                {
-                    uc.get(i).setmName(mData.getCurrentUser().getmName());
-                }
+        //    mData.getCurrentUser().setPeriodClasses(chosenPeriodClass1Int, chosenPeriodClass2Int, chosenPeriodClass3Int, chosenPeriodClass4Int, chosenPeriodClass5Int, chosenPeriodClass6Int);
+
+
+            try {
+                updateUserCollection(chosenPeriodClass1Int,chosenPeriodClass2Int,chosenPeriodClass3Int,chosenPeriodClass4Int,chosenPeriodClass5Int,chosenPeriodClass6Int);
+                Toast.makeText(mData.getActivity(), "Die Werte wurden gespeichert!", Toast.LENGTH_LONG).show();
+                Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+            } catch (UserNotFoundException e) {
+                Log.e("ICLS-LOG", "SettingsMenu::ApplicationLogic::onButtonConfirmSettingsClicked: ", e);
+                showErrorUnexpectedError();
+                Navigation.startActivityStartMenu(mData.getActivity());
             }
-            UserDatabase.writeAllUsers(uc);
-            Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+
         }
         else {
             //not valid
-            Toast.makeText(mData.getActivity(), "Bitte prüfen Sie die eingegebenen Werte und Einheiten.", Toast.LENGTH_LONG).show();
+            Toast.makeText(mData.getActivity(), "Bitte prüfen Sie die eingegebenen Werte und Einheiten.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showErrorUnexpectedError() {
+        Toast.makeText(mData.getActivity(), "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
+    }
+
+    private void updateUserCollection(int periodClass1, int periodClass2,int periodClass3,int periodClass4,int periodClass5,int periodClass6) throws UserNotFoundException {
+        UserCollection uc = mData.getmAllUsers();
+        boolean userFoundInCollection = false;
+
+        for (int i=0; i<uc.getSize(); i++)
+        {
+            if (uc.get(i).getmName().equals(mData.getCurrentUser().getmName()))
+            {
+                uc.get(i).setPeriodClasses(periodClass1,periodClass2,periodClass3,periodClass4,periodClass5,periodClass6);
+                userFoundInCollection = true;
+            }
+        }
+        if (userFoundInCollection == false){
+            throw new UserNotFoundException("SettingsMenu::ApplicationLogic::updateUserCollection:"
+                    + " CurrentUserName: " + mData.getmChosenUser().getmName());
+        }
+        UserDatabase.writeAllUsers(uc);
     }
 
 
     public void goBackToChooseFile() {
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
-        Toast.makeText(mData.getActivity(), "Abgebrochen und nichts gespeichert.", Toast.LENGTH_LONG).show();
+        Toast.makeText(mData.getActivity(), "Abgebrochen und nichts gespeichert.", Toast.LENGTH_SHORT).show();
     }
 
     //Set settings back to default values
     public void onButtonSetSettingsDefaultClicked() {
         mData.getCurrentUser().setDefaultPeriodClasses(mData.getCurrentUser().getmName());
-        Toast.makeText(mData.getActivity(), "Zu default-Werten zurückgesetzt!", Toast.LENGTH_LONG).show();
+        Toast.makeText(mData.getActivity(), "Zu default-Werten zurückgesetzt!", Toast.LENGTH_SHORT).show();
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 }
