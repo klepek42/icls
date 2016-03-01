@@ -35,11 +35,11 @@ public class Constants {
     public static final String KEY_PARAM_IS_ANSWER_CORRECT = "P5";
 
     //Constants for Bundles
-    private static final String BUNDLE_KEY_CURRENT_CHALLENGE_ID = "K1";
-    private static final String BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";
-    private static final String BUNDLE_KEY_CHOSEN_USER = "K3";
-    private static final String BUNDLE_KEY_CHOSEN_FILE = "K4";
-    private static final String BUNDLE_KEY_IS_ANSWER_CORRECT = "K5";
-    private static final String BUNDLE_KEY_ALL_USER_PROGRESSES = "K6";
+    public static final String BUNDLE_KEY_CURRENT_CHALLENGE_ID = "K1";
+    public static final String BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";
+    public static final String BUNDLE_KEY_CHOSEN_USER = "K3";
+    public static final String BUNDLE_KEY_CHOSEN_FILE = "K4";
+    public static final String BUNDLE_KEY_IS_ANSWER_CORRECT = "K5";
+    public static final String BUNDLE_KEY_ALL_USER_PROGRESSES = "K6";
 
 }

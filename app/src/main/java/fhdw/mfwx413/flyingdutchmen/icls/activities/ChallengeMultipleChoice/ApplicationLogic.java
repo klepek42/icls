@@ -21,6 +21,8 @@ public class ApplicationLogic {
     private boolean isCheckBoxAnswer2Clicked = false;
     private boolean isCheckBoxAnswer3Clicked = false;
 
+    //Todo Daniel: Exception Handling
+
     public ApplicationLogic(fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Data data, Gui gui, Activity activity) {
         mData = data;
         mGui = gui;

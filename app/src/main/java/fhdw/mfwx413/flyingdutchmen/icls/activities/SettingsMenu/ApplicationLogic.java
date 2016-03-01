@@ -15,6 +15,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 /**
  * Responsibility: Daniel zur Linden
  */
+//Todo Daniel: Exception Handling
 //Optional Todo: reduce toString() -  Int
 public class ApplicationLogic{
 
