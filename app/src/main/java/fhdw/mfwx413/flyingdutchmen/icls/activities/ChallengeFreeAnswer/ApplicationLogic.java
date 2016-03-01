@@ -123,14 +123,14 @@ public class ApplicationLogic {
                         mData.getmUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
                     }
                 }
-                UserProgressDatabase.writeAllUserProgresses(mData.getmUserProgresses());
+                UserProgressDatabase.writeSpecificUserProgresses(mData.getmUserProgresses(), mData.getmChosenUser().getmName(), mActivity);
                 break;
             }
         }
         if (userProgressFound == false){
             throw new UserProgressNotFoundException("ChallengeFreeAnswer::ApplicationLogic::updateUserProgress:"
                     + " CurrentUserName: " + mData.getmChosenUser().getmName()
-                    + "ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
+                    + " ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
         }
     }
 
