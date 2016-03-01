@@ -3,9 +3,15 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 import android.app.Activity;
 import android.widget.Toast;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 
@@ -57,6 +63,17 @@ public class ApplicationLogic {
 
                     // Export all users + new user to users.csv (create new csv file)
                     UserDatabase.writeAllUsers(uc);
+
+                    // create UserProgress File for User
+                    ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+
+                    UserProgressCollection userProgressCollection = new UserProgressCollection();
+
+                    for(int i = 0; i < allChallenges.getSize(); i++) {
+                        UserProgress userProgress = new UserProgress(givenUser, allChallenges.getChallenge(i).getmID(), 1, Constants.DEFAULT_TIMESTAMP);
+                        userProgressCollection.addUserProgress(userProgress);
+                    }
+                    UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, givenUser, mActivity);
 
                     //Navigation to ChooseFile
                     mData.setmCurrentUser(mData.getmAllUsers().getUser(givenUser));
