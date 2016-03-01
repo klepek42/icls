@@ -40,6 +40,11 @@ public class csvExport {
         // Build directory
         iclsInternalFolder.mkdirs();
 
+        // Choose folder name and create File object
+        File iclsExternalFolder = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/");
+        // Build directory
+        iclsExternalFolder.mkdirs();
+
         // INTERESSANT FUER DIE ERSTELLUNG DER DATEIEN
         // Create a File object for the output file
         //File outputFile = new File(wallpaperDirectory, "");
