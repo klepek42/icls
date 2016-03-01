@@ -82,11 +82,13 @@ public class ApplicationLogic {
             //TODO Max: Vernünftiges Fehlerhandling
         }
 
+        /**
         mUserProgressForCurrentIndexCardAndCurrentUser = mData.getUserProgressForCurrentIndexCardAndCurrentUser();
         if(mUserProgressForCurrentIndexCardAndCurrentUser.getSize() == 0) {
             //TODO Max: Vernünftiges Fehlerhandling
             //Log.d("Keine Challenges für aktuelle IndexCard und User verfügbar.", "");
         }
+         */
 
         mDueChallenges = mData.getDueChallengeList();
 
