@@ -15,6 +15,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
@@ -128,68 +129,189 @@ public class Data {
             }
 
         }*/
-        int numberDueChallenges = getmNumberOfClass1() + getmNumberOfClass2() + getmNumberOfClass3() + getmNumberOfClass4() + getmNumberOfClass5() + getmNumberOfClass6();
+        //int numberDueChallenges = getmNumberOfClass1() + getmNumberOfClass2() + getmNumberOfClass3() + getmNumberOfClass4() + getmNumberOfClass5() + getmNumberOfClass6();
+        int numberDueChallenges = 0;
         return numberDueChallenges;
     }
 
     // Get all challenges with class 1 from progress.csv
-    // First filter the user ("progress_userName.csv", then the index and the class
+    // First filter the index and then the class
     public int getmNumberOfClass1() {
-        // TODO: Berechnung der fälligen Challenges in Klasse 1
-/*
-        int numberDueChallenges = 0;
-        UserProgressCollection mAllUserProgresses = UserProgressDatabase.getSpecificUserAndClassProgresses(mActivity, mChosenUser.toString(), "1");
-        for(int i = 0; i < mAllUserProgresses.getSize(); i++) {
-            UserProgress mUserProgress = mAllUserProgresses.getUserProgress(i);
+        // Get all challenges
+        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-
-             if (mUserProgress.getmChallengeID() ==  && mUserProgress.getmUserName() == mChosenUser.getmName()) {
+        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        for(int i = 0; i < mAllChallenges.getSize(); i++) {
+            Challenge mChallenge = mAllChallenges.getChallenge(i);
+            if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
+                challengesFromIndex.addChallenge(mAllChallenges.getChallenge(i));
             }
-        }*/
+        }
 
-        // TODO: Wert aus Berechnung einfügen
-        mNumberOfClass1 = 0;
-        return mNumberOfClass1;
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        int countClassOne = 0;
+
+        // Go through all user progresses and count the matching ones
+        for(int j = 0; j < allProgressData.getSize(); j++) {
+            UserProgress progress = allProgressData.getUserProgress(j);
+            for(int k = 0; k < challengesFromIndex.getSize(); k++) {
+                if (progress.getmChallengeID() == challengesFromIndex.getChallenge(k).getmID() && progress.getmPeriodClass() == 1) {
+                    countClassOne++;
+                }
+            }
+        }
+        return countClassOne;
     }
 
+    // Get all challenges with class 2 from progress.csv
+    // First filter the index and then the class
     public int getmNumberOfClass2() {
-        // TODO: Berechnung der fälligen Challenges in Klasse 2
+        // Get all challenges
+        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // TODO: Wert aus Berechnung einfügen
-        mNumberOfClass2 = 0;
-        return mNumberOfClass2;
+        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        for(int i = 0; i < mAllChallenges.getSize(); i++) {
+            Challenge mChallenge = mAllChallenges.getChallenge(i);
+            if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
+                challengesFromIndex.addChallenge(mAllChallenges.getChallenge(i));
+            }
+        }
+
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        int countClassTwo = 0;
+
+        // Go through all user progresses and count the matching ones
+        for(int j = 0; j < allProgressData.getSize(); j++) {
+            UserProgress progress = allProgressData.getUserProgress(j);
+            for(int k = 0; k < challengesFromIndex.getSize(); k++) {
+                if (progress.getmChallengeID() == challengesFromIndex.getChallenge(k).getmID() && progress.getmPeriodClass() == 2) {
+                    countClassTwo++;
+                }
+            }
+        }
+        return countClassTwo;
     }
 
+    // Get all challenges with class 3 from progress.csv
+    // First filter the index and then the class
     public int getmNumberOfClass3() {
-        // TODO: Berechnung der fälligen Challenges in Klasse 3
+        // Get all challenges
+        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // TODO: Wert aus Berechnung einfügen
-        mNumberOfClass3 = 0;
-        return mNumberOfClass3;
+        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        for(int i = 0; i < mAllChallenges.getSize(); i++) {
+            Challenge mChallenge = mAllChallenges.getChallenge(i);
+            if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
+                challengesFromIndex.addChallenge(mAllChallenges.getChallenge(i));
+            }
+        }
+
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        int countClassThree = 0;
+
+        // Go through all user progresses and count the matching ones
+        for(int j = 0; j < allProgressData.getSize(); j++) {
+            UserProgress progress = allProgressData.getUserProgress(j);
+            for(int k = 0; k < challengesFromIndex.getSize(); k++) {
+                if (progress.getmChallengeID() == challengesFromIndex.getChallenge(k).getmID() && progress.getmPeriodClass() == 3) {
+                    countClassThree++;
+                }
+            }
+        }
+        return countClassThree;
     }
 
+    // Get all challenges with class 4 from progress.csv
+    // First filter the index and then the class
     public int getmNumberOfClass4() {
-        // TODO: Berechnung der fälligen Challenges in Klasse 4
+        // Get all challenges
+        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // TODO: Wert aus Berechnung einfügen
-        mNumberOfClass4 = 0;
-        return mNumberOfClass4;
+        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        for(int i = 0; i < mAllChallenges.getSize(); i++) {
+            Challenge mChallenge = mAllChallenges.getChallenge(i);
+            if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
+                challengesFromIndex.addChallenge(mAllChallenges.getChallenge(i));
+            }
+        }
+
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        int countClassFour = 0;
+
+        // Go through all user progresses and count the matching ones
+        for(int j = 0; j < allProgressData.getSize(); j++) {
+            UserProgress progress = allProgressData.getUserProgress(j);
+            for(int k = 0; k < challengesFromIndex.getSize(); k++) {
+                if (progress.getmChallengeID() == challengesFromIndex.getChallenge(k).getmID() && progress.getmPeriodClass() == 4) {
+                    countClassFour++;
+                }
+            }
+        }
+        return countClassFour;
     }
 
+    // Get all challenges with class 5 from progress.csv
+    // First filter the index and then the class
     public int getmNumberOfClass5() {
-        // TODO: Berechnung der fälligen Challenges in Klasse 5
+        // Get all challenges
+        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // TODO: Wert aus Berechnung einfügen
-        mNumberOfClass5 = 0;
-        return mNumberOfClass5;
+        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        for(int i = 0; i < mAllChallenges.getSize(); i++) {
+            Challenge mChallenge = mAllChallenges.getChallenge(i);
+            if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
+                challengesFromIndex.addChallenge(mAllChallenges.getChallenge(i));
+            }
+        }
+
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        int countClassFive = 0;
+
+        // Go through all user progresses and count the matching ones
+        for(int j = 0; j < allProgressData.getSize(); j++) {
+            UserProgress progress = allProgressData.getUserProgress(j);
+            for(int k = 0; k < challengesFromIndex.getSize(); k++) {
+                if (progress.getmChallengeID() == challengesFromIndex.getChallenge(k).getmID() && progress.getmPeriodClass() == 5) {
+                    countClassFive++;
+                }
+            }
+        }
+        return countClassFive;
     }
 
+    // Get all challenges with class 6 from progress.csv
+    // First filter the index and then the class
     public int getmNumberOfClass6() {
-        // TODO: Berechnung der fälligen Challenges in Klasse 6
+        // Get all challenges
+        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // TODO: Wert aus Berechnung einfügen
-        mNumberOfClass6 = 0;
-        return mNumberOfClass6;
+        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        for(int i = 0; i < mAllChallenges.getSize(); i++) {
+            Challenge mChallenge = mAllChallenges.getChallenge(i);
+            if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
+                challengesFromIndex.addChallenge(mAllChallenges.getChallenge(i));
+            }
+        }
+
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        int countClassSix = 0;
+
+        // Go through all user progresses and count the matching ones
+        for(int j = 0; j < allProgressData.getSize(); j++) {
+            UserProgress progress = allProgressData.getUserProgress(j);
+            for(int k = 0; k < challengesFromIndex.getSize(); k++) {
+                if (progress.getmChallengeID() == challengesFromIndex.getChallenge(k).getmID() && progress.getmPeriodClass() == 6) {
+                    countClassSix++;
+                }
+            }
+        }
+        return countClassSix;
     }
 
 

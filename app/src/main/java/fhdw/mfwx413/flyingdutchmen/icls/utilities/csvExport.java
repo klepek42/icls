@@ -132,7 +132,7 @@ public class csvExport {
         String fileName = "users.csv";
         String filePath = baseDir + File.separator + fileName;
         Log.d("path", "" + filePath);
-        mWriter = new CSVWriter(new FileWriter(filePath), ',', CSVWriter.NO_QUOTE_CHARACTER);
+        mWriter = new CSVWriter(new FileWriter(filePath), ';', CSVWriter.NO_QUOTE_CHARACTER);
 
         List<String[]> data = userList;
 
@@ -154,7 +154,7 @@ public class csvExport {
         String fileName = "progress.csv";
         String filePath = baseDir + File.separator + fileName;
         Log.d("path", "" + filePath);
-        mWriter = new CSVWriter(new FileWriter(filePath), ',', CSVWriter.NO_QUOTE_CHARACTER);
+        mWriter = new CSVWriter(new FileWriter(filePath), ';', CSVWriter.NO_QUOTE_CHARACTER);
 
         List<String[]> data = progressList;
 
@@ -175,7 +175,7 @@ public class csvExport {
         String fileName = "progress_" + userName + ".csv";
         String filePath = baseDir + File.separator + fileName;
         Log.d("path", "" + filePath);
-        mWriter = new CSVWriter(new FileWriter(filePath), ',', CSVWriter.NO_QUOTE_CHARACTER);
+        mWriter = new CSVWriter(new FileWriter(filePath), ';', CSVWriter.NO_QUOTE_CHARACTER);
 
         List<String[]> data = progressList;
 

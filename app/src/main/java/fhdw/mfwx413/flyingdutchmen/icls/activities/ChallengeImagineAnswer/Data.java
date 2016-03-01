@@ -4,18 +4,21 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.Random;
+
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
  * Responsibility: Edgar Klepek
  */
 public class Data {
-    private static final int DEFAULT_CURRENT_CHALLENGE_ID = 1;
     // static variables for bundle
     private static final String KEY_CURRENT_CHALLENGE_ID = "K1";
     private static final String KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";
@@ -31,6 +34,7 @@ public class Data {
     private ChallengeCollection mDueChallengesOfUserInFile;
     private User mChosenUser;
     private IndexCard mChosenFile;
+    private UserProgressCollection mUserProgresses;
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
@@ -43,15 +47,21 @@ public class Data {
             // if bundle is not filled, the data will be initialized by the extras of the intent
             //intent = mActivity.getIntent();
             // Testweise (hier muss in Zukunft der intent übertrag realisiert werden)
-            mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
             mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges(mActivity);
+
+            Random random = new Random();
+            int randomNumber = random.nextInt(mDueChallengesOfUserInFile.getSize() - 1) + 1;
+
+            mCurrentChallengeId = randomNumber;
             mChosenUser = new User("ImagineUser", 5, 60, 1440, 10080, 43200, 259200);
             try {
+
                 mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
             }
             catch (IdNotFoundException e){
                 Log.e("ICLS-LOG", "ChallengeImagineAnswer::Data: ", e);
             }
+            mUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
         }
         else{
             // Restore Data when bundle gets filled
