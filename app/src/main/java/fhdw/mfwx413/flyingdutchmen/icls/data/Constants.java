@@ -5,7 +5,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
  * Updated by Max on 20.02.2016: Adding constants for default period-classes in minutes
  * Updated by Daniel on 21.02.2016: Adding constant for default timestamp of a challenge
  * Updated by Jonas on 23.02.2016: Adding constants for navigation between activities
- *
+ * Updated by Daniel on 01.03.2016: Adding constants for Bundles
  */
 public class Constants {
     public static final String KEY_PARAM_ID = "X1";
@@ -34,5 +34,12 @@ public class Constants {
     public static final String KEY_PARAM_CHOSEN_FILE = "P4";
     public static final String KEY_PARAM_IS_ANSWER_CORRECT = "P5";
 
+    //Constants for Bundles
+    private static final String BUNDLE_KEY_CURRENT_CHALLENGE_ID = "K1";
+    private static final String BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";
+    private static final String BUNDLE_KEY_CHOSEN_USER = "K3";
+    private static final String BUNDLE_KEY_CHOSEN_FILE = "K4";
+    private static final String BUNDLE_KEY_IS_ANSWER_CORRECT = "K5";
+    private static final String BUNDLE_KEY_ALL_USER_PROGRESSES = "K6";
 
 }
