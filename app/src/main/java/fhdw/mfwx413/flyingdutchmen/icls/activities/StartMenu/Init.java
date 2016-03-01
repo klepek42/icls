@@ -99,7 +99,7 @@ public class Init extends Activity {
             Log.d("ICLS-INFO", "This is the first run after a new installation! App data will be installed!");
             //build app folder on external storage
             try {
-                csvExport.buildFolders();
+                csvExport.buildFolders(this);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -109,7 +109,7 @@ public class Init extends Activity {
             createUserProgresses();
 
             //check if all necessary files are installed
-            if(csvImport.checkICLSFile() == true){
+            if(csvImport.checkICLSFile(this) == true){
                 Log.d("ICLS-INFO", "Alle Dateien für die App wurden erfolgreich auf SD-Card kopiert");
                 Toast info = Toast.makeText(this, "AppData wurde erfolgreich angelegt", Toast.LENGTH_LONG);
                 info.show();
@@ -154,7 +154,7 @@ public class Init extends Activity {
                 UserProgress userProgress = new UserProgress(allUser.get(i).getmName(), allChallenges.getChallenge(j).getmID(), 1, Constants.DEFAULT_TIMESTAMP);
                 userProgressCollection.addUserProgress(userProgress);
             }
-            UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, allUser.get(i).getmName());
+            UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, allUser.get(i).getmName(), this);
         }
 
     }

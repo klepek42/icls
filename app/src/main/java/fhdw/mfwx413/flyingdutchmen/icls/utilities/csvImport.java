@@ -182,11 +182,11 @@ public class csvImport {
         return list;
     }
 
-    public static boolean checkICLSFile(){
+    public static boolean checkICLSFile(Context context){
         boolean allFilesExists = false;
-        File fileProgresses = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/UserProgresses");
+        File fileProgresses = new File(context.getFilesDir().toString() + "/UserProgresses");
+        File fileUsers = new File(context.getFilesDir().toString() + "/users.csv");
         File fileChallenges = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/challenges.csv");
-        File fileUsers = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/users.csv");
         File fileIndex = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/index.csv");
         if (fileProgresses.exists() && fileChallenges.exists() && fileUsers.exists() && fileIndex.exists()) {
             allFilesExists = true;

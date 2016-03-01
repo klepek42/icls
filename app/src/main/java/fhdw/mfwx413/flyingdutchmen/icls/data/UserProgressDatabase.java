@@ -140,7 +140,7 @@ public class UserProgressDatabase {
     }
 
     //write all UserProgresses to csv-file
-    public static void writeSpecificUserProgresses(UserProgressCollection userProgressCollection, String userName){
+    public static void writeSpecificUserProgresses(UserProgressCollection userProgressCollection, String userName, Context context){
         List<String[]> userProgressList = new ArrayList<String[]>();
 
         try {
@@ -157,7 +157,7 @@ public class UserProgressDatabase {
 
                 userProgressList.add(i, userProgressAsString);
             }
-            csvExport.saveUserProgressToCsv(userProgressList, userName);
+            csvExport.saveUserProgressToCsv(userProgressList, userName, context);
         }
         catch (IOException e){
             Log.e("ICLS-ERROR", "UserProgressDatabase::writeAllUserProgresses::saveUserToCsv(): ", e);
