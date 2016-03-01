@@ -20,8 +20,6 @@ public class Data {
         return mActivity;
     }
 
-    private static final String KEY_CHOSEN_USER = "K0";
-
     private Activity mActivity;
     private User mChosenUser;
     private UserCollection mAllUsers;
@@ -43,12 +41,12 @@ public class Data {
 
     //save data in bundle if activity stops
     public void saveDataFromBundle(Bundle bundle) {
-        bundle.putSerializable(KEY_CHOSEN_USER, mChosenUser);
+        bundle.putSerializable(Constants.BUNDLE_KEY_CHOSEN_USER, mChosenUser);
     }
 
     //restore data from given bundle
     public void restoreDataFromBundle(Bundle bundle) {
-        mChosenUser = (User) bundle.getSerializable(KEY_CHOSEN_USER);
+        mChosenUser = (User) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_USER);
     }
 
     public User getmChosenUser() {
