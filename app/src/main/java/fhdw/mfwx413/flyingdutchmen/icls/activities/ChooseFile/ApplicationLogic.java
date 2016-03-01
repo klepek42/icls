@@ -50,12 +50,15 @@ public class ApplicationLogic {
     // Added by Edgar 27.02
     public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
+
+
+        // mDueChallenges = mData.getDueChallengeList();
         Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
+        //TODO Max: mDueChallenges an Statistics übergeben
     }
 
     public void onButtonLogoutClicked() {
-        //TODO Max: Abmelden-Fragment
-        Navigation.startActivityStartMenu(mData.getActivity());
+        Navigation.startFragmentLogout(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonSettingsClicked() {
@@ -65,10 +68,9 @@ public class ApplicationLogic {
     public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
 
-        try {
-            mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
-        }
-        catch (NullPointerException e){
+        mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
+
+        if (mChallengesCurrentIndexCard.getSize() == 0) {
             Toast mNoChallengesForIndexCard = Toast.makeText(mData.getActivity(), "Für die ausgewählte IndexCard stehen keine Challenges zur Verfuegung!", Toast.LENGTH_LONG);
             mNoChallengesForIndexCard.show();
         }
@@ -78,11 +80,10 @@ public class ApplicationLogic {
         }
         catch (NullPointerException e) {
             //TODO Max: Vernünftiges Fehlerhandling
-            //Log.d("Keine Challenges für aktuelle IndexCard verfügbar.", "");
         }
 
         mUserProgressForCurrentIndexCardAndCurrentUser = mData.getUserProgressForCurrentIndexCardAndCurrentUser();
-        if(mUserProgressForCurrentIndexCardAndCurrentUser == null) {
+        if(mUserProgressForCurrentIndexCardAndCurrentUser.getSize() == 0) {
             //TODO Max: Vernünftiges Fehlerhandling
             //Log.d("Keine Challenges für aktuelle IndexCard und User verfügbar.", "");
         }
@@ -126,10 +127,6 @@ public class ApplicationLogic {
     public void onIndexCardSelected(int position){
         System.out.println(indexCards.get(position));
         mSelectedIndexCard = indexCards.get(position);
-
-        //TEST
-        Log.d("SelectedIndexCard: ", "" + mSelectedIndexCard);
-        //EOT
     }
 
 }

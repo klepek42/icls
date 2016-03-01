@@ -42,6 +42,7 @@
         <activity android:name=".activities.FinalEndOfChallenges.Init" />
         <activity android:name=".activities.SettingsMenu.Init" />
         <activity android:name=".activities.Statistics.Init" />
+        <activity android:name=".activities.FragLogout.Init" />
     </application>
 
 </manifest>

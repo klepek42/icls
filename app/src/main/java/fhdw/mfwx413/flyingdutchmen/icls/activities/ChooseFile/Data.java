@@ -96,6 +96,28 @@ public class Data {
         this.mCurrentIndexCard = mCurrentIndexCard;
     }
 
+    //TODO Max: An richtiger Stelle aufrufen
+    public boolean checkForDuplicates() throws IdNotFoundException {
+        int index=0;
+        int counter;
+        String mCacheIndexCard;
+
+        if(mAllIndexCards.getSize()>1){
+            while(index<mAllIndexCards.getSize()){
+                mCacheIndexCard = mAllIndexCards.getIndexCard(index).getmName();
+                counter=index+1;
+                while(counter<mAllIndexCards.getSize()) {
+                    if(mCacheIndexCard.equals(mAllIndexCards.getIndexCard(counter).getmName())){
+                        return true;
+                    }
+                    counter++;
+                }
+                index++;
+            }
+        }
+        return false;
+    }
+
     /**
      * Start of methods to calculate due Challenges. Methods are called in ApplicationLogic at onButtonStartLearningClicked
      */
@@ -107,13 +129,6 @@ public class Data {
             if(mAllChallenges.getChallenge(i).getmIndexCard().getmID() == mCurrentIndexCard.getmID()) {
                 mChallengesCurrentIndexCard.addChallenge(mAllChallenges.getChallenge(i));
             }
-        }
-
-        if (mChallengesCurrentIndexCard.getSize() == 0){
-            Toast mNoChallengesForIndexCard = Toast.makeText(getActivity(), "Für die ausgewählte IndexCard stehen keine Challenges zur Verfuegung!", Toast.LENGTH_LONG);
-            mNoChallengesForIndexCard.show();
-
-            throw new NullPointerException();
         }
         return mChallengesCurrentIndexCard;
     }
@@ -157,10 +172,6 @@ public class Data {
         Calendar date = Calendar.getInstance();
         long t = date.getTimeInMillis();
         CurrentDate = new Date(t);
-
-        //TEST
-        Log.d("CurrentDate: ", "" + CurrentDate);
-        //EOT
     }
 
     // V. -> Get TimeStamps out of L3 and save them in a comparable format
@@ -196,6 +207,7 @@ public class Data {
 
      // VII. -> Check every record of L3 for due challenges by adding the minutes from users settings of the particular PeriodClass to the TimeStampLastAnswered and compare to current Date. Save them as a new ChallengeCollection L4 if due.
      public ChallengeCollection getDueChallengeList() throws ParseException, IdNotFoundException {
+         mDueChallenges = new ChallengeCollection();
          int mCurrentClass;
          int mCacheChallengeId;
          Challenge mCacheChallenge;

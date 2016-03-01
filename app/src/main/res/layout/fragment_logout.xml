@@ -6,7 +6,7 @@
     android:padding="@dimen/activity_padding">
 
     <TextView
-        android:id="@+id/textFieldCreateUser"
+        android:id="@+id/textFieldLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_ask_logout"
@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/buttonAbortNewUser"
+        android:id="@+id/buttonConfirmLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_yes"
@@ -28,7 +28,7 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/buttonSaveNewUser"
+        android:id="@+id/buttonDenyLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_no"

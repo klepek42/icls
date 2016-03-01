@@ -69,5 +69,4 @@ public class IndexCardCollection {
     public IndexCard get(int index){
         return mIndexCardList.get(index);
     }
-
 }
