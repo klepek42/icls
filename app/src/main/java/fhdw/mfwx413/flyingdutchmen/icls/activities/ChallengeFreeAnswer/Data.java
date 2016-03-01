@@ -31,7 +31,7 @@ public class Data {
     private int mCurrentChallengeId;
     private User mChosenUser;
     private IndexCard mChosenFile;
-    private UserProgressCollection mAllUserProgresses;
+    private UserProgressCollection mUserProgresses;
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
@@ -51,7 +51,7 @@ public class Data {
             catch (IdNotFoundException e){
                 Log.e("ICLS-LOG", "ChallengeFreeAnswer::Data: ", e);
             }
-            mAllUserProgresses = UserProgressDatabase.getAllUserProgresses(mActivity);
+            mUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
         }
         else{
             //restore Data if bundle is filled
@@ -66,7 +66,7 @@ public class Data {
         bundle.putSerializable(KEY_DUE_CHALLENGES_OF_USER_IN_FILE, mDueChallengesOfUserInFile);
         bundle.putSerializable(KEY_CHOSEN_USER, mChosenUser);
         bundle.putSerializable(KEY_CHOSEN_FILE, mChosenFile);
-        bundle.putSerializable(KEY_ALL_USER_PROGRESSES, mAllUserProgresses);
+        bundle.putSerializable(KEY_ALL_USER_PROGRESSES, mUserProgresses);
     }
 
     //restore data from given bundle
@@ -75,7 +75,7 @@ public class Data {
         mDueChallengesOfUserInFile = (ChallengeCollection) bundle.getSerializable(KEY_DUE_CHALLENGES_OF_USER_IN_FILE);
         mChosenUser = (User) bundle.getSerializable(KEY_CHOSEN_USER);
         mChosenFile = (IndexCard) bundle.getSerializable(KEY_CHOSEN_FILE);
-        mAllUserProgresses = (UserProgressCollection) bundle.getSerializable(KEY_ALL_USER_PROGRESSES);
+        mUserProgresses = (UserProgressCollection) bundle.getSerializable(KEY_ALL_USER_PROGRESSES);
     }
 
     public int getmCurrentChallengeId() {
@@ -92,8 +92,8 @@ public class Data {
 
     public User getmChosenUser() {return mChosenUser;}
 
-    public UserProgressCollection getmAllUserProgresses() {
-        return mAllUserProgresses;
+    public UserProgressCollection getmUserProgresses() {
+        return mUserProgresses;
     }
 
     public IndexCard getmChosenFile() {return mChosenFile;}

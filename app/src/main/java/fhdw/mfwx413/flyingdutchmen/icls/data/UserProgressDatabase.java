@@ -37,6 +37,28 @@ public class UserProgressDatabase {
         return UserProgresses;
     }
 
+    public static UserProgressCollection getUserProgresses(Context context, String userName) {
+
+        UserProgressCollection UserProgresses;
+        UserProgresses = new UserProgressCollection();
+        List<String[]> StringCollectionFromCSV;
+        StringCollectionFromCSV = csvImport.importUserProgressCsv(context, userName);
+
+        // converting the List<String[]> into a UserProgressCollection
+        for (int i = 0; i < StringCollectionFromCSV.size(); i++) {
+            UserProgresses.addUserProgress(
+                    new UserProgress(
+                            StringCollectionFromCSV.get(i)[0], //UserName
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[1]), //ChallengeID
+                            Integer.parseInt(StringCollectionFromCSV.get(i)[2]), //Zeitklasse
+                            StringCollectionFromCSV.get(i)[3] //TimeStampBeantwortung
+                    )
+            );
+        }
+        return UserProgresses;
+    }
+
+    /*
     // Give all user progresses filtered by userName
     public static UserProgressCollection getSpecificUserProgresses(Context context, String chosenUser) {
 
@@ -99,7 +121,7 @@ public class UserProgressDatabase {
             if (StringCollectionFromCSV.get(i)[0] == chosenUser && StringCollectionFromCSV.get(i)[2] == periodClass) {
                 /*if(StringCollectionFromCSV.get(i)[1] == ) {
 
-                }*/
+                }
                 UserProgresses.addUserProgress(
                         new UserProgress(
                                 StringCollectionFromCSV.get(i)[0], //UserName
@@ -111,7 +133,7 @@ public class UserProgressDatabase {
             }
         }
         return UserProgresses;
-    }
+    }*/
 
     //write all UserProgresses to csv-file
     public static void writeAllUserProgresses(UserProgressCollection userProgressCollection){

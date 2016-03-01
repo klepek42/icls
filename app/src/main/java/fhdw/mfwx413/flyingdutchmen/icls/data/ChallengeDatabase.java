@@ -28,7 +28,7 @@ public class ChallengeDatabase {
 
         // reading all Challenges from csv-File
         // output ist a List<String[]>
-        StringCollectionFromCSV = csvImport.importAllChallengesCsv(context);
+        StringCollectionFromCSV = csvImport.importChallengeCsv(context);
 
         // converting the List<String[]> into a ChallengeCollection
         for (int i = 0; i < StringCollectionFromCSV.size(); i++) {
