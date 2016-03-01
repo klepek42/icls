@@ -27,7 +27,7 @@ public class Data {
     private int mCurrentChallengeId;
     private User mChosenUser;
     private IndexCard mChosenFile;
-    private UserProgressCollection mAllUserProgresses;
+    private UserProgressCollection mUserProgresses;
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
@@ -40,14 +40,14 @@ public class Data {
             //Testweise (hier muss in Zukunft der intent übertrag realisiert werden)
             mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
             mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges(mActivity);
-            mChosenUser = new User("Testuser", 5, 60, 1440, 10080, 43200, 259200);
+            mChosenUser = new User("Jonas", 5, 60, 1440, 10080, 43200, 259200);
             try {
                 mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
             }
             catch (IdNotFoundException e){
                 Log.e("ICLS-LOG", "ChallengeMultipleChoice::Data: ", e);
             }
-            mAllUserProgresses = UserProgressDatabase.getAllUserProgresses(mActivity);
+            mUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
         }
         else{
             //restore Data if bundle is filled
@@ -86,8 +86,8 @@ public class Data {
 
     public User getmChosenUser() {return mChosenUser;}
 
-    public UserProgressCollection getmAllUserProgresses() {
-        return mAllUserProgresses;
+    public UserProgressCollection getmUserProgresses() {
+        return mUserProgresses;
     }
 
     public IndexCard getmChosenFile() {return mChosenFile;}

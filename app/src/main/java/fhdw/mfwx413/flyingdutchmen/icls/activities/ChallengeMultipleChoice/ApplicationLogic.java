@@ -137,29 +137,29 @@ public class ApplicationLogic {
 
     public void updateUserProgress(boolean isAnswerCorrect) throws UserProgressNotFoundException{
         boolean userProgressFound = false;
-        for (int i = 0; i < mData.getmAllUserProgresses().getSize(); i++){
-            if (mData.getmAllUserProgresses().getUserProgress(i).getmUserName().equals(mData.getmChosenUser().getmName()) &&
-                    mData.getmAllUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
-                int actualTimeClass = mData.getmAllUserProgresses().getUserProgress(i).getmPeriodClass();
+        for (int i = 0; i < mData.getmUserProgresses().getSize(); i++){
+            if (mData.getmUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
+                int actualTimeClass = mData.getmUserProgresses().getUserProgress(i).getmPeriodClass();
                 userProgressFound = true;
-                mData.getmAllUserProgresses().getUserProgress(i).setCurrentTimeStamp();
+                mData.getmUserProgresses().getUserProgress(i).setCurrentTimeStamp();
                 if (isAnswerCorrect == true) {
                     if (actualTimeClass < 5 ) {
-                        mData.getmAllUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
+                        mData.getmUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
                     }
                 }
                 else {
                     if (actualTimeClass > 1 ) {
-                        mData.getmAllUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
+                        mData.getmUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
                     }
                 }
-                UserProgressDatabase.writeAllUserProgresses(mData.getmAllUserProgresses());
+                UserProgressDatabase.writeSpecificUserProgresses(mData.getmUserProgresses(), mData.getmChosenUser().getmName(), mActivity);
+                break;
             }
         }
         if (userProgressFound == false){
-            throw new UserProgressNotFoundException("ChallengeMultipleChoice::ApplicationLogic::updateUserProgress:"
+            throw new UserProgressNotFoundException("ChallengeFreeAnswer::ApplicationLogic::updateUserProgress:"
                     + " CurrentUserName: " + mData.getmChosenUser().getmName()
-                    + "ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
+                    + " ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
         }
     }
 }
