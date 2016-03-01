@@ -33,7 +33,7 @@ public class csvImport {
             Log.d("ICLS-INFO", "FileInputStream: " + fis.toString());
             Log.d("ICLS-INFO", "csvStreamReader: " + csvStreamReader.toString());
 
-            CSVReader reader = new CSVReader(csvStreamReader);
+            CSVReader reader = new CSVReader(csvStreamReader, ';');
             // Fill the temporary list with the lines read from the csv file
             for (;;) {
                 next = reader.readNext();
@@ -58,7 +58,7 @@ public class csvImport {
         try {
             FileInputStream fis = new FileInputStream(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/index.csv");
             InputStreamReader csvStreamReader = new InputStreamReader(fis);
-            CSVReader reader = new CSVReader(csvStreamReader);
+            CSVReader reader = new CSVReader(csvStreamReader, ';');
             // Fill the list with the lines read from the csv file
             for (;;) {
                 next = reader.readNext();
@@ -110,7 +110,7 @@ public class csvImport {
         try {
             InputStreamReader csvStreamReader = new InputStreamReader(context.getAssets().open("progress.csv"));
 
-            CSVReader reader = new CSVReader(csvStreamReader);
+            CSVReader reader = new CSVReader(csvStreamReader, ';');
             // Fill the temporary list with the lines read from the csv file
             for (;;) {
                 next = reader.readNext();
@@ -137,7 +137,7 @@ public class csvImport {
             //FileInputStream fis = context.openFileInput("/UserProgresses/progress_" + userName);
             FileInputStream fis = new FileInputStream(path);
             InputStreamReader csvStreamReader = new InputStreamReader(fis);
-            CSVReader reader = new CSVReader(csvStreamReader);
+            CSVReader reader = new CSVReader(csvStreamReader, ';');
             // Fill the temporary list with the lines read from the csv file
             for (;;) {
                 next = reader.readNext();

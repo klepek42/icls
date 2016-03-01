@@ -30,29 +30,21 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
  */
 public class csvExport {
 
-    private static Context context;
-
-    // Create ICLS folder (this function could also be implemented directly in copyAssets() )
+    // Create folders
     public static void buildFolders(Context context) throws FileNotFoundException {
 
-        // Choose folder name and create File object
+        // Create folder under internal storage location of the app
         File iclsInternalFolder = new File(context.getFilesDir().toString() + "/UserProgresses/");
         // Build directory
         iclsInternalFolder.mkdirs();
 
-        // Choose folder name and create File object
+        // Create folder "ICLS" in external storage
         File iclsExternalFolder = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/");
         // Build directory
         iclsExternalFolder.mkdirs();
-
-        // INTERESSANT FUER DIE ERSTELLUNG DER DATEIEN
-        // Create a File object for the output file
-        //File outputFile = new File(wallpaperDirectory, "");
-        // Now attach the OutputStream to the file object, instead of a String representation
-        //FileOutputStream fos = new FileOutputStream(outputFile);
     }
 
-    // TEST: Copy all assets and save them in external storage (SD card location) in ICLS folder
+    // Copy all assets and save them in internal and external storage
     public static void copyAssets(Context context) {
         AssetManager assetManager = context.getAssets();
         String[] files = null;
@@ -63,10 +55,10 @@ public class csvExport {
             Log.e("IOException", "Failed to get asset file list.", e);
         }
         if (files != null) for (String filename : files) {
+            // Save in internal storage
             if (filename.equals("users.csv")) {
                 InputStream in = null;
                 OutputStream out = null;
-                //FileOutputStream outputStream;
                 try {
                     in = assetManager.open(filename);
                     File outFile = new File(context.getFilesDir(), filename);
@@ -91,6 +83,7 @@ public class csvExport {
                     }
                 }
             }
+            // Save in external storage under "ICLS" folder
             else if(filename.equals("challenges.csv") || filename.equals("index.csv")){
                     InputStream in = null;
                     OutputStream out = null;
@@ -120,7 +113,7 @@ public class csvExport {
             }
         }
     }
-
+    // Internal copy function for copyAssets()
     private static void copyFile(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[1024];
         int read;
@@ -129,58 +122,50 @@ public class csvExport {
         }
     }
 
-    // Save data in csv and rebuild it
-   //public static void saveToCsv(String fileName, UserCollection givenData) throws IOException {
+    // Save all users
     public static void saveUserToCsv( List<String[]> userList) throws IOException {
 
-        Context mContext;
         CSVWriter mWriter;
 
-        // Read the android path where the file should be saved (/downloads for testing)
+        // Read the android path where the file should be saved
         String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
         String fileName = "users.csv";
         String filePath = baseDir + File.separator + fileName;
         Log.d("path", "" + filePath);
-        //String downloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        mWriter = new CSVWriter(new FileWriter(filePath));
+        mWriter = new CSVWriter(new FileWriter(filePath), ',', CSVWriter.NO_QUOTE_CHARACTER);
 
-        List<String[]> test = userList;
+        List<String[]> data = userList;
 
         // Write all data to the file
-        //mWriter.writeNext(writeData);
-        mWriter.writeAll(test); //List String [] ArrayList erwartet
+        mWriter.writeAll(data);
 
         // Quit the output stream
         mWriter.close();
     }
 
 
-    // Save data in csv and rebuild it
-    //public static void saveToCsv(String fileName, UserCollection givenData) throws IOException {
+    // Save all progresses
     public static void saveProgressToCsv( List<String[]> progressList) throws IOException {
 
-        Context mContext;
         CSVWriter mWriter;
 
-        // Read the android path where the file should be saved (/downloads for testing)
+        // Read the android path where the file should be saved
         String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
         String fileName = "progress.csv";
         String filePath = baseDir + File.separator + fileName;
         Log.d("path", "" + filePath);
-        //String downloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        mWriter = new CSVWriter(new FileWriter(filePath));
+        mWriter = new CSVWriter(new FileWriter(filePath), ',', CSVWriter.NO_QUOTE_CHARACTER);
 
-        List<String[]> test = progressList;
+        List<String[]> data = progressList;
 
         // Write all data to the file
-        //mWriter.writeNext(writeData);
-        mWriter.writeAll(test);
+        mWriter.writeAll(data);
 
         // Quit the output stream
         mWriter.close();
     }
 
-    // FUER initiales UserProgress erzeugen
+    // Create an user progress file for a given user
     public static void saveUserProgressToCsv( List<String[]> progressList, String userName, Context context) throws IOException {
 
         CSVWriter mWriter;
@@ -190,67 +175,15 @@ public class csvExport {
         String fileName = "progress_" + userName + ".csv";
         String filePath = baseDir + File.separator + fileName;
         Log.d("path", "" + filePath);
-        mWriter = new CSVWriter(new FileWriter(filePath));
+        mWriter = new CSVWriter(new FileWriter(filePath), ',', CSVWriter.NO_QUOTE_CHARACTER);
 
-        List<String[]> test = progressList;
+        List<String[]> data = progressList;
 
         // Write all data to the file
-        //mWriter.writeNext(writeData);
-        mWriter.writeAll(test);
+        mWriter.writeAll(data);
 
         // Quit the output stream
         mWriter.close();
     }
-
-
-/*
-    public void write(String fileName, String data) {
-        Writer writer;
-        String absolutePath;
-
-        File root = Environment.getExternalStorageDirectory();
-        File outDir = new File(root.getAbsolutePath() + File.separator + "EZ_time_tracker");
-        if (!outDir.isDirectory()) {
-            outDir.mkdir();
-        }
-        try {
-            if (!outDir.isDirectory()) {
-                throw new IOException(
-                        "Unable to create directory EZ_time_tracker. Maybe the SD card is mounted?");
-            }
-            File outputFile = new File(outDir, fileName);
-            writer = new BufferedWriter(new FileWriter(outputFile));
-            writer.write(data);
-            Toast.makeText(context.getApplicationContext(),
-                    "Report successfully saved to: " + outputFile.getAbsolutePath(),
-                    Toast.LENGTH_LONG).show();
-            writer.close();
-        } catch (IOException e) {
-            Log.w("eztt", e.getMessage(), e);
-        }
-
-    }*/
-
-
-    /*
-    String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
-    String fileName = "AnalysisData.csv";
-    String filePath = baseDir + File.separator + fileName;
-    File f = new File(filePath );
-    CSVWriter writer;
-// File exist
-    if(f.exists() && !f.isDirectory()){
-        mFileWriter = new FileWriter(filePath , true);
-        writer = new CSVWriter(mFileWriter);
-    }
-    else {
-        writer = new CSVWriter(new FileWriter(filePath));
-    }
-    String data[] = {};
-    data.add("a", "b");
-
-    writer.writeNext(data);
-
-    writer.close();*/
 
 }
