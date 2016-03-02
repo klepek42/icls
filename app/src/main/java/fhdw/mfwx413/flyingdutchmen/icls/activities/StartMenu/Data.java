@@ -7,6 +7,7 @@ import android.util.Log;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Created by edgar on 17.02.2016
@@ -23,9 +24,13 @@ public class Data {
     public Data(Activity activity, Bundle savedInstanceState) {
         mActivity = activity;
         mAllUsers = UserDatabase.getAllUser(mActivity);
+
+        if(mAllUsers.getSize()==0) {
+            Navigation.startActivityAddNewUser(getActivity());
+        }
     }
 
-    public UserCollection getmAllUsers() {
+    public UserCollection getAllUsers() {
         return mAllUsers;
     }
 

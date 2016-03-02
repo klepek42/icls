@@ -39,12 +39,12 @@ public class ApplicationLogic{
     }
 
     public void onButtonConfirmUserClicked() {
-        mData.setCurrentUser(mData.getmAllUsers().getUser(mselectedName));
+        mData.setCurrentUser(mData.getAllUsers().getUser(mselectedName));
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonEditUserClicked() {
-        mData.setCurrentUser(mData.getmAllUsers().getUser(mselectedName));
+        mData.setCurrentUser(mData.getAllUsers().getUser(mselectedName));
         Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
 
@@ -52,8 +52,8 @@ public class ApplicationLogic{
     // Fill the spinner with data given by users.csv and show it
     private void fillSpinner() {
 
-        for(int i = 0; i < mData.getmAllUsers().getSize(); i++) {
-            userNames.add(mData.getmAllUsers().get(i).getmName());
+        for(int i = 0; i < mData.getAllUsers().getSize(); i++) {
+            userNames.add(mData.getAllUsers().get(i).getmName());
         }
 
         // ZUM TESTEN; KANN SPÄTER WIEDER WEG

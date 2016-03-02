@@ -7,7 +7,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 import android.content.Context;
 import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -50,11 +49,8 @@ public class ApplicationLogic {
     // Added by Edgar 27.02
     public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
-
-
         mDueChallenges = mData.getDueChallengeList();
         Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard(), mDueChallenges);
-        //TODO Max: mDueChallenges an Statistics übergeben
     }
 
     public void onButtonLogoutClicked() {
@@ -97,11 +93,11 @@ public class ApplicationLogic {
         else {
             mQuestionTypeLayout = mDueChallenges.getChallenge(0).getmQuestionTypeLayout();
             switch (mQuestionTypeLayout) {
-                case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getmCurrentUserUserProgresses());
+                case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
                     break;
-                case 2: Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getmCurrentUserUserProgresses());
+                case 2: Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
                     break;
-                case 3: Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getmCurrentUserUserProgresses());
+                case 3: Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
                     break;
                 default:
                     break;

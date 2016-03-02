@@ -51,7 +51,7 @@ public class Data {
     private int mPeriodClass5;
     private int mPeriodClass6;
 
-    public UserProgressCollection getmCurrentUserUserProgresses() {
+    public UserProgressCollection getCurrentUserUserProgresses() {
         return mCurrentUserUserProgresses;
     }
 
