@@ -24,13 +24,15 @@ public class Init extends Activity {
             initData(savedInstanceState);
         } catch (ParseException e) {
             e.printStackTrace();
+        } catch (IdNotFoundException e) {
+            e.printStackTrace();
         }
         initGui();
         initApplicationLogic();
         initEventToListenerMapping();
     }
 
-    private void initData(Bundle savedInstanceState) throws ParseException {
+    private void initData(Bundle savedInstanceState) throws ParseException, IdNotFoundException {
         mData = new Data(this, savedInstanceState);
     }
 

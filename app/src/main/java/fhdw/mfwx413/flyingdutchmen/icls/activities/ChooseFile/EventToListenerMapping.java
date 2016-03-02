@@ -7,6 +7,8 @@ import java.text.ParseException;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 
 /**
  * Created by edgar on 13.02.2016
@@ -35,12 +37,13 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
                 mApplicationLogic.onButtonLogoutClicked();
                 break;
             case R.id.buttonStatistics:
-                //TODO Max: Exception Handling
                 try {
                     mApplicationLogic.onButtonStatisticsClicked();
                 } catch (ParseException e) {
                     e.printStackTrace();
                 } catch (IdNotFoundException e) {
+                    e.printStackTrace();
+                } catch (UserProgressNotFoundException e) {
                     e.printStackTrace();
                 }
                 break;
@@ -48,12 +51,13 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
                 mApplicationLogic.onButtonSettingsClicked();
                 break;
             case R.id.buttonStartLearning:
-                //TODO Max: Exception Handling
                 try {
                     mApplicationLogic.onButtonStartLearningClicked();
                 } catch (ParseException e) {
                     e.printStackTrace();
                 } catch (IdNotFoundException e) {
+                    e.printStackTrace();
+                } catch (InvalidQuestionTypeLayoutException e) {
                     e.printStackTrace();
                 }
                 break;

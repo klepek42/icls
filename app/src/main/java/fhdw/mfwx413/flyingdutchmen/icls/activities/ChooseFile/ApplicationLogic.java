@@ -3,6 +3,8 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 import android.content.Context;
 import android.util.Log;
@@ -26,7 +28,6 @@ public class ApplicationLogic {
     private String mSelectedIndexCard;
     private ChallengeCollection mChallengesCurrentIndexCard;
     private UserProgressCollection mUserProgressForCurrentIndexCard;
-    private UserProgressCollection mUserProgressForCurrentIndexCardAndCurrentUser;
     private ChallengeCollection mDueChallenges;
     private int mQuestionTypeLayout;
 
@@ -47,12 +48,23 @@ public class ApplicationLogic {
     }
 
     // Added by Edgar 27.02
-    public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException {
+    public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException, UserProgressNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
         mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
-        mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
-        mDueChallenges = mData.getDueChallengeList();
-        Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard(), mDueChallenges);
+        // In case that there are IndexCards but no questions assigned
+        if (mChallengesCurrentIndexCard.getSize() == 0) {
+            Navigation.startActivityNoChallengesForCurrentIndex(mData.getActivity(), mData.getCurrentUser());
+        }
+        else{
+            try {
+                mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
+            }
+            catch (UserProgressNotFoundException e) {
+                e.printStackTrace();
+            }
+            mDueChallenges = mData.getDueChallengeList();
+            Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard(), mDueChallenges);
+        }
     }
 
     public void onButtonLogoutClicked() {
@@ -63,48 +75,38 @@ public class ApplicationLogic {
         Navigation.startActivitySettingMenu(mData.getActivity(), mData.getCurrentUser());
     }
 
-    public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException {
+    public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException, InvalidQuestionTypeLayoutException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
 
         mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
-
-        Log.d("ChallengeListSize: " , ""+mChallengesCurrentIndexCard.getSize());
-
+        // In case that there are IndexCards but no questions assigned
         if (mChallengesCurrentIndexCard.getSize() == 0) {
             Navigation.startActivityNoChallengesForCurrentIndex(mData.getActivity(), mData.getCurrentUser());
         }
+        else{
+            try {
+                mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
+            }
+            catch (UserProgressNotFoundException e) {
+                e.printStackTrace();
+            }
 
-        try {
-            mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
-        }
-        catch (NullPointerException e) {
-            //TODO Max: Vernünftiges Fehlerhandling
-        }
+            mDueChallenges = mData.getDueChallengeList();
 
-        /**
-        mUserProgressForCurrentIndexCardAndCurrentUser = mData.getUserProgressForCurrentIndexCardAndCurrentUser();
-        if(mUserProgressForCurrentIndexCardAndCurrentUser.getSize() == 0) {
-            //TODO Max: Vernünftiges Fehlerhandling
-            //Log.d("Keine Challenges für aktuelle IndexCard und User verfügbar.", "");
-        }
-         */
-
-        mDueChallenges = mData.getDueChallengeList();
-
-        if(mDueChallenges.getSize() == 0) {
-            Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
-        }
-        else {
-            mQuestionTypeLayout = mDueChallenges.getChallenge(0).getmQuestionTypeLayout();
-            switch (mQuestionTypeLayout) {
-                case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
-                    break;
-                case 2: Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
-                    break;
-                case 3: Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
-                    break;
-                default:
-                    break;
+            if(mDueChallenges.getSize() == 0) {
+                Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
+            }
+            else {
+                mQuestionTypeLayout = mDueChallenges.getChallenge(0).getmQuestionTypeLayout();
+                switch (mQuestionTypeLayout) {
+                    case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
+                        break;
+                    case 2: Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
+                        break;
+                    case 3: Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
+                        break;
+                    default: throw new InvalidQuestionTypeLayoutException("FeedbackChallengeRest::ApplicationLogic::onButtonContinue");
+                }
             }
         }
     }
@@ -121,7 +123,6 @@ public class ApplicationLogic {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, indexCards);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         mGui.getChooseIndexCard().setAdapter(adapter);
     }
 

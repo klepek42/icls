@@ -14,7 +14,6 @@ public class Gui {
     private TextView textFieldWarning;
     private Button buttonOk2;
 
-
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_no_challenges_for_current_index_card);
         textFieldWarning = (TextView) activity.findViewById(R.id.textFieldNoChallengesAvailable);

@@ -21,6 +21,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Created by edgar on 17.02.2016.
@@ -55,7 +57,7 @@ public class Data {
         return mCurrentUserUserProgresses;
     }
 
-    public Data(Activity activity, Bundle savedInstanceState) throws ParseException {
+    public Data(Activity activity, Bundle savedInstanceState) throws ParseException, IdNotFoundException {
         Intent intent;
         mActivity = activity;
         intent = activity.getIntent();
@@ -72,6 +74,11 @@ public class Data {
         mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mCurrentUser.getmName());
         mAllIndexCards = IndexCardDatabase.getIndexCards(mActivity);
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+
+        //TODO Max: Methode reparieren
+        /*if(checkForDuplicates()){
+            Navigation.startActivityDuplicateFiles(mActivity);
+        }*/
     }
 
     public void saveDataFromBundle(Bundle savedInstanceState) {
@@ -102,7 +109,7 @@ public class Data {
         this.mCurrentIndexCard = mCurrentIndexCard;
     }
 
-    //TODO Max: An richtiger Stelle aufrufen
+    // Checks for duplicate IndexCards that could cause errors later in application
     public boolean checkForDuplicates() throws IdNotFoundException {
         int index=0;
         int counter;
@@ -129,7 +136,7 @@ public class Data {
      */
 
     // I. -> Get ChallengesCollection with current Index out of all Challenges and save them as a new ChallengeCollection L1
-    public ChallengeCollection getChallengesForSelectedIndexCard() throws NullPointerException {
+    public ChallengeCollection getChallengesForSelectedIndexCard() {
         mChallengesCurrentIndexCard = new ChallengeCollection();
         for(int i=0; i<mAllChallenges.getSize(); i++) {
             if(mAllChallenges.getChallenge(i).getmIndexCard().getmID() == mCurrentIndexCard.getmID()) {
@@ -139,8 +146,8 @@ public class Data {
         return mChallengesCurrentIndexCard;
     }
 
-    // II. -> Get UserProgressCollection with current Index out of CurrentUserUserProgress and save them as a new UserProgressCollection L2
-    public UserProgressCollection getUserProgressForCurrentIndexCard() throws NullPointerException {
+    // II. -> Get UserProgressCollection with current Index Card out of CurrentUserUserProgress and save them as a new UserProgressCollection L2
+    public UserProgressCollection getUserProgressForCurrentIndexCard() throws UserProgressNotFoundException {
         mCurrentUserUserProgressForCurrentIndexCard = new UserProgressCollection();
         for(int i=0; i< mCurrentUserUserProgresses.getSize(); i++){
             for(int j=0; j<mChallengesCurrentIndexCard.getSize(); j++) {
@@ -149,57 +156,30 @@ public class Data {
                 }
             }
         }
-
         if (mCurrentUserUserProgressForCurrentIndexCard.getSize() == 0){
-            throw new NullPointerException();
+            throw new UserProgressNotFoundException("Fehler beim Erstellen von CurrentUserUserProgressForCurrentIndexCard");
         }
 
         return mCurrentUserUserProgressForCurrentIndexCard;
+
     }
 
-    /**
-     * Not necessary anymore since UserProgresses are now saved for individual Users
-     *
-    // III. -> Get UserProgressCollection with current User out of L2 and save them as a new UserProgressCollection L3
-    public UserProgressCollection getUserProgressForCurrentIndexCardAndCurrentUser() throws NullPointerException {
-        mUserProgressForCurrentIndexCardAndCurrentUser = new UserProgressCollection();
-        for(int m=0; m<mCurrentUserUserProgressForCurrentIndexCard.getSize(); m++) {
-            if(mCurrentUserUserProgressForCurrentIndexCard.getUserProgress(m).getmUserName().equals(mCurrentUser.getmName())) {
-                mUserProgressForCurrentIndexCardAndCurrentUser.addUserProgress(mCurrentUserUserProgresses.getUserProgress(m));
-            }
-        }
-
-        if (mUserProgressForCurrentIndexCardAndCurrentUser.getSize() == 0){
-            throw new NullPointerException();
-        }
-
-        return mUserProgressForCurrentIndexCardAndCurrentUser;
-    }
-     */
-
-    // IV. -> Save the current date
+    // III. -> Save the current date
     public void getCurrentTime() {
         Calendar date = Calendar.getInstance();
         long t = date.getTimeInMillis();
         CurrentDate = new Date(t);
     }
 
-    // V. -> Get TimeStamps out of L3 and save them in a comparable format
+    // IV. -> Get TimeStamps out of L3 and save them in a comparable format
     public void getTimeStampLastAnswered(int index) throws ParseException {
         String mTimeStampLastAnswered;
-
         mTimeStampLastAnswered = mCurrentUserUserProgressForCurrentIndexCard.getUserProgress(index).getmTimeStampAnswered();
-        //mTimeStampLastAnswered = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(index).getmTimeStampAnswered();
-
-        //TEST
-        //mTimeStampLastAnswered = mCurrentUserUserProgresses.getUserProgress(0).getmTimeStampAnswered();
-        //EOT
-
         mLastAnsweredFormat = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
         mLastAnsweredDate = mLastAnsweredFormat.parse(mTimeStampLastAnswered);
     }
 
-    // Supporting method: Converts Date to Calendar
+    // V. -> Supporting method: Converts Date to Calendar
     public static Calendar DateToCalendar(Date date){
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -226,15 +206,12 @@ public class Data {
          getCurrentTime();
 
          for(int n=0; n<mCurrentUserUserProgressForCurrentIndexCard.getSize(); n++) {
-         //for(int n=0; n<mUserProgressForCurrentIndexCardAndCurrentUser.getSize(); n++) {
              getTimeStampLastAnswered(n);
              Calendar mLastAnsweredCalendar = DateToCalendar(mLastAnsweredDate);
 
              Log.d("mLastAnsweredDate: ", "" + mLastAnsweredDate);
-             Log.d("mLastAnsweredCalendar: ", "" + mLastAnsweredCalendar);
 
              mCurrentClass = mCurrentUserUserProgressForCurrentIndexCard.getUserProgress(n).getmPeriodClass();
-             //mCurrentClass = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmPeriodClass();
 
              switch (mCurrentClass) {
                  case 1: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass1);
@@ -248,8 +225,6 @@ public class Data {
                  case 5: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass5);
                      break;
                  case 6: mLastAnsweredCalendar.add(Calendar.MINUTE, mPeriodClass6);
-                     break;
-                 default: //TODO Max: Fehlerhandling, wenn keine Klasse in UserProgress
                      break;
              }
 

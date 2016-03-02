@@ -55,14 +55,8 @@ public class ApplicationLogic{
         for(int i = 0; i < mData.getAllUsers().getSize(); i++) {
             userNames.add(mData.getAllUsers().get(i).getmName());
         }
-
-        // ZUM TESTEN; KANN SPÄTER WIEDER WEG
-        count = userNames.size();
-        Log.d("users.size: ", "" + count);
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, userNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         mGui.getChooseUser().setAdapter(adapter);
     }
 
