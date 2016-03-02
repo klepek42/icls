@@ -123,12 +123,12 @@ public class csvExport {
     }
 
     // Save all users
-    public static void saveUserToCsv( List<String[]> userList) throws IOException {
+    public static void saveUserToCsv(Context context, List<String[]> userList) throws IOException {
 
         CSVWriter mWriter;
 
         // Read the android path where the file should be saved
-        String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
+        String baseDir = context.getFilesDir().toString();
         String fileName = "users.csv";
         String filePath = baseDir + File.separator + fileName;
         Log.d("path", "" + filePath);
@@ -145,6 +145,7 @@ public class csvExport {
 
 
     // Save all progresses
+    // DIESE FUNKTION IST VERALTET, BITTE DIE NEUE DADRUNTER BENUTZEN
     public static void saveProgressToCsv( List<String[]> progressList) throws IOException {
 
         CSVWriter mWriter;

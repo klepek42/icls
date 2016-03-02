@@ -45,7 +45,7 @@ public class UserDatabase {
     }
 
 
-    public static void writeAllUsers(UserCollection uc) {
+    public static void writeAllUsers(Context context, UserCollection uc) {
         List<String[]> userList = new ArrayList<String[]>();
 
         try {
@@ -65,7 +65,7 @@ public class UserDatabase {
 
                 userList.add(i, userAsString);
             }
-            csvExport.saveUserToCsv(userList);
+            csvExport.saveUserToCsv(context, userList);
         }
         catch (IOException e){
             Log.e("ICLS-ERROR", "UserDatabase::writeAllUsers::saveUserToCsv(): ", e);

@@ -62,7 +62,7 @@ public class ApplicationLogic {
                     mData.getmAllUsers().addUser(newUser);
 
                     // Export all users + new user to users.csv (create new csv file)
-                    UserDatabase.writeAllUsers(uc);
+                    UserDatabase.writeAllUsers(mActivity, uc);
 
                     // create UserProgress File for User
                     ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges(mActivity);

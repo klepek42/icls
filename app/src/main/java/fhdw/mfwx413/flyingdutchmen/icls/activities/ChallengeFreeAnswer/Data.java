@@ -1,11 +1,13 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
@@ -18,7 +20,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
  */
 public class Data {
 
-    private static final int DEFAULT_CURRENT_CHALLENGE_ID = 1;
+    private static final int DEFAULT_CURRENT_CHALLENGE_ID = 0;
     // static variables for bundle
     private static final String KEY_CURRENT_CHALLENGE_ID = "K1";
     private static final String KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";
@@ -35,32 +37,26 @@ public class Data {
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
-        //Intent intent;
+        Intent intent;
 
         if(bundle == null) {
-            //Todo Jonas: intent auslesen, wenn Activiy aufgerufen wird
-            //if bundle isn't filled, the data will be initialized by the extras of the intent
-            //intent = mActivity.getIntent();
-            //Testweise (hier muss in Zukunft der intent übertrag realisiert werden)
-            mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
-            mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges(mActivity);
-            mChosenUser = new User("Jonas", 5, 60, 1440, 10080, 43200, 259200);
-            try {
-                mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
-            }
-            catch (IdNotFoundException e){
-                Log.e("ICLS-LOG", "ChallengeFreeAnswer::Data: ", e);
-            }
-            mUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+            // If bundle isn't filled, the data will be initialized by the extras of the intent
+            intent = mActivity.getIntent();
+            mCurrentChallengeId = intent.getIntExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, DEFAULT_CURRENT_CHALLENGE_ID);
+            mDueChallengesOfUserInFile = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE);
+            mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
+            mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
+            mUserProgresses = (UserProgressCollection) intent.getSerializableExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER);
         }
         else{
-            //restore Data if bundle is filled
+            // Restore Data if bundle is filled
             restoreDataFromBundle(bundle);
         }
 
     }
 
-    //save data in bundle if activity stops
+    // TODO Jonas: Konstanten austauschen durch Richtige
+    // Save data in bundle if activity stops
     public void saveDataFromBundle(Bundle bundle) {
         bundle.putInt(KEY_CURRENT_CHALLENGE_ID, mCurrentChallengeId);
         bundle.putSerializable(KEY_DUE_CHALLENGES_OF_USER_IN_FILE, mDueChallengesOfUserInFile);
@@ -69,7 +65,7 @@ public class Data {
         bundle.putSerializable(KEY_ALL_USER_PROGRESSES, mUserProgresses);
     }
 
-    //restore data from given bundle
+    // Restore data from given bundle
     public void restoreDataFromBundle(Bundle bundle) {
         mCurrentChallengeId = bundle.getInt(KEY_CURRENT_CHALLENGE_ID);
         mDueChallengesOfUserInFile = (ChallengeCollection) bundle.getSerializable(KEY_DUE_CHALLENGES_OF_USER_IN_FILE);

@@ -298,7 +298,7 @@ public class ApplicationLogic{
             throw new UserNotFoundException("SettingsMenu::ApplicationLogic::updateUserCollection:"
                     + " CurrentUserName: " + mData.getmChosenUser().getmName());
         }
-        UserDatabase.writeAllUsers(uc);
+        UserDatabase.writeAllUsers(context, uc);
     }
 
 
