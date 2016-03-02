@@ -49,6 +49,8 @@ public class ApplicationLogic {
     // Added by Edgar 27.02
     public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
+        mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
+        mUserProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
         mDueChallenges = mData.getDueChallengeList();
         Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard(), mDueChallenges);
     }
