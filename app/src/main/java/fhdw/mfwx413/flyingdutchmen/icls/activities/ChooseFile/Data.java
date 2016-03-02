@@ -51,6 +51,10 @@ public class Data {
     private int mPeriodClass5;
     private int mPeriodClass6;
 
+    public UserProgressCollection getmCurrentUserUserProgresses() {
+        return mCurrentUserUserProgresses;
+    }
+
     public Data(Activity activity, Bundle savedInstanceState) throws ParseException {
         Intent intent;
         mActivity = activity;

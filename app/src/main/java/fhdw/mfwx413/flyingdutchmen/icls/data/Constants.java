@@ -33,6 +33,7 @@ public class Constants {
     public static final String KEY_PARAM_CHOSEN_USER = "P3";
     public static final String KEY_PARAM_CHOSEN_FILE = "P4";
     public static final String KEY_PARAM_IS_ANSWER_CORRECT = "P5";
+    public static final String KEY_PARAM_USER_PROGRESS_CURRENT_USER = "P6";
 
     //Constants for Bundles
     public static final String BUNDLE_KEY_CURRENT_CHALLENGE_ID = "K1";
@@ -40,6 +41,6 @@ public class Constants {
     public static final String BUNDLE_KEY_CHOSEN_USER = "K3";
     public static final String BUNDLE_KEY_CHOSEN_FILE = "K4";
     public static final String BUNDLE_KEY_IS_ANSWER_CORRECT = "K5";
-    public static final String BUNDLE_KEY_ALL_USER_PROGRESSES = "K6";
+    public static final String BUNDLE_KEY_USER_PROGRESS_CURRENT_USER = "K6";
 
 }

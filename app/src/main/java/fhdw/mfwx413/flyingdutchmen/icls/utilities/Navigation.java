@@ -7,6 +7,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 
 /**
  * Created by edgar on 13.02.2016
@@ -24,36 +25,39 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityChallengeFreeAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile){
+    public static void startActivityChallengeFreeAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile, UserProgressCollection userProgressCurrentUser){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer.Init.class);
         intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
         intent.putExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, currentChallengeId);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
+        intent.putExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER, userProgressCurrentUser);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
 
-    public static void startActivityChallengeImagineAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile){
+    public static void startActivityChallengeImagineAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile, UserProgressCollection userProgressCurrentUser){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeImagineAnswer.Init.class);
         intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
         intent.putExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, currentChallengeId);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
+        intent.putExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER, userProgressCurrentUser);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
 
     //changed by Daniel 25.02.2016
-    public static void startActivityChallengeMultipleChoice(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile){
+    public static void startActivityChallengeMultipleChoice(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile, UserProgressCollection userProgressCurrentUser){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Init.class);
         intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
         intent.putExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, currentChallengeId);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
+        intent.putExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER, userProgressCurrentUser);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
@@ -75,7 +79,7 @@ public class Navigation {
     }
 
     //changed by Jonas 23.02.2016
-    public static void startActivityFeedbackChallengeRest(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile, boolean isAnswerCorrect){
+    public static void startActivityFeedbackChallengeRest(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile, boolean isAnswerCorrect, UserProgressCollection userProgressCurrentUser){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackChallengeRest.Init.class);
         intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
@@ -83,18 +87,20 @@ public class Navigation {
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
         intent.putExtra(Constants.KEY_PARAM_IS_ANSWER_CORRECT, isAnswerCorrect);
+        intent.putExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER, userProgressCurrentUser);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
 
     //changed by Edgar 23.02.2016
-    public static void startActivityFeedbackImagineAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile){
+    public static void startActivityFeedbackImagineAnswer(Activity callingActivity, ChallengeCollection dueChallengesOfUserInFile, int currentChallengeId, User chosenUser, IndexCard chosenFile, UserProgressCollection userProgressCurrentUser){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FeedbackImagineAnswer.Init.class);
         intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, dueChallengesOfUserInFile);
         intent.putExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, currentChallengeId);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
+        intent.putExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER, userProgressCurrentUser);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
@@ -102,6 +108,8 @@ public class Navigation {
     public static void startActivityFinalEndOfChallenges(Activity callingActivity, User chosenUser, IndexCard chosenFile){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FinalEndOfChallenges.Init.class);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
@@ -126,6 +134,7 @@ public class Navigation {
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.Statistics.Init.class);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_FILE, chosenFile);
+        intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE, mDueChallenges);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }

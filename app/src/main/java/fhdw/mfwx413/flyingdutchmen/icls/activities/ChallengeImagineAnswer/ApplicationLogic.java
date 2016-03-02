@@ -3,6 +3,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeImagineAnswer;
 import android.app.Activity;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -32,7 +33,9 @@ public class ApplicationLogic {
     }
 
     public void onButtonConfirmThinkAnswerClicked(){
-        Navigation.startActivityFeedbackImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
+        //TODO Edgar: Dummy anpassen
+        UserProgressCollection Dummy = new UserProgressCollection();
+        Navigation.startActivityFeedbackImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
     }
 
 

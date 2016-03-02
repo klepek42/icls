@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
@@ -99,6 +100,9 @@ public class ApplicationLogic {
         //delivers int value, to decide which Activity has to be started
         dueChallengeNumber = otherDueChallenges();
 
+        //TODO Pascal: Dummy entfernen
+        UserProgressCollection Dummy = new UserProgressCollection();
+
         //it depends on the layoutType of the next challenge, which activity is to be started next
         switch (dueChallengeNumber) {
             //no other challenge is due
@@ -106,15 +110,16 @@ public class ApplicationLogic {
                 Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
                 //a challenge of type ChallengeFreeAnswer is due
             case 1:
-                Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
+                //TODO Pascal: Dummy abändern
+                Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
                 break;
             //a challenge of type ChallengeImagineAnser is due
             case 2:
-                Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
+                Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
                 break;
             //a challenge of type ChallengeMultipleChoice is due
             case 3:
-                Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile());
+                Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
                 break;
             //Error handling is to be implemented here
             case 4:

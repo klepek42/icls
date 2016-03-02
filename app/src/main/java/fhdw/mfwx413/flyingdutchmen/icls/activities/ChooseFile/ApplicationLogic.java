@@ -71,8 +71,7 @@ public class ApplicationLogic {
         mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
 
         if (mChallengesCurrentIndexCard.getSize() == 0) {
-            Toast mNoChallengesForIndexCard = Toast.makeText(mData.getActivity(), "Für die ausgewählte IndexCard stehen keine Challenges zur Verfuegung!", Toast.LENGTH_LONG);
-            mNoChallengesForIndexCard.show();
+            //TODO Max: Fragment mit Hinweis "Für die ausgewählte IndexCard stehen keine Challenges zur Verfuegung!" und Ok-Button, der ChooseFile Activity neu aufruft
         }
 
         try {
@@ -98,11 +97,11 @@ public class ApplicationLogic {
         else {
             mQuestionTypeLayout = mDueChallenges.getChallenge(0).getmQuestionTypeLayout();
             switch (mQuestionTypeLayout) {
-                case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard());
+                case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getmCurrentUserUserProgresses());
                     break;
-                case 2: Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard());
+                case 2: Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getmCurrentUserUserProgresses());
                     break;
-                case 3: Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard());
+                case 3: Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getmCurrentUserUserProgresses());
                     break;
                 default:
                     break;

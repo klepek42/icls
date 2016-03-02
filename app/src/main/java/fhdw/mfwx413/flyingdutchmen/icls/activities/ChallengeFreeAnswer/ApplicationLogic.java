@@ -88,7 +88,7 @@ public class ApplicationLogic {
             updateUserProgress(isAnswerCorrect);
 
             //call the Feedback-Activity and send the required data
-            Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect);
+            Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect, mData.getmUserProgresses());
 
         }
         catch (UserProgressNotFoundException e){
