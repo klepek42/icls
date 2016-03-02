@@ -68,8 +68,10 @@ public class ApplicationLogic {
 
         mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
 
+        Log.d("ChallengeListSize: " , ""+mChallengesCurrentIndexCard.getSize());
+
         if (mChallengesCurrentIndexCard.getSize() == 0) {
-            //TODO Max: Fragment mit Hinweis "Für die ausgewählte IndexCard stehen keine Challenges zur Verfuegung!" und Ok-Button, der ChooseFile Activity neu aufruft
+            Navigation.startActivityNoChallengesForCurrentIndex(mData.getActivity(), mData.getCurrentUser());
         }
 
         try {

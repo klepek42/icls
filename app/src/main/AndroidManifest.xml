@@ -44,6 +44,7 @@
         <activity android:name=".activities.Statistics.Init" />
         <activity android:name=".activities.FragLogout.Init" />
         <activity android:name=".activities.DuplicateFiles.Init" />
+        <activity android:name=".activities.NoChallengesForCurrentIndexCard.Init" />
     </application>
 
 </manifest>

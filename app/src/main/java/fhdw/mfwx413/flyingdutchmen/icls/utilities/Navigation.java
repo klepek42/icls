@@ -153,4 +153,12 @@ public class Navigation {
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
+
+    public static void startActivityNoChallengesForCurrentIndex(Activity callingActivity, User chosenUser) {
+        Intent intent;
+        intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.NoChallengesForCurrentIndexCard.Init.class);
+        intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
+        callingActivity.startActivity(intent);
+        callingActivity.finish();
+    }
 }
