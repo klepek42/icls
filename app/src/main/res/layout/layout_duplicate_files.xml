@@ -12,18 +12,20 @@
         android:text="@string/string_duplicatefileswarning"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="@dimen/activity_margin_start"
-        android:layout_centerHorizontal="true" />
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_question_margin" />
 
     <TextView
         android:id="@+id/textFieldWarningInformation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_duplicatefilesdescription"
-        android:textSize="@dimen/activity_text_size_caption"
+        android:textSize="@dimen/activity_text_size_info"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="@dimen/activity_margin_start"
-        android:layout_centerHorizontal="true" />
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <Button
         android:id="@+id/buttonOk"
