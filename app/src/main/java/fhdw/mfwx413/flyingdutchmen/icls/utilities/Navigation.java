@@ -121,7 +121,7 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityStatistics(Activity callingActivity, User chosenUser, IndexCard chosenFile){
+    public static void startActivityStatistics(Activity callingActivity, User chosenUser, IndexCard chosenFile, ChallengeCollection mDueChallenges){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.Statistics.Init.class);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);

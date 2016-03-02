@@ -28,18 +28,13 @@ public class Data {
     //private static final String KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K1";
     private static final String KEY_CHOSEN_USER = "K2";
     private static final String KEY_CHOSEN_FILE = "K3";
+    private static final String KEY_DUE_CHALLENGES = "K4";
 
     private Activity mActivity;
     private User mChosenUser;
     private IndexCard mChosenFile;
     private int mNumberAllChallenges;
-    private int mNumberDueChallenges;
-    private int mNumberOfClass1;
-    private int mNumberOfClass2;
-    private int mNumberOfClass3;
-    private int mNumberOfClass4;
-    private int mNumberOfClass5;
-    private int mNumberOfClass6;
+    private ChallengeCollection mDueChallenges;
     private ChallengeCollection mAllChallenges;
 
     public Data(Activity activity, Bundle bundle) {
@@ -53,6 +48,7 @@ public class Data {
             Log.d("Statistics::Data::User", "" + mChosenUser.getmName());
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
             Log.d("Statistics::Data::File", "" + mChosenFile.getmName());
+            mDueChallenges = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE);
         }
         else{
             // Restore Data if bundle is filled
@@ -64,12 +60,14 @@ public class Data {
     public void saveDataFromBundle(Bundle bundle) {
         bundle.putSerializable(KEY_CHOSEN_USER, mChosenUser);
         bundle.putSerializable(KEY_CHOSEN_FILE, mChosenFile);
+        bundle.putSerializable(KEY_DUE_CHALLENGES, mDueChallenges);
     }
 
     // Restore data from given bundle
     public void restoreDataFromBundle(Bundle bundle) {
         mChosenUser = (User) bundle.getSerializable(KEY_CHOSEN_USER);
         mChosenFile = (IndexCard) bundle.getSerializable(KEY_CHOSEN_FILE);
+        mDueChallenges = (ChallengeCollection) bundle.getSerializable(KEY_DUE_CHALLENGES);
     }
 
     public Activity getActivity() {
@@ -129,8 +127,8 @@ public class Data {
             }
 
         }*/
-        //int numberDueChallenges = getmNumberOfClass1() + getmNumberOfClass2() + getmNumberOfClass3() + getmNumberOfClass4() + getmNumberOfClass5() + getmNumberOfClass6();
-        int numberDueChallenges = 0;
+
+        int numberDueChallenges = mDueChallenges.getSize();
         return numberDueChallenges;
     }
 

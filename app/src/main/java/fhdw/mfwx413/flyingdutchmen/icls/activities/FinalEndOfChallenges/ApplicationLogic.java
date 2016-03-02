@@ -2,6 +2,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.FinalEndOfChallenges;
 
 import android.app.Activity;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -34,9 +35,8 @@ public class ApplicationLogic {
     }
 
     public void onButtonStatisticsClicked() {
-
         //call the Statistics-Activity and send the required data
-        Navigation.startActivityStatistics(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
+        //Navigation.startActivityStatistics(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
 
     }
 

@@ -52,8 +52,8 @@ public class ApplicationLogic {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
 
 
-        // mDueChallenges = mData.getDueChallengeList();
-        Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
+        mDueChallenges = mData.getDueChallengeList();
+        Navigation.startActivityStatistics(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard(), mDueChallenges);
         //TODO Max: mDueChallenges an Statistics übergeben
     }
 
