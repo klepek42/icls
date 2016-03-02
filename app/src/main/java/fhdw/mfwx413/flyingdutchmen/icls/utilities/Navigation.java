@@ -139,10 +139,17 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startFragmentLogout(Activity callingActivity, User chosenUser) {
+    public static void startActivityLogout(Activity callingActivity, User chosenUser) {
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FragLogout.Init.class);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
+        callingActivity.startActivity(intent);
+        callingActivity.finish();
+    }
+
+    public static void startActivityDuplicateFiles(Activity callingActivity) {
+        Intent intent;
+        intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateFiles.Init.class);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }

@@ -43,6 +43,7 @@
         <activity android:name=".activities.SettingsMenu.Init" />
         <activity android:name=".activities.Statistics.Init" />
         <activity android:name=".activities.FragLogout.Init" />
+        <activity android:name=".activities.DuplicateFiles.Init" />
     </application>
 
 </manifest>

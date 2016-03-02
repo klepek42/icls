@@ -13,6 +13,8 @@
     <string name="string_statistics">Statistik</string>
     <string name="string_settings">Einstellungen</string>
     <string name="string_logout">Abmelden</string>
+    <string name="string_duplicatefileswarning">Es sind doppelte Karteien vorhanden.</string>
+    <string name="string_duplicatefilesdescription">Bitte schauen Sie ins Benutzerhandbuch und entfernen Sie doppelte Einträge.</string>
     <string name="string_start_learning">Lernmodus</string>
     <string name="string_file_name">Karteiname</string>
     <string name="string_all_challenges">Aufgaben insges.</string>
@@ -31,6 +33,7 @@
     <string name="string_ask_delete">Löschen?</string>
     <string name="string_yes">Ja</string>
     <string name="string_no">Nein</string>
+    <string name="string_ok">Ok</string>
 
     <string name="string_question_1_2">Das ist ein toller Dummy-Text für eine Frage der Challenges 1 und 2</string>
     <string name="string_question_3">Das ist ein toller Dummy-Text für eine Frage der Challenge 3</string>

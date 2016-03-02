@@ -54,7 +54,7 @@ public class ApplicationLogic {
     }
 
     public void onButtonLogoutClicked() {
-        Navigation.startFragmentLogout(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivityLogout(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonSettingsClicked() {

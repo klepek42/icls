@@ -25,6 +25,7 @@ public class Data {
         mActivity = activity;
         mAllUsers = UserDatabase.getAllUser(mActivity);
 
+        // If there is no existing user, go directly to the ActivityAddNewUser
         if(mAllUsers.getSize()==0) {
             Navigation.startActivityAddNewUser(getActivity());
         }

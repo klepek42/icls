@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.lang.reflect.AccessibleObject;
-
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 /**
@@ -18,7 +16,7 @@ public class Gui {
     private Button buttonDenyLogout;
 
     public Gui(Activity activity) {
-        activity.setContentView(R.layout.fragment_logout);
+        activity.setContentView(R.layout.layout_logout);
         textFieldLogout = (TextView) activity.findViewById(R.id.textFieldLogout);
         buttonConfirmLogout = (Button) activity.findViewById(R.id.buttonConfirmLogout);
         buttonDenyLogout = (Button) activity.findViewById(R.id.buttonDenyLogout);
