@@ -35,9 +35,12 @@ public class ApplicationLogic {
     }
 
     public void onButtonStatisticsClicked() {
-        //TODO Luisa: Leere ChallengeCollection übergeben
+
+        // empty ChallengeCollection
+        ChallengeCollection cc = new ChallengeCollection();
+
         //call the Statistics-Activity and send the required data
-        //Navigation.startActivityStatistics(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
+        Navigation.startActivityStatistics(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile(), cc);
 
     }
 
