@@ -7,7 +7,6 @@ import android.widget.Toast;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
-import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
@@ -100,9 +99,6 @@ public class ApplicationLogic {
         //delivers int value, to decide which Activity has to be started
         dueChallengeNumber = otherDueChallenges();
 
-        //TODO Pascal: Dummy entfernen
-        UserProgressCollection Dummy = new UserProgressCollection();
-
         //it depends on the layoutType of the next challenge, which activity is to be started next
         switch (dueChallengeNumber) {
             //no other challenge is due
@@ -110,16 +106,15 @@ public class ApplicationLogic {
                 Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
                 //a challenge of type ChallengeFreeAnswer is due
             case 1:
-                //TODO Pascal: Dummy abändern
-                Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
+                Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                 break;
             //a challenge of type ChallengeImagineAnser is due
             case 2:
-                Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
+                Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                 break;
             //a challenge of type ChallengeMultipleChoice is due
             case 3:
-                Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
+                Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                 break;
             //Error handling is to be implemented here
             case 4:
@@ -160,23 +155,23 @@ public class ApplicationLogic {
     //method, that saves the user progress (whether the question was answered correctly or not)
     private void updateUserProgress(boolean isAnswerCorrect) throws UserProgressNotFoundException{
         boolean userProgressFound = false;
-        for (int i = 0; i < mData.getmAllUserProgresses().getSize(); i++){
-            if (mData.getmAllUserProgresses().getUserProgress(i).getmUserName().equals(mData.getmChosenUser().getmName()) &&
-                    mData.getmAllUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
-                int actualTimeClass = mData.getmAllUserProgresses().getUserProgress(i).getmPeriodClass();
+        for (int i = 0; i < mData.getmCurrentUserProgresses().getSize(); i++){
+            if (mData.getmCurrentUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
+                int actualTimeClass = mData.getmCurrentUserProgresses().getUserProgress(i).getmPeriodClass();
                 userProgressFound = true;
-                mData.getmAllUserProgresses().getUserProgress(i).setCurrentTimeStamp();
+                mData.getmCurrentUserProgresses().getUserProgress(i).setCurrentTimeStamp();
                 if (isAnswerCorrect == true) {
                     if (actualTimeClass < 5 ) {
-                        mData.getmAllUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
+                        mData.getmCurrentUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
                     }
                 }
                 else {
                     if (actualTimeClass > 1 ) {
-                        mData.getmAllUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
+                        mData.getmCurrentUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
                     }
                 }
-                UserProgressDatabase.writeAllUserProgresses(mData.getmAllUserProgresses());
+                UserProgressDatabase.writeSpecificUserProgresses(mData.getmCurrentUserProgresses(), mData.getmChosenUser().getmName(), mActivity);
+                break;
             }
         }
         if (userProgressFound == false){

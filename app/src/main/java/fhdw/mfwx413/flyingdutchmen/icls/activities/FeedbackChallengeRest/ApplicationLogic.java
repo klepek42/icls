@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
-import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
@@ -40,7 +39,7 @@ public class ApplicationLogic {
             mGui.setFeedbackTextCorrectAnswer(correctAnswer);
 
             //if the answer was correct
-            if (mData.ismIsAnswerCorrect() == true) {
+            if (mData.getmIsAnswerCorrect() == true) {
                 mGui.setFeedbackText("Die Antwort war korrekt");
                 mGui.setFeedbackTextUpDownGrade("Die Frage wird heraufgestuft");
             } else {
@@ -65,9 +64,6 @@ public class ApplicationLogic {
             //delivers int value, to decide which Activity has to be started
             dueChallengeNumber = otherDueChallenges();
 
-            //TODO Pascal: Dummy entfernen
-            UserProgressCollection Dummy = new UserProgressCollection();
-
             //it depends on the layoutType of the next challenge, which activity is to be started next
             switch (dueChallengeNumber) {
                 //no other challenge is due
@@ -76,18 +72,17 @@ public class ApplicationLogic {
                 case 1: //a challenge of type ChallengeFreeAnswer is due
                     //set the next challenge ID by adding 1; this is required to start the correct "next" activity
                     mData.incrementChallengeIdByOne();
-                    //TODO Pascal: Dummy abändern
-                    Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
+                    Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                     break;
                 case 2: //a challenge of type ChallengeImagineAnser is due
                     //set the next challenge ID by adding 1; this is required to start the correct "next" activity
                     mData.incrementChallengeIdByOne();
-                    Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
+                    Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                     break;
                 case 3: //a challenge of type ChallengeMultipleChoice is due
                     //set the next challenge ID by adding 1; this is required to start the correct "next" activity
                     mData.incrementChallengeIdByOne();
-                    Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
+                    Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                     break;
                 default:
                     throw new InvalidQuestionTypeLayoutException("FeedbackChallengeRest::ApplicationLogic::onButtonContinue");
