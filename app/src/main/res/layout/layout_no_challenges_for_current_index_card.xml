@@ -14,8 +14,7 @@
         android:textColor="@color/textColor"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="@dimen/activity_question_margin" />
+        android:layout_centerVertical="true" />
 
     <Button
         android:id="@+id/buttonOk2"
@@ -25,7 +24,7 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:textAllCaps="false" />
 </RelativeLayout>
