@@ -46,22 +46,22 @@ public class UserDatabase {
 
 
     public static void writeAllUsers(Context context, UserCollection uc) {
-        List<String[]> userList = new ArrayList<String[]>();
+        List<String[]> userList = new ArrayList<>();
 
         try {
             // UserCollection >>> List<String[]>
             for(int i = 0; i < uc.getSize(); i++) { // ArrayList mit User Objekten
-                // String userName = userList.get(i).getmName();
+                // String userName = userList.get(i).getName();
                 String [] userAsString = new String[7];
                 User user = uc.get(i);
 
-                userAsString[0] = user.getmName();
-                userAsString[1] = Integer.toString(user.getmPeriodClass1());
-                userAsString[2] = Integer.toString(user.getmPeriodClass2());
-                userAsString[3] = Integer.toString(user.getmPeriodClass3());
-                userAsString[4] = Integer.toString(user.getmPeriodClass4());
-                userAsString[5] = Integer.toString(user.getmPeriodClass5());
-                userAsString[6] = Integer.toString(user.getmPeriodClass6());
+                userAsString[0] = user.getName();
+                userAsString[1] = Integer.toString(user.getPeriodClass1());
+                userAsString[2] = Integer.toString(user.getPeriodClass2());
+                userAsString[3] = Integer.toString(user.getPeriodClass3());
+                userAsString[4] = Integer.toString(user.getPeriodClass4());
+                userAsString[5] = Integer.toString(user.getPeriodClass5());
+                userAsString[6] = Integer.toString(user.getPeriodClass6());
 
                 userList.add(i, userAsString);
             }

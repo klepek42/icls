@@ -1,11 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateFiles;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-
-import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
-import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 
 /**
  * Created by edgar on 17.02.2016.

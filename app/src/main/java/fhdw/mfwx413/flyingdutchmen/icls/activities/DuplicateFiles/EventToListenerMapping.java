@@ -20,7 +20,7 @@ public class EventToListenerMapping implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.buttonConfirmLogout:
+            case R.id.buttonOk:
                 mApplicationLogic.onButtonOkClicked();
                 break;
         }

@@ -16,9 +16,10 @@ public class Gui {
     private Button buttonOk;
 
     public Gui(Activity activity) {
-        activity.setContentView(R.layout.layout_logout);
-        textFieldDuplicatesDescription = (TextView) activity.findViewById(R.id.textFieldLogout);
-        buttonOk = (Button) activity.findViewById(R.id.buttonDenyLogout);
+        activity.setContentView(R.layout.layout_duplicate_files);
+        textFieldDuplicatesDescription = (TextView) activity.findViewById(R.id.textFieldWarning);
+        textFieldDuplicatesWarning = (TextView) activity.findViewById(R.id.textFieldWarningInformation);
+        buttonOk = (Button) activity.findViewById(R.id.buttonOk);
     }
 
     public TextView getTextFieldDuplicatesWarning() {

@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_duplicatefilesdescription"
         android:textSize="@dimen/activity_text_size_info"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/textColor"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />

@@ -2,10 +2,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-
 import java.text.ParseException;
-
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.DoubleIndexCardFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;

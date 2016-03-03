@@ -3,11 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.Statistics;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
@@ -15,7 +10,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
-import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
@@ -108,7 +102,7 @@ public class Data {
             }
         }
 
-        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
         int countClassOne = 0;
 
         // Go through all user progresses and count the matching ones
@@ -137,7 +131,7 @@ public class Data {
             }
         }
 
-        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
         int countClassTwo = 0;
 
         // Go through all user progresses and count the matching ones
@@ -166,7 +160,7 @@ public class Data {
             }
         }
 
-        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
         int countClassThree = 0;
 
         // Go through all user progresses and count the matching ones
@@ -195,7 +189,7 @@ public class Data {
             }
         }
 
-        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
         int countClassFour = 0;
 
         // Go through all user progresses and count the matching ones
@@ -224,7 +218,7 @@ public class Data {
             }
         }
 
-        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
         int countClassFive = 0;
 
         // Go through all user progresses and count the matching ones
@@ -253,7 +247,7 @@ public class Data {
             }
         }
 
-        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+        UserProgressCollection allProgressData = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
         int countClassSix = 0;
 
         // Go through all user progresses and count the matching ones

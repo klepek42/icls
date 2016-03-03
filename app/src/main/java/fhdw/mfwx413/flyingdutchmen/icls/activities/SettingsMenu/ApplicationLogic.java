@@ -1,6 +1,5 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu;
 
-import android.app.Activity;
 import android.content.Context;
 
 import android.util.Log;
@@ -14,7 +13,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserNotFoundException;
-import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -61,12 +59,12 @@ public class ApplicationLogic{
        mGui.getTimeUnit6().setAdapter(adapter);
 
         //store current user chosen period classes
-       int chosenPeriodClass1Int = mData.getCurrentUser().getmPeriodClass1();
-       int chosenPeriodClass2Int = mData.getCurrentUser().getmPeriodClass2();
-       int chosenPeriodClass3Int = mData.getCurrentUser().getmPeriodClass3();
-       int chosenPeriodClass4Int = mData.getCurrentUser().getmPeriodClass4();
-       int chosenPeriodClass5Int = mData.getCurrentUser().getmPeriodClass5();
-       int chosenPeriodClass6Int = mData.getCurrentUser().getmPeriodClass6();
+       int chosenPeriodClass1Int = mData.getCurrentUser().getPeriodClass1();
+       int chosenPeriodClass2Int = mData.getCurrentUser().getPeriodClass2();
+       int chosenPeriodClass3Int = mData.getCurrentUser().getPeriodClass3();
+       int chosenPeriodClass4Int = mData.getCurrentUser().getPeriodClass4();
+       int chosenPeriodClass5Int = mData.getCurrentUser().getPeriodClass5();
+       int chosenPeriodClass6Int = mData.getCurrentUser().getPeriodClass6();
 
        //following switch statements set user chosen time periods in EditTexts and set proper unit in Spinner - convertion from int to String is necessary because EditText stores as String
        switch (determineProperUnit(chosenPeriodClass1Int)) {
@@ -291,7 +289,7 @@ public class ApplicationLogic{
 
         for (int i=0; i<uc.getSize(); i++)
         {
-            if (uc.get(i).getmName().equals(mData.getCurrentUser().getmName()))
+            if (uc.get(i).getName().equals(mData.getCurrentUser().getName()))
             {
                 uc.get(i).setPeriodClasses(periodClass1,periodClass2,periodClass3,periodClass4,periodClass5,periodClass6);
                 userFoundInCollection = true;
@@ -299,7 +297,7 @@ public class ApplicationLogic{
         }
         if (userFoundInCollection == false){
             throw new UserNotFoundException("SettingsMenu::ApplicationLogic::updateUserCollection:"
-                    + " CurrentUserName: " + mData.getmChosenUser().getmName());
+                    + " CurrentUserName: " + mData.getmChosenUser().getName());
         }
         UserDatabase.writeAllUsers(context, uc);
     }
@@ -314,7 +312,7 @@ public class ApplicationLogic{
     public void onButtonSetSettingsDefaultClicked() {
       try {
           //store periods temporary
-            mData.getCurrentUser().setDefaultPeriodClasses(mData.getCurrentUser().getmName());
+            mData.getCurrentUser().setDefaultPeriodClasses();
 
           //store periods permanently
             updateUserCollection(Constants.PERIOD_CLASS_1,Constants.PERIOD_CLASS_2,Constants.PERIOD_CLASS_3,Constants.PERIOD_CLASS_4,Constants.PERIOD_CLASS_5,Constants.PERIOD_CLASS_6);

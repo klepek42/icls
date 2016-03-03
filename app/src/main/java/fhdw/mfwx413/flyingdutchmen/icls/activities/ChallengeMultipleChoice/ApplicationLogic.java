@@ -165,14 +165,14 @@ public class ApplicationLogic {
                     }
                 }
                 //update the userProgress of the current user
-                UserProgressDatabase.writeSpecificUserProgresses(mData.getmUserProgresses(), mData.getmChosenUser().getmName(), mActivity);
+                UserProgressDatabase.writeSpecificUserProgresses(mData.getmUserProgresses(), mData.getmChosenUser().getName(), mActivity);
                 break;
             }
         }
         //throw exception if the user was not found
         if (userProgressFound == false){
             throw new UserProgressNotFoundException("ChallengeMultipleChoice::ApplicationLogic::updateUserProgress:"
-                    + " CurrentUserName: " + mData.getmChosenUser().getmName()
+                    + " CurrentUserName: " + mData.getmChosenUser().getName()
                     + " ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
         }
     }

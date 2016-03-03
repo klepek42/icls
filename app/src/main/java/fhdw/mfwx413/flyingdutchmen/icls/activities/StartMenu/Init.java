@@ -11,8 +11,6 @@ import java.io.FileNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
-import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardCollection;
-import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
@@ -153,10 +151,10 @@ public class Init extends Activity {
 
 
             for(int j = 0; j < allChallenges.getSize(); j++) {
-                UserProgress userProgress = new UserProgress(allUsers.get(i).getmName(), allChallenges.getChallenge(j).getmID(), 1, Constants.DEFAULT_TIMESTAMP);
+                UserProgress userProgress = new UserProgress(allUsers.get(i).getName(), allChallenges.getChallenge(j).getmID(), 1, Constants.DEFAULT_TIMESTAMP);
                 userProgressCollection.addUserProgress(userProgress);
             }
-            UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, allUsers.get(i).getmName(), this);
+            UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, allUsers.get(i).getName(), this);
         }
 
     }

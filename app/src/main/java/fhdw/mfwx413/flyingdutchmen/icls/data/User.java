@@ -7,9 +7,6 @@ import java.io.Serializable;
  * Created by Max Schumacher on 20.02.2016
  */
 public class User implements Serializable {
-
-    // UserID (unique)
-    //private int mID;
     // UserName (unique)
     private String mName;
     // intervals for period-classes 1-6 in minutes
@@ -20,32 +17,32 @@ public class User implements Serializable {
     private int mPeriodClass5;
     private int mPeriodClass6;
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
     // Get intervals of period-classes for the SettingsMenu (Activity: SettingsMenu)
-    public int getmPeriodClass1() {
+    public int getPeriodClass1() {
         return mPeriodClass1;
     }
 
-    public int getmPeriodClass2() {
+    public int getPeriodClass2() {
         return mPeriodClass2;
     }
 
-    public int getmPeriodClass3() {
+    public int getPeriodClass3() {
         return mPeriodClass3;
     }
 
-    public int getmPeriodClass4() {
+    public int getPeriodClass4() {
         return mPeriodClass4;
     }
 
-    public int getmPeriodClass5() {
+    public int getPeriodClass5() {
         return mPeriodClass5;
     }
 
-    public int getmPeriodClass6() {
+    public int getPeriodClass6() {
         return mPeriodClass6;
     }
 
@@ -78,7 +75,7 @@ public class User implements Serializable {
     }
 
     // Reset to default period-class settings (Activity: SettingsMenu)
-    public void setDefaultPeriodClasses(String mName) {
+    public void setDefaultPeriodClasses() {
         this.mPeriodClass1 = Constants.PERIOD_CLASS_1;
         this.mPeriodClass2 = Constants.PERIOD_CLASS_2;
         this.mPeriodClass3 = Constants.PERIOD_CLASS_3;
@@ -97,9 +94,11 @@ public class User implements Serializable {
         this.mPeriodClass6 = mPeriodClass6;
     }
 
+    /** Function won't be supported
     // Update UserName (Activity: EditUser)
     public void setmName(String mName){
         this.mName = mName;
     }
+     */
 
 }

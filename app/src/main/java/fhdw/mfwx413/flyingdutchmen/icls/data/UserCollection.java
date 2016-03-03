@@ -13,7 +13,7 @@ public class UserCollection implements Serializable{
     private ArrayList<User> mUserList;
 
     public UserCollection() {
-        mUserList = new ArrayList<User>();
+        mUserList = new ArrayList<>();
     }
 
     public User getUser (String key) throws IdNotFoundException {
@@ -22,13 +22,13 @@ public class UserCollection implements Serializable{
         foundUser = new User("-1", 0,0,0,0,0,0);
         for ( i = 0; i < mUserList.size(); i++)
         {
-            if (mUserList.get(i).getmName().equals(key))
+            if (mUserList.get(i).getName().equals(key))
             {
                 foundUser = mUserList.get(i);
             }
         }
 
-        if(foundUser.getmName().equals("-1")) {
+        if(foundUser.getName().equals("-1")) {
             throw new IdNotFoundException("UserCollection::getUser: Ungültiger Key für User: " + key);
         }
 
@@ -52,7 +52,7 @@ public class UserCollection implements Serializable{
         int i;
         for ( i = 0; i < mUserList.size(); i++)
         {
-            if (mUserList.get(i).getmName().equals(user.getmName()))
+            if (mUserList.get(i).getName().equals(user.getName()))
             {
                 return true;
             }

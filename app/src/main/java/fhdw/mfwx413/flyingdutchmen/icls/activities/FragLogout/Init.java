@@ -3,8 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.FragLogout;
 import android.app.Activity;
 import android.os.Bundle;
 
-import java.text.ParseException;
-
 /**
  * Created by edgar on 13.02.2016.
  * Updated by Max on 01.03.2016

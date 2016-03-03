@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
-import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
@@ -166,13 +165,13 @@ public class ApplicationLogic {
                         mData.getmCurrentUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
                     }
                 }
-                UserProgressDatabase.writeSpecificUserProgresses(mData.getmCurrentUserProgresses(), mData.getmChosenUser().getmName(), mActivity);
+                UserProgressDatabase.writeSpecificUserProgresses(mData.getmCurrentUserProgresses(), mData.getmChosenUser().getName(), mActivity);
                 break;
             }
         }
         if (userProgressFound == false){
             throw new UserProgressNotFoundException("ChallengeFreeAnswer::ApplicationLogic::updateUserProgress:"
-                    + " CurrentUserName: " + mData.getmChosenUser().getmName()
+                    + " CurrentUserName: " + mData.getmChosenUser().getName()
                     + "ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());
         }
     }

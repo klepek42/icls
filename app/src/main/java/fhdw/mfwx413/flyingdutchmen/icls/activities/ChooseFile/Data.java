@@ -1,5 +1,6 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,14 +39,9 @@ public class Data {
     private IndexCardCollection mAllIndexCards;
     private ChallengeCollection mAllChallenges;
     private ChallengeCollection mChallengesCurrentIndexCard;
-    //private UserProgressCollection mUserProgressForCurrentUser;
     private UserProgressCollection mCurrentUserUserProgressForCurrentIndexCard;
-    //private UserProgressCollection mUserProgressForCurrentIndexCardAndCurrentUser;
-    private ChallengeCollection mDueChallenges;
     private Date mLastAnsweredDate;
-    private SimpleDateFormat mLastAnsweredFormat;
     private Date CurrentDate;
-
     private int mPeriodClass1;
     private int mPeriodClass2;
     private int mPeriodClass3;
@@ -65,9 +61,9 @@ public class Data {
             restoreDataFromBundle(savedInstanceState);
         }
 
-        Log.d("CurrentUser: " , ""+mCurrentUser.getmName());
+        Log.d("CurrentUser: " , ""+mCurrentUser.getName());
 
-        mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mCurrentUser.getmName());
+        mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mCurrentUser.getName());
         mAllIndexCards = IndexCardDatabase.getIndexCards(mActivity);
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
 
@@ -114,8 +110,7 @@ public class Data {
         int counter;
         String mCacheIndexCard;
         String mCheckIndexCard;
-        boolean duplicate;
-        duplicate = false;
+        boolean duplicate=false;
 
         if(mAllIndexCards.getSize()>1){
             while(index<mAllIndexCards.getSize()){
@@ -174,8 +169,10 @@ public class Data {
         CurrentDate = new Date(t);
     }
 
-    // IV. -> Get TimeStamps out of L3 and save them in a comparable format
+    // IV. -> Get TimeStamps out of L3 and save them in a comparable format to the current date
+    @SuppressLint("SimpleDateFormat")
     public void getTimeStampLastAnswered(int index) throws ParseException {
+        SimpleDateFormat mLastAnsweredFormat;
         String mTimeStampLastAnswered;
         mTimeStampLastAnswered = mCurrentUserUserProgressForCurrentIndexCard.getUserProgress(index).getmTimeStampAnswered();
         mLastAnsweredFormat = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
@@ -191,16 +188,17 @@ public class Data {
 
     // VI. -> Save UserSettings of current User
     public void getCurrentUsersSettings() {
-        mPeriodClass1 = mCurrentUser.getmPeriodClass1();
-        mPeriodClass2 = mCurrentUser.getmPeriodClass2();
-        mPeriodClass3 = mCurrentUser.getmPeriodClass3();
-        mPeriodClass4 = mCurrentUser.getmPeriodClass4();
-        mPeriodClass5 = mCurrentUser.getmPeriodClass5();
-        mPeriodClass6 = mCurrentUser.getmPeriodClass6();
+        mPeriodClass1 = mCurrentUser.getPeriodClass1();
+        mPeriodClass2 = mCurrentUser.getPeriodClass2();
+        mPeriodClass3 = mCurrentUser.getPeriodClass3();
+        mPeriodClass4 = mCurrentUser.getPeriodClass4();
+        mPeriodClass5 = mCurrentUser.getPeriodClass5();
+        mPeriodClass6 = mCurrentUser.getPeriodClass6();
     }
 
      // VII. -> Check every record of L3 for due challenges by adding the minutes from users settings of the particular PeriodClass to the TimeStampLastAnswered and compare to current Date. Save them as a new ChallengeCollection L4 if due.
      public ChallengeCollection getDueChallengeList() throws ParseException, IdNotFoundException {
+         ChallengeCollection mDueChallenges;
          mDueChallenges = new ChallengeCollection();
          int mCurrentClass;
          int mCacheChallengeId;

@@ -1,7 +1,6 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.StartMenu;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 
@@ -19,10 +18,9 @@ public class ApplicationLogic{
 
     private Data mData;
     private Gui mGui;
-    private int count;
     private Context context;
     private ArrayList<String> userNames = new ArrayList<>();
-    private String mselectedName;
+    private String mSelectedName;
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
         mData = data;
@@ -40,12 +38,12 @@ public class ApplicationLogic{
     }
 
     public void onButtonConfirmUserClicked() throws IdNotFoundException {
-        mData.setCurrentUser(mData.getAllUsers().getUser(mselectedName));
+        mData.setCurrentUser(mData.getAllUsers().getUser(mSelectedName));
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonEditUserClicked() throws IdNotFoundException {
-        mData.setCurrentUser(mData.getAllUsers().getUser(mselectedName));
+        mData.setCurrentUser(mData.getAllUsers().getUser(mSelectedName));
         Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
 
@@ -54,7 +52,7 @@ public class ApplicationLogic{
     private void fillSpinner() {
 
         for(int i = 0; i < mData.getAllUsers().getSize(); i++) {
-            userNames.add(mData.getAllUsers().get(i).getmName());
+            userNames.add(mData.getAllUsers().get(i).getName());
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, userNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -64,7 +62,7 @@ public class ApplicationLogic{
     //Set selected User from Spinner
     public void onUserSelected(int position){
         System.out.println(userNames.get(position));
-        mselectedName = userNames.get(position);
+        mSelectedName = userNames.get(position);
     }
 
 }

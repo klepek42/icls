@@ -3,14 +3,9 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.StartMenu;
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 import android.app.Activity;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Spinner;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-
 
 /**
  * Responsibility: Max Schumacher

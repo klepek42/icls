@@ -2,7 +2,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.FragLogout;
 
 import android.content.Context;
 
-import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
