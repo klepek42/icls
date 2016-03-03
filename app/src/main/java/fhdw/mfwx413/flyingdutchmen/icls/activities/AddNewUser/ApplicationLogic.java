@@ -12,6 +12,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 
@@ -39,7 +40,7 @@ public class ApplicationLogic {
         user = mData.getmUserCollection().getAllUser(currentUser);*/
     }
 
-    public void onButtonSaveNewUserClicked(){
+    public void onButtonSaveNewUserClicked() throws IdNotFoundException {
         String givenUser;
         givenUser = mGui.getmNameOfUser().getText().toString();
 

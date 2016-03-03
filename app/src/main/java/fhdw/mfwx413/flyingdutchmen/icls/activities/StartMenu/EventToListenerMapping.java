@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
  * Created by edgar on 17.02.2016
@@ -30,10 +31,18 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
                 mApplicationLogic.onButtonAddUserClicked();
                 break;
             case R.id.buttonConfirmUser:
-                mApplicationLogic.onButtonConfirmUserClicked();
+                try {
+                    mApplicationLogic.onButtonConfirmUserClicked();
+                } catch (IdNotFoundException e) {
+                    e.printStackTrace();
+                }
                 break;
             case R.id.buttonEditUser:
-                mApplicationLogic.onButtonEditUserClicked();
+                try {
+                    mApplicationLogic.onButtonEditUserClicked();
+                } catch (IdNotFoundException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }

@@ -204,12 +204,15 @@ public class Data {
          Challenge mCacheChallenge;
 
          getCurrentTime();
+         getCurrentUsersSettings();
 
          for(int n=0; n<mCurrentUserUserProgressForCurrentIndexCard.getSize(); n++) {
              getTimeStampLastAnswered(n);
              Calendar mLastAnsweredCalendar = DateToCalendar(mLastAnsweredDate);
 
+             //TEST
              Log.d("mLastAnsweredDate: ", "" + mLastAnsweredDate);
+             //EOT
 
              mCurrentClass = mCurrentUserUserProgressForCurrentIndexCard.getUserProgress(n).getmPeriodClass();
 
@@ -230,9 +233,13 @@ public class Data {
 
              mLastAnsweredDate = mLastAnsweredCalendar.getTime();
 
+             //TEST
+             Log.d("mLastAnswered+PClass: ", "" + mLastAnsweredDate);
+             Log.d("mCurrentDate: ", "" + CurrentDate);
+             //EOT
+
              if(mLastAnsweredDate.before(CurrentDate) || mLastAnsweredDate.equals(CurrentDate)) {
                  mCacheChallengeId = mCurrentUserUserProgressForCurrentIndexCard.getUserProgress(n).getmChallengeID();
-                 //mCacheChallengeId = mUserProgressForCurrentIndexCardAndCurrentUser.getUserProgress(n).getmChallengeID();
                  mCacheChallenge = mAllChallenges.getChallengeByKey(mCacheChallengeId);
                  mDueChallenges.addChallenge(mCacheChallenge);
              }

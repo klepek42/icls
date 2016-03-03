@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -38,12 +39,12 @@ public class ApplicationLogic{
         Navigation.startActivityAddNewUser(mData.getActivity());
     }
 
-    public void onButtonConfirmUserClicked() {
+    public void onButtonConfirmUserClicked() throws IdNotFoundException {
         mData.setCurrentUser(mData.getAllUsers().getUser(mselectedName));
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
-    public void onButtonEditUserClicked() {
+    public void onButtonEditUserClicked() throws IdNotFoundException {
         mData.setCurrentUser(mData.getAllUsers().getUser(mselectedName));
         Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
