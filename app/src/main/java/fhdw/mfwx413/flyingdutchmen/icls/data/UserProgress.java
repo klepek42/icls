@@ -13,11 +13,11 @@ public class UserProgress implements Serializable{
     private int mPeriodClass;
     private String mTimeStampAnswered;
 
-    public UserProgress(String UserName, int ChallengeID, int Zeitklasse, String TimeStampBeantwortung) {
+    public UserProgress(String UserName, int ChallengeID, int periodClass, String TimeStampAnswered) {
         this.mUserName = UserName;
         this.mChallengeID = ChallengeID;
-        this.mPeriodClass = Zeitklasse;
-        this.mTimeStampAnswered = TimeStampBeantwortung;
+        this.mPeriodClass = periodClass;
+        this.mTimeStampAnswered = TimeStampAnswered;
     }
 
     public String getmUserName() {
