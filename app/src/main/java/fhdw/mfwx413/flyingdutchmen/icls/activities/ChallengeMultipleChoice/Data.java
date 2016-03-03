@@ -1,6 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -18,7 +19,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
  * Responsibility: Daniel zur Linden
  */
 public class Data {
-    //for testing
     private static final int DEFAULT_CURRENT_CHALLENGE_ID = 0;
 
 
@@ -31,23 +31,16 @@ public class Data {
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
-        //Intent intent;
+        Intent intent;
 
         if(bundle == null) {
-            //Todo Daniel: intent auslesen, wenn Activiy aufgerufen wird
             //if bundle isn't filled, the data will be initialized by the extras of the intent
-            //intent = mActivity.getIntent();
-            //Testweise (hier muss in Zukunft der intent übertrag realisiert werden)
-            mCurrentChallengeId = DEFAULT_CURRENT_CHALLENGE_ID;
-            mDueChallengesOfUserInFile = ChallengeDatabase.getAllChallenges(mActivity);
-            mChosenUser = new User("Jonas", 5, 60, 1440, 10080, 43200, 259200);
-            try {
-                mChosenFile = IndexCardDatabase.getIndexCards(mActivity).getIndexCard(4);
-            }
-            catch (IdNotFoundException e){
-                Log.e("ICLS-LOG", "ChallengeMultipleChoice::Data: ", e);
-            }
-            mUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getmName());
+            intent = mActivity.getIntent();
+            mCurrentChallengeId = intent.getIntExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, DEFAULT_CURRENT_CHALLENGE_ID);
+            mDueChallengesOfUserInFile = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE);
+            mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
+            mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
+            mUserProgresses = (UserProgressCollection) intent.getSerializableExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER);
         }
         else{
             //restore Data if bundle is filled

@@ -10,9 +10,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeExcep
  * Responsibility: Daniel zur Linden
  */
     public class EventToListenerMapping implements View.OnClickListener{
-        private fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.ApplicationLogic mApplicationLogic;
+        private ApplicationLogic mApplicationLogic;
 
-        public EventToListenerMapping(fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Gui gui, ApplicationLogic applicationLogic) {
+        public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
             mApplicationLogic = applicationLogic;
             gui.getmButtonConfirmAnswer().setOnClickListener(this);
             gui.getmCheckBoxAnswer1().setOnClickListener(this);
@@ -28,7 +28,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeExcep
                     try {
                         mApplicationLogic.onButtonConfirmAnswerClicked();
                     } catch (InvalidCorrectAnswerTypeException e) {
-                        Log.e("ICLS-ERROR", "ChallengeFreeAnswer::EventToListenerMapping::onClick ", e);
+                        Log.e("ICLS-ERROR", "ChallengeMultipleChoice::EventToListenerMapping::onClick ", e);
                         mApplicationLogic.showErrorUnexpectedError();
                         mApplicationLogic.goBackToChooseFile();
                     }

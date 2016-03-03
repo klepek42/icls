@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserNotFoundException;
@@ -258,12 +259,12 @@ public class ApplicationLogic{
         {
             //chosen periods are valid
 
-            mData.getCurrentUser().setPeriodClasses(chosenPeriodClass1Int, chosenPeriodClass2Int, chosenPeriodClass3Int, chosenPeriodClass4Int, chosenPeriodClass5Int, chosenPeriodClass6Int);
+           // mData.getCurrentUser().setPeriodClasses(chosenPeriodClass1Int, chosenPeriodClass2Int, chosenPeriodClass3Int, chosenPeriodClass4Int, chosenPeriodClass5Int, chosenPeriodClass6Int);
 
 
             try {
                 updateUserCollection(chosenPeriodClass1Int,chosenPeriodClass2Int,chosenPeriodClass3Int,chosenPeriodClass4Int,chosenPeriodClass5Int,chosenPeriodClass6Int);
-                Toast.makeText(mData.getActivity(), "Die Werte wurden gespeichert!", Toast.LENGTH_LONG).show();
+                Toast.makeText(mData.getActivity(), "Die Werte wurden gespeichert!", Toast.LENGTH_SHORT).show();
                 Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
             } catch (UserNotFoundException e) {
                 Log.e("ICLS-LOG", "SettingsMenu::ApplicationLogic::onButtonConfirmSettingsClicked: ", e);
@@ -309,8 +310,15 @@ public class ApplicationLogic{
 
     //Set settings back to default values
     public void onButtonSetSettingsDefaultClicked() {
-        mData.getCurrentUser().setDefaultPeriodClasses(mData.getCurrentUser().getmName());
-        Toast.makeText(mData.getActivity(), "Zu default-Werten zurückgesetzt!", Toast.LENGTH_SHORT).show();
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+      //  mData.getCurrentUser().setDefaultPeriodClasses(mData.getCurrentUser().getmName());
+        try {
+            updateUserCollection(Constants.PERIOD_CLASS_1,Constants.PERIOD_CLASS_2,Constants.PERIOD_CLASS_3,Constants.PERIOD_CLASS_4,Constants.PERIOD_CLASS_5,Constants.PERIOD_CLASS_6);
+            Toast.makeText(mData.getActivity(), "Zu default-Werten zurückgesetzt!", Toast.LENGTH_SHORT).show();
+            Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+        } catch (UserNotFoundException e) {
+            Log.e("ICLS-LOG", "SettingsMenu::ApplicationLogic::onButtonSetSettingsDefaultClicked: ", e);
+            showErrorUnexpectedError();
+            Navigation.startActivityStartMenu(mData.getActivity());
+        }
     }
 }

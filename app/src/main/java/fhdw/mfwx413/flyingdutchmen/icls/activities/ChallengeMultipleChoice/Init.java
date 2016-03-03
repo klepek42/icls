@@ -13,9 +13,9 @@ Responsibility: Daniel zur Linden
  */
 public class Init extends Activity {
 
-    public fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Data mData;
-    private fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Gui mGui;
-    private fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.ApplicationLogic mApplicationLogic;
+    private Data mData;
+    private Gui mGui;
+    private ApplicationLogic mApplicationLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
