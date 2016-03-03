@@ -88,11 +88,6 @@ public class ApplicationLogic {
         }
     }
 
-    //method that is invoked, if the standard back button (on the phone or tablet) is clicked
-    public void onStandardBackButtonClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
-    }
-
     public void startNextActivity() {
         int dueChallengeNumber;
 
@@ -104,6 +99,7 @@ public class ApplicationLogic {
             //no other challenge is due
             case 0:
                 Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
+                break;
                 //a challenge of type ChallengeFreeAnswer is due
             case 1:
                 Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
@@ -139,7 +135,7 @@ public class ApplicationLogic {
         currentChallengeId = mData.getmCurrentChallengeId();
 
         //check if there are further challenges to be started
-        if (numberOfDueChallengesOfUserInFile > currentChallengeId) {
+        if (numberOfDueChallengesOfUserInFile > (currentChallengeId + 1)) {
 
             //compute the type of the next challenge for the switch-statement
             nextChallengeId = currentChallengeId + 1;

@@ -69,6 +69,7 @@ public class ApplicationLogic {
                 //no other challenge is due
                 case 0:
                     Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
+                    break;
                 case 1: //a challenge of type ChallengeFreeAnswer is due
                     //set the next challenge ID by adding 1; this is required to start the correct "next" activity
                     mData.incrementChallengeIdByOne();
@@ -116,7 +117,7 @@ public class ApplicationLogic {
         currentChallengeId = mData.getmCurrentChallengeId();
 
         //check if there are further challenges to be started
-        if (numberOfDueChallengesOfUserInFile > currentChallengeId) {
+        if (numberOfDueChallengesOfUserInFile > (currentChallengeId + 1)) {
 
             //compute the type of the next challenge for the switch-statement
             nextChallengeId = currentChallengeId + 1;

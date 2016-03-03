@@ -53,6 +53,5 @@ public class Init extends Activity {
     // Back to layout_choose_file (back button)
     @Override
     public void onBackPressed() {
-        mApplicationLogic.onStandardBackButtonClicked();
     }
 }
