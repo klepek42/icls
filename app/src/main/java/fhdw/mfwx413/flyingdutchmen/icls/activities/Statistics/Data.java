@@ -24,11 +24,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
  * Responsibility: Edgar Klepek
  */
 public class Data {
-    // Static variables for the bundle
-    //private static final String KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K1";
-    private static final String KEY_CHOSEN_USER = "K2";
-    private static final String KEY_CHOSEN_FILE = "K3";
-    private static final String KEY_DUE_CHALLENGES = "K4";
 
     private Activity mActivity;
     private User mChosenUser;
@@ -45,9 +40,7 @@ public class Data {
             // First start of the activity
             intent = mActivity.getIntent();
             mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
-            Log.d("Statistics::Data::User", "" + mChosenUser.getmName());
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
-            Log.d("Statistics::Data::File", "" + mChosenFile.getmName());
             mDueChallenges = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE);
         }
         else{
@@ -58,16 +51,16 @@ public class Data {
 
     // Save data in bundle if activity stops
     public void saveDataFromBundle(Bundle bundle) {
-        bundle.putSerializable(KEY_CHOSEN_USER, mChosenUser);
-        bundle.putSerializable(KEY_CHOSEN_FILE, mChosenFile);
-        bundle.putSerializable(KEY_DUE_CHALLENGES, mDueChallenges);
+        bundle.putSerializable(Constants.BUNDLE_KEY_CHOSEN_USER, mChosenUser);
+        bundle.putSerializable(Constants.BUNDLE_KEY_CHOSEN_FILE, mChosenFile);
+        bundle.putSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE, mDueChallenges);
     }
 
     // Restore data from given bundle
     public void restoreDataFromBundle(Bundle bundle) {
-        mChosenUser = (User) bundle.getSerializable(KEY_CHOSEN_USER);
-        mChosenFile = (IndexCard) bundle.getSerializable(KEY_CHOSEN_FILE);
-        mDueChallenges = (ChallengeCollection) bundle.getSerializable(KEY_DUE_CHALLENGES);
+        mChosenUser = (User) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_USER);
+        mChosenFile = (IndexCard) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_FILE);
+        mDueChallenges = (ChallengeCollection) bundle.getSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE);
     }
 
     public Activity getActivity() {
@@ -81,10 +74,6 @@ public class Data {
 
     public IndexCard getmChosenFile() {
         return mChosenFile;
-    }
-
-    public void setmChosenFile(IndexCard mChosenFile) {
-        this.mChosenFile = mChosenFile;
     }
 
     // Count the number of all existing challenges of the current file
@@ -101,45 +90,17 @@ public class Data {
 
     // Get dueChallenges from Max
     public int getmNumberDueChallenges() {
-        /*
-        // TODO: Berechnung der Anzahl der fälligen Challenges der aktuellen Kartei und des aktuellen Users (Datumvergleich?)
-        // Experiment --> zu kompliziert und redundant
-        Date currentDate = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
-        // DEMODATEN
-        Date challengeTimestamp = new Date("2016.01.25.18.00.00");
-
-        int numberDueChallenges = 0;
-        UserProgressCollection mAllUserProgresses = UserProgressDatabase.getAllUserProgresses(mActivity);
-        for(int i = 0; i < mAllUserProgresses.getSize(); i++) {
-            UserProgress mUserProgress = mAllUserProgresses.getUserProgress(i);
-
-            if(mUserProgress.getmChallengeID() ==  && mUserProgress.getmUserName() == mChosenUser.getmName()) {
-                int compareResult = currentDate.compareTo(challengeTimestamp);
-                if(compareResult >= mChosenUser.getmPeriodClass1() && all.get) {
-                    numberDueChallenges++;
-                }
-
-                int compareResult = currentDate.compareTo(challengeTimestamp);
-                if(compareResult >= mChosenUser.getmPeriodClass2() && all.get) {
-                    numberDueChallenges++;
-                }
-            }
-
-        }*/
-
         int numberDueChallenges = mDueChallenges.getSize();
         return numberDueChallenges;
     }
 
     // Get all challenges with class 1 from progress.csv
-    // First filter the index and then the class
     public int getmNumberOfClass1() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        // Go through all challenges and give a collection with all challenges matching with the index
         for(int i = 0; i < mAllChallenges.getSize(); i++) {
             Challenge mChallenge = mAllChallenges.getChallenge(i);
             if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
@@ -163,13 +124,12 @@ public class Data {
     }
 
     // Get all challenges with class 2 from progress.csv
-    // First filter the index and then the class
     public int getmNumberOfClass2() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        // Go through all challenges and give a collection with all challenges matching with the index
         for(int i = 0; i < mAllChallenges.getSize(); i++) {
             Challenge mChallenge = mAllChallenges.getChallenge(i);
             if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
@@ -193,13 +153,12 @@ public class Data {
     }
 
     // Get all challenges with class 3 from progress.csv
-    // First filter the index and then the class
     public int getmNumberOfClass3() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        // Go through all challenges and give a collection with all challenges matching with the index
         for(int i = 0; i < mAllChallenges.getSize(); i++) {
             Challenge mChallenge = mAllChallenges.getChallenge(i);
             if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
@@ -223,13 +182,12 @@ public class Data {
     }
 
     // Get all challenges with class 4 from progress.csv
-    // First filter the index and then the class
     public int getmNumberOfClass4() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        // Go through all challenges and give a collection with all challenges matching with the index
         for(int i = 0; i < mAllChallenges.getSize(); i++) {
             Challenge mChallenge = mAllChallenges.getChallenge(i);
             if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
@@ -253,13 +211,12 @@ public class Data {
     }
 
     // Get all challenges with class 5 from progress.csv
-    // First filter the index and then the class
     public int getmNumberOfClass5() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        // Go through all challenges and give a collection with all challenges matching with the index
         for(int i = 0; i < mAllChallenges.getSize(); i++) {
             Challenge mChallenge = mAllChallenges.getChallenge(i);
             if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
@@ -283,13 +240,12 @@ public class Data {
     }
 
     // Get all challenges with class 6 from progress.csv
-    // First filter the index and then the class
     public int getmNumberOfClass6() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
-        // Gehe alle Challenges durch und gebe eine Collection aller des Index
+        // Go through all challenges and give a collection with all challenges matching with the index
         for(int i = 0; i < mAllChallenges.getSize(); i++) {
             Challenge mChallenge = mAllChallenges.getChallenge(i);
             if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
