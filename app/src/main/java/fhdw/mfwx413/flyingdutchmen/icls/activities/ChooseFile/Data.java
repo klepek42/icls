@@ -20,9 +20,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.DoubleIndexCardFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
-import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Created by edgar on 17.02.2016.
@@ -53,11 +53,7 @@ public class Data {
     private int mPeriodClass5;
     private int mPeriodClass6;
 
-    public UserProgressCollection getCurrentUserUserProgresses() {
-        return mCurrentUserUserProgresses;
-    }
-
-    public Data(Activity activity, Bundle savedInstanceState) throws ParseException, IdNotFoundException {
+    public Data(Activity activity, Bundle savedInstanceState) throws ParseException, IdNotFoundException, DoubleIndexCardFoundException {
         Intent intent;
         mActivity = activity;
         intent = activity.getIntent();
@@ -75,10 +71,9 @@ public class Data {
         mAllIndexCards = IndexCardDatabase.getIndexCards(mActivity);
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
 
-        //TODO Max: Methode reparieren
-        /*if(checkForDuplicates()){
-            Navigation.startActivityDuplicateFiles(mActivity);
-        }*/
+        if(checkForDuplicates()){
+            throw new DoubleIndexCardFoundException("Double Index Cards were found. Please remove duplicates.");
+        }
     }
 
     public void saveDataFromBundle(Bundle savedInstanceState) {
@@ -87,6 +82,10 @@ public class Data {
 
     public void restoreDataFromBundle(Bundle savedInstanceState) {
         mCurrentUser = (User) savedInstanceState.getSerializable(Constants.KEY_PARAM_CHOSEN_USER);
+    }
+
+    public UserProgressCollection getCurrentUserUserProgresses() {
+        return mCurrentUserUserProgresses;
     }
 
     public IndexCardCollection getAllIndexCards() {
@@ -111,24 +110,28 @@ public class Data {
 
     // Checks for duplicate IndexCards that could cause errors later in application
     public boolean checkForDuplicates() throws IdNotFoundException {
-        int index=0;
+        int index=1;
         int counter;
         String mCacheIndexCard;
+        String mCheckIndexCard;
+        boolean duplicate;
+        duplicate = false;
 
         if(mAllIndexCards.getSize()>1){
             while(index<mAllIndexCards.getSize()){
                 mCacheIndexCard = mAllIndexCards.getIndexCard(index).getmName();
                 counter=index+1;
-                while(counter<mAllIndexCards.getSize()) {
-                    if(mCacheIndexCard.equals(mAllIndexCards.getIndexCard(counter).getmName())){
-                        return true;
+                while(counter<=mAllIndexCards.getSize()) {
+                    mCheckIndexCard = mAllIndexCards.getIndexCard(counter).getmName();
+                    if(mCacheIndexCard.equals(mCheckIndexCard)){
+                        duplicate = true;
                     }
                     counter++;
                 }
                 index++;
             }
         }
-        return false;
+        return duplicate;
     }
 
     /**

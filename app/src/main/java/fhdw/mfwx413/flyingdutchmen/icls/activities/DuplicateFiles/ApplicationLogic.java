@@ -25,7 +25,7 @@ public class ApplicationLogic {
     }
 
     public void onStandardBackButtonClicked() {
-        Navigation.startActivityStartMenu(mData.getActivity());
+
     }
 
     public void onButtonOkClicked() {
