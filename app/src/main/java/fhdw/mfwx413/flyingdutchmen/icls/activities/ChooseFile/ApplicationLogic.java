@@ -7,7 +7,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutExce
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 import android.content.Context;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 
 import java.text.ParseException;
@@ -23,13 +22,11 @@ public class ApplicationLogic {
     private Data mData;
     private Gui mGui;
     private Context context;
-    private int count;
     private ArrayList<String> indexCards = new ArrayList<>();
     private String mSelectedIndexCard;
     private ChallengeCollection mChallengesCurrentIndexCard;
     private UserProgressCollection mUserProgressForCurrentIndexCard;
     private ChallengeCollection mDueChallenges;
-    private int mQuestionTypeLayout;
 
     public ApplicationLogic(Data data, Gui gui, Context context) {
         mData = data;
@@ -44,7 +41,7 @@ public class ApplicationLogic {
     }
 
     public void onStandardBackButtonClicked() {
-        Navigation.startActivityStartMenu(mData.getActivity());
+        Navigation.startActivityLogout(mData.getActivity(), mData.getCurrentUser());
     }
 
     // Added by Edgar 27.02
@@ -76,6 +73,7 @@ public class ApplicationLogic {
     }
 
     public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException, InvalidQuestionTypeLayoutException {
+        int mQuestionTypeLayout;
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
 
         mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
@@ -112,15 +110,9 @@ public class ApplicationLogic {
     }
 
     private void fillSpinner() {
-
         for(int i = 0; i < mData.getAllIndexCards().getSize(); i++) {
             indexCards.add(mData.getAllIndexCards().get(i).getmName());
         }
-
-        // ZUM TESTEN; KANN SPÄTER WIEDER WEG
-        count = indexCards.size();
-        Log.d("IndexCards.size: ", "" + count);
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, indexCards);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mGui.getChooseIndexCard().setAdapter(adapter);
