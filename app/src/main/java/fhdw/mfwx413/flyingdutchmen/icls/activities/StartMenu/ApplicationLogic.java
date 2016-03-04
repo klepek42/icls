@@ -42,10 +42,12 @@ public class ApplicationLogic{
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
+    /** Function not supported in this version of app
     public void onButtonEditUserClicked() throws IdNotFoundException {
         mData.setCurrentUser(mData.getAllUsers().getUser(mSelectedName));
         Navigation.startActivityEditUser(mData.getActivity(), mData.getCurrentUser());
     }
+    */
 
     // Added by Edgar Klepek
     // Fill the spinner with data given by users.csv and show it

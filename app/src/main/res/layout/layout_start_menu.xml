@@ -39,6 +39,7 @@
         android:layout_alignParentLeft="true"
         android:textAllCaps="false" />
 
+    <!-- Function not supported in this version of app
     <Button
         android:id="@+id/buttonEditUser"
         android:layout_width="wrap_content"
@@ -52,6 +53,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false" />
+    -->
 
     <Button
         android:id="@+id/buttonConfirmUser"

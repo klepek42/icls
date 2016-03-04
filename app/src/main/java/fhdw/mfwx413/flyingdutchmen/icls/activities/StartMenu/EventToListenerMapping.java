@@ -19,7 +19,9 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
         mApplicationLogic = applicationLogic;
         gui.getButtonAddUser().setOnClickListener(this);
         gui.getButtonConfirmUser().setOnClickListener(this);
+        /** Function not supported in this version of app
         gui.getButtonEditUser().setOnClickListener(this);
+        */
         gui.getChooseUser().setOnItemSelectedListener(this);
     }
 
@@ -37,6 +39,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
                     e.printStackTrace();
                 }
                 break;
+            /** Function not supported in this version of app
             case R.id.buttonEditUser:
                 try {
                     mApplicationLogic.onButtonEditUserClicked();
@@ -44,6 +47,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
                     e.printStackTrace();
                 }
                 break;
+             */
         }
     }
 
