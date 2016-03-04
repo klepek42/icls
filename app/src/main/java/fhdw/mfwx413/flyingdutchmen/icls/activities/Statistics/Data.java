@@ -41,7 +41,6 @@ public class Data {
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
             mDueChallenges = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE);
             mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
-            Log.d("mCurrentUserUserProgre", "" + mCurrentUserUserProgresses.getSize());
         }
         else{
             // Restore Data if bundle is filled
