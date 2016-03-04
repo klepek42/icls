@@ -59,7 +59,7 @@
         android:id="@+id/buttonAbort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_abort"
+        android:text="@string/string_choose_file"
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
