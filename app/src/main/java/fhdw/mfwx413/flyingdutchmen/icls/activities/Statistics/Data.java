@@ -3,6 +3,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.Statistics;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
@@ -13,6 +14,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 
 /**
  * Responsibility: Edgar Klepek
@@ -25,6 +27,8 @@ public class Data {
     private int mNumberAllChallenges;
     private ChallengeCollection mDueChallenges;
     private ChallengeCollection mAllChallenges;
+    private UserProgressCollection mCurrentUserUserProgresses;
+    private UserProgressCollection mCurrentUserUserProgressForCurrentIndexCard;
 
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
@@ -36,6 +40,8 @@ public class Data {
             mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_FILE);
             mDueChallenges = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE);
+            mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
+            Log.d("mCurrentUserUserProgre", "" + mCurrentUserUserProgresses.getSize());
         }
         else{
             // Restore Data if bundle is filled
@@ -48,6 +54,7 @@ public class Data {
         bundle.putSerializable(Constants.BUNDLE_KEY_CHOSEN_USER, mChosenUser);
         bundle.putSerializable(Constants.BUNDLE_KEY_CHOSEN_FILE, mChosenFile);
         bundle.putSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE, mDueChallenges);
+        bundle.putSerializable(Constants.BUNDLE_KEY_USER_PROGRESS_CURRENT_USER, mCurrentUserUserProgresses);
     }
 
     // Restore data from given bundle
@@ -55,6 +62,7 @@ public class Data {
         mChosenUser = (User) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_USER);
         mChosenFile = (IndexCard) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_FILE);
         mDueChallenges = (ChallengeCollection) bundle.getSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE);
+        mCurrentUserUserProgresses = (UserProgressCollection) bundle.getSerializable(Constants.BUNDLE_KEY_USER_PROGRESS_CURRENT_USER);
     }
 
     public Activity getActivity() {
@@ -262,5 +270,51 @@ public class Data {
         return countClassSix;
     }
 
+
+    public Activity getmActivity() {
+        return mActivity;
+    }
+
+    public ChallengeCollection getmDueChallenges() {
+        return mDueChallenges;
+    }
+
+    public ChallengeCollection getmAllChallenges() {
+        return mAllChallenges;
+    }
+
+    // I. -> Get ChallengesCollection with current Index out of all Challenges and save them as a new ChallengeCollection L1
+    public ChallengeCollection getChallengesForSelectedIndexCard() {
+        ChallengeCollection mChallengesCurrentIndexCard = new ChallengeCollection();
+        for(int i=0; i<mAllChallenges.getSize(); i++) {
+            if(mAllChallenges.getChallenge(i).getmIndexCard().getmID() == mChosenFile.getmID()) {
+                mChallengesCurrentIndexCard.addChallenge(mAllChallenges.getChallenge(i));
+            }
+        }
+        return mChallengesCurrentIndexCard;
+    }
+
+    // II. -> Get UserProgressCollection with current Index Card out of CurrentUserUserProgress and save them as a new UserProgressCollection L2
+    public UserProgressCollection getUserProgressForCurrentIndexCard() throws UserProgressNotFoundException {
+        mCurrentUserUserProgressForCurrentIndexCard = new UserProgressCollection();
+
+        for(int i=0; i< mCurrentUserUserProgresses.getSize(); i++){
+            for(int j=0; j<getChallengesForSelectedIndexCard().getSize(); j++) {
+                if(mCurrentUserUserProgresses.getUserProgress(i).getmChallengeID() == getChallengesForSelectedIndexCard().getChallenge(j).getmID()) {
+                    mCurrentUserUserProgressForCurrentIndexCard.addUserProgress(mCurrentUserUserProgresses.getUserProgress(i));
+                }
+            }
+        }
+        if (mCurrentUserUserProgressForCurrentIndexCard.getSize() == 0){
+            throw new UserProgressNotFoundException("Fehler beim Erstellen von CurrentUserUserProgressForCurrentIndexCard");
+        }
+
+        return mCurrentUserUserProgressForCurrentIndexCard;
+
+    }
+
+    public UserProgressCollection getCurrentUserUserProgresses() {
+        return mCurrentUserUserProgresses;
+    }
 
 }

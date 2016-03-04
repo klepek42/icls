@@ -3,7 +3,14 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.Statistics;
 import android.app.Activity;
 import android.util.Log;
 
+import java.text.ParseException;
+
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
+import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -39,12 +46,40 @@ public class ApplicationLogic {
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
 
-    // Start learning mode and open the activity
-    public void onButtonStartLearning() {
-        // NUR ZU TESTZWECKEN; SPÄTER AUFRUF VON FUNKTIONEN FÜR CHALLENGES
+    public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException, InvalidQuestionTypeLayoutException {
+        ChallengeCollection mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
+        // In case that there are IndexCards but no questions assigned
+        if (mChallengesCurrentIndexCard.getSize() == 0) {
+            Navigation.startActivityNoChallengesForCurrentIndex(mData.getActivity(), mData.getmChosenUser());
+        }
+        else{
+            try {
+                UserProgressCollection userProgressForCurrentIndexCard = mData.getUserProgressForCurrentIndexCard();
+            }
+            catch (UserProgressNotFoundException e) {
+                e.printStackTrace();
+            }
 
-        //Pascal Heß: There were changes in the class "Navigation". Now the method needs more parameters for being correctly called.
-        //Therefore the next commented line needs to be adapted.
-        //Navigation.startActivityChallengeFreeAnswer(mData.getActivity());
+            ChallengeCollection mDueChallenges = mData.getmDueChallenges();
+
+            if(mDueChallenges.getSize() == 0) {
+                Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
+            }
+            else {
+                int mQuestionTypeLayout = mDueChallenges.getChallenge(0).getmQuestionTypeLayout();
+                switch (mQuestionTypeLayout) {
+                    case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getmChosenUser(), mData.getmChosenFile(), mData.getCurrentUserUserProgresses());
+                        break;
+                    case 2: Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mDueChallenges, 0, mData.getmChosenUser(), mData.getmChosenFile(), mData.getCurrentUserUserProgresses());
+                        break;
+                    case 3: Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mDueChallenges, 0, mData.getmChosenUser(), mData.getmChosenFile(), mData.getCurrentUserUserProgresses());
+                        break;
+                    default: throw new InvalidQuestionTypeLayoutException("FeedbackChallengeRest::ApplicationLogic::onButtonContinue");
+                }
+            }
+        }
     }
+
+
+
 }
