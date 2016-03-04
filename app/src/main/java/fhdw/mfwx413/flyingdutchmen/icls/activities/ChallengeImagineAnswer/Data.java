@@ -3,27 +3,21 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeImagineAnswer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-
-import java.util.Random;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
-import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
-import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
-import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
-import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
-
 /**
  * Responsibility: Edgar Klepek
  */
 public class Data {
-    // Static variables for bundle
+
+    // Static variable for bundle
     private static final int DEFAULT_CURRENT_CHALLENGE_ID = 0;
 
+    // Member variables
     private Activity mActivity;
     private int mCurrentChallengeId;
     private ChallengeCollection mDueChallengesOfUserInFile;
@@ -31,12 +25,13 @@ public class Data {
     private IndexCard mChosenFile;
     private UserProgressCollection mUserProgresses;
 
+    // Constructor
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
         Intent intent;
 
+        // First start of the activity triggers to get the data given by the previous Activity as an intent
         if(bundle == null) {
-            // If bundle is not filled, the data will be initialized by the extras of the intent
             intent = activity.getIntent();
             mCurrentChallengeId = intent.getIntExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, DEFAULT_CURRENT_CHALLENGE_ID);
             mDueChallengesOfUserInFile = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE);
@@ -68,19 +63,29 @@ public class Data {
         mUserProgresses = (UserProgressCollection) bundle.getSerializable(Constants.BUNDLE_KEY_USER_PROGRESS_CURRENT_USER);
     }
 
-    public int getmCurrentChallengeId() {
+    // Get the current challenge id
+    public int getCurrentChallengeId() {
         return mCurrentChallengeId;
     }
 
-    public ChallengeCollection getmDueChallengesOfUserInFile() {
+    // Get the list of due challenges of the chosen file
+    public ChallengeCollection getDueChallengesOfUserInFile() {
         return mDueChallengesOfUserInFile;
     }
 
+    // Get the current activity and simultaneously the context
     public Activity getActivity() {
         return mActivity;
     }
 
-    public User getmChosenUser() {return mChosenUser;}
+    // Get the current user
+    public User getChosenUser() {return mChosenUser;}
 
-    public IndexCard getmChosenFile() {return mChosenFile;}
+    // Get the current file
+    public IndexCard getChosenFile() {return mChosenFile;}
+
+    // Get the current user progress to give it to the following feedback
+    public UserProgressCollection getUserProgresses() {
+        return mUserProgresses;
+    }
 }

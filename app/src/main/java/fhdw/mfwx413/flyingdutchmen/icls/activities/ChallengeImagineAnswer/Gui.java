@@ -11,10 +11,12 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  */
 public class Gui {
 
+    // Member variables
     private TextView mTextFieldQuestion;
     private Button mButtonAbort;
     private Button mButtonConfirmThinkAnswer;
 
+    // Constructor
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_challenge_imagine_answer);
         mTextFieldQuestion = (TextView) activity.findViewById(R.id.textFieldQuestion);
@@ -22,16 +24,18 @@ public class Gui {
         mButtonConfirmThinkAnswer = (Button) activity.findViewById(R.id.buttonConfirmThinkAnswer);
     }
 
-    // Display a given text as the questions text
+    // Display the given text as the questions text
     public void setQuestionText (String text){
         mTextFieldQuestion.setText(text);
     }
 
-    public Button getmButtonAbort() {
+    // Get the id of the abort button
+    public Button getButtonAbort() {
         return mButtonAbort;
     }
 
-    public Button getmButtonConfirmThinkAnswer() {
+    // Get the id of the confirmation button
+    public Button getButtonConfirmThinkAnswer() {
         return mButtonConfirmThinkAnswer;
     }
 

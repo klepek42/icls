@@ -12,14 +12,18 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutExce
  * Responsibility: Edgar Klepek
  */
 public class EventToListenerMapping implements View.OnClickListener {
+
+    // Member variable
     private ApplicationLogic mApplicationLogic;
 
+    // Constructor
     public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
         mApplicationLogic = applicationLogic;
-        gui.getmButtonBackToChooseFile().setOnClickListener(this);
-        gui.getmButtonStartLearning().setOnClickListener(this);
+        gui.getButtonBackToChooseFile().setOnClickListener(this);
+        gui.getButtonStartLearning().setOnClickListener(this);
     }
 
+    // Handle which actions have to be performed once a specific button has been clicked
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -29,11 +33,7 @@ public class EventToListenerMapping implements View.OnClickListener {
             case R.id.buttonStartLearning:
                 try {
                     mApplicationLogic.onButtonStartLearningClicked();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                } catch (IdNotFoundException e) {
-                    e.printStackTrace();
-                } catch (InvalidQuestionTypeLayoutException e) {
+                } catch (ParseException | IdNotFoundException | InvalidQuestionTypeLayoutException e) {
                     e.printStackTrace();
                 }
                 break;

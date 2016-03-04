@@ -2,13 +2,10 @@ package fhdw.mfwx413.flyingdutchmen.icls.utilities;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Environment;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.opencsv.CSVWriter;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,21 +13,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.Writer;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
-
-import fhdw.mfwx413.flyingdutchmen.icls.data.User;
-import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;
 
 /**
  * Created by edgar on 23.02.2016.
- * Responsibility: 23.02.2016
+ * Responsibility: Edgar and Jonas ?
  */
 public class csvExport {
 
-    // Create folders
+    // Create all needed folders for internal and external storage
     public static void buildFolders(Context context) throws FileNotFoundException {
 
         // Create folder under internal storage location of the app
@@ -40,7 +31,7 @@ public class csvExport {
 
         // Create folder "ICLS" in external storage
         File iclsExternalFolder = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/");
-        // Build directory
+        // Build the directory
         iclsExternalFolder.mkdirs();
     }
 
@@ -146,6 +137,7 @@ public class csvExport {
 
     // Save all progresses
     // DIESE FUNKTION IST VERALTET, BITTE DIE NEUE DADRUNTER BENUTZEN
+    /*
     public static void saveProgressToCsv( List<String[]> progressList) throws IOException {
 
         CSVWriter mWriter;
@@ -165,19 +157,21 @@ public class csvExport {
         // Quit the output stream
         mWriter.close();
     }
+    */
 
     // Create an user progress file for a given user
     public static void saveUserProgressToCsv( List<String[]> progressList, String userName, Context context) throws IOException {
 
         CSVWriter mWriter;
 
-        // Read the android path where the file should be saved
+        // Build the path to the apps internal storage to the folder UserProgresses
         String baseDir = context.getFilesDir().toString() + "/UserProgresses";
         String fileName = "progress_" + userName + ".csv";
         String filePath = baseDir + File.separator + fileName;
-        Log.d("path", "" + filePath);
+        // The desired format of the csv file
         mWriter = new CSVWriter(new FileWriter(filePath), ';', CSVWriter.NO_QUOTE_CHARACTER);
 
+        // Preparation for writing the data to file
         List<String[]> data = progressList;
 
         // Write all data to the file

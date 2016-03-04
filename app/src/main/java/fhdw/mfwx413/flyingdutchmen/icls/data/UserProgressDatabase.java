@@ -60,6 +60,7 @@ public class UserProgressDatabase {
 
     // Write all UserProgresses to csv-file
     // DIESE FUNKTION IST VERALTET UND SOLLTE NICHT MEHR VERWENDET WERDEN, BITTE UMSTEIGEN AUF DIE DADRUNTER
+    /*
     public static void writeAllUserProgresses(UserProgressCollection userProgressCollection){
         List<String[]> userProgressList = new ArrayList<String[]>();
 
@@ -84,6 +85,7 @@ public class UserProgressDatabase {
         }
 
     }
+    */
 
     // Write all UserProgresses to csv-file
     public static void writeSpecificUserProgresses(UserProgressCollection userProgressCollection, String userName, Context context){
@@ -108,7 +110,6 @@ public class UserProgressDatabase {
         catch (IOException e){
             Log.e("ICLS-ERROR", "UserProgressDatabase::writeAllUserProgresses::saveUserToCsv(): ", e);
         }
-
     }
 
 }

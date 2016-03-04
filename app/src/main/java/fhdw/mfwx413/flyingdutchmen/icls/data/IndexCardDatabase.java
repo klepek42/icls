@@ -1,7 +1,5 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
-import android.content.Context;
-
 import java.util.List;
 
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
@@ -14,7 +12,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 public class IndexCardDatabase {
 
-    public static IndexCardCollection getIndexCards(Context context) {
+    public static IndexCardCollection getIndexCards() {
 
         IndexCardCollection allIndexCards;
         allIndexCards = new IndexCardCollection();
@@ -22,8 +20,8 @@ public class IndexCardDatabase {
         List<String[]> StringCollectionFromCSV;
 
         // reading all IndexCards from csv-File
-        // output ist a List<String[]>
-        StringCollectionFromCSV = csvImport.importIndexCsv(context);
+        // output is a List<String[]>
+        StringCollectionFromCSV = csvImport.importIndexCsv();
 
         //converting the List<String[]> into a IndexCardCollection
         for (int i = 0; i < StringCollectionFromCSV.size(); i++) {

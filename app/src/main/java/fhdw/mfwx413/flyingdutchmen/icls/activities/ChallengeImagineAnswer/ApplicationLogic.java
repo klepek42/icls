@@ -1,9 +1,6 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeImagineAnswer;
 
-import android.app.Activity;
-
 import fhdw.mfwx413.flyingdutchmen.icls.data.Challenge;
-import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
@@ -11,37 +8,36 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  */
 public class ApplicationLogic {
 
+    // Member variables
     private Data mData;
     private Gui mGui;
-    private Activity mActivity;
 
-    public ApplicationLogic(Data data, Gui gui, Activity activity) {
+    // Constructor
+    public ApplicationLogic(Data data, Gui gui) {
         mData = data;
         mGui = gui;
-        mActivity = activity;
         initialUpdateGui();
     }
 
+    // Function for initializing the graphical user interface with the questiontext of the current challenge
     private void initialUpdateGui() {
         Challenge challenge;
         int currentChallengeId;
 
-        currentChallengeId = mData.getmCurrentChallengeId();
-        challenge = mData.getmDueChallengesOfUserInFile().getChallenge(currentChallengeId);
+        currentChallengeId = mData.getCurrentChallengeId();
+        challenge = mData.getDueChallengesOfUserInFile().getChallenge(currentChallengeId);
 
         mGui.setQuestionText(challenge.getmQuestiontext());
     }
 
+    // Confirm the though answer and go to the feedback activity
     public void onButtonConfirmThinkAnswerClicked(){
-        //TODO Edgar: Dummy anpassen
-        UserProgressCollection Dummy = new UserProgressCollection();
-        Navigation.startActivityFeedbackImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), Dummy);
+        Navigation.startActivityFeedbackImagineAnswer(mData.getActivity(), mData.getDueChallengesOfUserInFile(), mData.getCurrentChallengeId(), mData.getChosenUser(), mData.getChosenFile(), mData.getUserProgresses());
     }
 
-
+    // Back button goes to activity ChooseFile
     public void onButtonAbortClicked(){
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+        Navigation.startActivityChooseFile(mData.getActivity(), mData.getChosenUser());
     }
 
-    //Todo zurücktaste realisieren
 }

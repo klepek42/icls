@@ -1,7 +1,6 @@
 package fhdw.mfwx413.flyingdutchmen.icls.utilities;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.opencsv.CSVReader;
 
@@ -19,20 +18,17 @@ import java.util.List;
  */
 public class csvImport {
 
-    private static Context context;
-
     // Import the users from users.csv and return the resulting ArrayList
     public static List<String[]> importUserCsv(Context context) {
 
-        List<String[]> list = new ArrayList<String[]>();
+        List<String[]> list = new ArrayList<>();
         String next[] = {};
 
         try {
             FileInputStream fis = context.openFileInput("users.csv");
             InputStreamReader csvStreamReader = new InputStreamReader(fis);
-            Log.d("ICLS-INFO", "FileInputStream: " + fis.toString());
-            Log.d("ICLS-INFO", "csvStreamReader: " + csvStreamReader.toString());
 
+            // Create a CSVReader Object and set the separator to semicolon
             CSVReader reader = new CSVReader(csvStreamReader, ';');
             // Fill the temporary list with the lines read from the csv file
             for (;;) {
@@ -50,9 +46,9 @@ public class csvImport {
     }
 
     // Import the index.csv and return the results as list
-    public static List<String[]> importIndexCsv(Context context) {
+    public static List<String[]> importIndexCsv() {
 
-        List<String[]> list = new ArrayList<String[]>();
+        List<String[]> list = new ArrayList<>();
         String next[] = {};
 
         try {
@@ -76,9 +72,9 @@ public class csvImport {
     }
 
     // Import all challenges from challenges.csv and return the resulting list
-    public static List<String[]> importChallengeCsv(Context context) {
+    public static List<String[]> importChallengeCsv() {
 
-        List<String[]> list = new ArrayList<String[]>();
+        List<String[]> list = new ArrayList<>();
         String next[] = {};
 
         try {
@@ -129,12 +125,11 @@ public class csvImport {
     // Import progress data from progress.csv and return the resulting ArrayList
     public static  List<String[]> importUserProgressCsv(Context context, String userName) {
 
-        List<String[]> list = new ArrayList<String[]>();
+        List<String[]> list = new ArrayList<>();
         String next[] = {};
 
         try {
             String path = context.getFilesDir().toString() + "/UserProgresses/progress_" + userName + ".csv";
-            //FileInputStream fis = context.openFileInput("/UserProgresses/progress_" + userName);
             FileInputStream fis = new FileInputStream(path);
             InputStreamReader csvStreamReader = new InputStreamReader(fis);
             CSVReader reader = new CSVReader(csvStreamReader, ';');
@@ -153,6 +148,7 @@ public class csvImport {
         return list;
     }
 
+    // Check if all needed files are loaded properly and set a flag
     public static boolean checkICLSFile(Context context){
         boolean allFilesExists = false;
         File fileProgresses = new File(context.getFilesDir().toString() + "/UserProgresses");

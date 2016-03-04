@@ -19,7 +19,7 @@ public class ChallengeDatabase {
     public static ChallengeCollection getAllChallenges(Context context){
 
         //import all indexCards
-        allIndexCards = IndexCardDatabase.getIndexCards(context);
+        allIndexCards = IndexCardDatabase.getIndexCards();
 
         ChallengeCollection allChallenges;
         allChallenges = new ChallengeCollection();
@@ -28,7 +28,7 @@ public class ChallengeDatabase {
 
         // reading all Challenges from csv-File
         // output ist a List<String[]>
-        StringCollectionFromCSV = csvImport.importChallengeCsv(context);
+        StringCollectionFromCSV = csvImport.importChallengeCsv();
 
         // converting the List<String[]> into a ChallengeCollection
         for (int i = 0; i < StringCollectionFromCSV.size(); i++) {

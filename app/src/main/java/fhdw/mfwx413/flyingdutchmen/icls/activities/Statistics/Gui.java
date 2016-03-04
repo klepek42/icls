@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 /**
  * Responsibility: Edgar Klepek
  */
 public class Gui {
+
+    // Member variables
     private TextView mTextFieldFileNameText;
     private TextView mTextFieldNumberAllChallenges;
     private TextView mTextFieldNumberDueChallenges;
@@ -24,6 +24,7 @@ public class Gui {
     private Button mButtonBackToChooseFile;
     private Button mButtonStartLearning;
 
+    // Constructor
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_statistics);
         mTextFieldFileNameText = (TextView) activity.findViewById(R.id.textFieldFileNameText);
@@ -39,83 +40,58 @@ public class Gui {
         mButtonStartLearning = (Button) activity.findViewById(R.id.buttonStartLearning);
     }
 
-    public TextView getmTextFieldFileNameText() {
-        return mTextFieldFileNameText;
-    }
-
-    public void setmTextFieldFileNameText(String text) {
+    // Fill this TextView with the name of the current file
+    public void setTextFieldFileNameText(String text) {
         mTextFieldFileNameText.setText(text);
     }
 
-    public TextView getmTextFieldNumberAllChallenges() {
-        return mTextFieldNumberAllChallenges;
-    }
-
-    public void setmTextFieldNumberAllChallenges(String text) {
+    // Fill this TextView with the number of all challenges of the current file
+    public void setTextFieldNumberAllChallenges(String text) {
         mTextFieldNumberAllChallenges.setText(text);
     }
 
-    public TextView getmTextFieldNumberDueChallenges() {
-        return mTextFieldNumberDueChallenges;
-    }
-
-    public void setmTextFieldNumberDueChallenges(String text) {
+    // Fill this TextView with the number of due challenges in the current file
+    public void setTextFieldNumberDueChallenges(String text) {
         mTextFieldNumberDueChallenges.setText(text);
     }
 
-    public TextView getmTextFieldNumberOfClass1() {
-        return mTextFieldNumberOfClass1;
-    }
-
-    public void setmTextFieldNumberOfClass1(String text) {
+    // Fill this TextView with the number of challenges being in class 1 right now
+    public void setTextFieldNumberOfClass1(String text) {
         mTextFieldNumberOfClass1.setText(text);
     }
 
-    public TextView getmTextFieldNumberOfClass2() {
-        return mTextFieldNumberOfClass2;
-    }
-
-    public void setmTextFieldNumberOfClass2(String text) {
+    // Fill this TextView with the number of challenges being in class 2 right now
+    public void setTextFieldNumberOfClass2(String text) {
         mTextFieldNumberOfClass2.setText(text);
     }
 
-    public TextView getmTextFieldNumberOfClass3() {
-        return mTextFieldNumberOfClass3;
-    }
-
-    public void setmTextFieldNumberOfClass3(String text) {
+    // Fill this TextView with the number of challenges being in class 3 right now
+    public void setTextFieldNumberOfClass3(String text) {
         mTextFieldNumberOfClass3.setText(text);
     }
 
-    public TextView getmTextFieldNumberOfClass4() {
-        return mTextFieldNumberOfClass4;
-    }
-
-    public void setmTextFieldNumberOfClass4(String text) {
+    // Fill this TextView with the number of challenges being in class 4 right now
+    public void setTextFieldNumberOfClass4(String text) {
         mTextFieldNumberOfClass4.setText(text);
     }
 
-    public TextView getmTextFieldNumberOfClass5() {
-        return mTextFieldNumberOfClass5;
-    }
-
-    public void setmTextFieldNumberOfClass5(String text) {
+    // Fill this TextView with the number of challenges being in class 5 right now
+    public void setTextFieldNumberOfClass5(String text) {
         mTextFieldNumberOfClass5.setText(text);
     }
 
-    public TextView getmTextFieldNumberOfClass6() {
-        return mTextFieldNumberOfClass6;
-    }
-
-    public void setmTextFieldNumberOfClass6(String text) {
+    // Fill this TextView with the number of challenges being in class 6 right now
+    public void setTextFieldNumberOfClass6(String text) {
         mTextFieldNumberOfClass6.setText(text);
     }
 
-    public Button getmButtonBackToChooseFile() {
+    // Get the id of the choose file button
+    public Button getButtonBackToChooseFile() {
         return mButtonBackToChooseFile;
     }
 
-    public Button getmButtonStartLearning() {
+    // Get the id of the start learning button
+    public Button getButtonStartLearning() {
         return mButtonStartLearning;
     }
 
