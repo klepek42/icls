@@ -22,4 +22,5 @@
     <dimen name="activity_landscape_margin_change_text">520dp</dimen>
     <dimen name="activity_margin_text_to_header">60dp</dimen>
     <dimen name="activity_margin_edittext_to_header">50dp</dimen>
+    <dimen name="activity_width_period">70dp</dimen>
 </resources>

@@ -25,7 +25,7 @@
 
     <EditText
         android:id="@+id/periodClass1"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/activity_width_period"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/string_period"
@@ -58,7 +58,7 @@
 
     <EditText
         android:id="@+id/periodClass2"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/activity_width_period"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/string_period"
@@ -91,7 +91,7 @@
 
     <EditText
         android:id="@+id/periodClass3"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/activity_width_period"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/string_period"
@@ -126,7 +126,7 @@
 
     <EditText
         android:id="@+id/periodClass4"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/activity_width_period"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/string_period"
@@ -161,7 +161,7 @@
 
     <EditText
         android:id="@+id/periodClass5"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/activity_width_period"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/string_period"
@@ -196,7 +196,7 @@
 
     <EditText
         android:id="@+id/periodClass6"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/activity_width_period"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/string_period"
@@ -233,10 +233,10 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/buttonConfirmSettings"
+        android:id="@+id/buttonSetSettingsDefault"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_confirm"
+        android:text="@string/string_settings_default"
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
@@ -247,10 +247,10 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/buttonSetSettingsDefault"
+        android:id="@+id/buttonConfirmSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_settings_default"
+        android:text="@string/string_save"
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
