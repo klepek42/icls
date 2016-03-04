@@ -21,7 +21,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
-import fhdw.mfwx413.flyingdutchmen.icls.exceptions.DoubleIndexCardFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 
@@ -49,7 +48,7 @@ public class Data {
     private int mPeriodClass5;
     private int mPeriodClass6;
 
-    public Data(Activity activity, Bundle savedInstanceState) throws ParseException, IdNotFoundException, DoubleIndexCardFoundException {
+    public Data(Activity activity, Bundle savedInstanceState) {
         Intent intent;
         mActivity = activity;
         intent = activity.getIntent();
@@ -66,10 +65,6 @@ public class Data {
         mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mCurrentUser.getName());
         mAllIndexCards = IndexCardDatabase.getIndexCards(mActivity);
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
-
-        if(checkForDuplicates()){
-            throw new DoubleIndexCardFoundException("Double Index Cards were found. Please remove duplicates.");
-        }
     }
 
     public void saveDataFromBundle(Bundle savedInstanceState) {

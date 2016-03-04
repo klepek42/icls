@@ -2,8 +2,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 
 import android.app.Activity;
 import android.os.Bundle;
-import java.text.ParseException;
-import fhdw.mfwx413.flyingdutchmen.icls.exceptions.DoubleIndexCardFoundException;
+
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
@@ -21,23 +20,22 @@ public class Init extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initData(savedInstanceState);
+
         try {
-            initData(savedInstanceState);
-        } catch (ParseException e) {
-            e.printStackTrace();
+            if(mData.checkForDuplicates()){
+                Navigation.startActivityDuplicateFiles(mData.getActivity());
+            }
         } catch (IdNotFoundException e) {
             e.printStackTrace();
-        } catch (DoubleIndexCardFoundException e) {
-            e.printStackTrace();
-            //TODO Max: Aufruf reparieren
-            //Navigation.startActivityDuplicateFiles(mData.getActivity());
         }
+
         initGui();
         initApplicationLogic();
         initEventToListenerMapping();
     }
 
-    private void initData(Bundle savedInstanceState) throws ParseException, IdNotFoundException, DoubleIndexCardFoundException {
+    private void initData(Bundle savedInstanceState) {
         mData = new Data(this, savedInstanceState);
     }
 

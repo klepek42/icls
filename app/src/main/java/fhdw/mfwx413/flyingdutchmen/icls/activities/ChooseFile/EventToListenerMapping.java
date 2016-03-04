@@ -39,11 +39,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
             case R.id.buttonStatistics:
                 try {
                     mApplicationLogic.onButtonStatisticsClicked();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                } catch (IdNotFoundException e) {
-                    e.printStackTrace();
-                } catch (UserProgressNotFoundException e) {
+                } catch (ParseException | IdNotFoundException | UserProgressNotFoundException e) {
                     e.printStackTrace();
                 }
                 break;
@@ -53,11 +49,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
             case R.id.buttonStartLearning:
                 try {
                     mApplicationLogic.onButtonStartLearningClicked();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                } catch (IdNotFoundException e) {
-                    e.printStackTrace();
-                } catch (InvalidQuestionTypeLayoutException e) {
+                } catch (ParseException | IdNotFoundException | InvalidQuestionTypeLayoutException e) {
                     e.printStackTrace();
                 }
                 break;
