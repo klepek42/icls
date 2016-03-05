@@ -17,20 +17,21 @@ import java.util.List;
 
 /**
  * Created by edgar on 23.02.2016.
- * Responsibility: Edgar and Jonas ?
+ * Responsibility: Edgar Klepek
  */
 public class csvExport {
 
     // Create all needed folders for internal and external storage
     public static void buildFolders(Context context) throws FileNotFoundException {
-
         // Create folder under internal storage location of the app
         File iclsInternalFolder = new File(context.getFilesDir().toString() + "/UserProgresses/");
+
         // Build directory
         iclsInternalFolder.mkdirs();
 
         // Create folder "ICLS" in external storage
         File iclsExternalFolder = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/ICLS/");
+
         // Build the directory
         iclsExternalFolder.mkdirs();
     }
@@ -115,7 +116,6 @@ public class csvExport {
 
     // Save all users
     public static void saveUserToCsv(Context context, List<String[]> userList) throws IOException {
-
         CSVWriter mWriter;
 
         // Read the android path where the file should be saved
@@ -125,6 +125,7 @@ public class csvExport {
         Log.d("path", "" + filePath);
         mWriter = new CSVWriter(new FileWriter(filePath), ';', CSVWriter.NO_QUOTE_CHARACTER);
 
+        // Preparation for writing the data to file
         List<String[]> data = userList;
 
         // Write all data to the file
@@ -136,7 +137,6 @@ public class csvExport {
 
     // Create an user progress file for a given user
     public static void saveUserProgressToCsv( List<String[]> progressList, String userName, Context context) throws IOException {
-
         CSVWriter mWriter;
 
         // Build the path to the apps internal storage to the folder UserProgresses
