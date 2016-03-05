@@ -1,16 +1,12 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.NoIndexCardsAvailable;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
-import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
-
 /**
- * Created by edgar on 13.02.2016
- * Updated by Max on 20.12.2016
+ * Created by edgar on 13.02.2016.
+ * Updated by Max on 01.03.2016
  */
-
 public class Init extends Activity {
 
     private Data mData;
@@ -21,18 +17,6 @@ public class Init extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initData(savedInstanceState);
-
-        try {
-            if(mData.checkForDuplicates()){
-                Navigation.startActivityDuplicateFiles(mData.getActivity());
-            }
-            if(mData.checkForRecords()){
-                Navigation.startActivityNoIndexCardsAvailable(mData.getActivity());
-            }
-        } catch (IdNotFoundException e) {
-            e.printStackTrace();
-        }
-
         initGui();
         initApplicationLogic();
         initEventToListenerMapping();
@@ -57,7 +41,6 @@ public class Init extends Activity {
     //save data if activity stops
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        mData.saveDataFromBundle(outState);
         super.onSaveInstanceState(outState);
     }
 

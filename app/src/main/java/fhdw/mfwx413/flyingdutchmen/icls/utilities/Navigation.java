@@ -161,4 +161,11 @@ public class Navigation {
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
+
+    public static void startActivityNoIndexCardsAvailable(Activity callingActivity) {
+        Intent intent;
+        intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.NoIndexCardsAvailable.Init.class);
+        callingActivity.startActivity(intent);
+        callingActivity.finish();
+    }
 }

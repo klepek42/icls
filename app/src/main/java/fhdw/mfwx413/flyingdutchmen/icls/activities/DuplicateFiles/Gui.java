@@ -17,8 +17,8 @@ public class Gui {
 
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_duplicate_files);
-        textFieldDuplicatesDescription = (TextView) activity.findViewById(R.id.textFieldWarning);
-        textFieldDuplicatesWarning = (TextView) activity.findViewById(R.id.textFieldWarningInformation);
+        textFieldDuplicatesDescription = (TextView) activity.findViewById(R.id.textFieldDuplicateIndexCardsWarning);
+        textFieldDuplicatesWarning = (TextView) activity.findViewById(R.id.textFieldDuplicateIndexCardsDescription);
         buttonOk = (Button) activity.findViewById(R.id.buttonOk);
     }
 

@@ -16,6 +16,8 @@
     <string name="string_duplicatefileswarning">Es sind doppelte Karteien vorhanden.</string>
     <string name="string_duplicatefilesdescription">Bitte schauen Sie ins Benutzerhandbuch und entfernen Sie doppelte Einträge.</string>
     <string name="string_nochallengeswarning">Für diese Kartei gibt es keine Fragen.</string>
+    <string name="string_nofileswarning">Es sind keine Karteien vorhanden.</string>
+    <string name="string_nofilesdescription">Bitte schauen Sie ins Benutzerhandbuch und fügen Sie Einträge hinzu.</string>
     <string name="string_start_learning">Lernmodus</string>
     <string name="string_file_name">Karteiname</string>
     <string name="string_all_challenges">Aufgaben insges.</string>

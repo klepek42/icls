@@ -124,6 +124,15 @@ public class Data {
         return duplicate;
     }
 
+    // Checks if any IndexCard records exist
+    public boolean checkForRecords() {
+        boolean recordsExist = false;
+        if(mAllIndexCards.getSize() == 0) {
+            recordsExist = true;
+        }
+        return recordsExist;
+    }
+
     /**
      * Start of methods to calculate due Challenges. Methods are called in ApplicationLogic at onButtonStartLearningClicked
      */
