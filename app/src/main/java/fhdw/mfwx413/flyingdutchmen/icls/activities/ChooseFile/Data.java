@@ -63,7 +63,7 @@ public class Data {
         Log.d("CurrentUser: " , ""+mCurrentUser.getName());
 
         mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mCurrentUser.getName());
-        mAllIndexCards = IndexCardDatabase.getIndexCards(mActivity);
+        mAllIndexCards = IndexCardDatabase.getIndexCards();
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
     }
 

@@ -95,7 +95,7 @@ public class Data {
         return mDueChallenges.getSize();
     }
 
-    // Get all challenges with class 1 from progress.csv
+    // Get all challenges with class 1 from progress_username.csv
     public int getNumberOfClass1() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
@@ -125,7 +125,7 @@ public class Data {
         return countClassOne;
     }
 
-    // Get all challenges with class 2 from progress.csv
+    // Get all challenges with class 2 from progress_username.csv
     public int getNumberOfClass2() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
@@ -155,7 +155,7 @@ public class Data {
         return countClassTwo;
     }
 
-    // Get all challenges with class 3 from progress.csv
+    // Get all challenges with class 3 from progress_username.csv
     public int getNumberOfClass3() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
@@ -185,7 +185,7 @@ public class Data {
         return countClassThree;
     }
 
-    // Get all challenges with class 4 from progress.csv
+    // Get all challenges with class 4 from progress_username.csv
     public int getNumberOfClass4() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
@@ -215,7 +215,7 @@ public class Data {
         return countClassFour;
     }
 
-    // Get all challenges with class 5 from progress.csv
+    // Get all challenges with class 5 from progress_username.csv
     public int getNumberOfClass5() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
@@ -245,7 +245,7 @@ public class Data {
         return countClassFive;
     }
 
-    // Get all challenges with class 6 from progress.csv
+    // Get all challenges with class 6 from progress_username.csv
     public int getNumberOfClass6() {
         // Get all challenges
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);

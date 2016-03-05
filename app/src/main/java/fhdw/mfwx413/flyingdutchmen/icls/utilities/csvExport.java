@@ -134,31 +134,6 @@ public class csvExport {
         mWriter.close();
     }
 
-
-    // Save all progresses
-    // DIESE FUNKTION IST VERALTET, BITTE DIE NEUE DADRUNTER BENUTZEN
-    /*
-    public static void saveProgressToCsv( List<String[]> progressList) throws IOException {
-
-        CSVWriter mWriter;
-
-        // Read the android path where the file should be saved
-        String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
-        String fileName = "progress.csv";
-        String filePath = baseDir + File.separator + fileName;
-        Log.d("path", "" + filePath);
-        mWriter = new CSVWriter(new FileWriter(filePath), ';', CSVWriter.NO_QUOTE_CHARACTER);
-
-        List<String[]> data = progressList;
-
-        // Write all data to the file
-        mWriter.writeAll(data);
-
-        // Quit the output stream
-        mWriter.close();
-    }
-    */
-
     // Create an user progress file for a given user
     public static void saveUserProgressToCsv( List<String[]> progressList, String userName, Context context) throws IOException {
 

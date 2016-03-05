@@ -121,9 +121,6 @@ public class Init extends Activity {
                 info.show();
                 this.finish();
             }
-            //user-csv auf sd-card auslagern
-            //index.csv auf sd-card auslagern
-            //idee (noch nicht kommuniziert): für jeden Benutzer eine einzelne progress.csv (z.B. progress_Jonas.csv) erstellen und unter assets abspeichern
 
         } else if (currentVersionCode > savedVersionCode) {
 

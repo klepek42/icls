@@ -97,32 +97,7 @@ public class csvImport {
         return list;
     }
 
-    // Import progress data from progress.csv and return the resulting ArrayList
-    public static  List<String[]> importProgressCsv(Context context) {
-
-        List<String[]> list = new ArrayList<String[]>();
-        String next[] = {};
-
-        try {
-            InputStreamReader csvStreamReader = new InputStreamReader(context.getAssets().open("progress.csv"));
-
-            CSVReader reader = new CSVReader(csvStreamReader, ';');
-            // Fill the temporary list with the lines read from the csv file
-            for (;;) {
-                next = reader.readNext();
-                if (next != null) {
-                    list.add(next);
-                } else {
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-
-    // Import progress data from progress.csv and return the resulting ArrayList
+    // Import progress data from progress_username.csv and return the resulting ArrayList
     public static  List<String[]> importUserProgressCsv(Context context, String userName) {
 
         List<String[]> list = new ArrayList<>();
