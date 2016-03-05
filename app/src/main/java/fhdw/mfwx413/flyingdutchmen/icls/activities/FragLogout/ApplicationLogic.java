@@ -5,7 +5,9 @@ import android.content.Context;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
- * Created by edgar on 17.02.2016.
+ * Created by edgar on 17.02.2016
+ * Responsibility: Max Schumacher
+ * Updated by Max on 01.03.2016
  */
 public class ApplicationLogic {
 

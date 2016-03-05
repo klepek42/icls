@@ -12,7 +12,13 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException
 
 /**
  * Created by edgar on 13.02.2016
- * Updated by Max on 20.12.2016
+ * Responsibility: Max Schumacher
+ * Updated by Max on 20.02.2016
+ * Updated by Max on 21.02.2016
+ * Updated by Max on 22.02.2016
+ * Updated by Max on 24.02.2016
+ * Updated by Max on 27.02.2016
+ * Updated by Max on 01.03.2016
  */
 
 public class EventToListenerMapping implements View.OnClickListener, AdapterView.OnItemSelectedListener {

@@ -8,7 +8,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 
 /**
- * Created by edgar on 17.02.2016.
+ * Created by edgar on 17.02.2016
+ * Responsibility: Max Schumacher
  * Updated by Max on 01.03.2016
  */
 public class Data {

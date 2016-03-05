@@ -5,8 +5,9 @@ import android.view.View;
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 /**
- * Created by edgar on 17.02.2016.
- * Updated by Max on 01.03.2016
+ * Created by Edgar on 17.02.2016
+ * Responsibility: Max Schumacher
+ * Updated by Max on 03.03.2016
  */
 public class EventToListenerMapping implements View.OnClickListener {
 

@@ -20,8 +20,13 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
- * Responsibility: Max
- * Created by Max on 20.02.2016
+ * Created by Edgar on 17.02.2016
+ * Responsibility: Max Schumacher
+ * Updated by Max on 20.02.2016
+ * Updated by Max on 21.02.2016
+ * Updated by Max on 23.02.2016
+ * Updated by Jonas on 26.02.2016
+ * Updated by Max on 02.03.2016
  */
 //Todo Jonas: Umsetzen der FirstRun Aktionen
 public class Init extends Activity {

@@ -9,7 +9,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
  * Created by edgar on 17.02.2016
- * Responsibility: Max
+ * Responsibility: Max Schumacher
  * Updated by Max on 20.02.2016
  * Updated by Edgar on 21.02.2016
  * Updated by Jonas on 26.02.2016

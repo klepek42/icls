@@ -7,7 +7,9 @@ import android.widget.TextView;
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 /**
- * Created by edgar on 17.02.2016.
+ * Created by Max on 02.03.2016.
+ * Responsibility: Max Schumacher
+ * Updated by Max on 02.03.2016
  */
 public class Gui {
 

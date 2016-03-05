@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by edgar on 17.02.2016.
- * Updated by Max on 01.03.2016
+ * Created by Max on 05.03.2016.
+ * Responsibility: Max Schumacher
+ * Updated by Max on 05.03.2016
  */
 public class Data {
 

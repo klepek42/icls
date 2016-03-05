@@ -10,9 +10,12 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
- * Created by edgar on 17.02.2016
- * Responsibility: Max
+ * Created by Edgar on 17.02.2016
+ * Responsibility: Max Schumacher
  * Updated by Max on 20.02.2016
+ * Updated by Max on 21.02.2016
+ * Updated by Max on 23.02.2016
+ * Updated by Max on 02.03.2016
  */
 
 public class Data {
