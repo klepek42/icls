@@ -10,6 +10,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_nochallengeswarning"
+        android:textSize="@dimen/activity_text_size_caption"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_question_margin" />
+
+    <TextView
+        android:id="@+id/textFieldNoChallengesDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_nofilesdescription"
         android:textSize="@dimen/activity_text_size_info"
         android:textColor="@color/textColor"
         android:gravity="center"
