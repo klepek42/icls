@@ -52,8 +52,7 @@ public class ApplicationLogic {
 
     //following three methods count givenAnswer up, if it is not checked yet and counts it down, if it is already checked (and therefore wants to be unchecked by user)
     public void onCheckBoxAnswer1Clicked() {
-
-      /*  if (isCheckBoxAnswer1Clicked == false)
+        if (isCheckBoxAnswer1Clicked == false)
         {
             givenAnswer = givenAnswer + 1;
             isCheckBoxAnswer1Clicked = true;
@@ -61,13 +60,6 @@ public class ApplicationLogic {
         else {
             givenAnswer = givenAnswer - 1;
             isCheckBoxAnswer1Clicked = false;
-        }*/
-        if (mGui.getmCheckBoxAnswer1().isChecked() == false)
-        {
-            givenAnswer = givenAnswer + 1;
-        }
-        else {
-            givenAnswer = givenAnswer - 1;
         }
     }
 
@@ -104,7 +96,7 @@ public class ApplicationLogic {
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
 
         //determine whether user given answer has same value as stored correct answer and set boolean isAnswerCorrect based on that
-        if (challenge.getmCorrectAnswer() >= 1 && challenge.getmCorrectAnswer() <=7){
+        if (challenge.getmCorrectAnswer() >= 1 && challenge.getmCorrectAnswer() <= 7){
 
             if (challenge.getmCorrectAnswer() == givenAnswer)
             {
