@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateFiles;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateIndexCards;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.os.Bundle;
  * Responsibility: Max Schumacher
  * Updated by Max on 03.03.2016
  */
+
+// Init initializes all the classes relating to the current activity
 public class Init extends Activity {
 
     private Data mData;
@@ -39,7 +41,7 @@ public class Init extends Activity {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }
 
-    //save data if activity stops
+    // saves data if activity stops
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);

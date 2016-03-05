@@ -12,9 +12,11 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
  * Created by Max on 22/02/16
+ * Responsibility: Max Schumacher
  */
 public class UserDatabase {
 
+    // method that returns a UserCollection of all existing Users from a csv-file
     public static UserCollection getAllUser(Context context) {
 
         UserCollection allUsers;
@@ -44,7 +46,7 @@ public class UserDatabase {
         return allUsers;
     }
 
-
+    // method writes an UserCollection of all existing Users to a csv-file
     public static void writeAllUsers(Context context, UserCollection uc) {
         List<String[]> userList = new ArrayList<>();
 

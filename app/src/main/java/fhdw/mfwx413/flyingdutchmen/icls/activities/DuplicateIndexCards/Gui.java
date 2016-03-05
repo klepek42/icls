@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateFiles;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateIndexCards;
 
 import android.app.Activity;
 import android.widget.Button;
@@ -11,12 +11,15 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Max Schumacher
  * Updated by Max on 03.03.2016
  */
+
+// Gui initializes the objects from the relating layout
 public class Gui {
 
     private TextView textFieldDuplicatesWarning;
     private TextView textFieldDuplicatesDescription;
     private Button buttonOk;
 
+    // sets the connection between Gui and layout files
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_duplicate_files);
         textFieldDuplicatesDescription = (TextView) activity.findViewById(R.id.textFieldDuplicateIndexCardsWarning);

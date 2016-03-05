@@ -147,9 +147,9 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityDuplicateFiles(Activity callingActivity) {
+    public static void startActivityDuplicateIndexCards(Activity callingActivity) {
         Intent intent;
-        intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateFiles.Init.class);
+        intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateIndexCards.Init.class);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }

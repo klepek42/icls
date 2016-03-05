@@ -23,6 +23,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  * Updated by Jonas on 26.02.2016
  * Updated by Jonas on 05.03.2016
  */
+
+// application logic connects the data with the gui and defines the exact events after an user-interaction
 public class ApplicationLogic{
 
     private Data mData;
@@ -42,15 +44,22 @@ public class ApplicationLogic{
     private void initialUpdateDataToGui() {
     }
 
+    // calls a new activity to add a new user
     public void onButtonAddUserClicked() {
         Navigation.startActivityAddNewUser(mData.getActivity());
     }
 
+    // calls the activity choose File and transmits the selected user from spinner as the current user
     public void onButtonConfirmUserClicked() throws IdNotFoundException {
         mData.setCurrentUser(mData.getAllUsers().getUser(mSelectedName));
         checkUserProgresses();
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
+
+    /**
+     * No onStandardBackButtonClicked since this is the first thing the user sees if the app was started and there is no going back within the app.
+     * The app closes if the back button is pressed.
+     */
 
     /** Function not supported in this version of app
     public void onButtonEditUserClicked() throws IdNotFoundException {
@@ -60,7 +69,7 @@ public class ApplicationLogic{
     */
 
     // Added by Edgar Klepek
-    // Fill the spinner with data given by users.csv and show it
+    // fill the spinner with all user names that were collected in the data class
     private void fillSpinner() {
 
         for(int i = 0; i < mData.getAllUsers().getSize(); i++) {
@@ -71,7 +80,7 @@ public class ApplicationLogic{
         mGui.getChooseUser().setAdapter(adapter);
     }
 
-    //Set selected User from Spinner
+    // set selected User from Spinner
     public void onUserSelected(int position){
         System.out.println(userNames.get(position));
         mSelectedName = userNames.get(position);

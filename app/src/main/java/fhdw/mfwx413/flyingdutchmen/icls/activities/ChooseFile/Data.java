@@ -35,6 +35,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException
  * Updated by Max on 01.03.2016
  */
 
+// Data initializes all the data that is relevant in the current activity
 public class Data {
 
     private Activity mActivity;
@@ -68,8 +69,11 @@ public class Data {
 
         Log.d("CurrentUser: " , ""+mCurrentUser.getName());
 
+        // collects all the existing user progresses of current user from UserProgressDatabase
         mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mCurrentUser.getName());
+        // collects all the existing index cards from IndexCardsDatabase
         mAllIndexCards = IndexCardDatabase.getIndexCards();
+        // collects all the existing challenges from ChallengeDatabase
         mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
     }
 
@@ -143,7 +147,7 @@ public class Data {
      * Start of methods to calculate due Challenges. Methods are called in ApplicationLogic at onButtonStartLearningClicked
      */
 
-    // I. -> Get ChallengesCollection with current Index out of all Challenges and save them as a new ChallengeCollection L1
+    // I. -> Get ChallengeCollection with current Index Card out of all Challenges and save them as a new ChallengeCollection L1
     public ChallengeCollection getChallengesForSelectedIndexCard() {
         mChallengesCurrentIndexCard = new ChallengeCollection();
         for(int i=0; i<mAllChallenges.getSize(); i++) {
@@ -179,7 +183,7 @@ public class Data {
         CurrentDate = new Date(t);
     }
 
-    // IV. -> Get TimeStamps out of L3 and save them in a comparable format to the current date
+    // IV. -> Get TimeStamps out of L3 and save them in a format that is comparable to the current date
     @SuppressLint("SimpleDateFormat")
     public void getTimeStampLastAnswered(int index) throws ParseException {
         SimpleDateFormat mLastAnsweredFormat;
@@ -189,7 +193,7 @@ public class Data {
         mLastAnsweredDate = mLastAnsweredFormat.parse(mTimeStampLastAnswered);
     }
 
-    // V. -> Supporting method: Converts Date to Calendar
+    // V. -> Converts Date to Calendar
     public static Calendar DateToCalendar(Date date){
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);

@@ -7,6 +7,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
  * Created by Max on 22/02/16
+ * Responsibility: Max Schumacher
  */
 public class UserCollection implements Serializable{
 
@@ -16,6 +17,7 @@ public class UserCollection implements Serializable{
         mUserList = new ArrayList<>();
     }
 
+    // method to return an User identified by its Name out of an UserCollection
     public User getUser (String key) throws IdNotFoundException {
         int i;
         User foundUser;
@@ -35,19 +37,22 @@ public class UserCollection implements Serializable{
         return foundUser;
     }
 
+    // method to add a User to a UserCollection
     public void addUser(User user){
         mUserList.add(user);
     }
 
+    // method that returns the size of a UserCollection
     public int getSize() {
         return mUserList.size();
     }
 
+    // method that returns an User out of an UserCollection
     public User get(int index){
         return mUserList.get(index);
     }
 
-    //method to check whether a user exists or not
+    // method to check whether a user exists or not
     public boolean doesUserExist (User user){
         int i;
         for ( i = 0; i < mUserList.size(); i++)
@@ -59,6 +64,4 @@ public class UserCollection implements Serializable{
         }
         return false;
     }
-
-
 }

@@ -16,6 +16,7 @@ import android.widget.Spinner;
  * Updated by Max on 02.03.2016
  */
 
+// Gui initializes the objects from the relating layout
 public class Gui {
 
     private TextView textFieldStart;
@@ -26,6 +27,7 @@ public class Gui {
     private Button buttonEditUser;
     */
 
+    // sets the connection between Gui and layout files
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_start_menu);
         textFieldStart = (TextView) activity.findViewById(R.id.textFieldStart);

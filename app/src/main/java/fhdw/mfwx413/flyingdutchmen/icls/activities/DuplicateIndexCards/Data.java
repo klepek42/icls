@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateFiles;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateIndexCards;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.os.Bundle;
  * Responsibility: Max Schumacher
  * Updated by Max on 03.03.2016
  */
+
+// Data initializes all the data that is relevant in the current activity
 public class Data {
 
 

@@ -9,6 +9,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Max Schumacher
  * Updated by Max on 01.03.2016
  */
+
+// EventToListenerMapping connects the objects from Gui with the events of application logic
 public class EventToListenerMapping implements View.OnClickListener {
 
     private ApplicationLogic mApplicationLogic;
@@ -19,6 +21,7 @@ public class EventToListenerMapping implements View.OnClickListener {
         gui.getButtonDenyLogout().setOnClickListener(this);
     }
 
+    // onClick defines what methods of application logic are called after a certain user-interaction
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

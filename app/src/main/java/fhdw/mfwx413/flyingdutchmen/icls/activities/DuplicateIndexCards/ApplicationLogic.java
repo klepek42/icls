@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateFiles;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateIndexCards;
 
 import android.content.Context;
 
@@ -9,6 +9,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  * Responsibility: Max Schumacher
  * Updated by Max on 03.03.2016
  */
+
+// application logic connects the data with the gui and defines the exact events after an user-interaction
 public class ApplicationLogic {
 
     private Data mData;
@@ -26,10 +28,12 @@ public class ApplicationLogic {
 
     }
 
+    // There should be no option to go back
     public void onStandardBackButtonClicked() {
 
     }
 
+    // calls the activity start Menu. No data needs to be transmitted
     public void onButtonOkClicked() {
         Navigation.startActivityStartMenu(mData.getActivity());
     }

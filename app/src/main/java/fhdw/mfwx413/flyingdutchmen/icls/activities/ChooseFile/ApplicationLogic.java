@@ -23,6 +23,7 @@ import java.util.ArrayList;
  * Updated by Max on 01.03.2016
  */
 
+// application logic connects the data with the gui and defines the exact events after an user-interaction
 public class ApplicationLogic {
 
     private Data mData;
@@ -46,11 +47,12 @@ public class ApplicationLogic {
 
     }
 
+    // calls the activity logout and transmits the current user
     public void onStandardBackButtonClicked() {
         Navigation.startActivityLogout(mData.getActivity(), mData.getCurrentUser());
     }
 
-    // Added by Edgar 27.02
+    // starts the calculation of due challenges and transmits it to the statistic activity
     public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException, UserProgressNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
         mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
@@ -70,14 +72,17 @@ public class ApplicationLogic {
         }
     }
 
+    // calls the activity logout and transmits the current user
     public void onButtonLogoutClicked() {
         Navigation.startActivityLogout(mData.getActivity(), mData.getCurrentUser());
     }
 
+    // calls the activity settings and transmits the current user
     public void onButtonSettingsClicked() {
         Navigation.startActivitySettingMenu(mData.getActivity(), mData.getCurrentUser());
     }
 
+    // starts the calculation of due challenges and transmits it to the next activity
     public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException, InvalidQuestionTypeLayoutException {
         int mQuestionTypeLayout;
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
@@ -97,10 +102,12 @@ public class ApplicationLogic {
 
             mDueChallenges = mData.getDueChallengeList();
 
+            // if there are no due challenges for the selected IndexCard, it calls the activity final-end-of-challenges and transmits the current user and selected IndexCard
             if(mDueChallenges.getSize() == 0) {
                 Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getCurrentUser(), mData.getCurrentIndexCard());
             }
             else {
+                // depending on the first due challenge the linked layout-type calls the correct activity and transmits the duechallenges, the index of the first challenge from ChallengeCollection, the current IndexCard and the current UserProgress
                 mQuestionTypeLayout = mDueChallenges.getChallenge(0).getmQuestionTypeLayout();
                 switch (mQuestionTypeLayout) {
                     case 1: Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mDueChallenges, 0, mData.getCurrentUser(), mData.getCurrentIndexCard(), mData.getCurrentUserUserProgresses());
@@ -115,6 +122,7 @@ public class ApplicationLogic {
         }
     }
 
+    // fill the spinner with all IndexCards that were collected in the data class
     private void fillSpinner() {
         for(int i = 0; i < mData.getAllIndexCards().getSize(); i++) {
             indexCards.add(mData.getAllIndexCards().get(i).getmName());
@@ -124,6 +132,7 @@ public class ApplicationLogic {
         mGui.getChooseIndexCard().setAdapter(adapter);
     }
 
+    // set selected IndexCard from Spinner
     public void onIndexCardSelected(int position){
         System.out.println(indexCards.get(position));
         mSelectedIndexCard = indexCards.get(position);

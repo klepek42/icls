@@ -11,12 +11,15 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Max Schumacher
  * Updated by Max on 01.03.2016
  */
+
+// Gui initializes the objects from the relating layout
 public class Gui {
 
     private TextView textFieldLogout;
     private Button buttonConfirmLogout;
     private Button buttonDenyLogout;
 
+    // sets the connection between Gui and layout files
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_logout);
         textFieldLogout = (TextView) activity.findViewById(R.id.textFieldLogout);

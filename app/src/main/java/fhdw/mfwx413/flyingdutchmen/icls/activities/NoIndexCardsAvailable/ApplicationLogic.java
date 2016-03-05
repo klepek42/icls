@@ -26,6 +26,7 @@ public class ApplicationLogic {
 
     }
 
+    // There should be no option to go back
     public void onStandardBackButtonClicked() {
 
     }
@@ -33,5 +34,4 @@ public class ApplicationLogic {
     public void onButtonOkClicked() {
         Navigation.startActivityStartMenu(mData.getActivity());
     }
-
 }

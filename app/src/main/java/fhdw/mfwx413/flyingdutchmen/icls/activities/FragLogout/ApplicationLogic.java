@@ -9,6 +9,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  * Responsibility: Max Schumacher
  * Updated by Max on 01.03.2016
  */
+
+// application logic connects the data with the gui and defines the exact events after an user-interaction
 public class ApplicationLogic {
 
     private Data mData;
@@ -26,15 +28,17 @@ public class ApplicationLogic {
 
     }
 
+    // calls the activity choose File and transmits the selected user from spinner as the current user
     public void onStandardBackButtonClicked() {
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }
 
-
+    // calls the activity start Menu. No data needs to be transmitted
     public void onButtonConfirmLogoutClicked() {
         Navigation.startActivityStartMenu(mData.getActivity());
     }
 
+    // calls the activity choose File and transmits the selected user from spinner as the current user
     public void onButtonDenyLogoutClicked() {
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
     }

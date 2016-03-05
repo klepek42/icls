@@ -28,6 +28,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
  * Updated by Jonas on 26.02.2016
  * Updated by Max on 02.03.2016
  */
+
+// Init initializes all the classes relating to the current activity
 public class Init extends Activity {
 
     private Data mData;

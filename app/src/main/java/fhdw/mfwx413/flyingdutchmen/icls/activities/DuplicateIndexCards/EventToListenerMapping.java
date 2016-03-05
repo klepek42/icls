@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateFiles;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.DuplicateIndexCards;
 
 import android.view.View;
 
@@ -9,6 +9,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Max Schumacher
  * Updated by Max on 03.03.2016
  */
+
+// EventToListenerMapping connects the objects from Gui with the events of application logic
 public class EventToListenerMapping implements View.OnClickListener {
 
     private ApplicationLogic mApplicationLogic;
@@ -18,6 +20,7 @@ public class EventToListenerMapping implements View.OnClickListener {
         gui.getButtonOk().setOnClickListener(this);
     }
 
+    // onClick defines what methods of application logic are called after a certain user-interaction
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

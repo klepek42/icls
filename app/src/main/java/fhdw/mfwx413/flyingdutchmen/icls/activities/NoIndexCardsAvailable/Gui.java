@@ -11,12 +11,15 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Max Schumacher
  * Updated by Max on 05.03.2016
  */
+
+// Gui initializes the objects from the relating layout
 public class Gui {
 
     private TextView textFieldNoIndexCardsWarning;
     private TextView textFieldNoIndexCardsDescription;
     private Button buttonOk3;
 
+    // sets the connection between Gui and layout files
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_no_index_cards);
         textFieldNoIndexCardsWarning = (TextView) activity.findViewById(R.id.textFieldNoIndexCardsWarning);

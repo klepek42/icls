@@ -12,6 +12,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.User;
  * Responsibility: Max Schumacher
  * Updated by Max on 01.03.2016
  */
+
+// Data initializes all the data that is relevant in the current activity
 public class Data {
 
 
@@ -23,6 +25,7 @@ public class Data {
         mActivity = activity;
         intent = activity.getIntent();
 
+        // restores information of current user
         if (savedInstanceState == null) {
             mCurrentUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
         }
@@ -39,6 +42,7 @@ public class Data {
         return mCurrentUser;
     }
 
+    // saves information of current user
     public void saveDataFromBundle(Bundle savedInstanceState) {
         savedInstanceState.putSerializable(Constants.KEY_PARAM_CHOSEN_USER, mCurrentUser);
     }

@@ -3,8 +3,8 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
 import java.io.Serializable;
 
 /**
- * Responsibility: Max Schumacher
  * Created by Max Schumacher on 20.02.2016
+ * Responsibility: Max Schumacher
  */
 public class User implements Serializable {
     // UserName (unique)
@@ -46,7 +46,7 @@ public class User implements Serializable {
         return mPeriodClass6;
     }
 
-    // Empty constructor for addNewUser
+    // Empty constructor (Activity: AddNewUser)
     public User() {
     }
 
@@ -94,7 +94,7 @@ public class User implements Serializable {
         this.mPeriodClass6 = mPeriodClass6;
     }
 
-    /** Function won't be supported
+    /** Function not supported in this version of app
     // Update UserName (Activity: EditUser)
     public void setmName(String mName){
         this.mName = mName;

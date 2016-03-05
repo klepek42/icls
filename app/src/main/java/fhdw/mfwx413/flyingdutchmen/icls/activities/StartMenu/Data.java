@@ -18,6 +18,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  * Updated by Max on 02.03.2016
  */
 
+// Data initializes all the data that is relevant in the current activity
 public class Data {
 
     private Activity mActivity;
@@ -26,6 +27,7 @@ public class Data {
 
     public Data(Activity activity, Bundle savedInstanceState) {
         mActivity = activity;
+        // collects all the existing user from UserDatabase
         mAllUsers = UserDatabase.getAllUser(mActivity);
 
         // If there is no existing user, go directly to the ActivityAddNewUser
@@ -46,6 +48,7 @@ public class Data {
         return mActivity;
     }
 
+    // sets the current User when a selection in the spinner was made
     public void setCurrentUser(User mCurrentUser) {
         this.mCurrentUser = mCurrentUser;
     }

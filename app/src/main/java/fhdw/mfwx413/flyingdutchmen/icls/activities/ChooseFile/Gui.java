@@ -18,6 +18,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Updated by Max on 01.03.2016
  */
 
+// Gui initializes the objects from the relating layout
 public class Gui {
 
     private TextView textFieldChooseFile;
@@ -27,6 +28,7 @@ public class Gui {
     private Button buttonStartLearning;
     private Spinner chooseIndexCard;
 
+    // sets the connection between Gui and layout files
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_choose_file);
         textFieldChooseFile = (TextView) activity.findViewById(R.id.textFieldChooseFile);

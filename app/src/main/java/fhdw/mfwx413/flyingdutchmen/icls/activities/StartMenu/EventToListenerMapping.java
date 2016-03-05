@@ -14,6 +14,8 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
  * Updated by Max on 23.02.2016
  * Updated by Max on 02.03.2016
  */
+
+// EventToListenerMapping connects the objects from Gui with the events of application logic
 public class EventToListenerMapping implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private ApplicationLogic mApplicationLogic;
@@ -28,6 +30,7 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
         gui.getChooseUser().setOnItemSelectedListener(this);
     }
 
+    // onClick defines what methods of application logic are called after a certain user-interaction
     @Override
     public void onClick(View v) {
         switch (v.getId())
@@ -54,15 +57,16 @@ public class EventToListenerMapping implements View.OnClickListener, AdapterView
         }
     }
 
-
+    // Transfers the selected element in the spinner to the application logic
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         mApplicationLogic.onUserSelected(position);
     }
 
+    //Spinner is always filled with initialization of activity, therefore method doesn't need to be filled
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        //Spinner is always filled with init of activity, therefore method doesn't need to be filled
+
     }
 
 

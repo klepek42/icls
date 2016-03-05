@@ -43,7 +43,7 @@
         <activity android:name=".activities.SettingsMenu.Init" />
         <activity android:name=".activities.Statistics.Init" />
         <activity android:name=".activities.FragLogout.Init" />
-        <activity android:name=".activities.DuplicateFiles.Init" />
+        <activity android:name=".activities.DuplicateIndexCards.Init" />
         <activity android:name=".activities.NoChallengesForCurrentIndexCard.Init" />
         <activity android:name=".activities.NoIndexCardsAvailable.Init" />
     </application>

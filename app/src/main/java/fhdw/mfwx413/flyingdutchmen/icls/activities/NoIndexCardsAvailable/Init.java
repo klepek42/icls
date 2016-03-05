@@ -8,6 +8,8 @@ import android.os.Bundle;
  * Responsibility: Max Schumacher
  * Updated by Max on 05.03.2016
  */
+
+// Init initializes all the classes relating to the current activity
 public class Init extends Activity {
 
     private Data mData;
