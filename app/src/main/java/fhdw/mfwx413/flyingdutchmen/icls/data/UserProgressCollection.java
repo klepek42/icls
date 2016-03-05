@@ -28,6 +28,10 @@ public class UserProgressCollection implements Serializable{
     public int getSize(){
         return mUserProgresses.size();
     }
+
+    public void removeUserProgress(int id){
+        mUserProgresses.remove(id);
+    }
 }
 
 

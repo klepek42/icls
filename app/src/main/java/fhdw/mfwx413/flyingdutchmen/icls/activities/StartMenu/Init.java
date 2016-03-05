@@ -28,7 +28,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
  * Updated by Jonas on 26.02.2016
  * Updated by Max on 02.03.2016
  */
-//Todo Jonas: Umsetzen der FirstRun Aktionen
 public class Init extends Activity {
 
     private Data mData;
@@ -120,7 +119,7 @@ public class Init extends Activity {
                 info.show();
             }
             else{
-                //if there are any missing files, the app will be closed, becaue there would be an exception on runtime
+                //if there are any missing files, the app will be closed, becasue there would be an exception on runtime
                 Log.e("ICLS-ERROR", "Bei dem erzeugen der AppData ist ein Fehler aufgetreten");
                 Toast info = Toast.makeText(this, "Fehler beim erzeugen der AppData!", Toast.LENGTH_LONG);
                 info.show();
