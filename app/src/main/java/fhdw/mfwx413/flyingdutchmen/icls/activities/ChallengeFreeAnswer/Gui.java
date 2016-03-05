@@ -12,10 +12,10 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  */
 public class Gui {
 
-    private TextView mTextFieldQuestion;
-    private EditText mGivenAnswer;
-    private Button mButtonAbort;
-    private Button mButtonConfirmFreeAnswer;
+    private final TextView mTextFieldQuestion;
+    private final EditText mGivenAnswer;
+    private final Button mButtonAbort;
+    private final Button mButtonConfirmFreeAnswer;
 
 
     public Gui(Activity activity) {

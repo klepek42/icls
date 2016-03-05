@@ -3,26 +3,22 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeFreeAnswer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
-import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
-import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCardDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
-import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
-import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
  * Responsibility: Jonas Krabs
  */
 public class Data {
 
+    //static variable is necessary for intent.getIntExtra
     private static final int DEFAULT_CURRENT_CHALLENGE_ID = 0;
 
-    private Activity mActivity;
+    private final Activity mActivity;
     private ChallengeCollection mDueChallengesOfUserInFile;
     private int mCurrentChallengeId;
     private User mChosenUser;
@@ -43,7 +39,7 @@ public class Data {
             mUserProgresses = (UserProgressCollection) intent.getSerializableExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER);
         }
         else{
-            // Restore Data if bundle is filled
+            // if bundle is filled data will be restored by content of the bundle
             restoreDataFromBundle(bundle);
         }
 
@@ -59,7 +55,7 @@ public class Data {
     }
 
     // Restore data from given bundle
-    public void restoreDataFromBundle(Bundle bundle) {
+    private void restoreDataFromBundle(Bundle bundle) {
         mCurrentChallengeId = bundle.getInt(Constants.BUNDLE_KEY_CURRENT_CHALLENGE_ID);
         mDueChallengesOfUserInFile = (ChallengeCollection) bundle.getSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE);
         mChosenUser = (User) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_USER);

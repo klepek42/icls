@@ -16,9 +16,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 //Todo Jonas: Alle Klassen mit Verantwortlichkeit vernünftig kommentieren
 public class ApplicationLogic {
 
-    private Data mData;
-    private Gui mGui;
-    private Activity mActivity;
+    private final Data mData;
+    private final Gui mGui;
+    private final Activity mActivity;
 
     public ApplicationLogic(Data data, Gui gui, Activity activity) {
         mData = data;
@@ -45,16 +45,16 @@ public class ApplicationLogic {
         String givenAnswer;
         boolean isAnswerCorrect;
 
-        isAnswerCorrect = false;
-        //save the given question from the input textfield
+        //save the given answer from the input textfield
         givenAnswer = mGui.getmGivenAnswer().getText().toString();
 
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
 
         //analyze if the given answer was correct or not
         switch (challenge.getmCorrectAnswer()){
-            // if one, there only one answer saved in the challenge and this is the right one
+            // if one, there is only one answer saved in the challenge and this is the right one
             case 1:
+                //noinspection RedundantIfStatement
                 if (givenAnswer.equals(challenge.getmAnswerOne())){
                     isAnswerCorrect = true;
                 }
@@ -64,6 +64,7 @@ public class ApplicationLogic {
                 break;
             //if three, there are two answers saved in the challenge and both are right
             case 3:
+                //noinspection RedundantIfStatement
                 if (givenAnswer.equals(challenge.getmAnswerOne()) || givenAnswer.equals(challenge.getmAnswerTwo())){
                     isAnswerCorrect = true;
                 }
@@ -73,6 +74,7 @@ public class ApplicationLogic {
                 break;
             //if seven, there are three answers saved in the challenge and all three are right
             case 7:
+                //noinspection RedundantIfStatement
                 if (givenAnswer.equals(challenge.getmAnswerTwo()) || givenAnswer.equals(challenge.getmAnswerTwo()) || givenAnswer.equals(challenge.getmAnswerThree())){
                     isAnswerCorrect = true;
                 }
@@ -81,16 +83,19 @@ public class ApplicationLogic {
                 }
                 break;
             default:
+                //if there is another answer than 1,3 or 7 this answertype is invalid and the method throws an InvalidCorrectAnswerTypeException
                 throw new InvalidCorrectAnswerTypeException("ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: Ungültiger Wert für CorrectAnswer: " + challenge.getmCorrectAnswer());
         }
 
         try {
+            //the userprogress has to be updated after answering the question
             updateUserProgress(isAnswerCorrect);
 
             //call the Feedback-Activity and send the required data
             Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect, mData.getmUserProgresses());
 
         }
+        //if something went wrong by updating the userprogresses the startActivity is called
         catch (UserProgressNotFoundException e){
             Log.e("ICLS-LOG", "ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: ", e);
             showErrorUnexpectedError();
@@ -98,21 +103,31 @@ public class ApplicationLogic {
         }
     }
 
+    //start activity ChooseFile and send required data
     public void goBackToChooseFile() {
         Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
     }
 
+    //for the user it is not important to have detailed information about the error
+    //detailed information are always given in the logs
     public void showErrorUnexpectedError(){
         Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
     }
 
-    public void updateUserProgress(boolean isAnswerCorrect) throws UserProgressNotFoundException{
+    //update userprogress after answering the question
+    private void updateUserProgress(boolean isAnswerCorrect) throws UserProgressNotFoundException{
         boolean userProgressFound = false;
+        //search for the right progress in the userProgressCollection
         for (int i = 0; i < mData.getmUserProgresses().getSize(); i++){
+
             if (mData.getmUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
                 int actualTimeClass = mData.getmUserProgresses().getUserProgress(i).getmPeriodClass();
+
+                //if the progress was found everything is fine and the progress can be updated
                 userProgressFound = true;
                 mData.getmUserProgresses().getUserProgress(i).setCurrentTimeStamp();
+
+                //noinspection PointlessBooleanExpression
                 if (isAnswerCorrect == true) {
                     if (actualTimeClass < 5 ) {
                         mData.getmUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
@@ -123,10 +138,13 @@ public class ApplicationLogic {
                         mData.getmUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
                     }
                 }
+                //save the updated progress in the csv
                 UserProgressDatabase.writeSpecificUserProgresses(mData.getmUserProgresses(), mData.getmChosenUser().getName(), mActivity);
                 break;
             }
         }
+        //if the userprogress was not found the method throws an UserProgressNotFoundException
+        //noinspection PointlessBooleanExpression
         if (userProgressFound == false){
             throw new UserProgressNotFoundException("ChallengeFreeAnswer::ApplicationLogic::updateUserProgress:"
                     + " CurrentUserName: " + mData.getmChosenUser().getName()

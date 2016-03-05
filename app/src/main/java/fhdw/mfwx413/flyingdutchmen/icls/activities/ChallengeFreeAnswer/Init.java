@@ -50,7 +50,7 @@ public class Init extends Activity {
         super.onSaveInstanceState(outState);
     }
 
-    // Back to layout_choose_file (back button)
+    // Back to Activity ChooseFile (back button)
     @Override
     public void onBackPressed() {
         mApplicationLogic.goBackToChooseFile();

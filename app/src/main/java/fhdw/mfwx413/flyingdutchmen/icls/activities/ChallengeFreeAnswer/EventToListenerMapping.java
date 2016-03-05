@@ -10,10 +10,11 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeExcep
  * Responsibility: Jonas Krabs
  */
 public class EventToListenerMapping implements View.OnClickListener{
-    private ApplicationLogic mApplicationLogic;
+    private final ApplicationLogic mApplicationLogic;
 
     public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
         mApplicationLogic = applicationLogic;
+        //equip the gui elements with listeners
         gui.getmButtonConfirmFreeAnswer().setOnClickListener(this);
         gui.getmButtonAbort().setOnClickListener(this);
     }
@@ -21,10 +22,12 @@ public class EventToListenerMapping implements View.OnClickListener{
     @Override
     public void onClick(View v){
         switch (v.getId()) {
+            //calling the methods in ApplicationLogic depending on which button was clicked
             case R.id.buttonConfirmFreeAnswer:
                 try {
                     mApplicationLogic.onButtonConfirmFreeAnswerClicked();
                 }
+                //if there was a invalid answertype deposited in the answered challenge the Activity ChooseFile will be started
                 catch (InvalidCorrectAnswerTypeException e){
                     Log.e("ICLS-ERROR", "ChallengeFreeAnswer::EventToListenerMapping::onClick ", e);
                     mApplicationLogic.showErrorUnexpectedError();
