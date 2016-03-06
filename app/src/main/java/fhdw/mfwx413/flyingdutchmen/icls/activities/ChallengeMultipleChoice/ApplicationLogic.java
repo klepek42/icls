@@ -13,7 +13,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 /**
  * Responsibility: Daniel zur Linden
  */
-//Todo Daniel: Check whether alternative onCheckBoxAnswer1Clicked is working
 public class ApplicationLogic {
     private Data mData;
     private Gui mGui;
@@ -52,7 +51,7 @@ public class ApplicationLogic {
 
     //following three methods count givenAnswer up, if it is not checked yet and counts it down, if it is already checked (and therefore wants to be unchecked by user)
     public void onCheckBoxAnswer1Clicked() {
-        if (isCheckBoxAnswer1Clicked == false)
+        if (!isCheckBoxAnswer1Clicked)
         {
             givenAnswer = givenAnswer + 1;
             isCheckBoxAnswer1Clicked = true;
@@ -64,7 +63,7 @@ public class ApplicationLogic {
     }
 
     public void onCheckBoxAnswer2Clicked() {
-        if (isCheckBoxAnswer2Clicked == false)
+        if (!isCheckBoxAnswer2Clicked)
         {
             givenAnswer = givenAnswer + 2;
             isCheckBoxAnswer2Clicked = true;
@@ -76,7 +75,7 @@ public class ApplicationLogic {
     }
 
     public void onCheckBoxAnswer3Clicked() {
-        if (isCheckBoxAnswer3Clicked == false)
+        if (!isCheckBoxAnswer3Clicked)
         {
             givenAnswer = givenAnswer + 4;
             isCheckBoxAnswer3Clicked = true;
@@ -146,7 +145,7 @@ public class ApplicationLogic {
                 userProgressFound = true;
                 mData.getmUserProgresses().getUserProgress(i).setCurrentTimeStamp();
                 //count up period classes based on current time class
-                if (isAnswerCorrect == true) {
+                if (isAnswerCorrect) {
                     if (actualTimeClass < 5 ) {
                         mData.getmUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
                     }
@@ -162,7 +161,7 @@ public class ApplicationLogic {
             }
         }
         //throw exception if the user was not found
-        if (userProgressFound == false){
+        if (!userProgressFound){
             throw new UserProgressNotFoundException("ChallengeMultipleChoice::ApplicationLogic::updateUserProgress:"
                     + " CurrentUserName: " + mData.getmChosenUser().getName()
                     + " ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());

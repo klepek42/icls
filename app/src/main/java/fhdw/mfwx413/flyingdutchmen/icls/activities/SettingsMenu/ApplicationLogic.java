@@ -18,7 +18,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 /**
  * Responsibility: Daniel zur Linden
  */
-//Optional Todo: reduce toString() -  Int
 public class ApplicationLogic{
 
     private Data mData;
@@ -295,7 +294,7 @@ public class ApplicationLogic{
                 userFoundInCollection = true;
             }
         }
-        if (userFoundInCollection == false){
+        if (!userFoundInCollection){
             throw new UserNotFoundException("SettingsMenu::ApplicationLogic::updateUserCollection:"
                     + " CurrentUserName: " + mData.getmChosenUser().getName());
         }
