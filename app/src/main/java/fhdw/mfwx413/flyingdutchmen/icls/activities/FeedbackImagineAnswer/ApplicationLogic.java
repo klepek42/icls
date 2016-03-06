@@ -125,6 +125,9 @@ public class ApplicationLogic {
                 break;
             //Exception-Handling, if there is a int-value in "dueChallengeNumber" that is not 0,1,2 or 3
             default:
+                // Max: Ich benutze die Zeile hier bei ChooseFile und einem ungültigen Layout-Typ (s. ChooseFile::ApplicationLogic::onButtonStartLearningClicked)
+                // default: throw new InvalidQuestionTypeLayoutException("FeedbackChallengeRest::ApplicationLogic::onButtonContinue");
+
                 //Todo: Error-Handling has to be implemented - throw exception
                 //Todo: FeedbackChallengeRest outsource this function as well?!
         }
