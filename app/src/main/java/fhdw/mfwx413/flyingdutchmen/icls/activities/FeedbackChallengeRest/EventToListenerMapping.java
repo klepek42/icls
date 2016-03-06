@@ -28,15 +28,9 @@ public class EventToListenerMapping implements View.OnClickListener {
                 mApplicationLogic.onButtonAbortClicked();
                 break;
             case R.id.buttonContinue:
-                try {
-                    mApplicationLogic.onButtonContinue();
-                } catch (InvalidQuestionTypeLayoutException e) {
-                    Log.e("ICLS-Error", "FeedbackChallengeRest::ApplicationLogic::onButtonContinue", e);
-                    mApplicationLogic.errorToastFalseLayout();
-                    //here happens the same reaction as when you clicked on the abort Button
-                    mApplicationLogic.onButtonAbortClicked();
-                    break;
+                mApplicationLogic.onButtonContinue();
+                break;
                 }
         }
     }
-}
+

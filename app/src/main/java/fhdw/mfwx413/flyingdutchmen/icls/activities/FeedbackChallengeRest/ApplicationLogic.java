@@ -59,42 +59,18 @@ public class ApplicationLogic {
 
 
     //method that is invoked, if the continue button is clicked
-    public void onButtonContinue() throws InvalidQuestionTypeLayoutException {
-        int dueChallengeNumber;
-
-            //delivers int value, to decide which Activity has to be started
-            dueChallengeNumber = otherDueChallenges();
-
-            //it depends on the layout-type of the next due challenge, which activity is to be started next
-            //Switch-Statement determines which layout has to be started and which data have to be sent
-            switch (dueChallengeNumber) {
-                //no other challenge is due
-                case 0:
-                    Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
-                    break;
-                //a challenge of type ChallengeFreeAnswer is due
-                case 1:
-                    //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
-                    mData.incrementChallengeIdByOne();
-                    Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
-                    break;
-                //a challenge of type ChallengeImagineAnser is due
-                case 2:
-                    //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
-                    mData.incrementChallengeIdByOne();
-                    Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
-                    break;
-                //a challenge of type ChallengeMultipleChoice is due
-                case 3:
-                    //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
-                    mData.incrementChallengeIdByOne();
-                    Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
-                    break;
-                //Exception-Handling, if there is a int-value in "dueChallengeNumber" that is not 0,1,2 or 3
-                default:
-                    throw new InvalidQuestionTypeLayoutException("FeedbackChallengeRest::ApplicationLogic::onButtonContinue");
-            }
+    public void onButtonContinue() {
+        try {
+            //checks whether there is a next activity that is to be started and starts the next activity with the correct layout type
+            startNextActivity();
         }
+        //Exception-Handling, if there is a problem with the layout type
+        catch (InvalidQuestionTypeLayoutException e) {
+            Log.e("ICLS-LOG", "FeedbackImagineAnswer::ApplicationLogic::onButtonWasAnswerWrong: ", e);
+            errorToastFalseLayout();
+            Navigation.startActivityStartMenu(mActivity);
+        }
+    }
 
 
     //method that is invoked, if the abort button is clicked
@@ -145,5 +121,44 @@ public class ApplicationLogic {
     //it starts, when the int-value of the layout type is not 0,1,2 or 3
     public void errorToastFalseLayout() {
         Toast.makeText(mActivity, "Unerwartetes Layout", Toast.LENGTH_SHORT).show();
+    }
+
+
+    //method that computes the next due activity and the correct layout type that belongs to it, then this activitiy is started
+    public void startNextActivity() throws InvalidQuestionTypeLayoutException {
+        int dueChallengeNumber;
+
+        //delivers int value, to decide which Activity has to be started
+        dueChallengeNumber = otherDueChallenges();
+
+        //it depends on the layout-type of the next due challenge, which activity is to be started next
+        //Switch-Statement determines which layout has to be started and which data have to be sent
+        switch (dueChallengeNumber) {
+            //no other challenge is due
+            case 0:
+                Navigation.startActivityFinalEndOfChallenges(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile());
+                break;
+            //a challenge of type ChallengeFreeAnswer is due
+            case 1:
+                //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
+                mData.incrementChallengeIdByOne();
+                Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
+                break;
+            //a challenge of type ChallengeImagineAnser is due
+            case 2:
+                //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
+                mData.incrementChallengeIdByOne();
+                Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
+                break;
+            //a challenge of type ChallengeMultipleChoice is due
+            case 3:
+                //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
+                mData.incrementChallengeIdByOne();
+                Navigation.startActivityChallengeMultipleChoice(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
+                break;
+            //Exception-Handling, if there is a int-value in "dueChallengeNumber" that is not 0,1,2 or 3
+            default:
+                throw new InvalidQuestionTypeLayoutException("FeedbackChallengeRest::ApplicationLogic::startNextActivity");
+        }
     }
 }

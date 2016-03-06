@@ -41,6 +41,4 @@ public class Gui {
     public Button getmButtonWasAnswerCorrect() {
         return mButtonWasAnswerCorrect;
     }
-
-    //Todo Pascal Heß: Maybe one could show a Toast after you clicked one of the buttons on this activity
 }

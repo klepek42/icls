@@ -59,17 +59,25 @@ public class ApplicationLogic {
         try {
             //the current user progress has to be updated (here it is a upgrade)
             updateUserProgress(isAnswerCorrect);
-
-            //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
-            mData.incrementChallengeIdByOne();
-
-            //checks whether there is a next activity that is to be started and starts the next activity with the correct layout type
-            startNextActivity();
         }
         //Exception-Handling, if there was a problem in finding the user progress
         catch (UserProgressNotFoundException e) {
-            Log.e("ICLS-LOG", "ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: ", e);
+            Log.e("ICLS-LOG", "FeedbackImagineAnswer::ApplicationLogic::onButtonWasAnswerCorrect: ", e);
             showErrorUnexpectedError();
+            Navigation.startActivityStartMenu(mActivity);
+        }
+
+        //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
+        mData.incrementChallengeIdByOne();
+
+        try {
+            //checks whether there is a next activity that is to be started and starts the next activity with the correct layout type
+            startNextActivity();
+        }
+        //Exception-Handling, if there is a problem with the layout type
+        catch (InvalidQuestionTypeLayoutException e) {
+            Log.e("ICLS-LOG", "FeedbackImagineAnswer::ApplicationLogic::onButtonWasAnswerCorrect: ", e);
+            errorToastFalseLayout();
             Navigation.startActivityStartMenu(mActivity);
         }
     }
@@ -82,23 +90,31 @@ public class ApplicationLogic {
         try {
             //the current user progress has to be updated (here it is a downgrade)
             updateUserProgress(isAnswerCorrect);
-
-            //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
-            mData.incrementChallengeIdByOne();
-
-            //checks whether there is a next activity that is to be started and starts the next activity with the correct layout type
-            startNextActivity();
         }
         //Exception-Handling, if there was a problem in finding the user progress
         catch (UserProgressNotFoundException e){
-            Log.e("ICLS-LOG", "ChallengeFreeAnswer::ApplicationLogic::onButtonConfirmFreeAnswerClicked: ", e);
+            Log.e("ICLS-LOG", "FeedbackImagineAnswer::ApplicationLogic::onButtonWasAnswerWrong: ", e);
             showErrorUnexpectedError();
+            Navigation.startActivityStartMenu(mActivity);
+        }
+
+        //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
+        mData.incrementChallengeIdByOne();
+
+        try {
+            //checks whether there is a next activity that is to be started and starts the next activity with the correct layout type
+            startNextActivity();
+        }
+        //Exception-Handling, if there is a problem with the layout type
+        catch (InvalidQuestionTypeLayoutException e) {
+            Log.e("ICLS-LOG", "FeedbackImagineAnswer::ApplicationLogic::onButtonWasAnswerWrong: ", e);
+            errorToastFalseLayout();
             Navigation.startActivityStartMenu(mActivity);
         }
     }
 
     //method that computes the next due activity and the correct layout type that belongs to it, then this activitiy is started
-    public void startNextActivity() {
+    public void startNextActivity() throws InvalidQuestionTypeLayoutException {
         int dueChallengeNumber;
 
         //delivers int value, to decide which Activity has to be started
@@ -125,11 +141,7 @@ public class ApplicationLogic {
                 break;
             //Exception-Handling, if there is a int-value in "dueChallengeNumber" that is not 0,1,2 or 3
             default:
-                // Max: Ich benutze die Zeile hier bei ChooseFile und einem ungültigen Layout-Typ (s. ChooseFile::ApplicationLogic::onButtonStartLearningClicked)
-                // default: throw new InvalidQuestionTypeLayoutException("FeedbackChallengeRest::ApplicationLogic::onButtonContinue");
-
-                //Todo: Error-Handling has to be implemented - throw exception
-                //Todo: FeedbackChallengeRest outsource this function as well?!
+                throw new InvalidQuestionTypeLayoutException("FeedbackImagineAnswer::ApplicationLogic::startNextActivity");
         }
     }
 
@@ -213,5 +225,10 @@ public class ApplicationLogic {
         Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
     }
 
-    //Todo: Implement method "errorToastFalseLayout" as well?! (--> FeedbackChallengeRest:ApplicationLogic)
+
+    //Error-Handling for the false next activity-layout
+    //it starts, when the int-value of the layout type is not 0,1,2 or 3
+    public void errorToastFalseLayout() {
+        Toast.makeText(mActivity, "Unerwartetes Layout", Toast.LENGTH_SHORT).show();
+    }
 }
