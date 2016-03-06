@@ -28,12 +28,12 @@ public class ApplicationLogic {
         mGui.setTextFieldFileNameText(mData.getChosenFile().getmName());
         mGui.setTextFieldNumberAllChallenges(String.valueOf(mData.getNumberAllChallenges()));
         mGui.setTextFieldNumberDueChallenges(String.valueOf(mData.getNumberDueChallenges()));
-        mGui.setTextFieldNumberOfClass1(String.valueOf(mData.getNumberOfClass1()));
-        mGui.setTextFieldNumberOfClass2(String.valueOf(mData.getNumberOfClass2()));
-        mGui.setTextFieldNumberOfClass3(String.valueOf(mData.getNumberOfClass3()));
-        mGui.setTextFieldNumberOfClass4(String.valueOf(mData.getNumberOfClass4()));
-        mGui.setTextFieldNumberOfClass5(String.valueOf(mData.getNumberOfClass5()));
-        mGui.setTextFieldNumberOfClass6(String.valueOf(mData.getNumberOfClass6()));
+        mGui.setTextFieldNumberOfClass1(String.valueOf(mData.getNumberOfClass(1)));
+        mGui.setTextFieldNumberOfClass2(String.valueOf(mData.getNumberOfClass(2)));
+        mGui.setTextFieldNumberOfClass3(String.valueOf(mData.getNumberOfClass(3)));
+        mGui.setTextFieldNumberOfClass4(String.valueOf(mData.getNumberOfClass(4)));
+        mGui.setTextFieldNumberOfClass5(String.valueOf(mData.getNumberOfClass(5)));
+        mGui.setTextFieldNumberOfClass6(String.valueOf(mData.getNumberOfClass(6)));
     }
 
     // onClickListener: Go to the activity chooseFile
