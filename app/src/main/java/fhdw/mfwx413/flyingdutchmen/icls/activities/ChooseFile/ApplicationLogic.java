@@ -3,6 +3,7 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
+import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IndexCardNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutException;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
@@ -53,7 +54,7 @@ public class ApplicationLogic {
     }
 
     // starts the calculation of due challenges and transmits it to the statistic activity
-    public void onButtonStatisticsClicked() throws ParseException, IdNotFoundException, UserProgressNotFoundException {
+    public void onButtonStatisticsClicked() throws ParseException, IndexCardNotFoundException, UserProgressNotFoundException, IdNotFoundException {
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
         mChallengesCurrentIndexCard = mData.getChallengesForSelectedIndexCard();
         // In case that there are IndexCards but no questions assigned
@@ -83,7 +84,7 @@ public class ApplicationLogic {
     }
 
     // starts the calculation of due challenges and transmits it to the next activity
-    public void onButtonStartLearningClicked() throws ParseException, IdNotFoundException, InvalidQuestionTypeLayoutException {
+    public void onButtonStartLearningClicked() throws ParseException, IndexCardNotFoundException, InvalidQuestionTypeLayoutException, IdNotFoundException {
         int mQuestionTypeLayout;
         mData.setCurrentIndexCard(mData.getAllIndexCards().getIndexCardByName(mSelectedIndexCard));
 

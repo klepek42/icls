@@ -7,8 +7,8 @@ import java.io.Serializable;
  */
 public class IndexCard implements Serializable{
 
-    private int mID;
-    private String mName;
+    private final int mID;
+    private final String mName;
 
     public IndexCard(int mID, String mName) {
         this.mID = mID;
@@ -19,15 +19,7 @@ public class IndexCard implements Serializable{
         return mName;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
-    }
-
     public int getmID() {
         return mID;
-    }
-
-    public void setmID(int mID) {
-        this.mID = mID;
     }
 }

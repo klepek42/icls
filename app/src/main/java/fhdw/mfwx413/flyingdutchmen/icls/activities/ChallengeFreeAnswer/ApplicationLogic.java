@@ -13,7 +13,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 /**
  * Responsibility: Jonas Krabs
  */
-//Todo Jonas: Alle Klassen mit Verantwortlichkeit vernünftig kommentieren
 public class ApplicationLogic {
 
     private final Data mData;

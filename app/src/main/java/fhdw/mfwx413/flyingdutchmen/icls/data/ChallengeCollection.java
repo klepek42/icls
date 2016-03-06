@@ -40,7 +40,7 @@ public class ChallengeCollection implements Serializable{
             }
         }
         if (foundChallenge.getmID() == -1){
-            //if there was no challenge found, whose id fits to the key the method throws an exception
+            //if there was no challenge found whose id fits to the key the method throws an exception
             throw new IdNotFoundException("ChallengeCollection::getChallengeByKey: Ungültiger Wert für Key: " + key);
         }
 

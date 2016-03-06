@@ -6,12 +6,11 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
  * Responsibility Jonas Krabs
- * this class provides the IndexCards in Form of an IndexCardCollection
- * It converts the Strings from the csv-File into the Java-Structure IndexCard
  * */
 
 public class IndexCardDatabase {
 
+    //get all IndexCards from csv
     public static IndexCardCollection getIndexCards() {
 
         IndexCardCollection allIndexCards;
