@@ -111,18 +111,22 @@ public class Data {
 
     // Checks for duplicate IndexCards that could cause errors later in application
     public boolean checkForDuplicates() throws IdNotFoundException {
-        int index=1;
+        int index=0;
         int counter;
         String mCacheIndexCard;
         String mCheckIndexCard;
         boolean duplicate=false;
 
+        // If only one record exists, there can not be any duplicates
         if(mAllIndexCards.getSize()>1){
+            // Gets the name of index card as a reference index card
             while(index<mAllIndexCards.getSize()){
-                mCacheIndexCard = mAllIndexCards.getIndexCardByKey(index).getmName();
+                mCacheIndexCard = mAllIndexCards.get(index).getmName();
                 counter=index+1;
+                // compares the reference index card with every following record in the index card list
                 while(counter<=mAllIndexCards.getSize()) {
-                    mCheckIndexCard = mAllIndexCards.getIndexCardByKey(counter).getmName();
+                    mCheckIndexCard = mAllIndexCards.get(counter).getmName();
+                    // If a duplicate was found the return value becomes true
                     if(mCacheIndexCard.equals(mCheckIndexCard)){
                         duplicate = true;
                     }
@@ -144,7 +148,7 @@ public class Data {
     }
 
     /**
-     * Start of methods to calculate due Challenges. Methods are called in ApplicationLogic at onButtonStartLearningClicked
+     * Start of methods to calculate due challenges. Methods are called in ApplicationLogic at onButtonStartLearningClicked respectively onButtonStatisticsClicked.
      */
 
     // I. -> Get ChallengeCollection with current Index Card out of all Challenges and save them as a new ChallengeCollection L1
