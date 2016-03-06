@@ -80,7 +80,7 @@ public class Data {
 
     // Count the number of all existing challenges of the current file
     public int getNumberAllChallenges() {
-        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        mAllChallenges = ChallengeDatabase.getAllChallenges();
         for(int i = 0; i < mAllChallenges.getSize(); i++) {
             Challenge mChallenge = mAllChallenges.getChallenge(i);
             if(mChallenge.getmIndexCard().getmID() == mChosenFile.getmID()) {
@@ -98,7 +98,7 @@ public class Data {
     // Get all challenges with class 1 from progress_username.csv
     public int getNumberOfClass1() {
         // Get all challenges
-        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        mAllChallenges = ChallengeDatabase.getAllChallenges();
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
         // Go through all challenges and give a collection with all challenges matching with the index
@@ -128,7 +128,7 @@ public class Data {
     // Get all challenges with class 2 from progress_username.csv
     public int getNumberOfClass2() {
         // Get all challenges
-        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        mAllChallenges = ChallengeDatabase.getAllChallenges();
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
         // Go through all challenges and give a collection with all challenges matching with the index
@@ -158,7 +158,7 @@ public class Data {
     // Get all challenges with class 3 from progress_username.csv
     public int getNumberOfClass3() {
         // Get all challenges
-        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        mAllChallenges = ChallengeDatabase.getAllChallenges();
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
         // Go through all challenges and give a collection with all challenges matching with the index
@@ -188,7 +188,7 @@ public class Data {
     // Get all challenges with class 4 from progress_username.csv
     public int getNumberOfClass4() {
         // Get all challenges
-        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        mAllChallenges = ChallengeDatabase.getAllChallenges();
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
         // Go through all challenges and give a collection with all challenges matching with the index
@@ -218,7 +218,7 @@ public class Data {
     // Get all challenges with class 5 from progress_username.csv
     public int getNumberOfClass5() {
         // Get all challenges
-        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        mAllChallenges = ChallengeDatabase.getAllChallenges();
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
         // Go through all challenges and give a collection with all challenges matching with the index
@@ -248,7 +248,7 @@ public class Data {
     // Get all challenges with class 6 from progress_username.csv
     public int getNumberOfClass6() {
         // Get all challenges
-        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        mAllChallenges = ChallengeDatabase.getAllChallenges();
         ChallengeCollection challengesFromIndex = new ChallengeCollection();
 
         // Go through all challenges and give a collection with all challenges matching with the index

@@ -20,7 +20,7 @@ public class IndexCardCollection {
 
     //method requires the id of a concrete indexCard as key
     //this is not the id of the current indexCardCollection but the id, that is deposit in the csv
-    public IndexCard getIndexCard (int key) throws IdNotFoundException {
+    public IndexCard getIndexCardByKey(int key) throws IdNotFoundException {
         int i;
         IndexCard foundIndexCard;
         foundIndexCard = new IndexCard(-1,"");
@@ -34,7 +34,7 @@ public class IndexCardCollection {
         }
 
         if (foundIndexCard.getmID() == -1){
-            throw new IdNotFoundException("IndexCardCollection::getIndexCard: Ungültiger Key für IndexCard: " + key);
+            throw new IdNotFoundException("IndexCardCollection::getIndexCardByKey: Ungültiger Key für IndexCard: " + key);
         }
 
         return foundIndexCard;

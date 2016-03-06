@@ -9,14 +9,14 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeExcep
  */
 public class Challenge implements Serializable{
 
-    private int mID;
-    private String mQuestiontext;
-    private String mAnswerOne;
-    private String mAnswerTwo;
-    private String mAnswerThree;
-    private int mCorrectAnswer;
-    private int mQuestionTypeLayout;
-    private IndexCard mIndexCard;
+    private final int mID;
+    private final String mQuestiontext;
+    private final String mAnswerOne;
+    private final String mAnswerTwo;
+    private final String mAnswerThree;
+    private final int mCorrectAnswer;
+    private final int mQuestionTypeLayout;
+    private final IndexCard mIndexCard;
 
     public Challenge(int mID, String mQuestiontext, String mAnswerOne, String mAnswerTwo, String mAnswerThree, int mCorrectAnswer, int mQuestionTypeLayout, IndexCard mIndexCard) {
         this.mID = mID;
@@ -33,74 +33,40 @@ public class Challenge implements Serializable{
         return mID;
     }
 
-    public void setmID(int mID) {
-        this.mID = mID;
-    }
-
     public String getmQuestiontext() {
         return mQuestiontext;
-    }
-
-    public void setmQuestiontext(String mQuestiontext) {
-        this.mQuestiontext = mQuestiontext;
     }
 
     public String getmAnswerOne() {
         return mAnswerOne;
     }
 
-    public void setmAnswerOne(String mAnswerOne) {
-        this.mAnswerOne = mAnswerOne;
-    }
-
     public String getmAnswerTwo() {
         return mAnswerTwo;
-    }
-
-    public void setmAnswerTwo(String mAnswerTwo) {
-        this.mAnswerTwo = mAnswerTwo;
     }
 
     public String getmAnswerThree() {
         return mAnswerThree;
     }
 
-    public void setmAnswerThree(String mAnswerThree) {
-        this.mAnswerThree = mAnswerThree;
-    }
-
     public int getmCorrectAnswer() {
         return mCorrectAnswer;
-    }
-
-    public void setmCorrectAnswer(int mCorrectAnswer) {
-        this.mCorrectAnswer = mCorrectAnswer;
     }
 
     public int getmQuestionTypeLayout() {
         return mQuestionTypeLayout;
     }
 
-    public void setmQuestionTypeLayout(int mQuestionTypeLayout) {
-        this.mQuestionTypeLayout = mQuestionTypeLayout;
-    }
-
     public IndexCard getmIndexCard() {
         return mIndexCard;
-    }
-
-    public void setmIndexCard(IndexCard mIndexCard) {
-        this.mIndexCard = mIndexCard;
     }
 
     // Pascal Heß 25.02.2016
     // Method, that delivers the String of the correct answer
     // is used in both Feedback-Application-Logic-Classes
-
     public String getmCorrectAnswerString() throws InvalidCorrectAnswerTypeException{
-        String stringCorrectAnswer = null;
+        String stringCorrectAnswer;
 
-        //Switch-Statement is not correct! --> ChallengeFreeAnswer/ApplicationLogic
         switch (mCorrectAnswer){
             // if one, answer one is correct
             case 1:
@@ -115,7 +81,7 @@ public class Challenge implements Serializable{
                 stringCorrectAnswer = this.mAnswerOne;
                 stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerTwo);
                 break;
-            //if four, three is correct
+            //if four, answer three is correct
             case 4:
                 stringCorrectAnswer = this.mAnswerThree;
                 break;
@@ -136,6 +102,7 @@ public class Challenge implements Serializable{
                 stringCorrectAnswer = stringCorrectAnswer.concat(", ").concat(this.mAnswerThree);
                 break;
             default:
+                //if there is another value than 1-7 the value is invalid and the method throws an exception
                 throw new InvalidCorrectAnswerTypeException("Challenge::getmCorrectAnswerString: Ungültiger Wert für CorrectAnswer: " + mCorrectAnswer);
         }
         return stringCorrectAnswer;

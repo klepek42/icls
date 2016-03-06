@@ -91,7 +91,7 @@ public class ApplicationLogic{
     //if there was a change on the csv
     //if there was a change the userprogresses have to be updated
     public void checkUserProgresses(){
-        ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges(context);
+        ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges();
         UserProgressCollection userProgresses = UserProgressDatabase.getUserProgresses(context, mData.getCurrentUser().getName());
         boolean userProgressesHaveToBeUpdated = false;
 

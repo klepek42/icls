@@ -1,6 +1,5 @@
 package fhdw.mfwx413.flyingdutchmen.icls.data;
 
-import android.content.Context;
 import android.util.Log;
 import java.util.List;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
@@ -8,15 +7,15 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
  * Responsibility Jonas Krabs
- * this class provides the Challenges in Form of a ChallengeCollection
- * It converts the Strings from the csv-File into the Java-Structure Challenge
  * */
 public class ChallengeDatabase {
 
     //the challengeDatabase is based on an already imported list of indexCards
+    @SuppressWarnings("FieldCanBeLocal")
     private static IndexCardCollection allIndexCards;
 
-    public static ChallengeCollection getAllChallenges(Context context){
+    //get all challenges from csv
+    public static ChallengeCollection getAllChallenges(){
 
         //import all indexCards
         allIndexCards = IndexCardDatabase.getIndexCards();
@@ -30,7 +29,7 @@ public class ChallengeDatabase {
         // output ist a List<String[]>
         StringCollectionFromCSV = csvImport.importChallengeCsv();
 
-        // converting the List<String[]> into a ChallengeCollection
+        // convert the List<String[]> into a ChallengeCollection
         for (int i = 0; i < StringCollectionFromCSV.size(); i++) {
             try {
                 allChallenges.addChallenge(
@@ -42,7 +41,7 @@ public class ChallengeDatabase {
                                 StringCollectionFromCSV.get(i)[4],
                                 Integer.parseInt(StringCollectionFromCSV.get(i)[5]),
                                 Integer.parseInt(StringCollectionFromCSV.get(i)[6]),
-                                allIndexCards.getIndexCard(Integer.parseInt(StringCollectionFromCSV.get(i)[7]))));
+                                allIndexCards.getIndexCardByKey(Integer.parseInt(StringCollectionFromCSV.get(i)[7]))));
             }
             catch (IdNotFoundException e){
                 Log.e("ICLS-ERROR", "ChallengeDatabase::getAllChallenges: ", e);

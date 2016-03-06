@@ -147,7 +147,7 @@ public class Init extends Activity {
     //create a userprogress.csv file for each user and save it in app folder
     private void createUserProgresses() {
         UserCollection allUsers = UserDatabase.getAllUser(this);
-        ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges(this);
+        ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges();
 
         for(int i = 0; i < allUsers.getSize(); i++) {
             UserProgressCollection userProgressCollection = new UserProgressCollection();

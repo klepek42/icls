@@ -74,7 +74,7 @@ public class Data {
         // collects all the existing index cards from IndexCardsDatabase
         mAllIndexCards = IndexCardDatabase.getIndexCards();
         // collects all the existing challenges from ChallengeDatabase
-        mAllChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+        mAllChallenges = ChallengeDatabase.getAllChallenges();
     }
 
     public void saveDataFromBundle(Bundle savedInstanceState) {
@@ -119,10 +119,10 @@ public class Data {
 
         if(mAllIndexCards.getSize()>1){
             while(index<mAllIndexCards.getSize()){
-                mCacheIndexCard = mAllIndexCards.getIndexCard(index).getmName();
+                mCacheIndexCard = mAllIndexCards.getIndexCardByKey(index).getmName();
                 counter=index+1;
                 while(counter<=mAllIndexCards.getSize()) {
-                    mCheckIndexCard = mAllIndexCards.getIndexCard(counter).getmName();
+                    mCheckIndexCard = mAllIndexCards.getIndexCardByKey(counter).getmName();
                     if(mCacheIndexCard.equals(mCheckIndexCard)){
                         duplicate = true;
                     }

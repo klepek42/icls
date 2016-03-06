@@ -14,7 +14,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressDatabase;
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
-import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 
 /**
  * Responsibility: Luisa Leifer
@@ -66,7 +65,7 @@ public class ApplicationLogic {
                     UserDatabase.writeAllUsers(mActivity, uc);
 
                     // create UserProgress File for User
-                    ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges(mActivity);
+                    ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges();
 
                     UserProgressCollection userProgressCollection = new UserProgressCollection();
 

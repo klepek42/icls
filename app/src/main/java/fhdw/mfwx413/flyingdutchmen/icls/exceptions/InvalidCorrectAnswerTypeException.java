@@ -1,7 +1,7 @@
 package fhdw.mfwx413.flyingdutchmen.icls.exceptions;
 
 /**
- * Created by Krabs on 26.02.2016.
+ * Responsibility: Jonas Krabs
  */
 public class InvalidCorrectAnswerTypeException extends Exception {
 
