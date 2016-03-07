@@ -104,7 +104,7 @@ public class ApplicationLogic {
 
     //start activity ChooseFile and send required data
     public void goBackToChooseFile() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
     }
 
     //for the user it is not important to have detailed information about the error

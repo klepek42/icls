@@ -77,7 +77,7 @@ public class ApplicationLogic {
 
                     //Navigation to ChooseFile
                     mData.setmCurrentUser(mData.getmAllUsers().getUser(givenUser));
-                    Navigation.startActivityChooseFile(mData.getActivity(), mData.getmGivenUser());
+                    Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmGivenUser());
                 }
                 else {
                     Toast.makeText(mData.getActivity(), "Username bereits vorhanden!", Toast.LENGTH_LONG).show();

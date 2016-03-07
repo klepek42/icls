@@ -213,7 +213,7 @@ public class ApplicationLogic{
                 //store periods permanently
                 updateUserCollection(chosenPeriodClass1Int,chosenPeriodClass2Int,chosenPeriodClass3Int,chosenPeriodClass4Int,chosenPeriodClass5Int,chosenPeriodClass6Int);
                 Toast.makeText(mData.getActivity(), "Die Werte wurden gespeichert!", Toast.LENGTH_SHORT).show();
-                Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+                Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
             } catch (UserNotFoundException e) {
                 Log.e("ICLS-LOG", "SettingsMenu::ApplicationLogic::onButtonConfirmSettingsClicked: ", e);
                 showErrorUnexpectedError();
@@ -303,7 +303,7 @@ public class ApplicationLogic{
 
 
     public void goBackToChooseFile() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
         Toast.makeText(mData.getActivity(), "Abgebrochen und nichts gespeichert.", Toast.LENGTH_SHORT).show();
     }
 
@@ -316,7 +316,7 @@ public class ApplicationLogic{
           //store periods permanently
             updateUserCollection(Constants.PERIOD_CLASS_1,Constants.PERIOD_CLASS_2,Constants.PERIOD_CLASS_3,Constants.PERIOD_CLASS_4,Constants.PERIOD_CLASS_5,Constants.PERIOD_CLASS_6);
             Toast.makeText(mData.getActivity(), "Zu default-Werten zurückgesetzt!", Toast.LENGTH_SHORT).show();
-            Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+            Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
         } catch (UserNotFoundException e) {
             Log.e("ICLS-LOG", "SettingsMenu::ApplicationLogic::onButtonSetSettingsDefaultClicked: ", e);
             showErrorUnexpectedError();

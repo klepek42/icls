@@ -53,7 +53,7 @@ public class ApplicationLogic{
     public void onButtonConfirmUserClicked() throws IdNotFoundException {
         mData.setCurrentUser(mData.getAllUsers().getUser(mSelectedName));
         checkUserProgresses();
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
     }
 
     /**

@@ -38,7 +38,7 @@ public class ApplicationLogic {
 
     // onClickListener: Go to the activity chooseFile
     public void onButtonBackToChooseFileClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getChosenUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getChosenUser());
     }
 
     // onClickListener: Start the learning mode and decide which challenge activity has to be started

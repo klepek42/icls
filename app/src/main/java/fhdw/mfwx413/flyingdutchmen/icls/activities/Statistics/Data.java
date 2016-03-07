@@ -37,7 +37,7 @@ public class Data {
             intent = mActivity.getIntent();
             mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_INDEX_CARD);
-            mDueChallenges = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE);
+            mDueChallenges = (ChallengeCollection) intent.getSerializableExtra(Constants.KEY_PARAM_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD);
             mCurrentUserUserProgresses = UserProgressDatabase.getUserProgresses(mActivity, mChosenUser.getName());
         }
         else{
@@ -50,7 +50,7 @@ public class Data {
     public void saveDataFromBundle(Bundle bundle) {
         bundle.putSerializable(Constants.BUNDLE_KEY_CHOSEN_USER, mChosenUser);
         bundle.putSerializable(Constants.BUNDLE_KEY_CHOSEN_INDEX_CARD, mChosenFile);
-        bundle.putSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE, mDueChallenges);
+        bundle.putSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD, mDueChallenges);
         bundle.putSerializable(Constants.BUNDLE_KEY_USER_PROGRESS_CURRENT_USER, mCurrentUserUserProgresses);
     }
 
@@ -58,7 +58,7 @@ public class Data {
     public void restoreDataFromBundle(Bundle bundle) {
         mChosenUser = (User) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_USER);
         mChosenFile = (IndexCard) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_INDEX_CARD);
-        mDueChallenges = (ChallengeCollection) bundle.getSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE);
+        mDueChallenges = (ChallengeCollection) bundle.getSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD);
         mCurrentUserUserProgresses = (UserProgressCollection) bundle.getSerializable(Constants.BUNDLE_KEY_USER_PROGRESS_CURRENT_USER);
     }
 

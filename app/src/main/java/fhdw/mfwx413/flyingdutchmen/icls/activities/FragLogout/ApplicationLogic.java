@@ -30,7 +30,7 @@ public class ApplicationLogic {
 
     // calls the activity choose File and transmits the selected user from spinner as the current user
     public void onStandardBackButtonClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
     }
 
     // calls the activity start Menu. No data needs to be transmitted
@@ -40,6 +40,6 @@ public class ApplicationLogic {
 
     // calls the activity choose File and transmits the selected user from spinner as the current user
     public void onButtonDenyLogoutClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
     }
 }

@@ -47,7 +47,7 @@ public class ApplicationLogic {
         catch (InvalidCorrectAnswerTypeException e){
             Log.e("ICLS-ERROR", "FeedbackImagineAnswer::ApplicationLogic::initialUpdateGui ", e);
             Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
-            Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+            Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
         }
     }
 

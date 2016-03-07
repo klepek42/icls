@@ -127,7 +127,7 @@ public class ApplicationLogic {
 
 
     public void goBackToChooseFile(){
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
     }
 
     public void showErrorUnexpectedError(){

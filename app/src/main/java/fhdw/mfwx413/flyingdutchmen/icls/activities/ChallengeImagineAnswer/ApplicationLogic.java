@@ -37,7 +37,7 @@ public class ApplicationLogic {
 
     // Back button goes to activity ChooseFile
     public void onButtonAbortClicked(){
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getChosenUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getChosenUser());
     }
 
 }

@@ -28,7 +28,7 @@ public class Constants {
     public static final String DEFAULT_TIMESTAMP = "2000.01.01.00.00.00";
 
     //Constants for navigation between activities
-    public static final String KEY_PARAM_DUE_CHALLENGES_OF_USER_IN_FILE = "P1";
+    public static final String KEY_PARAM_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD = "P1";
     public static final String KEY_PARAM_CURRENT_CHALLENGE_ID = "P2";
     public static final String KEY_PARAM_CHOSEN_USER = "P3";
     public static final String KEY_PARAM_CHOSEN_INDEX_CARD = "P4";
@@ -37,7 +37,7 @@ public class Constants {
 
     //Constants for Bundles
     public static final String BUNDLE_KEY_CURRENT_CHALLENGE_ID = "K1";
-    public static final String BUNDLE_KEY_DUE_CHALLENGES_OF_USER_IN_FILE = "K2";
+    public static final String BUNDLE_KEY_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD = "K2";
     public static final String BUNDLE_KEY_CHOSEN_USER = "K3";
     public static final String BUNDLE_KEY_CHOSEN_INDEX_CARD = "K4";
     public static final String BUNDLE_KEY_IS_ANSWER_CORRECT = "K5";

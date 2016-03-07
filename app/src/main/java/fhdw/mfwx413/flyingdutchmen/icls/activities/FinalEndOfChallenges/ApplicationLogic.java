@@ -30,7 +30,7 @@ public class ApplicationLogic {
     public void onButtonBackToChooseFileClicked(){
 
         //call the ChooseFile-Activity and send the required data
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
 
     }
 

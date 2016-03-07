@@ -53,7 +53,7 @@ public class ApplicationLogic {
         catch (InvalidCorrectAnswerTypeException e){
             Log.e("ICLS-ERROR", "FeedbackChallengeRest::ApplicationLogic::initialUpdateGui ", e);
             Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
-            Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+            Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
         }
     }
 
@@ -75,13 +75,13 @@ public class ApplicationLogic {
 
     //method that is invoked, if the abort button is clicked
     public void onButtonAbortClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
     }
 
 
     //method that is invoked, if the standard back button (on the phone or tablet) is clicked
     public void onStandardBackButtonClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getmChosenUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
     }
 
 

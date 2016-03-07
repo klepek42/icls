@@ -27,10 +27,10 @@ public class ApplicationLogic {
     }
 
     public void onStandardBackButtonClicked() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
     }
 
     public void onButtonOk2Clicked() {
-        Navigation.startActivityChooseFile(mData.getActivity(), mData.getCurrentUser());
+        Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
     }
 }
