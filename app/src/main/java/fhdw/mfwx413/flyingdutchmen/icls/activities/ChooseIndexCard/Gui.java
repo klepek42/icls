@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseIndexCard;
 
 import android.app.Activity;
 import android.widget.Button;

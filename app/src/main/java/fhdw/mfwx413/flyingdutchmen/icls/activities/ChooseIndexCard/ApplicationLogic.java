@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseIndexCard;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;

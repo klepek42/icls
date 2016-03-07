@@ -35,7 +35,7 @@
         <activity android:name=".activities.ChallengeFreeAnswer.Init" />
         <activity android:name=".activities.ChallengeMultipleChoice.Init" />
         <activity android:name=".activities.ChallengeImagineAnswer.Init" />
-        <activity android:name=".activities.ChooseFile.Init" />
+        <activity android:name=".activities.ChooseIndexCard.Init" />
         <activity android:name=".activities.EditUser.Init" />
         <activity android:name=".activities.FeedbackChallengeRest.Init" />
         <activity android:name=".activities.FeedbackImagineAnswer.Init" />

@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseFile;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.ChooseIndexCard;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -124,7 +124,7 @@ public class Data {
                 mCacheIndexCard = mAllIndexCards.get(index).getmName();
                 counter=index+1;
                 // compares the reference index card with every following record in the index card list
-                while(counter<=mAllIndexCards.getSize()) {
+                while(counter<mAllIndexCards.getSize()) {
                     mCheckIndexCard = mAllIndexCards.get(counter).getmName();
                     // If a duplicate was found the return value becomes true
                     if(mCacheIndexCard.equals(mCheckIndexCard)){
