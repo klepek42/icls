@@ -140,11 +140,11 @@ public class Data {
 
     // Checks if any IndexCard records exist
     public boolean checkForRecords() {
-        boolean recordsExist = false;
+        boolean recordsDoNotExist = false;
         if(mAllIndexCards.getSize() == 0) {
-            recordsExist = true;
+            recordsDoNotExist = true;
         }
-        return recordsExist;
+        return recordsDoNotExist;
     }
 
     /**
