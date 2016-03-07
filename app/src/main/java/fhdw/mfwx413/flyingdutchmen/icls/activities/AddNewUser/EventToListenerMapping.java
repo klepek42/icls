@@ -13,6 +13,7 @@ public class EventToListenerMapping implements View.OnClickListener {
 
     public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
         mApplicationLogic = applicationLogic;
+        // equip the gui elements with listeners
         gui.getmButtonAbortNewUser().setOnClickListener(this);
         gui.getmButtonSaveNewUser().setOnClickListener(this);
     }
@@ -20,13 +21,15 @@ public class EventToListenerMapping implements View.OnClickListener {
     @Override
     public void onClick(View v){
         switch (v.getId()) {
+            // calling the methods in ApplicationLogic depending on which button was clicked
             case R.id.buttonAbortNewUser:
                 mApplicationLogic.onButtonAbortNewUserClicked();
                 break;
             case R.id.buttonSaveNewUser:
                 try {
                     mApplicationLogic.onButtonSaveNewUserClicked();
-                } catch (IdNotFoundException e) {
+                }
+                catch (IdNotFoundException e) {
                     e.printStackTrace();
                 }
                 break;

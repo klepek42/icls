@@ -19,6 +19,7 @@ public class Gui {
 
 
     public Gui(Activity activity) {
+        //set Gui elements
         activity.setContentView(R.layout.layout_add_new_user);
         mTextFieldCreateUser = (TextView) activity.findViewById(R.id.textFieldQuestion);
         mNameOfUser = (EditText) activity.findViewById(R.id.nameOfUser);

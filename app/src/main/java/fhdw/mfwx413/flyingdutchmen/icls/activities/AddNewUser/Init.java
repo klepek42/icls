@@ -24,23 +24,27 @@ public class Init extends Activity {
         initEventToListenerMapping();
     }
 
+    // initialize the ApplicationLogic
     private void initApplicationLogic(){
         mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
+    // initialize the EventToListenerMapping
     private void initEventToListenerMapping() {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }
 
+    // initialize the Gui
     private void initGui() {
         mGui = new Gui(this);
     }
 
+    // initialize the Data
     private void initData(){
         mData = new Data(this);
     }
 
-    // Back to layout_start_menu (back button)
+    // back to activity StartMenu (back button)
     @Override
     public void onBackPressed() {
         Navigation.startActivityStartMenu(mData.getActivity());

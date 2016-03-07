@@ -19,6 +19,7 @@ public class EventToListenerMapping implements View.OnClickListener {
     @Override
     public void onClick(View v){
         switch (v.getId()) {
+            // calling the methods in ApplicationLogic depending on which button was clicked
             case R.id.buttonBackToChooseFile:
                 mApplicationLogic.onButtonBackToChooseFileClicked();
                 break;

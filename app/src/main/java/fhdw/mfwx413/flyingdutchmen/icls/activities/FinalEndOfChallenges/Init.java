@@ -24,34 +24,34 @@ public class Init extends Activity {
         initEventToListenerMapping();
     }
 
-    // Initialize the ApplicationLogic
+    // initialize the ApplicationLogic
     private void initApplicationLogic(){
         mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
-    // Initialize the EventToListenerMapping
+    // initialize the EventToListenerMapping
     private void initEventToListenerMapping() {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }
 
-    // Initialize the Gui
+    // initialize the Gui
     private void initGui() {
         mGui = new Gui(this);
     }
 
-    // Initialize the Data (with saved data)
+    // initialize the Data (with saved data)
     private void initData(Bundle savedInstanceState){
         mData = new Data(this, savedInstanceState);
     }
 
-    // Save data if activity stops
+    // save data if activity stops
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         mData.saveDataFromBundle(outState);
         super.onSaveInstanceState(outState);
     }
 
-    // Back to layout_choose_file (back button)
+    // back to activity ChooseIndexCard (back button)
     @Override
     public void onBackPressed() {
         mApplicationLogic.onButtonBackToChooseFileClicked();

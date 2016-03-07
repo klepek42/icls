@@ -29,10 +29,6 @@ public class Data {
         return mGivenUser;
     }
 
-    /*public UserCollection getmUserCollection() {
-        return mUserCollection;
-    }*/
-
     public UserCollection getmAllUsers() {
         return mAllUsers;
     }

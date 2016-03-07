@@ -26,20 +26,21 @@ public class ApplicationLogic {
 
     }
 
-    //method that is invoked if the back to choose file button is clicked
+    // method that is invoked if the back to choose file button is clicked
     public void onButtonBackToChooseFileClicked(){
 
-        //call the ChooseFile-Activity and send the required data
+        // call the ChooseFile-Activity and send the required data
         Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
 
     }
 
+    // method that is invoked if the statistics button is clicked
     public void onButtonStatisticsClicked() {
 
         // empty ChallengeCollection
         ChallengeCollection cc = new ChallengeCollection();
 
-        //call the Statistics-Activity and send the required data
+        // call the Statistics-Activity and send the required data
         Navigation.startActivityStatistics(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile(), cc);
 
     }

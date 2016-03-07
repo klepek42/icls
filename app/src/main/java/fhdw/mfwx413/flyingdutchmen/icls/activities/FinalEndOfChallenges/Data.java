@@ -26,25 +26,25 @@ public class Data {
         Intent intent;
 
         if(bundle == null) {
-            // First start of the activity
+            // first start of the activity
             intent = mActivity.getIntent();
             mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_INDEX_CARD);
         }
         else{
-            // Restore Data if bundle is filled
+            // restore data if bundle is filled
             restoreDataFromBundle(bundle);
         }
 
     }
 
-    //save data in bundle if activity stops
+    // save data in bundle if activity stops
     public void saveDataFromBundle(Bundle bundle) {
         bundle.putSerializable(KEY_CHOSEN_USER, mChosenUser);
         bundle.putSerializable(KEY_CHOSEN_FILE, mChosenFile);
     }
 
-    //restore data from given bundle
+    // restore data from given bundle
     public void restoreDataFromBundle(Bundle bundle) {
         mChosenUser = (User) bundle.getSerializable(KEY_CHOSEN_USER);
         mChosenFile = (IndexCard) bundle.getSerializable(KEY_CHOSEN_FILE);

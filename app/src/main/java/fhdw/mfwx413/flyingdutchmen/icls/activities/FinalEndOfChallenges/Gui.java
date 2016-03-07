@@ -17,6 +17,7 @@ public class Gui {
 
 
     public Gui(Activity activity) {
+        //set Gui elements
         activity.setContentView(R.layout.layout_final_end_of_challenges);
         mTextFieldNoChallengesLeft = (TextView) activity.findViewById(R.id.textFieldNoChallengesLeft);
         mButtonBackToChooseFile = (Button) activity.findViewById(R.id.buttonBackToChooseFile);

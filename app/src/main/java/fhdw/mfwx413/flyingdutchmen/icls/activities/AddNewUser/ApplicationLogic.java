@@ -32,11 +32,7 @@ public class ApplicationLogic {
     }
 
     private void initialUpdateGui() {
-        /*User user;
-        int currentUser;
 
-        currentUser = mData.getmCurrentUser();
-        user = mData.getmUserCollection().getAllUser(currentUser);*/
     }
 
     public void onButtonSaveNewUserClicked() throws IdNotFoundException {
@@ -47,16 +43,16 @@ public class ApplicationLogic {
         newUser.setCreateUser(givenUser);
 
         if (givenUser.isEmpty()){
-            //Toast --> no input
+            // Toast information --> no input
             Toast.makeText(mData.getActivity(), "Bitte einen Namen eingeben!", Toast.LENGTH_LONG).show();
         }
         else {
             if (givenUser.matches("[a-zA-Z]++")) {
-                //save new User and check if not exists
+                // save new User and check if not exists
                 UserCollection uc = mData.getmAllUsers();
 
                 if(uc.doesUserExist(newUser) == false) {
-                    //Toast accepted
+                    // Toast accepted
                     Toast.makeText(mData.getActivity(), "Username wurde akzeptiert!", Toast.LENGTH_LONG).show();
 
                     mData.getmAllUsers().addUser(newUser);
@@ -75,22 +71,24 @@ public class ApplicationLogic {
                     }
                     UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, givenUser, mActivity);
 
-                    //Navigation to ChooseFile
+                    // Navigation to ChooseFile
                     mData.setmCurrentUser(mData.getmAllUsers().getUser(givenUser));
                     Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmGivenUser());
                 }
                 else {
+                    // Toast rejekted --> username already exists
                     Toast.makeText(mData.getActivity(), "Username bereits vorhanden!", Toast.LENGTH_LONG).show();
                 }
 
             } else {
-                //Toast rejekted --> no special signs, no mutated vowels, no numbers
+                // Toast rejekted --> no special signs, no mutated vowels, no numbers
                 Toast.makeText(mData.getActivity(), "Der Username darf keine Leerzeichen, Umlaute, Sonderzeichen und Ziffern enthalten!", Toast.LENGTH_LONG).show();
             }
         }
     }
 
     public void onButtonAbortNewUserClicked(){
+        // Navigation to StartMenu
         Navigation.startActivityStartMenu(mData.getActivity());
     }
 }
