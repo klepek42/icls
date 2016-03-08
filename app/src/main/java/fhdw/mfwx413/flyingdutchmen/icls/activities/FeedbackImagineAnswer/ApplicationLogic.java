@@ -67,9 +67,6 @@ public class ApplicationLogic {
             Navigation.startActivityStartMenu(mActivity);
         }
 
-        //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
-        mData.incrementChallengeIdByOne();
-
         try {
             //checks whether there is a next activity that is to be started and starts the next activity with the correct layout type
             startNextActivity();
@@ -98,9 +95,6 @@ public class ApplicationLogic {
             Navigation.startActivityStartMenu(mActivity);
         }
 
-        //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
-        mData.incrementChallengeIdByOne();
-
         try {
             //checks whether there is a next activity that is to be started and starts the next activity with the correct layout type
             startNextActivity();
@@ -119,6 +113,9 @@ public class ApplicationLogic {
 
         //delivers int value, to decide which Activity has to be started
         dueChallengeNumber = otherDueChallenges();
+
+        //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
+        mData.incrementChallengeIdByOne();
 
         //it depends on the layout-type of the next due challenge, which activity is to be started next
         //Switch-Statement determines which layout has to be started and which data have to be sent
