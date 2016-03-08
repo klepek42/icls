@@ -1,5 +1,55 @@
-1;Was ist ein Seewolf?;Krebs;Nagetier;Fisch;4;3;3
-2;Wieviel Zähne umfasst das menschliche Gebiss?;32;;;1;1;3
-3;Wie heißt der Torwart der deutschen Nationalmanschaft?;Manuel Neuer;;;1;1;2
-4;Wie heißt der höchste Berg Europas;Mont Blanc;;;1;1;1
-5;Welches Musikfestival fand bis 2014 jährlich am Nürburgring statt?;Rock am Ring;;;1;1;5
+1;Wie viele Länder liegen zwischen Finnland und Nordkorea?;1;2;3;1;3;1
+2;Welche europäische Hauptstadt liegt auf demselben Breitengrad wie New York?;Rom;Madrid;Lissabon;7;1;1
+3;Wo liegt der höchste Berg der Niederlande?;Saba;Limburg;Sint Maarten;1;3;1
+4;Wie heißt die französisch-sprachige Bevölkerung Belgiens?;Flamen;Wallonen;Seelander;2;3;1
+5;Mit welcher Währung wird in Nordirland bezahlt?;Irische Pfund;Euro;Britische Pfund;4;3;1
+6;Welches ist das kleinste Land der Welt?;Vatikanstadt;;;1;2;1
+7;Durch welches Land fließt die Donau bevor sie in der Ukraine mündet?;Moldavien;;;1;1;1
+8;Welches Tier ist auf der Flagge Papua-Neuguineas abgebildet?;Paradiesvogel;;;1;1;1
+9;Nennen Sie einen gültigen Schwimmstil neben Freistil (Kraul) und Delphin.;Schmetterling;Brust;Rücken;7;1;6
+10;Wie heisst der berühmte deutsche Basketballspieler der Dallas Mavericks, Nowitzki, mit Vornamen?;Dirk;;;1;2;6
+11;Wie viele Personen sitzen in der größten Bootsklasse beim Rudern?;9;;;1;2;6
+12;Nennen Sie ein Jahr, in dem Deutschland Fußball-Weltmeister wurde, außer 2014.;1954;1974;1990;7;1;6
+13;Wie ist der Name des wohl bekanntesten Radrennens Frankreichs?;Tour de France;;;1;1;6
+14;Wie nennt man es, wenn beim Darts ein Triple-, Double- und Einfach-Feld derselben Zahl getroffen werden? ;Peking;Hong Kong;Shanghai;4;3;6
+15;Welcher dieser Tennisspieler ist der führende in der Weltrangliste?;Rafael Nadal;Novak Djokovic;Roger Federer;2;3;6
+16;"Wie lang ist die Distanz eines ""normalen"" Marathons in Metern?";42.195;;;1;1;6
+17;Von wem ist der Roman Tauben im Gras?;Wolfgang Koeppen;;;1;1;3
+18;In wie vielen Teilen wurde Faust veröffentlicht?;2;Zwei;;3;1;3
+19;Welche Werke sind von Schiller?;Kabale und Liebe;Wilhelm Tell;Die Räuber;7;3;3
+20;Warum haben im Jahr 1774 so viele Menschen Selbstmord begangen?;Die Leiden des jungen Werthers;;;1;2;3
+21;"Aus welchem Werk stammt ""Da steh ich nun ich armer Tor und bin so klug als wie zuvor.""?";Faust von Goethe;;;1;2;3
+22;Auf welchem Mythos baut Iphigenie auf Tauris auf?;Fluch der Tantaliden;Tantalidenfluch;Tantalos Fluch;7;2;3
+23;Welche dieser Dichter kommen aus Deutschland?;Goethe;Schiller;Loriot;7;3;3
+24;Welchen dieser Romane schrieb Thomas Mann?;Die Räuber;Die Buddenbrocks;Mario und der Zauberer;6;3;3
+25;Welches Musikfestival fand bis 2014 jährlich am Nürburgring statt?;Rock am Ring;;;1;1;4
+26;"Von welcher Band stammt das bekannte Trinklied ""Eisgekühlter Bommerlunder""?";Die Toten Hosen;;;1;1;4
+27;"Nennen Sie ein Mitglied der aktuellen Besetzung der Band ""Die Ärzte"".";Farin Urlaub;Bela B;Rodrigo González;7;1;4
+28;"Nennen Sie ein Blechblasinstrument, welches mit ""T"" beginnt.";Tenorhorn;Trompete;Tuba;7;1;4
+29;"Von welchem Komponist stammt die 9. Sinfonie in d-Moll, deren vierter Satz auch als ""Ode an die Freude"" bezeichnet wird?";Ludwig van Beethoven;;;1;2;4
+30;Die wievielte Strophe des Deutschlandliedes bildet die deutsche Nationalhymne?;Die dritte Strophe des Deutschlandliedes bildet die deutsche Nationalhymne.;;;1;2;4
+31;Die Querflöte ist ein…;Blechblasinstrument;Holzblasinstrument;elektronisches Musikinstrument;2;3;4
+32;Welches Instrument spielt der Konzertmeister?;Trompete;Flügel;Geige;4;3;4
+33;Wie lange ist der menschliche Darm im Durchschnitt (in Metern)?;3;8;14;2;3;5
+34;Wie alt ist die älteste bekannte Schildkröte geworden?;125;201;270;4;3;5
+35;Was ist ein Seewolf?;Fisch;Nagetier;Krebs;1;3;5
+36;Was braucht eine Pflanze zum Wachsen?;Wasser;Licht;Phosphor;7;2;5
+37;Wie lautet die lateinische Bezeichnung für Spinnentiere?;Arachnida;;;1;1;5
+38;Wieviel Zähne umfasst das menschliche Gebiss?;32;;;1;1;5
+39;Welches Organ ist das Größte des Menschen?;Haut;Darm;;3;1;5
+40;Was versteht man unter Mitose?;Zellteilung;;;1;1;5
+41;Berechnen Sie: (2*5*4+2-10*0+24/(3+5)%10;5;;;1;1;2
+42;Peter wurde 2007 geboren, Max 2002 - wie hoch ist der Altersunterschied in Jahren ganz gewiss?;Weniger als 5 Jahre;mindestens 5 Jahre;nicht weniger als 4 Jahre;4;3;2
+43;Wie lautet die Summe der Zahlen 1 bis 100? ;5050;;;1;1;2
+44;Wie lautet die kleinste Primzahl?;1;2;3;2;3;2
+45;Nennen Sie ein Verfahren zur Lösung von linearen Gleichungssystemen neben dem Gaußverfahren.;Einsetzungsverfahren;Gleichsetzungsverfahren;Additionsverfahren;7;1;2
+46;Ein Hersteller gibt an, man solle sein Fruchtsaftkonzentrat im Verhältnis 1:7 mit Wasser mischen. Wie viel Liter Saft erhält man aus einer 0,6-Liter-Flasche Konzentrat?;4.8;;;1;2;2
+47;Lösen Sie die Gleichung: 8 = 8x-(5-2+3*5-2)*3;7;;;1;2;2
+48;Nennen Sie alle Lösungen der biquadratischen Gleichung 0 = x^2 + 8x + 12.;6;-3;2;5;3;2
+49;In welchem bekannten Londoner Stadtteil befindet sich der Nullmeridian?;Sidcap;Mayfair;Greenwich;4;3;1
+50;Welcher Ozean wird im Zusammenhang von Vulkanen als Feuerring bezeichnet?;Pazifik;;;1;2;1
+51;In welchem Meer liegt die Insel Teneriffa?;Atlantik;;;1;2;1
+52;Welches ist das einzige Land, an das das afrikanische Land Lesotho angrenzt?;Südafrika;;;1;1;1
+53;Wie heißt die Hauptstadt von Weißrussland?;Minsk;;;1;1;1
+54;Wie heißt eine Halbinsel im Westen Kanadas, dessen Name auch eine Hunderasse ist?;Collie;Labrador;Bobtail;2;3;1
+55;Wie heißt der Kanal, der das Rote Meer mit dem Mittelmeer verbindet? ;Suezkanal;Sueskanal;;3;1;1
