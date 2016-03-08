@@ -74,7 +74,7 @@ public class ApplicationLogic {
             //if seven, there are three answers saved in the challenge and all three are right
             case 7:
                 //noinspection RedundantIfStatement
-                if (givenAnswer.equalsIgnoreCase(challenge.getmAnswerTwo()) || givenAnswer.equalsIgnoreCase(challenge.getmAnswerTwo()) || givenAnswer.equalsIgnoreCase(challenge.getmAnswerThree())){
+                if (givenAnswer.equalsIgnoreCase(challenge.getmAnswerOne()) || givenAnswer.equalsIgnoreCase(challenge.getmAnswerTwo()) || givenAnswer.equalsIgnoreCase(challenge.getmAnswerThree())){
                     isAnswerCorrect = true;
                 }
                 else {
