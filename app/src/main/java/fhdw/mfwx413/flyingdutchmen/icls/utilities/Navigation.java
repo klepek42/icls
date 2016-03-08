@@ -131,12 +131,12 @@ public class Navigation {
         callingActivity.finish();
     }
 
-    public static void startActivityStatistics(Activity callingActivity, User chosenUser, IndexCard chosenIndexCard, ChallengeCollection mDueChallenges){
+    public static void startActivityStatistics(Activity callingActivity, User chosenUser, IndexCard chosenIndexCard, ChallengeCollection dueChallengesForUserInIndexCard){
         Intent intent;
         intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.Statistics.Init.class);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_INDEX_CARD, chosenIndexCard);
-        intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD, mDueChallenges);
+        intent.putExtra(Constants.KEY_PARAM_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD, dueChallengesForUserInIndexCard);
         callingActivity.startActivity(intent);
         callingActivity.finish();
     }
