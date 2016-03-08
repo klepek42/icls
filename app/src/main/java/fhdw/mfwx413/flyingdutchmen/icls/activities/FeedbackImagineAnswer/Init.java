@@ -13,6 +13,8 @@ public class Init extends Activity {
     private Gui mGui;
     private ApplicationLogic mApplicationLogic;
 
+    //define what shall happen, when the application is started
+    //the whole structure is initialized
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,22 +24,22 @@ public class Init extends Activity {
         initEventToListenerMapping();
     }
 
-    // intialize the EventToListenerMapping
+    //intialize the EventToListenerMapping
     private void initEventToListenerMapping() {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }
 
-    // intialize the ApplicationLogic
+    //intialize the ApplicationLogic
     private void initApplicationLogic() {
         mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
-    // intialize the GUI
+    //intialize the GUI
     private void initGui() {
         mGui = new Gui(this);
     }
 
-    // intialize the Data (with saved Data)
+    //intialize the Data (with saved Data)
     private void initData(Bundle savedInstanceState) {
         mData = new Data(this, savedInstanceState);
     }
@@ -49,8 +51,8 @@ public class Init extends Activity {
         super.onSaveInstanceState(outState);
     }
 
-
-    // Back to layout_choose_file (back button)
+    //Back-Button pressed leads to nothing (standard back button)
+    //this happens on purpose, the function of the button is deactivated here
     @Override
     public void onBackPressed() {
     }

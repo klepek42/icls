@@ -19,6 +19,7 @@ public class Gui {
     private Button mButtonContinue;
     private Button mButtonAbort;
 
+    //Constructor
     public Gui(Activity activity) {
         //set Gui elements
         activity.setContentView(R.layout.layout_feedback_challenge_rest);
@@ -29,27 +30,32 @@ public class Gui {
         mButtonAbort = (Button) activity.findViewById(R.id.buttonAbort);
     }
 
-    // display the feedbacktext (correct or false answer)
+    //setter for the textview "mTextViewFeedBackText"
+    //it displays the information, whether an answer was correct or false
     public void setFeedbackText(String text) {
         mTextViewFeedbackText.setText(text);
     }
 
-    // display the correct answer, that is saved in the challenge
+    //setter for the textview "mTextViewCorrectAnswer"
+    //it displays the correct answer, that is saved in the challenge
     public void setFeedbackTextCorrectAnswer(String text) {
         String correctAnswerIs = "Richtige Antwort: ";
         correctAnswerIs = correctAnswerIs.concat(text);
         mTextViewCorrectAnswer.setText(correctAnswerIs);
     }
 
-    // display whether the question was down- or upgraded
+    //setter for the textview "mTextViewCorrectAnswer"
+    //it shows, whether a challenge was down- or upgraded
     public void setFeedbackTextUpDownGrade(String text) {
         mTextViewUpDownGrade.setText(text);
     }
 
+    //getter for button "ButtonAbort"
     public View getmButtonAbort() {
         return mButtonAbort;
     }
 
+    //getter for button "ButtonContinue"
     public View getmButtonContinue() {
         return mButtonContinue;
     }
