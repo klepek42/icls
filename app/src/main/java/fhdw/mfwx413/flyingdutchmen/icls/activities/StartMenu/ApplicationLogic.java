@@ -81,7 +81,7 @@ public class ApplicationLogic{
 
     // set selected User from Spinner
     public void onUserSelected(int position){
-        Log.d("Selected User ", ""+userNames.get(position));
+        Log.d("Selected User ", "" + userNames.get(position));
         mSelectedName = userNames.get(position);
     }
 
@@ -106,14 +106,14 @@ public class ApplicationLogic{
                 }
             }
             //if there is no entry for the challenge in the userprogresses the challenge is new and a new userProgress has to be added to the list
-            if (challengeFoundInUserProgresses == false){
+            if (!challengeFoundInUserProgresses){
                 UserProgress newUserProgress = new UserProgress(mData.getCurrentUser().getName(), challenge.getmID(), 1, Constants.DEFAULT_TIMESTAMP);
                 userProgresses.addUserProgress(newUserProgress);
                 userProgressesHaveToBeUpdated = true;
             }
         }
         //if there were new challenges found and the progressCollection was updated the collection has to be saved in the csv
-        if(userProgressesHaveToBeUpdated == true){
+        if(userProgressesHaveToBeUpdated){
             UserProgressDatabase.writeSpecificUserProgresses(userProgresses, mData.getCurrentUser().getName(), context);
             Log.d("ICLS-INFO", "Neue Challenges wurden gefunden und die Userprogresses aktualisiert");
             userProgressesHaveToBeUpdated = false;
@@ -134,14 +134,14 @@ public class ApplicationLogic{
                 }
             }
             //if there is no entry for the challenge of the progress in the challenge.csv this challenge was deleted and the progress has to be deleted to
-            if (challengeFromProgressFoundInAllChallenges == false){
+            if (!challengeFromProgressFoundInAllChallenges){
                 userProgresses.removeUserProgress(i);
                 i--;
                 userProgressesHaveToBeUpdated = true;
             }
         }
         //if there progresses deleted and the progressCollection was updated the collection has to be saved in the csv
-        if(userProgressesHaveToBeUpdated == true){
+        if(userProgressesHaveToBeUpdated){
             UserProgressDatabase.writeSpecificUserProgresses(userProgresses, mData.getCurrentUser().getName(), context);
             Log.d("ICLS-INFO", "Es wurden Progresses gefunden, zu denen keine Challenges mehr existieren. Die Progresses wurden geloescht");
             userProgressesHaveToBeUpdated = false;
