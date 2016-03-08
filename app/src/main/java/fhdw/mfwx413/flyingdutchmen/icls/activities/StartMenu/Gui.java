@@ -39,10 +39,6 @@ public class Gui {
         */
     }
 
-    public TextView getTextFieldStart() {
-        return textFieldStart;
-    }
-
     public Spinner getChooseUser() {
         return chooseUser;
     }

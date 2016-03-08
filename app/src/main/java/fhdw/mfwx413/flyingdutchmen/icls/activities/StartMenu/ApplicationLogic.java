@@ -68,7 +68,6 @@ public class ApplicationLogic{
     }
     */
 
-    // Added by Edgar Klepek
     // fill the spinner with all user names that were collected in the data class
     private void fillSpinner() {
 

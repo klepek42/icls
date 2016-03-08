@@ -27,14 +27,6 @@ public class Gui {
         buttonOk = (Button) activity.findViewById(R.id.buttonOk);
     }
 
-    public TextView getTextFieldDuplicatesWarning() {
-        return textFieldDuplicatesWarning;
-    }
-
-    public TextView getTextFieldDuplicatesDescription() {
-        return textFieldDuplicatesDescription;
-    }
-
     public Button getButtonOk() {
         return buttonOk;
     }

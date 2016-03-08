@@ -27,10 +27,6 @@ public class Gui {
         buttonDenyLogout = (Button) activity.findViewById(R.id.buttonDenyLogout);
     }
 
-    public TextView getTextFieldLogout() {
-        return textFieldLogout;
-    }
-
     public Button getButtonConfirmLogout() {
         return buttonConfirmLogout;
     }

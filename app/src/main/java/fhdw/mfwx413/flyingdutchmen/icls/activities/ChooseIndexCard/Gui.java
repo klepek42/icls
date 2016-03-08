@@ -39,10 +39,6 @@ public class Gui {
         buttonStartLearning = (Button) activity.findViewById(R.id.buttonStartLearning);
     }
 
-    public TextView getTextFieldChooseFile() {
-        return textFieldChooseFile;
-    }
-
     public Button getButtonStatistics() {
         return buttonStatistics;
     }
