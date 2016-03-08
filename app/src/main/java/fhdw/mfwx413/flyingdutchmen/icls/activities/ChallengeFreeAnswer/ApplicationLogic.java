@@ -49,12 +49,12 @@ public class ApplicationLogic {
 
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
 
-        //analyze if the given answer was correct or not
+        //analyze if the given answer was correct or not (case insensitive)
         switch (challenge.getmCorrectAnswer()){
             // if one, there is only one answer saved in the challenge and this is the right one
             case 1:
                 //noinspection RedundantIfStatement
-                if (givenAnswer.equals(challenge.getmAnswerOne())){
+                if (givenAnswer.equalsIgnoreCase(challenge.getmAnswerOne())){
                     isAnswerCorrect = true;
                 }
                 else {
@@ -64,7 +64,7 @@ public class ApplicationLogic {
             //if three, there are two answers saved in the challenge and both are right
             case 3:
                 //noinspection RedundantIfStatement
-                if (givenAnswer.equals(challenge.getmAnswerOne()) || givenAnswer.equals(challenge.getmAnswerTwo())){
+                if (givenAnswer.equalsIgnoreCase(challenge.getmAnswerOne()) || givenAnswer.equalsIgnoreCase(challenge.getmAnswerTwo())){
                     isAnswerCorrect = true;
                 }
                 else {
@@ -74,7 +74,7 @@ public class ApplicationLogic {
             //if seven, there are three answers saved in the challenge and all three are right
             case 7:
                 //noinspection RedundantIfStatement
-                if (givenAnswer.equals(challenge.getmAnswerTwo()) || givenAnswer.equals(challenge.getmAnswerTwo()) || givenAnswer.equals(challenge.getmAnswerThree())){
+                if (givenAnswer.equalsIgnoreCase(challenge.getmAnswerTwo()) || givenAnswer.equalsIgnoreCase(challenge.getmAnswerTwo()) || givenAnswer.equalsIgnoreCase(challenge.getmAnswerThree())){
                     isAnswerCorrect = true;
                 }
                 else {
