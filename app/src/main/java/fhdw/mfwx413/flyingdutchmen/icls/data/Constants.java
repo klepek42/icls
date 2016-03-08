@@ -7,6 +7,11 @@ package fhdw.mfwx413.flyingdutchmen.icls.data;
  * Updated by Jonas on 23.02.2016: Adding constants for navigation between activities
  * Updated by Daniel on 01.03.2016: Adding constants for Bundles
  */
+
+/**
+ * Responsibility: Daniel
+ */
+
 public class Constants {
     public static final String KEY_PARAM_ID = "X1";
 
