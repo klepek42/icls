@@ -13,13 +13,13 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  */
 public class Gui {
 
-    private TextView mTextFieldSettingsMenu;
+ /*   private TextView mTextFieldSettingsMenu;
     private TextView mTextFieldPeriodClass1;
     private TextView mTextFieldPeriodClass2;
     private TextView mTextFieldPeriodClass3;
     private TextView mTextFieldPeriodClass4;
     private TextView mTextFieldPeriodClass5;
-    private TextView mTextFieldPeriodClass6;
+    private TextView mTextFieldPeriodClass6;*/
     private EditText mPeriodClass1;
     private EditText mPeriodClass2;
     private EditText mPeriodClass3;
@@ -38,13 +38,13 @@ public class Gui {
 
     public Gui(Activity activity) {
         activity.setContentView(R.layout.layout_settings_menu);
-        mTextFieldSettingsMenu = (TextView) activity.findViewById(R.id.textFieldSettingsMenu);
+       /* mTextFieldSettingsMenu = (TextView) activity.findViewById(R.id.textFieldSettingsMenu);
         mTextFieldPeriodClass1 = (TextView) activity.findViewById(R.id.textFieldPeriodClass1);
         mTextFieldPeriodClass2 = (TextView) activity.findViewById(R.id.textFieldPeriodClass2);
         mTextFieldPeriodClass3 = (TextView) activity.findViewById(R.id.textFieldPeriodClass3);
         mTextFieldPeriodClass4 = (TextView) activity.findViewById(R.id.textFieldPeriodClass4);
         mTextFieldPeriodClass5 = (TextView) activity.findViewById(R.id.textFieldPeriodClass5);
-        mTextFieldPeriodClass6 = (TextView) activity.findViewById(R.id.textFieldPeriodClass6);
+        mTextFieldPeriodClass6 = (TextView) activity.findViewById(R.id.textFieldPeriodClass6);*/
         mPeriodClass1 = (EditText) activity.findViewById(R.id.periodClass1);
         mPeriodClass2 = (EditText) activity.findViewById(R.id.periodClass2);
         mPeriodClass3 = (EditText) activity.findViewById(R.id.periodClass3);
@@ -63,7 +63,7 @@ public class Gui {
 
 
     }
-
+/* unnecessary?
     //Set settings heading
     public void setmTextFieldSettingsMenu(String text) {
         mTextFieldSettingsMenu.setText(text);
@@ -96,7 +96,7 @@ public class Gui {
 
     public TextView getmTextFieldPeriodClass6() {
         return mTextFieldPeriodClass6;
-    }
+    }*/
 
     public EditText getmPeriodClass1() {
         return mPeriodClass1;

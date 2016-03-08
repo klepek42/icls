@@ -13,7 +13,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
 /**
  * Responsibility: Daniel zur Linden
  */
-//Todo Daniel: Change bundle?
+
 public class Data {
 
     public Activity getActivity() {
@@ -53,10 +53,6 @@ public class Data {
         return mChosenUser;
     }
 
-    public UserCollection getmUserCollection() {
-        return mAllUsers;
-    }
-
     public UserCollection getmAllUsers() {
         return mAllUsers;
     }
@@ -65,7 +61,4 @@ public class Data {
         return mChosenUser;
     }
 
-    public void setmCurrentUser(User mCurrentUser) {
-        this.mChosenUser = mCurrentUser;
-    }
 }
