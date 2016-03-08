@@ -127,7 +127,7 @@ public class Data {
                 while(counter<mAllIndexCards.getSize()) {
                     mCheckIndexCard = mAllIndexCards.get(counter).getmName();
                     // If a duplicate was found the return value becomes true
-                    if(mCacheIndexCard.equals(mCheckIndexCard)){
+                    if(mCacheIndexCard.equalsIgnoreCase(mCheckIndexCard)){
                         duplicate = true;
                     }
                     counter++;
