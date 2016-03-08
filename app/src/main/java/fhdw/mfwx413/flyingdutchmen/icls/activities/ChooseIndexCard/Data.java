@@ -128,6 +128,7 @@ public class Data {
                     mCheckIndexCard = mAllIndexCards.get(counter).getmName();
                     // If a duplicate was found the return value becomes true
                     if(mCacheIndexCard.equalsIgnoreCase(mCheckIndexCard)){
+                        Log.d("Duplicate IndexCard ", ""+mCheckIndexCard);
                         duplicate = true;
                     }
                     counter++;
@@ -229,10 +230,6 @@ public class Data {
              getTimeStampLastAnswered(n);
              Calendar mLastAnsweredCalendar = DateToCalendar(mLastAnsweredDate);
 
-             //TEST
-             Log.d("mLastAnsweredDate: ", "" + mLastAnsweredDate);
-             //EOT
-
              mCurrentClass = mCurrentUserUserProgressForCurrentIndexCard.getUserProgress(n).getmPeriodClass();
 
              switch (mCurrentClass) {
@@ -251,11 +248,6 @@ public class Data {
              }
 
              mLastAnsweredDate = mLastAnsweredCalendar.getTime();
-
-             //TEST
-             Log.d("mLastAnswered+PClass: ", "" + mLastAnsweredDate);
-             Log.d("mCurrentDate: ", "" + CurrentDate);
-             //EOT
 
              if(mLastAnsweredDate.before(CurrentDate) || mLastAnsweredDate.equals(CurrentDate)) {
                  mCacheChallengeId = mCurrentUserUserProgressForCurrentIndexCard.getUserProgress(n).getmChallengeID();

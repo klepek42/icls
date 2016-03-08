@@ -2,7 +2,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.StartMenu;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;

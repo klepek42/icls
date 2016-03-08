@@ -81,7 +81,7 @@ public class ApplicationLogic{
 
     // set selected User from Spinner
     public void onUserSelected(int position){
-        System.out.println(userNames.get(position));
+        Log.d("Selected User ", ""+userNames.get(position));
         mSelectedName = userNames.get(position);
     }
 

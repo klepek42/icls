@@ -8,6 +8,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidQuestionTypeLayoutExce
 import fhdw.mfwx413.flyingdutchmen.icls.exceptions.UserProgressNotFoundException;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 import android.content.Context;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 
 import java.text.ParseException;
@@ -135,7 +136,7 @@ public class ApplicationLogic {
 
     // set selected IndexCard from Spinner
     public void onIndexCardSelected(int position){
-        System.out.println(indexCards.get(position));
+        Log.d("Selected IndexCard ", ""+indexCards.get(position));
         mSelectedIndexCard = indexCards.get(position);
     }
 
