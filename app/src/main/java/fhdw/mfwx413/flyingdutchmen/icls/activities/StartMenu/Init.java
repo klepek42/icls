@@ -131,9 +131,9 @@ public class Init extends Activity {
         } else if (currentVersionCode > savedVersionCode) {
 
             Log.d("ICLS-INFO", "This is the first run after an update!");
-            //In the moment there is no need to care for updates. We will stay on Version 1 for the exam
+            //At the moment there is no need to care for updates. We will stay on Version 1 for the exam
             //Updates could be done, by setting a new VersionCode and a new VersionName for the app
-            //This could be done in to ways:
+            //This could be done in two ways:
             //1) change VersionCode and VersionName in Gradle Script > build.gradle (Module:app)
             //2) set VersionCode and VersionName in the manifest (you have to remove the values from gradle, because otherwise the values will be overwritten) be careful with that!!
         }
