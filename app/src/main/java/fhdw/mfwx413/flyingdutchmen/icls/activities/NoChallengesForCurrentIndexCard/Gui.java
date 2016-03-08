@@ -22,10 +22,6 @@ public class Gui {
         buttonOk2 = (Button) activity.findViewById(R.id.buttonOk2);
     }
 
-    public TextView getTextFieldWarning() {
-        return textFieldWarning;
-    }
-
     public Button getButtonOk2() {
         return buttonOk2;
     }
