@@ -7,45 +7,52 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvExport;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.csvImport;
 
 /**
- * Created by Daniel on 23.02.2016.
  * Responsibility: Daniel zur Linden
  */
 public class UserProgressDatabase {
 
     public static UserProgressCollection getUserProgresses(Context context, String userName) {
 
-        UserProgressCollection UserProgresses;
-        UserProgresses = new UserProgressCollection();
-        List<String[]> StringCollectionFromCSV;
-        StringCollectionFromCSV = csvImport.importUserProgressCsv(context, userName);
+        //the challengeDatabase is based on an already imported list of UserPro
+        UserProgressCollection userProgresses;
 
-        // Converting the List<String[]> into a UserProgressCollection
-        for (int i = 0; i < StringCollectionFromCSV.size(); i++) {
-            UserProgresses.addUserProgress(
-                    new UserProgress(
-                            StringCollectionFromCSV.get(i)[0], //UserName
-                            Integer.parseInt(StringCollectionFromCSV.get(i)[1]), //ChallengeID
-                            Integer.parseInt(StringCollectionFromCSV.get(i)[2]), //Zeitklasse
-                            StringCollectionFromCSV.get(i)[3] //TimeStampBeantwortung
-                    )
-            );
-        }
-        return UserProgresses;
+        //create a UserProgressCollection
+        userProgresses = new UserProgressCollection();
+
+        //create a List<String[]> and put in the UserProgresses from csv-file
+        List<String[]> stringCollectionFromCSV;
+        stringCollectionFromCSV = csvImport.importUserProgressCsv(context, userName);
+
+        //convert the List<String[]> into a UserProgressCollection
+        for (int i = 0; i < stringCollectionFromCSV.size(); i++) {
+                userProgresses.addUserProgress(
+                        new UserProgress(
+                                stringCollectionFromCSV.get(i)[0], //UserName
+                                Integer.parseInt(stringCollectionFromCSV.get(i)[1]), //ChallengeID
+                                Integer.parseInt(stringCollectionFromCSV.get(i)[2]), //PeriodClass
+                                stringCollectionFromCSV.get(i)[3] //TimeStampAnswered
+                        )
+                );
+            }
+        return userProgresses;
     }
 
-    // Write all UserProgresses to csv-file
-    public static void writeSpecificUserProgresses(UserProgressCollection userProgressCollection, String userName, Context context){
+    //write all UserProgresses to csv-file
+    public static void writeSpecificUserProgresses(UserProgressCollection userProgressCollection, String userName, Context context) {
+        //create a List<String[]> to list all userProgresses
         List<String[]> userProgressList = new ArrayList<String[]>();
 
         try {
-            // UserProgressCollection >>> List<String[]>
-            for(int i = 0; i < userProgressCollection.getSize(); i++) { // ArrayList with Progress objects
-                // Convert a progress object into a String array (necessary for writing ist into csv)
-                String [] userProgressAsString = new String[4];
+            //go through the UserProgressCollection and fill in the list of all userProgresses with String-Arrays
+            for (int i = 0; i < userProgressCollection.getSize(); i++) {
+
+                //Convert a progress object into a String array (necessary for writing ist into csv)
+                String[] userProgressAsString = new String[4];
                 UserProgress userProgress = userProgressCollection.getUserProgress(i);
 
                 userProgressAsString[0] = userProgress.getmUserName();
@@ -56,9 +63,8 @@ public class UserProgressDatabase {
                 userProgressList.add(i, userProgressAsString);
             }
             csvExport.saveUserProgressToCsv(userProgressList, userName, context);
-        }
-        catch (IOException e){
-            Log.e("ICLS-ERROR", "UserProgressDatabase::writeAllUserProgresses::saveUserToCsv(): ", e);
+        } catch (IOException e) {
+            Log.e("ICLS-ERROR", "UserProgressDatabase::writeSpecificUserProgress::saveUserProgressToCsv(): ", e);
         }
     }
 

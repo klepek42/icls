@@ -7,29 +7,32 @@ import java.util.ArrayList;
  * Created by Daniel on 23.02.2016.
  * Responsibility: Daniel zur Linden
  */
-public class UserProgressCollection implements Serializable{
+public class UserProgressCollection implements Serializable {
 
+    //create a UserProgressCollection by making a ArrayList with UserProgresses
     private ArrayList<UserProgress> mUserProgresses;
-
 
     public UserProgressCollection() {
         mUserProgresses = new ArrayList<UserProgress>();
     }
 
-    public UserProgress getUserProgress(int Id){
+    //get a specific UserProgress by its ID
+    public UserProgress getUserProgress(int Id) {
         return mUserProgresses.get(Id);
-
     }
 
-    public void addUserProgress(UserProgress userProgress){
+    //add a UserProgress to the ArrayList of UserProgresses
+    public void addUserProgress(UserProgress userProgress) {
         mUserProgresses.add(userProgress);
     }
 
-    public int getSize(){
+    //get the size of the ArrayList of UserProgresses
+    public int getSize() {
         return mUserProgresses.size();
     }
 
-    public void removeUserProgress(int id){
+    //remove a specific UserProgress in the ArrayList of UserProgresses by its ID
+    public void removeUserProgress(int id) {
         mUserProgresses.remove(id);
     }
 }

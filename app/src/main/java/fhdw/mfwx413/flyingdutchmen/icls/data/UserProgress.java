@@ -4,10 +4,9 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 
 /**
- * Created by Daniel on 22.02.2016.
  * Responsibility: Daniel zur Linden
  */
-public class UserProgress implements Serializable{
+public class UserProgress implements Serializable {
     private String mUserName;
     private int mChallengeID;
     private int mPeriodClass;
@@ -52,11 +51,11 @@ public class UserProgress implements Serializable{
         this.mTimeStampAnswered = mTimeStampAnswered;
     }
 
-    public void setDefaultTimeStamp(){
+    public void setDefaultTimeStamp() {
         setmTimeStampAnswered(Constants.DEFAULT_TIMESTAMP);
     }
 
-    public void setCurrentTimeStamp(){
+    public void setCurrentTimeStamp() {
         setmTimeStampAnswered(new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date()));
     }
 

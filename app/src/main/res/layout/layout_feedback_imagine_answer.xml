@@ -27,7 +27,7 @@
         android:textSize="@dimen/activity_text_size"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:textAllCaps="false" />
 
@@ -41,7 +41,7 @@
         android:textColor="@color/white"
         android:layout_above="@id/buttonLogout"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 
     <TextView
