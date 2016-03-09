@@ -11,7 +11,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 
 /**
- * Responsibilty: Pascal Heß
+ * Responsibility: Pascal Heß
  */
 
 public class Data {
@@ -20,7 +20,7 @@ public class Data {
     private static final int DEFAULT_CURRENT_CHALLENGE_ID = 0;
     private static final boolean DEFAULT_IS_ANSWER_CORRECT = false;
 
-    private Activity mActivity;
+    private final Activity mActivity;
     private ChallengeCollection mDueChallengesOfUserInFile;
     private int mCurrentChallengeId;
     private User mChosenUser;
@@ -60,7 +60,7 @@ public class Data {
     }
 
     //this method restores the data from the given bundle
-    public void restoreDataFromBundle(Bundle bundle) {
+    private void restoreDataFromBundle(Bundle bundle) {
         mCurrentChallengeId = bundle.getInt(Constants.BUNDLE_KEY_CURRENT_CHALLENGE_ID);
         mDueChallengesOfUserInFile = (ChallengeCollection) bundle.getSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD);
         mChosenUser = (User) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_USER);

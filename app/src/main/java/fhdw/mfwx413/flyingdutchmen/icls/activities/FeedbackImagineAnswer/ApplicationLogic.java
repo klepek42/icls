@@ -16,9 +16,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 public class ApplicationLogic {
 
-    private Data mData;
-    private Gui mGui;
-    private Activity mActivity;
+    private final Data mData;
+    private final Gui mGui;
+    private final Activity mActivity;
 
     //Constructor
     public ApplicationLogic(Data data, Gui gui, Activity activity) {
@@ -104,8 +104,8 @@ public class ApplicationLogic {
         }
     }
 
-    //method that computes the next due activity and the correct layout type that belongs to it, then this activitiy is started
-    public void startNextActivity() throws InvalidQuestionTypeLayoutException {
+    //method that computes the next due activity and the correct layout type that belongs to it, then this activity is started
+    private void startNextActivity() throws InvalidQuestionTypeLayoutException {
         int dueChallengeNumber;
 
         //delivers int value, to decide which Activity has to be started
@@ -125,7 +125,7 @@ public class ApplicationLogic {
             case 1:
                 Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                 break;
-            //a challenge of type ChallengeImagineAnser is due
+            //a challenge of type ChallengeImagineAnswer is due
             case 2:
                 Navigation.startActivityChallengeImagineAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                 break;
@@ -215,14 +215,14 @@ public class ApplicationLogic {
 
 
     //method that opens a toast for a few seconds on the screen
-    public void showErrorUnexpectedError(){
+    private void showErrorUnexpectedError(){
         Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
     }
 
 
     //Error-Handling for the false next activity-layout
     //it starts, when the int-value of the layout type is not 0,1,2 or 3
-    public void errorToastFalseLayout() {
+    private void errorToastFalseLayout() {
         Toast.makeText(mActivity, "Unerwartetes Layout", Toast.LENGTH_SHORT).show();
     }
 }

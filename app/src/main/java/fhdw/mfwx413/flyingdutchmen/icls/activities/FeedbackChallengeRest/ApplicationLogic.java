@@ -14,9 +14,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 public class ApplicationLogic {
 
-    private Data mData;
-    private Gui mGui;
-    private Activity mActivity;
+    private final Data mData;
+    private final Gui mGui;
+    private final Activity mActivity;
 
     //Constructor
     public ApplicationLogic(Data data, Gui gui, Activity activity) {
@@ -86,7 +86,7 @@ public class ApplicationLogic {
 
 
     //method returns an int-value, that gives information whether there is another due challenge and of which type it is
-    public int otherDueChallenges() {
+    private int otherDueChallenges() {
         int dueChallengeNumber = -1;
         int numberOfDueChallengesOfUserInFile;
         int currentChallengeId;
@@ -119,13 +119,13 @@ public class ApplicationLogic {
 
     //Error-Handling for the false next activity-layout
     //it starts, when the int-value of the layout type is not 0,1,2 or 3
-    public void errorToastFalseLayout() {
+    private void errorToastFalseLayout() {
         Toast.makeText(mActivity, "Unerwartetes Layout", Toast.LENGTH_SHORT).show();
     }
 
 
-    //method that computes the next due activity and the correct layout type that belongs to it, then this activitiy is started
-    public void startNextActivity() throws InvalidQuestionTypeLayoutException {
+    //method that computes the next due activity and the correct layout type that belongs to it, then this activity is started
+    private void startNextActivity() throws InvalidQuestionTypeLayoutException {
         int dueChallengeNumber;
 
         //delivers int value, to decide which Activity has to be started
@@ -144,7 +144,7 @@ public class ApplicationLogic {
                 mData.incrementChallengeIdByOne();
                 Navigation.startActivityChallengeFreeAnswer(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), mData.getmCurrentUserProgresses());
                 break;
-            //a challenge of type ChallengeImagineAnser is due
+            //a challenge of type ChallengeImagineAnswer is due
             case 2:
                 //the old challenge ID is incremented by 1, so the correct "next" activity can be started and the correct information can be sent
                 mData.incrementChallengeIdByOne();

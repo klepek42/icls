@@ -12,17 +12,15 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 public class Gui {
 
-    private TextView mTextViewCorrectAnswer;
-    private TextView mTextViewWasAnswerCorrect;
-    private Button mButtonWasAnswerCorrect;
-    private Button mButtonWasAnswerWrong;
+    private final TextView mTextViewCorrectAnswer;
+    private final Button mButtonWasAnswerCorrect;
+    private final Button mButtonWasAnswerWrong;
 
     //Constructor
     public Gui(Activity activity) {
         //set Gui elements
         activity.setContentView(R.layout.layout_feedback_imagine_answer);
         mTextViewCorrectAnswer = (TextView) activity.findViewById(R.id.textFieldCorrectAnswer);
-        mTextViewWasAnswerCorrect = (TextView) activity.findViewById(R.id.textFieldWasAnswerCorrect);
         mButtonWasAnswerCorrect = (Button) activity.findViewById(R.id.buttonWasAnswerCorrect);
         mButtonWasAnswerWrong = (Button) activity.findViewById(R.id.buttonWasAnswerWrong);
     }
@@ -30,7 +28,7 @@ public class Gui {
     //setter for the textview "TextViewCorrectAnswer"
     // it displays the correct answers, that are saved in the challenge
     public void setTextViewCorrectAnswer(String feedbackTextCorrectAnswer) {
-        //delimiter you need, to seperate the answer string into its components
+        //delimiter you need, to separate the answer string into its components
         String delimiter = ", ";
         int sizeOfAnswerArray;
 

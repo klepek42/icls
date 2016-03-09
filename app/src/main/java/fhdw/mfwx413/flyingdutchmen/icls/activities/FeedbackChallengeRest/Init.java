@@ -24,22 +24,22 @@ public class Init extends Activity {
         initEventToListenerMapping();
     }
 
-    //intialize the Data (with saved Data)
+    //initialize the Data (with saved Data)
     private void initData(Bundle savedInstanceState){
         mData = new Data(this, savedInstanceState);
     }
 
-    //intialize the GUI
+    //initialize the GUI
     private void initGui() {
         mGui = new Gui(this);
     }
 
-    //intialize the ApplicationLogic
+    //initialize the ApplicationLogic
     private void initApplicationLogic() {
         mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
-    //intialize the EventToListenerMapping
+    //initialize the EventToListenerMapping
     private void initEventToListenerMapping() {
         new EventToListenerMapping(mGui, mApplicationLogic);
     }

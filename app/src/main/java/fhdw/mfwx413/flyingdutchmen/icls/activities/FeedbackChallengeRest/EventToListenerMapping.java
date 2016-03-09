@@ -8,7 +8,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  */
 
 public class EventToListenerMapping implements View.OnClickListener {
-    private ApplicationLogic mApplicationLogic;
+    private final ApplicationLogic mApplicationLogic;
 
     //Constructor
     public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {

@@ -13,11 +13,11 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
 
 public class Gui {
 
-    private TextView mTextViewFeedbackText;
-    private TextView mTextViewCorrectAnswer;
-    private TextView mTextViewUpDownGrade;
-    private Button mButtonContinue;
-    private Button mButtonAbort;
+    private final TextView mTextViewFeedbackText;
+    private final TextView mTextViewCorrectAnswer;
+    private final TextView mTextViewUpDownGrade;
+    private final Button mButtonContinue;
+    private final Button mButtonAbort;
 
     //Constructor
     public Gui(Activity activity) {
@@ -39,7 +39,7 @@ public class Gui {
     //setter for the textview "mTextViewCorrectAnswer"
     //it displays the correct answer, that is saved in the challenge
     public void setFeedbackTextCorrectAnswer(String text) {
-        String correctAnswerIs = "Richtige Antwort: ";
+        String correctAnswerIs = "Richtige Antwort(en): ";
         correctAnswerIs = correctAnswerIs.concat(text);
         mTextViewCorrectAnswer.setText(correctAnswerIs);
     }

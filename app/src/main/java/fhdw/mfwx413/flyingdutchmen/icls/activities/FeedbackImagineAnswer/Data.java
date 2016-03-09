@@ -19,7 +19,7 @@ public class Data {
     private static final int DEFAULT_CURRENT_CHALLENGE_ID = 0;
     private static final boolean DEFAULT_IS_ANSWER_CORRECT = false;
 
-    private Activity mActivity;
+    private final Activity mActivity;
     private ChallengeCollection mDueChallengesOfUserInFile;
     private int mCurrentChallengeId;
     private User mChosenUser;
