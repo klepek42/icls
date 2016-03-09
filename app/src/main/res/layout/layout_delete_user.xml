@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Responsibility: Luisa Leifer -->
+<!-- Layout not supported in this version of app -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,7 +26,7 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 
     <Button
@@ -37,6 +38,6 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:textAllCaps="false" />
 </RelativeLayout>

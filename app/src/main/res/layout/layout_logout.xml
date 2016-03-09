@@ -25,7 +25,7 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 
     <Button
@@ -37,6 +37,6 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:textAllCaps="false" />
 </RelativeLayout>
