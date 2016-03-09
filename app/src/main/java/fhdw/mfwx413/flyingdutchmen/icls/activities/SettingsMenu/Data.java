@@ -20,9 +20,9 @@ public class Data {
         return mActivity;
     }
 
-    private Activity mActivity;
+    private final Activity mActivity;
     private User mChosenUser;
-    private UserCollection mAllUsers;
+    private final UserCollection mAllUsers;
 
     public Data(Activity activity, Bundle bundle) {
         Intent intent;

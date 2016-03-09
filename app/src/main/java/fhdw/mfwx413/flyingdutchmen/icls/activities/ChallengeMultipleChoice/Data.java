@@ -8,7 +8,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.ChallengeCollection;
 import fhdw.mfwx413.flyingdutchmen.icls.data.Constants;
 import fhdw.mfwx413.flyingdutchmen.icls.data.IndexCard;
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
-import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgress;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserProgressCollection;
 
 /**
@@ -18,7 +17,7 @@ public class Data {
     private static final int DEFAULT_CURRENT_CHALLENGE_ID = 0;
 
 
-    private Activity mActivity;
+    private final Activity mActivity;
     private ChallengeCollection mDueChallengesOfUserInFile;
     private int mCurrentChallengeId;
     private User mChosenUser;

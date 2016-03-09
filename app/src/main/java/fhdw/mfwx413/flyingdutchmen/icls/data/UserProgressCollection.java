@@ -4,13 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by Daniel on 23.02.2016.
  * Responsibility: Daniel zur Linden
  */
 public class UserProgressCollection implements Serializable {
 
     //create a UserProgressCollection by making a ArrayList with UserProgresses
-    private ArrayList<UserProgress> mUserProgresses;
+    private final ArrayList<UserProgress> mUserProgresses;
 
     public UserProgressCollection() {
         mUserProgresses = new ArrayList<UserProgress>();

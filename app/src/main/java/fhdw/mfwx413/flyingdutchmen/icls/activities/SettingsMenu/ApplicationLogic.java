@@ -20,10 +20,10 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  */
 public class ApplicationLogic {
 
-    private Data mData;
-    private Gui mGui;
-    private Context context;
-    private ArrayList<String> periodUnits = new ArrayList<>();
+    private final Data mData;
+    private final Gui mGui;
+    private final Context context;
+    private final ArrayList<String> periodUnits = new ArrayList<>();
 
 
     public ApplicationLogic(Data data, Gui gui, Context context) {

@@ -12,13 +12,12 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  */
 public class Gui {
 
-    private TextView mTextFieldQuestion;
-    private CheckBox mCheckBoxAnswer1;
-    private CheckBox mCheckBoxAnswer2;
-    private CheckBox mCheckBoxAnswer3;
-
-    private Button mButtonAbort;
-    private Button mButtonConfirmAnswer;
+    private final TextView mTextFieldQuestion;
+    private final CheckBox mCheckBoxAnswer1;
+    private final CheckBox mCheckBoxAnswer2;
+    private final CheckBox mCheckBoxAnswer3;
+    private final Button mButtonAbort;
+    private final Button mButtonConfirmAnswer;
 
 
     public Gui(Activity activity) {

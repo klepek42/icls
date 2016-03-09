@@ -8,9 +8,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  * Responsibility: Daniel zur Linden
  */
 public class EventToListenerMapping implements View.OnClickListener {
-    private fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu.ApplicationLogic mApplicationLogic;
+    private final ApplicationLogic mApplicationLogic;
 
-    public EventToListenerMapping(fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu.Gui gui, ApplicationLogic applicationLogic) {
+    public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
         mApplicationLogic = applicationLogic;
         gui.getmButtonAbortSettings().setOnClickListener(this);
         gui.getmButtonConfirmSettings().setOnClickListener(this);

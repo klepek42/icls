@@ -10,7 +10,7 @@ import fhdw.mfwx413.flyingdutchmen.icls.exceptions.InvalidCorrectAnswerTypeExcep
  * Responsibility: Daniel zur Linden
  */
 public class EventToListenerMapping implements View.OnClickListener {
-    private ApplicationLogic mApplicationLogic;
+    private final ApplicationLogic mApplicationLogic;
 
     public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
         mApplicationLogic = applicationLogic;

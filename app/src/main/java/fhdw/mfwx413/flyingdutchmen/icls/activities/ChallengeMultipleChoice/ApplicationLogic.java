@@ -14,9 +14,9 @@ import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
  * Responsibility: Daniel zur Linden
  */
 public class ApplicationLogic {
-    private Data mData;
-    private Gui mGui;
-    private Activity mActivity;
+    private final Data mData;
+    private final Gui mGui;
+    private final Activity mActivity;
     private int givenAnswer; //variable to store the given Answer as an integer
     private boolean isCheckBoxAnswer1Clicked;
     private boolean isCheckBoxAnswer2Clicked;

@@ -23,16 +23,8 @@ public class UserProgress implements Serializable {
         return mUserName;
     }
 
-    public void setmUserName(String mUserName) {
-        this.mUserName = mUserName;
-    }
-
     public int getmChallengeID() {
         return mChallengeID;
-    }
-
-    public void setmChallengeID(int mChallengeID) {
-        this.mChallengeID = mChallengeID;
     }
 
     public int getmPeriodClass() {
@@ -47,12 +39,8 @@ public class UserProgress implements Serializable {
         return mTimeStampAnswered;
     }
 
-    public void setmTimeStampAnswered(String mTimeStampAnswered) {
+    private void setmTimeStampAnswered(String mTimeStampAnswered) {
         this.mTimeStampAnswered = mTimeStampAnswered;
-    }
-
-    public void setDefaultTimeStamp() {
-        setmTimeStampAnswered(Constants.DEFAULT_TIMESTAMP);
     }
 
     public void setCurrentTimeStamp() {
