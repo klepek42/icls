@@ -35,7 +35,7 @@ public class ApplicationLogic {
 
     }
 
-    public void onButtonSaveNewUserClicked() throws IdNotFoundException {
+    public void onButtonSaveNewUserClicked(){
         String givenUser;
         givenUser = mGui.getmNameOfUser().getText().toString();
 
@@ -72,7 +72,13 @@ public class ApplicationLogic {
                     UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, givenUser, mActivity);
 
                     // Navigation to ChooseFile
-                    mData.setmCurrentUser(mData.getmAllUsers().getUser(givenUser));
+                    try {
+                        mData.setmCurrentUser(mData.getmAllUsers().getUser(givenUser));
+                    }
+                    catch(IdNotFoundException e){
+                        Toast.makeText(mData.getActivity(), "Unerwarteter Fehler", Toast.LENGTH_LONG).show();
+                        Navigation.startActivityStartMenu(mData.getActivity());
+                    }
                     Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmGivenUser());
                 }
                 else {

@@ -27,17 +27,26 @@ public class Gui {
         mButtonWasAnswerWrong = (Button) activity.findViewById(R.id.buttonWasAnswerWrong);
     }
 
-    //setter for textview "TextViewWasAnswerCorrect"
-    //it provides information whether the answer was corect or not
-    public void setTextViewWasAnswerCorrect() {
-        String wasAnswerCorrect = "War Ihre Antwort dabei und richtig?";
-        mTextViewWasAnswerCorrect.setText(wasAnswerCorrect);
-    }
-
     //setter for the textview "TextViewCorrectAnswer"
     // it displays the correct answers, that are saved in the challenge
     public void setTextViewCorrectAnswer(String feedbackTextCorrectAnswer) {
-        mTextViewCorrectAnswer.setText(feedbackTextCorrectAnswer);
+        //delimiter you need, to seperate the answer string into its components
+        String delimiter = ", ";
+        int sizeOfAnswerArray;
+
+        //split the correct answer string with all answers into the array with the single answers
+        String AnswerArray[] = feedbackTextCorrectAnswer.split(delimiter);
+        sizeOfAnswerArray = AnswerArray.length;
+
+        String correctAnswerIs = "Die richtige(n) Antwort(en):\n \n";
+
+        //it depends on the size of the array, how many "lines" have to be generated
+        for (int i = 0; i < sizeOfAnswerArray; i++){
+            correctAnswerIs = correctAnswerIs.concat("\u2022 " + AnswerArray[i] + "\n");
+        }
+
+        //finally set the strings into the textview
+        mTextViewCorrectAnswer.setText(correctAnswerIs);
     }
 
     //getter for button "getmButtonWasAnswerWrong"
