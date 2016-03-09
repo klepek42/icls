@@ -33,9 +33,6 @@ public class ApplicationLogic {
     private void initialUpdateGui() {
         String correctAnswer;
 
-        //set the string "Die korrekten Antworten sind" into the textview
-        mGui.setTextViewWasAnswerCorrect();
-
         try {
             //delivers String with the correct answer(s)
             correctAnswer = mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmCorrectAnswerString();
