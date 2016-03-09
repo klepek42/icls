@@ -143,7 +143,7 @@ public class Navigation {
 
     public static void startActivityLogout(Activity callingActivity, User chosenUser) {
         Intent intent;
-        intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.FragLogout.Init.class);
+        intent = new Intent(callingActivity,fhdw.mfwx413.flyingdutchmen.icls.activities.LogoutUser.Init.class);
         intent.putExtra(Constants.KEY_PARAM_CHOSEN_USER, chosenUser);
         callingActivity.startActivity(intent);
         callingActivity.finish();

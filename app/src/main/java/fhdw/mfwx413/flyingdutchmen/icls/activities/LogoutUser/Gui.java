@@ -1,4 +1,4 @@
-package fhdw.mfwx413.flyingdutchmen.icls.activities.FragLogout;
+package fhdw.mfwx413.flyingdutchmen.icls.activities.LogoutUser;
 
 import android.app.Activity;
 import android.widget.Button;
