@@ -3,7 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 import android.view.View;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
-import fhdw.mfwx413.flyingdutchmen.icls.exceptions.IdNotFoundException;
 
 /**
  * Responsibility: Luisa Leifer
@@ -26,12 +25,7 @@ public class EventToListenerMapping implements View.OnClickListener {
                 mApplicationLogic.onButtonAbortNewUserClicked();
                 break;
             case R.id.buttonSaveNewUser:
-                try {
-                    mApplicationLogic.onButtonSaveNewUserClicked();
-                }
-                catch (IdNotFoundException e) {
-                    e.printStackTrace();
-                }
+                mApplicationLogic.onButtonSaveNewUserClicked();
                 break;
         }
     }

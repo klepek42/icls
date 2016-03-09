@@ -1,7 +1,6 @@
 package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 
 import android.app.Activity;
-import android.util.Log;
 
 import fhdw.mfwx413.flyingdutchmen.icls.data.User;
 import fhdw.mfwx413.flyingdutchmen.icls.data.UserCollection;

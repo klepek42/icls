@@ -3,7 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.AddNewUser;
 import android.app.Activity;
 import android.os.Bundle;
 
-import fhdw.mfwx413.flyingdutchmen.icls.R;
 import fhdw.mfwx413.flyingdutchmen.icls.utilities.Navigation;
 
 /**
