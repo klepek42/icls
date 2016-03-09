@@ -76,7 +76,7 @@ public class csvExport {
                 }
             }
             // Save in external storage under "ICLS" folder
-            else if(filename.equals("challenges.csv") || filename.equals("index.csv")){
+            else if(filename.equals("challenges.csv") || filename.equals("index.csv") || filename.equals("readme.txt")){
                     InputStream in = null;
                     OutputStream out = null;
                     try {
