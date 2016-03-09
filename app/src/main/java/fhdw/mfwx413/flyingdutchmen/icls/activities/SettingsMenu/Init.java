@@ -3,11 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu;
 import android.app.Activity;
 import android.os.Bundle;
 
-import fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu.*;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu.Data;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu.EventToListenerMapping;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.SettingsMenu.Gui;
-
 /**
  * Responsibility: Daniel zur Linden
  */
@@ -17,7 +12,7 @@ public class Init extends Activity {
     private ApplicationLogic mApplicationLogic;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initData(savedInstanceState);
         initGui();
@@ -25,7 +20,7 @@ public class Init extends Activity {
         initEventToListenerMapping();
     }
 
-    private void initApplicationLogic(){
+    private void initApplicationLogic() {
         mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
@@ -37,7 +32,7 @@ public class Init extends Activity {
         mGui = new Gui(this);
     }
 
-    private void initData(Bundle savedInstanceState){
+    private void initData(Bundle savedInstanceState) {
         mData = new Data(this, savedInstanceState);
     }
 

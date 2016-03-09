@@ -30,10 +30,9 @@ public class Data {
         intent = activity.getIntent();
         mAllUsers = UserDatabase.getAllUser(mActivity);
 
-        if(bundle == null) {
+        if (bundle == null) {
             mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
-        }
-        else{
+        } else {
             //restore Data if bundle is filled
             restoreDataFromBundle(bundle);
         }
@@ -45,7 +44,7 @@ public class Data {
     }
 
     //restore data from given bundle
-    public void restoreDataFromBundle(Bundle bundle) {
+    private void restoreDataFromBundle(Bundle bundle) {
         mChosenUser = (User) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_USER);
     }
 

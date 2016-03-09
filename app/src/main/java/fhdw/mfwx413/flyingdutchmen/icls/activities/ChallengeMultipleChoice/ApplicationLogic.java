@@ -51,36 +51,30 @@ public class ApplicationLogic {
 
     //following three methods count givenAnswer up, if it is not checked yet and counts it down, if it is already checked (and therefore wants to be unchecked by user)
     public void onCheckBoxAnswer1Clicked() {
-        if (!isCheckBoxAnswer1Clicked)
-        {
+        if (!isCheckBoxAnswer1Clicked) {
             givenAnswer = givenAnswer + 1;
             isCheckBoxAnswer1Clicked = true;
-        }
-        else {
+        } else {
             givenAnswer = givenAnswer - 1;
             isCheckBoxAnswer1Clicked = false;
         }
     }
 
     public void onCheckBoxAnswer2Clicked() {
-        if (!isCheckBoxAnswer2Clicked)
-        {
+        if (!isCheckBoxAnswer2Clicked) {
             givenAnswer = givenAnswer + 2;
             isCheckBoxAnswer2Clicked = true;
-        }
-        else {
+        } else {
             givenAnswer = givenAnswer - 2;
             isCheckBoxAnswer2Clicked = false;
         }
     }
 
     public void onCheckBoxAnswer3Clicked() {
-        if (!isCheckBoxAnswer3Clicked)
-        {
+        if (!isCheckBoxAnswer3Clicked) {
             givenAnswer = givenAnswer + 4;
             isCheckBoxAnswer3Clicked = true;
-        }
-        else {
+        } else {
             givenAnswer = givenAnswer - 4;
             isCheckBoxAnswer3Clicked = false;
         }
@@ -95,21 +89,19 @@ public class ApplicationLogic {
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
 
         //determine whether user given answer has same value as stored correct answer and set boolean isAnswerCorrect based on that
-        if (challenge.getmCorrectAnswer() >= 1 && challenge.getmCorrectAnswer() <= 7){
+        if (challenge.getmCorrectAnswer() >= 1 && challenge.getmCorrectAnswer() <= 7) {
 
-            if (challenge.getmCorrectAnswer() == givenAnswer)
-            {
+            if (challenge.getmCorrectAnswer() == givenAnswer) {
                 isAnswerCorrect = true;
-            }
-            else {
+            } else {
                 isAnswerCorrect = false;
             }
-    }
+        }
 
         //if stored correct answer has invalid value, exception is thrown
-    else {
-        throw new InvalidCorrectAnswerTypeException("ChallengeMultipleChoice::ApplicationLogic::onButtonConfirmAnswerClicked: Ungültiger Wert für CorrectAnswer: " + challenge.getmCorrectAnswer());
-    }
+        else {
+            throw new InvalidCorrectAnswerTypeException("ChallengeMultipleChoice::ApplicationLogic::onButtonConfirmAnswerClicked: Ungültiger Wert für CorrectAnswer: " + challenge.getmCorrectAnswer());
+        }
 
         //try to update the user Progress, if not possible throw exception
         try {
@@ -117,8 +109,7 @@ public class ApplicationLogic {
             //call the Feedback-Activity and send the required data
             Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect, mData.getmUserProgresses());
 
-        }
-        catch (UserProgressNotFoundException e){
+        } catch (UserProgressNotFoundException e) {
             Log.e("ICLS-LOG", "ChallengeMultipleChoice::ApplicationLogic::onButtonConfirmAnswerClicked: ", e);
             showErrorUnexpectedError();
             Navigation.startActivityStartMenu(mActivity);
@@ -126,32 +117,31 @@ public class ApplicationLogic {
     }
 
 
-    public void goBackToChooseFile(){
+    public void goBackToChooseFile() {
         Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
     }
 
-    public void showErrorUnexpectedError(){
+    public void showErrorUnexpectedError() {
         Toast.makeText(mActivity, "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
     }
 
     //method to update the userProgress with information, whether the given answer was correct or not
-    public void updateUserProgress(boolean isAnswerCorrect) throws UserProgressNotFoundException{
+    private void updateUserProgress(boolean isAnswerCorrect) throws UserProgressNotFoundException {
         boolean userProgressFound = false;
         //go through user progresses to find these of current user
-        for (int i = 0; i < mData.getmUserProgresses().getSize(); i++){
+        for (int i = 0; i < mData.getmUserProgresses().getSize(); i++) {
             //find the challenge and update the time class + time stamp
-            if (mData.getmUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()){
+            if (mData.getmUserProgresses().getUserProgress(i).getmChallengeID() == mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID()) {
                 int actualTimeClass = mData.getmUserProgresses().getUserProgress(i).getmPeriodClass();
                 userProgressFound = true;
                 mData.getmUserProgresses().getUserProgress(i).setCurrentTimeStamp();
                 //count up period classes based on current time class
                 if (isAnswerCorrect) {
-                    if (actualTimeClass < 5 ) {
+                    if (actualTimeClass < 5) {
                         mData.getmUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass + 1);
                     }
-                }
-                else {
-                    if (actualTimeClass > 1 ) {
+                } else {
+                    if (actualTimeClass > 1) {
                         mData.getmUserProgresses().getUserProgress(i).setmPeriodClass(actualTimeClass - 1);
                     }
                 }
@@ -161,7 +151,7 @@ public class ApplicationLogic {
             }
         }
         //throw exception if the user was not found
-        if (!userProgressFound){
+        if (!userProgressFound) {
             throw new UserProgressNotFoundException("ChallengeMultipleChoice::ApplicationLogic::updateUserProgress:"
                     + " CurrentUserName: " + mData.getmChosenUser().getName()
                     + " ChallengeID:" + mData.getmDueChallengesOfUserInFile().getChallenge(mData.getmCurrentChallengeId()).getmID());

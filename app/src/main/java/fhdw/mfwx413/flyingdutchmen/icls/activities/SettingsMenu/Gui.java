@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
 
@@ -13,13 +12,13 @@ import fhdw.mfwx413.flyingdutchmen.icls.R;
  */
 public class Gui {
 
- /*   private TextView mTextFieldSettingsMenu;
-    private TextView mTextFieldPeriodClass1;
-    private TextView mTextFieldPeriodClass2;
-    private TextView mTextFieldPeriodClass3;
-    private TextView mTextFieldPeriodClass4;
-    private TextView mTextFieldPeriodClass5;
-    private TextView mTextFieldPeriodClass6;*/
+    /*   private TextView mTextFieldSettingsMenu;
+       private TextView mTextFieldPeriodClass1;
+       private TextView mTextFieldPeriodClass2;
+       private TextView mTextFieldPeriodClass3;
+       private TextView mTextFieldPeriodClass4;
+       private TextView mTextFieldPeriodClass5;
+       private TextView mTextFieldPeriodClass6;*/
     private EditText mPeriodClass1;
     private EditText mPeriodClass2;
     private EditText mPeriodClass3;
@@ -157,7 +156,6 @@ public class Gui {
     public Button getmButtonSetSettingsDefault() {
         return mButtonSetSettingsDefault;
     }
-
 
 
 }

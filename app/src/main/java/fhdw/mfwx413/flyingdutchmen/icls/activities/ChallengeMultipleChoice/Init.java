@@ -3,13 +3,8 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice;
 import android.app.Activity;
 import android.os.Bundle;
 
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.*;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Data;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.EventToListenerMapping;
-import fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice.Gui;
-
 /**
-Responsibility: Daniel zur Linden
+ * Responsibility: Daniel zur Linden
  */
 public class Init extends Activity {
 
@@ -18,7 +13,7 @@ public class Init extends Activity {
     private ApplicationLogic mApplicationLogic;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initData(savedInstanceState);
         initGui();
@@ -27,7 +22,7 @@ public class Init extends Activity {
     }
 
     //initialize the ApplicationLogic
-    private void initApplicationLogic(){
+    private void initApplicationLogic() {
         mApplicationLogic = new ApplicationLogic(mData, mGui, this);
     }
 
@@ -42,7 +37,7 @@ public class Init extends Activity {
     }
 
     //initialize the Data (with saved data)
-    private void initData(Bundle savedInstanceState){
+    private void initData(Bundle savedInstanceState) {
         mData = new Data(this, savedInstanceState);
     }
 

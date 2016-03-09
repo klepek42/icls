@@ -28,7 +28,7 @@ public class Data {
         mActivity = activity;
         Intent intent;
 
-        if(bundle == null) {
+        if (bundle == null) {
             //if bundle isn't filled, the data will be initialized by the extras of the intent
             intent = mActivity.getIntent();
             mCurrentChallengeId = intent.getIntExtra(Constants.KEY_PARAM_CURRENT_CHALLENGE_ID, DEFAULT_CURRENT_CHALLENGE_ID);
@@ -36,8 +36,7 @@ public class Data {
             mChosenUser = (User) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_USER);
             mChosenFile = (IndexCard) intent.getSerializableExtra(Constants.KEY_PARAM_CHOSEN_INDEX_CARD);
             mUserProgresses = (UserProgressCollection) intent.getSerializableExtra(Constants.KEY_PARAM_USER_PROGRESS_CURRENT_USER);
-        }
-        else{
+        } else {
             //restore Data if bundle is filled
             restoreDataFromBundle(bundle);
         }
@@ -53,7 +52,7 @@ public class Data {
     }
 
     //restore data from given bundle
-    public void restoreDataFromBundle(Bundle bundle) {
+    private void restoreDataFromBundle(Bundle bundle) {
         mCurrentChallengeId = bundle.getInt(Constants.BUNDLE_KEY_CURRENT_CHALLENGE_ID);
         mDueChallengesOfUserInFile = (ChallengeCollection) bundle.getSerializable(Constants.BUNDLE_KEY_DUE_CHALLENGES_FOR_USER_IN_INDEX_CARD);
         mChosenUser = (User) bundle.getSerializable(Constants.BUNDLE_KEY_CHOSEN_USER);
@@ -72,13 +71,17 @@ public class Data {
         return mActivity;
     }
 
-    public User getmChosenUser() {return mChosenUser;}
+    public User getmChosenUser() {
+        return mChosenUser;
+    }
 
     public UserProgressCollection getmUserProgresses() {
         return mUserProgresses;
     }
 
-    public IndexCard getmChosenFile() {return mChosenFile;}
+    public IndexCard getmChosenFile() {
+        return mChosenFile;
+    }
 }
 
 

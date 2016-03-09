@@ -3,7 +3,6 @@ package fhdw.mfwx413.flyingdutchmen.icls.activities.ChallengeMultipleChoice;
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import fhdw.mfwx413.flyingdutchmen.icls.R;
@@ -22,7 +21,6 @@ public class Gui {
     private Button mButtonConfirmAnswer;
 
 
-
     public Gui(Activity activity) {
         //set Gui elements
         activity.setContentView(R.layout.layout_challenge_multiple_choice);
@@ -35,7 +33,7 @@ public class Gui {
     }
 
     //display questiontext
-    public void setQuestionText (String text){
+    public void setQuestionText(String text) {
         mTextFieldQuestion.setText(text);
     }
 
