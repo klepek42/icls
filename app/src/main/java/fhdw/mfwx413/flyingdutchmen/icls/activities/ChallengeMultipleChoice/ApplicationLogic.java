@@ -60,11 +60,7 @@ public class ApplicationLogic {
         //determine whether user given answer has same value as stored correct answer and set boolean isAnswerCorrect based on that
         if (challenge.getmCorrectAnswer() >= 1 && challenge.getmCorrectAnswer() <= 7) {
 
-            if (challenge.getmCorrectAnswer() == givenAnswer) {
-                isAnswerCorrect = true;
-            } else {
-                isAnswerCorrect = false;
-            }
+            isAnswerCorrect = challenge.getmCorrectAnswer() == givenAnswer;
         }
 
         //if stored correct answer has invalid value, exception is thrown
@@ -86,7 +82,7 @@ public class ApplicationLogic {
         }
     }
 
-
+    //method to leave the activity without answering the question
     public void goBackToChooseFile() {
         Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
     }

@@ -38,14 +38,14 @@ public class ApplicationLogic {
     }
 
 
-    //method to add content to Unit-Spinner and Timeclass-EditTexts
+    //method to add content to Unit-Spinner and PeriodClass-EditTexts - invoked initially when the Activity is started
     private void fillAllPeriodClassesAndTimeUnits() {
         //fill ArrayList of units
         periodUnits.add(0, "Minute(n)");
         periodUnits.add(1, "Stunde(n)");
         periodUnits.add(2, "Tag(e)");
 
-        //fill all unit-Spinner
+        //fill all Unit-Spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, periodUnits);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -56,7 +56,7 @@ public class ApplicationLogic {
         mGui.getTimeUnit5().setAdapter(adapter);
         mGui.getTimeUnit6().setAdapter(adapter);
 
-        //store current user chosen period classes
+        //store current user chosen period classes in local variables
         int chosenPeriodClass1Int = mData.getCurrentUser().getPeriodClass1();
         int chosenPeriodClass2Int = mData.getCurrentUser().getPeriodClass2();
         int chosenPeriodClass3Int = mData.getCurrentUser().getPeriodClass3();
@@ -64,7 +64,7 @@ public class ApplicationLogic {
         int chosenPeriodClass5Int = mData.getCurrentUser().getPeriodClass5();
         int chosenPeriodClass6Int = mData.getCurrentUser().getPeriodClass6();
 
-        //following switch statements set user chosen time periods in EditTexts and set proper unit in Spinner - convertion from int to String is necessary because EditText stores as String
+        //following switch statements set user chosen time periods in EditTexts and set proper unit in Spinner - conversion from int to String is necessary because EditText stores as String
         switch (determineProperUnit(chosenPeriodClass1Int)) {
             case 0:
                 mGui.getTimeUnit1().setSelection(0);
@@ -72,11 +72,11 @@ public class ApplicationLogic {
                 break;
             case 1:
                 mGui.getTimeUnit1().setSelection(1);
-                mGui.getmPeriodClass1().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass1Int), "Minute(n)", "Stunde(n)")));
+                mGui.getmPeriodClass1().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass1Int, "Minute(n)", "Stunde(n)")));
                 break;
             case 2:
                 mGui.getTimeUnit1().setSelection(2);
-                mGui.getmPeriodClass1().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass1Int), "Minute(n)", "Tag(e)")));
+                mGui.getmPeriodClass1().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass1Int, "Minute(n)", "Tag(e)")));
         }
 
         switch (determineProperUnit(chosenPeriodClass2Int)) {
@@ -86,11 +86,11 @@ public class ApplicationLogic {
                 break;
             case 1:
                 mGui.getTimeUnit2().setSelection(1);
-                mGui.getmPeriodClass2().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass2Int), "Minute(n)", "Stunde(n)")));
+                mGui.getmPeriodClass2().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass2Int, "Minute(n)", "Stunde(n)")));
                 break;
             case 2:
                 mGui.getTimeUnit2().setSelection(2);
-                mGui.getmPeriodClass2().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass2Int), "Minute(n)", "Tag(e)")));
+                mGui.getmPeriodClass2().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass2Int, "Minute(n)", "Tag(e)")));
         }
 
         switch (determineProperUnit(chosenPeriodClass3Int)) {
@@ -100,11 +100,11 @@ public class ApplicationLogic {
                 break;
             case 1:
                 mGui.getTimeUnit3().setSelection(1);
-                mGui.getmPeriodClass3().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass3Int), "Minute(n)", "Stunde(n)")));
+                mGui.getmPeriodClass3().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass3Int, "Minute(n)", "Stunde(n)")));
                 break;
             case 2:
                 mGui.getTimeUnit3().setSelection(2);
-                mGui.getmPeriodClass3().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass3Int), "Minute(n)", "Tag(e)")));
+                mGui.getmPeriodClass3().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass3Int, "Minute(n)", "Tag(e)")));
         }
 
         switch (determineProperUnit(chosenPeriodClass4Int)) {
@@ -114,11 +114,11 @@ public class ApplicationLogic {
                 break;
             case 1:
                 mGui.getTimeUnit4().setSelection(1);
-                mGui.getmPeriodClass4().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass4Int), "Minute(n)", "Stunde(n)")));
+                mGui.getmPeriodClass4().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass4Int, "Minute(n)", "Stunde(n)")));
                 break;
             case 2:
                 mGui.getTimeUnit4().setSelection(2);
-                mGui.getmPeriodClass4().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass4Int), "Minute(n)", "Tag(e)")));
+                mGui.getmPeriodClass4().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass4Int, "Minute(n)", "Tag(e)")));
         }
 
         switch (determineProperUnit(chosenPeriodClass5Int)) {
@@ -128,11 +128,11 @@ public class ApplicationLogic {
                 break;
             case 1:
                 mGui.getTimeUnit5().setSelection(1);
-                mGui.getmPeriodClass5().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass5Int), "Minute(n)", "Stunde(n)")));
+                mGui.getmPeriodClass5().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass5Int, "Minute(n)", "Stunde(n)")));
                 break;
             case 2:
                 mGui.getTimeUnit5().setSelection(2);
-                mGui.getmPeriodClass5().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass5Int), "Minute(n)", "Tag(e)")));
+                mGui.getmPeriodClass5().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass5Int, "Minute(n)", "Tag(e)")));
         }
 
         switch (determineProperUnit(chosenPeriodClass6Int)) {
@@ -142,17 +142,15 @@ public class ApplicationLogic {
                 break;
             case 1:
                 mGui.getTimeUnit6().setSelection(1);
-                mGui.getmPeriodClass6().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass6Int), "Minute(n)", "Stunde(n)")));
+                mGui.getmPeriodClass6().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass6Int, "Minute(n)", "Stunde(n)")));
                 break;
             case 2:
                 mGui.getTimeUnit6().setSelection(2);
-                mGui.getmPeriodClass6().setText(String.valueOf(convertChosenPeriod(String.valueOf(chosenPeriodClass6Int), "Minute(n)", "Tag(e)")));
+                mGui.getmPeriodClass6().setText(String.valueOf(convertChosenPeriod(chosenPeriodClass6Int, "Minute(n)", "Tag(e)")));
         }
-
-
     }
 
-
+    //method that is invoked if the confirm button is clicked
     public void onButtonConfirmSettingsClicked() {
         //Read values for user chosen period EditText and time unit Spinner
         String chosenPeriodClass1 = mGui.getmPeriodClass1().getText().toString();
@@ -183,17 +181,18 @@ public class ApplicationLogic {
                 !chosenPeriodClass5.isEmpty() &&
                 !chosenPeriodClass6.isEmpty()
                 ) {
-            chosenPeriodClass1Int = convertChosenPeriod(chosenPeriodClass1, chosenTimeUnitClass1, "Minute(n)");
-            chosenPeriodClass2Int = convertChosenPeriod(chosenPeriodClass2, chosenTimeUnitClass2, "Minute(n)");
-            chosenPeriodClass3Int = convertChosenPeriod(chosenPeriodClass3, chosenTimeUnitClass3, "Minute(n)");
-            chosenPeriodClass4Int = convertChosenPeriod(chosenPeriodClass4, chosenTimeUnitClass4, "Minute(n)");
-            chosenPeriodClass5Int = convertChosenPeriod(chosenPeriodClass5, chosenTimeUnitClass5, "Minute(n)");
-            chosenPeriodClass6Int = convertChosenPeriod(chosenPeriodClass6, chosenTimeUnitClass6, "Minute(n)");
+            //store user chosen period classes in local variables in minutes
+            chosenPeriodClass1Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass1), chosenTimeUnitClass1, "Minute(n)");
+            chosenPeriodClass2Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass2), chosenTimeUnitClass2, "Minute(n)");
+            chosenPeriodClass3Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass3), chosenTimeUnitClass3, "Minute(n)");
+            chosenPeriodClass4Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass4), chosenTimeUnitClass4, "Minute(n)");
+            chosenPeriodClass5Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass5), chosenTimeUnitClass5, "Minute(n)");
+            chosenPeriodClass6Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass6), chosenTimeUnitClass6, "Minute(n)");
         } else {
-            //nothing to do, one chosen period class is empty and therefore not valid
+            //nothing to do, one chosen period class is empty and therefore not valid - invalid period classes are dealt in else-statement of next if-statement
         }
 
-        //determine whether chosen periods are valid (and not empty)
+        //determine whether chosen periods are valid (first period greater than 0 and other periods greater than all smaller periods)
         if (chosenPeriodClass1Int > 0 &&
                 chosenPeriodClass6Int > chosenPeriodClass5Int &&
                 chosenPeriodClass5Int > chosenPeriodClass4Int &&
@@ -203,10 +202,10 @@ public class ApplicationLogic {
             //chosen periods are valid
 
             try {
-                //store periods temporary
+                //store periods temporary in current user
                 mData.getCurrentUser().setPeriodClasses(chosenPeriodClass1Int, chosenPeriodClass2Int, chosenPeriodClass3Int, chosenPeriodClass4Int, chosenPeriodClass5Int, chosenPeriodClass6Int);
 
-                //store periods permanently
+                //store periods permanently in the user collection
                 updateUserCollection(chosenPeriodClass1Int, chosenPeriodClass2Int, chosenPeriodClass3Int, chosenPeriodClass4Int, chosenPeriodClass5Int, chosenPeriodClass6Int);
                 Toast.makeText(mData.getActivity(), "Die Werte wurden gespeichert!", Toast.LENGTH_SHORT).show();
                 Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
@@ -217,7 +216,7 @@ public class ApplicationLogic {
             }
 
         } else {
-            //not valid
+            //chosen periods are not valid
             Toast.makeText(mData.getActivity(), "Bitte prüfen Sie die eingegebenen Werte und Einheiten.", Toast.LENGTH_SHORT).show();
         }
     }
@@ -226,48 +225,46 @@ public class ApplicationLogic {
         Toast.makeText(mData.getActivity(), "Unerwarteter Fehler", Toast.LENGTH_SHORT).show();
     }
 
-    //method to convert a given period (string) value from a given unit into another - or same unit - and return as int
-    private int convertChosenPeriod(String originalPeriod, String originalTimeUnit, String wantedTimeUnit) {
-        int originalPeriodInt;
-        originalPeriodInt = Integer.parseInt(originalPeriod);
+    //method to convert a given period value from a given time unit into another - or same - time unit and return as int
+    private int convertChosenPeriod(int originalPeriod, String originalTimeUnit, String wantedTimeUnit) {
         switch (wantedTimeUnit) {
             case "Minute(n)":
                 switch (originalTimeUnit) {
                     case "Minute(n)":
                         break;
                     case "Stunde(n)":
-                        originalPeriodInt = originalPeriodInt * 60;
+                        originalPeriod = originalPeriod * 60;
                         break;
                     case "Tag(e)":
-                        originalPeriodInt = originalPeriodInt * 60 * 24;
+                        originalPeriod = originalPeriod * 60 * 24;
                         break;
                 }
                 break;
             case "Stunde(n)":
                 switch (originalTimeUnit) {
                     case "Minute(n)":
-                        originalPeriodInt = originalPeriodInt / 60;
+                        originalPeriod = originalPeriod / 60;
                         break;
                     case "Stunde(n)":
                         break;
                     case "Tag(e)":
-                        originalPeriodInt = originalPeriodInt * 24;
+                        originalPeriod = originalPeriod * 24;
                         break;
                 }
                 break;
             case "Tag(e)":
                 switch (originalTimeUnit) {
                     case "Minute(n)":
-                        originalPeriodInt = originalPeriodInt / 24 / 60;
+                        originalPeriod = originalPeriod / 24 / 60;
                         break;
                     case "Stunde(n)":
-                        originalPeriodInt = originalPeriodInt / 24;
+                        originalPeriod = originalPeriod / 24;
                     case "Tag(e)":
                         break;
                 }
                 break;
         }
-        return originalPeriodInt;
+        return originalPeriod;
     }
 
     //method to determine which unit is best to select in Spinner: returns 0 for minutes, 1 for hours, 2 for days
@@ -284,31 +281,34 @@ public class ApplicationLogic {
         }
     }
 
-    //method to update a UserCollection with given Units (int)
+    //method to update the user within the UserCollection with given Units (int)
     private void updateUserCollection(int periodClass1, int periodClass2, int periodClass3, int periodClass4, int periodClass5, int periodClass6) throws UserNotFoundException {
         UserCollection uc = mData.getmAllUsers();
         boolean userFoundInCollection = false;
 
+        //go through the UserCollection and search for the user by the current user's name
         for (int i = 0; i < uc.getSize(); i++) {
             if (uc.get(i).getName().equals(mData.getCurrentUser().getName())) {
                 uc.get(i).setPeriodClasses(periodClass1, periodClass2, periodClass3, periodClass4, periodClass5, periodClass6);
                 userFoundInCollection = true;
             }
         }
+        //in unusual case that the user is not found in the collection, an exception is thrown
         if (!userFoundInCollection) {
             throw new UserNotFoundException("SettingsMenu::ApplicationLogic::updateUserCollection:"
                     + " CurrentUserName: " + mData.getmChosenUser().getName());
         }
+        //save all users (with currently changed user)
         UserDatabase.writeAllUsers(context, uc);
     }
 
-
+    //method to leave the activity without saving any values
     public void goBackToChooseFile() {
         Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
         Toast.makeText(mData.getActivity(), "Abgebrochen und nichts gespeichert.", Toast.LENGTH_SHORT).show();
     }
 
-    //Set settings back to default values
+    //method to set settings back to default values and go back to ChooseIndexCard-Activity
     public void onButtonSetSettingsDefaultClicked() {
         try {
             //store periods temporary
