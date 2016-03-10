@@ -14,7 +14,7 @@
         android:text="@string/string_edit"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="@dimen/activity_margin_user"
+        android:layout_marginTop="@dimen/activity_margin_input_header"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -69,4 +69,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:textAllCaps="false" />
+
 </RelativeLayout>

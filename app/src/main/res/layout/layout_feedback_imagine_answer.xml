@@ -16,7 +16,7 @@
         android:textColor="@color/textColor"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_feedback_margin"
+        android:layout_marginTop="@dimen/activity_margin_feedback"
         android:layout_alignParentTop="true" />
 
     <Button
@@ -55,6 +55,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_above="@id/buttonWasAnswerCorrect"
-        android:layout_marginBottom="@dimen/activity_feedback_margin" />
+        android:layout_marginBottom="@dimen/activity_margin_feedback_bottom" />
 
 </RelativeLayout>

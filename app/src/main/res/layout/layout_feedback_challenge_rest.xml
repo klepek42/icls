@@ -15,7 +15,7 @@
         android:textSize="@dimen/activity_text_size"
         android:textColor="@color/textColor"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_question_margin"
+        android:layout_marginTop="@dimen/activity_margin_info"
         android:layout_alignParentTop="true" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:textColor="@color/textColor"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_feedback_margin"
+        android:layout_marginTop="@dimen/activity_margin_feedback"
         android:layout_below="@id/textFieldFeedbackText" />
 
     <Button
@@ -54,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_above="@id/buttonContinue"
-        android:layout_marginBottom="@dimen/activity_feedback_margin_bottom" />
+        android:layout_marginBottom="@dimen/activity_margin_feedback_bottom" />
 
     <Button
         android:id="@+id/buttonAbort"

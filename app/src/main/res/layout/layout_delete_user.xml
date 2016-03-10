@@ -14,8 +14,20 @@
         android:text="@string/string_ask_delete"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="@dimen/activity_margin_start"
+        android:layout_marginTop="@dimen/activity_margin_spinner_header"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonSaveNewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_no"
+        android:textSize="@dimen/activity_text_size"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/buttonAbortNewUser"
@@ -29,15 +41,4 @@
         android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/buttonSaveNewUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/string_no"
-        android:textSize="@dimen/activity_text_size"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:textAllCaps="false" />
 </RelativeLayout>

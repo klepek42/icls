@@ -13,7 +13,7 @@
         android:text="@string/string_choose_file"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="@dimen/activity_margin_start"
+        android:layout_marginTop="@dimen/activity_margin_spinner_header"
         android:layout_centerHorizontal="true" />
 
     <Spinner
@@ -21,9 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:text="@string/string_user_name"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="@dimen/activity_margin_user"
+        android:layout_marginTop="@dimen/activity_margin_spinner"
         android:layout_below="@+id/textFieldChooseFile" />
 
     <Button
@@ -52,7 +51,7 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/buttonLogout"
-        android:layout_marginLeft="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_class_vertical_small"
         android:textAllCaps="false" />
 
     <Button
@@ -67,7 +66,7 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/buttonStatistics"
-        android:layout_marginLeft="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_class_vertical_small"
         android:textAllCaps="false" />
 
     <Button
@@ -82,7 +81,7 @@
         android:paddingRight="@dimen/activity_padding_button"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/buttonSettings"
-        android:layout_marginLeft="@dimen/activity_margin_gap_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_class_vertical_small"
         android:textAllCaps="false" />
 
 </RelativeLayout>

@@ -10,18 +10,18 @@
         android:id="@+id/textFieldNoIndexCardsWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_nofileswarning"
+        android:text="@string/string_no_files_warning"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_question_margin" />
+        android:layout_marginTop="@dimen/activity_margin_info" />
 
     <TextView
         android:id="@+id/textFieldNoIndexCardsDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_nofilesdescription"
+        android:text="@string/string_no_files_description"
         android:textSize="@dimen/activity_text_size_info"
         android:textColor="@color/textColor"
         android:gravity="center"
@@ -39,4 +39,5 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:textAllCaps="false" />
+
 </RelativeLayout>
