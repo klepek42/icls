@@ -14,6 +14,7 @@
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="@dimen/activity_margin_spinner_header"
+        android:gravity="center"
         android:layout_centerHorizontal="true" />
 
     <Spinner

@@ -13,9 +13,9 @@
         android:text="@string/string_duplicate_files_warning"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/activity_margin_info"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_margin_info" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/textFieldDuplicateIndexCardsDescription"

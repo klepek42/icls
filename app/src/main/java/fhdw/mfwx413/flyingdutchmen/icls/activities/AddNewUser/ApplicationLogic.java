@@ -35,66 +35,78 @@ public class ApplicationLogic {
 
     }
 
+    // method that is invoked if the safe button is clicked
     public void onButtonSaveNewUserClicked(){
+        // save given user from the input field
         String givenUser;
         givenUser = mGui.getmNameOfUser().getText().toString();
 
+        // create empty user and set given user
         User newUser = new User();
         newUser.setCreateUser(givenUser);
 
+        // checks if the input field is empty
         if (givenUser.isEmpty()){
-            // Toast information --> no input
+            // toast information --> no input
             Toast.makeText(mData.getActivity(), "Bitte einen Namen eingeben!", Toast.LENGTH_LONG).show();
         }
         else {
+            // checks if just alphabetic character are given
             if (givenUser.matches("[a-zA-Z]++")) {
                 // save new User and check if not exists
                 UserCollection uc = mData.getmAllUsers();
 
+                // checks if user not exist
                 if(uc.doesUserExist(newUser) == false) {
-                    // Toast accepted
+                    // toast accepted
                     Toast.makeText(mData.getActivity(), "Username wurde akzeptiert!", Toast.LENGTH_LONG).show();
 
+                    // add new user to all users
                     mData.getmAllUsers().addUser(newUser);
 
-                    // Export all users + new user to users.csv (create new csv file)
+                    // export all users and new user to users.csv (create new csv file)
                     UserDatabase.writeAllUsers(mActivity, uc);
 
-                    // create UserProgress File for User
+                    // create UserProgress file for user
                     ChallengeCollection allChallenges = ChallengeDatabase.getAllChallenges();
-
                     UserProgressCollection userProgressCollection = new UserProgressCollection();
 
+                    // add all challenges to UserProgress
                     for(int i = 0; i < allChallenges.getSize(); i++) {
                         UserProgress userProgress = new UserProgress(givenUser, allChallenges.getChallenge(i).getmID(), 1, Constants.DEFAULT_TIMESTAMP);
                         userProgressCollection.addUserProgress(userProgress);
                     }
                     UserProgressDatabase.writeSpecificUserProgresses(userProgressCollection, givenUser, mActivity);
 
-                    // Navigation to ChooseFile
                     try {
-                        mData.setmCurrentUser(mData.getmAllUsers().getUser(givenUser));
+                        // save the given user
+                        mData.setmGivenUser(mData.getmAllUsers().getUser(givenUser));
                     }
+                    // if something went wrong by updating the UserProgresses the StartMenu activity is called
                     catch(IdNotFoundException e){
+                        // toast unexpected error
                         Toast.makeText(mData.getActivity(), "Unerwarteter Fehler", Toast.LENGTH_LONG).show();
+                        // navigation to activity StartMenu
                         Navigation.startActivityStartMenu(mData.getActivity());
                     }
+                    // navigation to activity ChooseFile and send the required data
                     Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmGivenUser());
                 }
                 else {
-                    // Toast rejekted --> username already exists
+                    // toast rejected if username already exists
                     Toast.makeText(mData.getActivity(), "Username bereits vorhanden!", Toast.LENGTH_LONG).show();
                 }
 
             } else {
-                // Toast rejekted --> no special signs, no mutated vowels, no numbers
+                // toast rejected --> no special signs, no mutated vowels, no numbers
                 Toast.makeText(mData.getActivity(), "Der Username darf keine Leerzeichen, Umlaute, Sonderzeichen und Ziffern enthalten!", Toast.LENGTH_LONG).show();
             }
         }
     }
 
+    // method that is invoked if the abort button is clicked
     public void onButtonAbortNewUserClicked(){
-        // Navigation to StartMenu
+        // navigation to activity StartMenu
         Navigation.startActivityStartMenu(mData.getActivity());
     }
 }

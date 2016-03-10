@@ -21,15 +21,14 @@ public class ApplicationLogic {
         initialUpdateGui();
     }
 
-    // initialize the Gui by setting the questiontext
     private void initialUpdateGui() {
 
     }
 
-    // method that is invoked if the back to choose file button is clicked
+    // method that is invoked if the choose file button is clicked
     public void onButtonBackToChooseFileClicked(){
 
-        // call the ChooseFile-Activity and send the required data
+        // navigation to activity ChooseFile and send the required data
         Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getmChosenUser());
 
     }
@@ -40,7 +39,7 @@ public class ApplicationLogic {
         // empty ChallengeCollection
         ChallengeCollection cc = new ChallengeCollection();
 
-        // call the Statistics-Activity and send the required data
+        // navigation to activity statistics and send the required data
         Navigation.startActivityStatistics(mData.getActivity(), mData.getmChosenUser(), mData.getmChosenFile(), cc);
 
     }

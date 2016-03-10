@@ -12,6 +12,7 @@
         android:text="@string/string_statistics"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
+        android:gravity="center"
         android:layout_centerHorizontal="true" />
 
     <TextView
