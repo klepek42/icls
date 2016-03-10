@@ -36,15 +36,7 @@ public class EventToListenerMapping implements View.OnClickListener {
             case R.id.buttonAbort:
                 mApplicationLogic.goBackToChooseFile();
                 break;
-            case R.id.checkboxAnswer1:
-                mApplicationLogic.onCheckBoxAnswer1Clicked();
-                break;
-            case R.id.checkboxAnswer2:
-                mApplicationLogic.onCheckBoxAnswer2Clicked();
-                break;
-            case R.id.checkboxAnswer3:
-                mApplicationLogic.onCheckBoxAnswer3Clicked();
-                break;
+            //checkBox-Handling happens on click of buttonConfirmAnswer in ApplicationLogic and therefore is not mentioned here
         }
     }
 }

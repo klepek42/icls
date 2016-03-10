@@ -18,9 +18,6 @@ public class ApplicationLogic {
     private final Gui mGui;
     private final Activity mActivity;
     private int givenAnswer; //variable to store the given Answer as an integer
-    private boolean isCheckBoxAnswer1Clicked;
-    private boolean isCheckBoxAnswer2Clicked;
-    private boolean isCheckBoxAnswer3Clicked;
 
     public ApplicationLogic(Data data, Gui gui, Activity activity) {
         mData = data;
@@ -34,13 +31,11 @@ public class ApplicationLogic {
         Challenge challenge;
         int currentChallengeId;
 
+        givenAnswer = 0;
+
         currentChallengeId = mData.getmCurrentChallengeId();
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(currentChallengeId);
 
-        givenAnswer = 0;
-        isCheckBoxAnswer1Clicked = false;
-        isCheckBoxAnswer2Clicked = false;
-        isCheckBoxAnswer3Clicked = false;
 
         mGui.setQuestionText(challenge.getmQuestiontext());
         mGui.getmCheckBoxAnswer1().setText(challenge.getmAnswerOne());
@@ -49,37 +44,6 @@ public class ApplicationLogic {
     }
 
 
-    //following three methods count givenAnswer up, if it is not checked yet and counts it down, if it is already checked (and therefore wants to be unchecked by user)
-    public void onCheckBoxAnswer1Clicked() {
-        if (!isCheckBoxAnswer1Clicked) {
-            givenAnswer = givenAnswer + 1;
-            isCheckBoxAnswer1Clicked = true;
-        } else {
-            givenAnswer = givenAnswer - 1;
-            isCheckBoxAnswer1Clicked = false;
-        }
-    }
-
-    public void onCheckBoxAnswer2Clicked() {
-        if (!isCheckBoxAnswer2Clicked) {
-            givenAnswer = givenAnswer + 2;
-            isCheckBoxAnswer2Clicked = true;
-        } else {
-            givenAnswer = givenAnswer - 2;
-            isCheckBoxAnswer2Clicked = false;
-        }
-    }
-
-    public void onCheckBoxAnswer3Clicked() {
-        if (!isCheckBoxAnswer3Clicked) {
-            givenAnswer = givenAnswer + 4;
-            isCheckBoxAnswer3Clicked = true;
-        } else {
-            givenAnswer = givenAnswer - 4;
-            isCheckBoxAnswer3Clicked = false;
-        }
-    }
-
     public void onButtonConfirmAnswerClicked() throws InvalidCorrectAnswerTypeException {
         int challengeId = mData.getmCurrentChallengeId();
         Challenge challenge;
@@ -87,6 +51,11 @@ public class ApplicationLogic {
 
 
         challenge = mData.getmDueChallengesOfUserInFile().getChallenge(challengeId);
+
+        //check which CheckBoxes are checked and count up givenAnswer based on that
+        if (mGui.getmCheckBoxAnswer1().isChecked()) { givenAnswer = givenAnswer + 1;}
+        if (mGui.getmCheckBoxAnswer2().isChecked()) { givenAnswer = givenAnswer + 2;}
+        if (mGui.getmCheckBoxAnswer3().isChecked()) { givenAnswer = givenAnswer + 4;}
 
         //determine whether user given answer has same value as stored correct answer and set boolean isAnswerCorrect based on that
         if (challenge.getmCorrectAnswer() >= 1 && challenge.getmCorrectAnswer() <= 7) {
@@ -108,6 +77,7 @@ public class ApplicationLogic {
             updateUserProgress(isAnswerCorrect);
             //call the Feedback-Activity and send the required data
             Navigation.startActivityFeedbackChallengeRest(mData.getActivity(), mData.getmDueChallengesOfUserInFile(), mData.getmCurrentChallengeId(), mData.getmChosenUser(), mData.getmChosenFile(), isAnswerCorrect, mData.getmUserProgresses());
+
 
         } catch (UserProgressNotFoundException e) {
             Log.e("ICLS-LOG", "ChallengeMultipleChoice::ApplicationLogic::onButtonConfirmAnswerClicked: ", e);
