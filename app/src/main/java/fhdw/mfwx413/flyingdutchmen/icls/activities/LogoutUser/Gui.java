@@ -21,7 +21,7 @@ public class Gui {
 
     // sets the connection between Gui and layout files
     public Gui(Activity activity) {
-        activity.setContentView(R.layout.layout_logout);
+        activity.setContentView(R.layout.layout_logout_user);
         textFieldLogout = (TextView) activity.findViewById(R.id.textFieldLogout);
         buttonConfirmLogout = (Button) activity.findViewById(R.id.buttonConfirmLogout);
         buttonDenyLogout = (Button) activity.findViewById(R.id.buttonDenyLogout);

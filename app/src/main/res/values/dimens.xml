@@ -18,7 +18,7 @@
     <dimen name="activity_landscape_margin_change_text">520sp</dimen>
     <dimen name="activity_margin_text_to_header">60sp</dimen>
     <dimen name="activity_margin_edittext_to_header">50sp</dimen>
-    <dimen name="activity_width_period">70sp</dimen>
+    <dimen name="activity_width_period">90sp</dimen>
     <dimen name="activity_margin_question">65sp</dimen>
     <dimen name="activity_margin_feedback">25sp</dimen>
     <dimen name="activity_margin_feedback_bottom">50sp</dimen>
