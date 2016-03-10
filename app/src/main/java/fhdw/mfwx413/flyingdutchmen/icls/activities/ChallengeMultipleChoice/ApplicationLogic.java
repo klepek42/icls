@@ -59,8 +59,12 @@ public class ApplicationLogic {
 
         //determine whether user given answer has same value as stored correct answer and set boolean isAnswerCorrect based on that
         if (challenge.getmCorrectAnswer() >= 1 && challenge.getmCorrectAnswer() <= 7) {
-
-            isAnswerCorrect = challenge.getmCorrectAnswer() == givenAnswer;
+            if (challenge.getmCorrectAnswer() == givenAnswer){
+                isAnswerCorrect = true;
+            }
+            else {
+                isAnswerCorrect = false;
+            }
         }
 
         //if stored correct answer has invalid value, exception is thrown
