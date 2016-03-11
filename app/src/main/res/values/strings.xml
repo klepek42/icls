@@ -1,6 +1,7 @@
 <!-- Responsibility: Luisa Leifer -->
 <resources>
     <string name="app_name">icls</string>
+    <!-- texts for buttons, header and short descriptions -->
     <string name="string_start">Benutzer auswählen</string>
     <string name="string_add">+</string>
     <string name="string_edit">Bearbeiten</string>
@@ -35,6 +36,7 @@
     <string name="string_next">Weiter</string>
     <string name="string_confirm">Bestätigen</string>
 
+    <!-- texts for challenges, feedbacks and end of challenges -->
     <string name="string_question_1_2">Das ist ein toller Dummy-Text für eine Frage der Challenge Free Answer</string> <!-- modified at run-time -->
     <string name="string_question_3">Das ist ein toller Dummy-Text für eine Frage der Challenge Imagine Answer</string> <!-- modified at run-time -->
     <string name="string_question_multiple_choice">Das ist ein toller Dummy-Text für eine Frage der Challenge Multiple Choice</string> <!-- modified at run-time -->
@@ -54,6 +56,7 @@
     </string> <!-- [] = modified at run-time -->
     <string name="string_was_answer_correct">War ihre Antwort dabei?</string>
 
+    <!-- info texts -->
     <string name="string_duplicate_files_warning">Es sind doppelte Karteien vorhanden.</string>
     <string name="string_duplicate_files_description">Bitte schauen Sie ins Benutzerhandbuch und entfernen Sie doppelte Einträge.</string>
     <string name="string_no_challenges_warning">Für diese Kartei gibt es keine Fragen.</string>
