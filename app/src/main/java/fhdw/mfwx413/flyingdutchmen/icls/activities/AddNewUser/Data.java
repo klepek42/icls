@@ -11,10 +11,6 @@ import fhdw.mfwx413.flyingdutchmen.icls.data.UserDatabase;
  */
 public class Data {
 
-    public Activity getActivity() {
-        return mActivity;
-    }
-
     private Activity mActivity;
     private User mGivenUser;
     private UserCollection mAllUsers;
@@ -22,6 +18,10 @@ public class Data {
     public Data(Activity activity) {
         mActivity = activity;
         mAllUsers = UserDatabase.getAllUser(mActivity);
+    }
+
+    public Activity getActivity() {
+        return mActivity;
     }
 
     public User getmGivenUser() {
@@ -32,11 +32,7 @@ public class Data {
         return mAllUsers;
     }
 
-    public User getCurrentUser() {
-        return mGivenUser;
-    }
-
-    public void setmCurrentUser(User mCurrentUser) {
+    public void setmGivenUser(User mCurrentUser) {
         this.mGivenUser = mCurrentUser;
     }
 

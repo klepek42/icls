@@ -14,8 +14,9 @@
         android:text="@string/string_feedback_answer_result"
         android:textSize="@dimen/activity_text_size"
         android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/activity_margin_info"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_question_margin"
         android:layout_alignParentTop="true" />
 
     <TextView
@@ -25,9 +26,9 @@
         android:text="@string/string_feedback_correct_answer"
         android:textSize="@dimen/activity_text_size"
         android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/activity_margin_feedback"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_feedback_margin"
         android:layout_below="@id/textFieldFeedbackText" />
 
     <Button
@@ -44,18 +45,6 @@
         android:layout_alignParentRight="true"
         android:textAllCaps="false" />
 
-    <TextView
-        android:id="@+id/textFieldChallengeUpDownGrade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/string_feedback_up_down_grade"
-        android:textSize="@dimen/activity_text_size"
-        android:textColor="@color/textColor"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@id/buttonContinue"
-        android:layout_marginBottom="@dimen/activity_feedback_margin_bottom" />
-
     <Button
         android:id="@+id/buttonAbort"
         android:layout_width="wrap_content"
@@ -69,5 +58,16 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/textFieldChallengeUpDownGrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_feedback_up_down_grade"
+        android:textSize="@dimen/activity_text_size"
+        android:textColor="@color/textColor"
+        android:layout_marginBottom="@dimen/activity_margin_feedback_bottom"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/buttonContinue" />
 
 </RelativeLayout>

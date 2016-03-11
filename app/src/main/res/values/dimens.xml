@@ -1,27 +1,33 @@
 <!-- Responsibility: Luisa Leifer -->
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16sp</dimen>
-    <dimen name="activity_vertical_margin">16sp</dimen>
-    <dimen name="activity_padding">16sp</dimen>
-    <dimen name="activity_text_size">24sp</dimen>
-    <dimen name="activity_text_size_info">36sp</dimen>
-    <dimen name="activity_text_size_caption">48sp</dimen>
-    <dimen name="activity_margin_start">150sp</dimen>
-    <dimen name="activity_margin_user">90sp</dimen>
-    <dimen name="activity_margin_class_land">160sp</dimen>
-    <dimen name="activity_margin_input">120sp</dimen>
-    <dimen name="activity_margin_class">30sp</dimen>
-    <dimen name="activity_margin_gap_vertical">10sp</dimen>
-    <dimen name="activity_margin_gap_horizontal">50sp</dimen>
-    <dimen name="activity_margin_gap_middel">20sp</dimen>
-    <dimen name="activity_question_margin">65sp</dimen>
-    <dimen name="activity_feedback_margin">25sp</dimen>
-    <dimen name="activity_feedback_margin_bottom">50sp</dimen>
-    <dimen name="activity_padding_button">8sp</dimen>
-    <dimen name="activity_portrait_margin_change_text">230sp</dimen>
-    <dimen name="activity_landscape_margin_change_text">520sp</dimen>
-    <dimen name="activity_margin_text_to_header">60sp</dimen>
-    <dimen name="activity_margin_edittext_to_header">50sp</dimen>
-    <dimen name="activity_width_period">70sp</dimen>
+    <!-- screen margin -->
+    <dimen name="activity_padding">16dp</dimen>
+    <!-- text sizes -->
+    <dimen name="activity_text_size">24dp</dimen>
+    <dimen name="activity_text_size_info">36dp</dimen>
+    <dimen name="activity_text_size_caption">48dp</dimen>
+    <!-- margins for StartMenu and ChooseIndexCard -->
+    <dimen name="activity_margin_spinner_header">150dp</dimen>
+    <dimen name="activity_margin_spinner">90dp</dimen>
+    <dimen name="activity_margin_input_header">90dp</dimen>
+    <dimen name="activity_margin_input">120dp</dimen>
+    <!-- margins for Statistics and SettingsMenu -->
+    <dimen name="activity_margin_class_horizontal">30dp</dimen>
+    <dimen name="activity_margin_class_horizontal_big">50dp</dimen>
+    <dimen name="activity_margin_class_vertical_small">10dp</dimen>
+    <dimen name="activity_margin_class_vertical_middel">20dp</dimen>
+    <dimen name="activity_margin_class_vertical">30dp</dimen>
+    <dimen name="activity_portrait_margin_change_text">230dp</dimen>
+    <dimen name="activity_landscape_margin_change_text">520dp</dimen>
+    <dimen name="activity_margin_text_to_header">60dp</dimen>
+    <dimen name="activity_margin_edittext_to_header">50dp</dimen>
+    <!-- width -->
+    <dimen name="activity_width_period">90dp</dimen>
+    <!-- margins for challenges, feedbacks and info-screens -->
+    <dimen name="activity_margin_question">65dp</dimen>
+    <dimen name="activity_margin_feedback">25dp</dimen>
+    <dimen name="activity_margin_feedback_bottom">50dp</dimen>
+    <dimen name="activity_margin_info">65dp</dimen>
+    <!-- button padding -->
+    <dimen name="activity_padding_button">8dp</dimen>
 </resources>

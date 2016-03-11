@@ -10,18 +10,18 @@
         android:id="@+id/textFieldDuplicateIndexCardsWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_duplicatefileswarning"
+        android:text="@string/string_duplicate_files_warning"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/activity_margin_info"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_question_margin" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/textFieldDuplicateIndexCardsDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_duplicatefilesdescription"
+        android:text="@string/string_duplicate_files_description"
         android:textSize="@dimen/activity_text_size_info"
         android:textColor="@color/textColor"
         android:gravity="center"
@@ -39,4 +39,5 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:textAllCaps="false" />
+
 </RelativeLayout>

@@ -14,9 +14,9 @@
         android:text="@string/string_feedback"
         android:textSize="@dimen/activity_text_size"
         android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/activity_margin_feedback"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/activity_feedback_margin"
         android:layout_alignParentTop="true" />
 
     <Button
@@ -51,10 +51,9 @@
         android:text="@string/string_was_answer_correct"
         android:textSize="@dimen/activity_text_size"
         android:textColor="@color/textColor"
+        android:layout_marginBottom="@dimen/activity_margin_feedback_bottom"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@id/buttonWasAnswerCorrect"
-        android:layout_marginBottom="@dimen/activity_feedback_margin" />
+        android:layout_above="@id/buttonWasAnswerCorrect" />
 
 </RelativeLayout>

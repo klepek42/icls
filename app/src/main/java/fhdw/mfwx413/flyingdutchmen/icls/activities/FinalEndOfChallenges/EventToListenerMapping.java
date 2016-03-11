@@ -12,6 +12,7 @@ public class EventToListenerMapping implements View.OnClickListener {
 
     public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
         mApplicationLogic = applicationLogic;
+        // equip the gui elements with listeners
         gui.getmButtonBackToChooseFile().setOnClickListener(this);
         gui.getmButtonStatistics().setOnClickListener(this);
     }

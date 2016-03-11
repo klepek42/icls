@@ -120,7 +120,7 @@ public class ApplicationLogic {
                 break;
             }
         }
-        //throw exception if the user was not found
+        //throw exception if the userProgress was not found
         if (!userProgressFound) {
             throw new UserProgressNotFoundException("ChallengeMultipleChoice::ApplicationLogic::updateUserProgress:"
                     + " CurrentUserName: " + mData.getmChosenUser().getName()

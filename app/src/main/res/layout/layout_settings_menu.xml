@@ -13,6 +13,7 @@
         android:text="@string/string_settings"
         android:textSize="@dimen/activity_text_size_caption"
         android:textColor="@color/colorPrimary"
+        android:gravity="center"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -32,7 +33,7 @@
         android:hint="@string/string_period"
         android:textSize="@dimen/activity_text_size"
         android:layout_marginTop="@dimen/activity_margin_edittext_to_header"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldSettingsMenu"
         android:layout_toRightOf="@+id/textFieldPeriodClass1" />
 
@@ -41,10 +42,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
         android:layout_marginTop="@dimen/activity_margin_text_to_header"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldSettingsMenu"
         android:layout_toRightOf="@+id/periodClass1" />
 
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_class_two"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_class"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
         android:layout_below="@+id/textFieldPeriodClass1" />
 
     <EditText
@@ -64,8 +64,8 @@
         android:inputType="number"
         android:hint="@string/string_period"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical_middel"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass1"
         android:layout_toRightOf="@+id/textFieldPeriodClass2" />
 
@@ -74,10 +74,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="@dimen/activity_margin_class"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass1"
         android:layout_toRightOf="@+id/periodClass2" />
 
@@ -87,7 +86,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_class_three"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_class"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
         android:layout_below="@+id/textFieldPeriodClass2" />
 
     <EditText
@@ -97,8 +96,8 @@
         android:inputType="number"
         android:hint="@string/string_period"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical_middel"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass2"
         android:layout_toRightOf="@+id/textFieldPeriodClass3" />
 
@@ -107,10 +106,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="@dimen/activity_margin_class"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass2"
         android:layout_toRightOf="@+id/periodClass3" />
 
@@ -120,7 +118,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_class_four"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_class"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
         android:layout_below="@+id/textFieldPeriodClass3" />
 
     <EditText
@@ -130,8 +128,8 @@
         android:inputType="number"
         android:hint="@string/string_period"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical_middel"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass3"
         android:layout_toRightOf="@+id/textFieldPeriodClass4" />
 
@@ -140,10 +138,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="@dimen/activity_margin_class"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass3"
         android:layout_toRightOf="@+id/periodClass4" />
 
@@ -153,7 +150,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_class_five"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_class"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
         android:layout_below="@+id/textFieldPeriodClass4" />
 
     <EditText
@@ -163,8 +160,8 @@
         android:inputType="number"
         android:hint="@string/string_period"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical_middel"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass4"
         android:layout_toRightOf="@+id/textFieldPeriodClass5" />
 
@@ -173,10 +170,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="@dimen/activity_margin_class"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass4"
         android:layout_toRightOf="@+id/periodClass5" />
 
@@ -186,7 +182,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_class_six"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_class"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
         android:layout_below="@+id/textFieldPeriodClass5" />
 
     <EditText
@@ -196,8 +192,8 @@
         android:inputType="number"
         android:hint="@string/string_period"
         android:textSize="@dimen/activity_text_size"
-        android:layout_marginTop="@dimen/activity_margin_gap_middel"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical_middel"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass5"
         android:layout_toRightOf="@+id/textFieldPeriodClass6" />
 
@@ -206,10 +202,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:text="@string/string_set_time"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="@dimen/activity_margin_class"
-        android:layout_marginLeft="@dimen/activity_margin_gap_horizontal"
+        android:layout_marginTop="@dimen/activity_margin_class_vertical"
+        android:layout_marginLeft="@dimen/activity_margin_class_horizontal_big"
         android:layout_below="@+id/textFieldPeriodClass5"
         android:layout_toRightOf="@+id/periodClass6" />
 
@@ -254,4 +249,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:textAllCaps="false" />
+
 </RelativeLayout>
