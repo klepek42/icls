@@ -223,12 +223,10 @@ public class ApplicationLogic {
             }
 
         } else {
-            //chosen periods are not valid
-            if (!isEveryPeriodClassFilled) {
-                //this case is already handled above
-            } else {
-                Toast.makeText(mData.getActivity(), "Bitte die Werte der Zeitklassen so wählen, dass der Wert der höheren Klasse größer ist als der Wert aller niedrigeren Klassen.", Toast.LENGTH_LONG).show();
-            }
+                //chosen periods are not valid
+                if (isEveryPeriodClassFilled) {
+                    Toast.makeText(mData.getActivity(), "Bitte die Werte der Zeitklassen so wählen, dass der Wert der höheren Klasse größer ist als der Wert aller niedrigeren Klassen.", Toast.LENGTH_LONG).show();
+                }
         }
     }
 
