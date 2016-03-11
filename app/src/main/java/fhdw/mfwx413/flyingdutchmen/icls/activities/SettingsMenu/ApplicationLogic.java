@@ -192,7 +192,7 @@ public class ApplicationLogic {
             //nothing to do, one chosen period class is empty and therefore not valid - invalid period classes are dealt in else-statement of next if-statement
         }
 
-        //determine whether chosen periods are valid (first period greater than 0 and other periods greater than all smaller periods)
+        //determine whether chosen periods are valid (first period greater than 0 and other periods greater than all lower periods)
         if (chosenPeriodClass1Int > 0 &&
                 chosenPeriodClass6Int > chosenPeriodClass5Int &&
                 chosenPeriodClass5Int > chosenPeriodClass4Int &&
