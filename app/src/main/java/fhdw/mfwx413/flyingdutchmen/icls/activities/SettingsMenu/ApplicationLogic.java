@@ -325,7 +325,7 @@ public class ApplicationLogic {
 
             //store periods permanently
             updateUserCollection(Constants.PERIOD_CLASS_1, Constants.PERIOD_CLASS_2, Constants.PERIOD_CLASS_3, Constants.PERIOD_CLASS_4, Constants.PERIOD_CLASS_5, Constants.PERIOD_CLASS_6);
-            Toast.makeText(mData.getActivity(), "Zu default-Werten zurückgesetzt!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mData.getActivity(), "Zu Standard-Werten zurückgesetzt!", Toast.LENGTH_SHORT).show();
             Navigation.startActivityChooseIndexCard(mData.getActivity(), mData.getCurrentUser());
         } catch (UserNotFoundException e) {
             Log.e("ICLS-LOG", "SettingsMenu::ApplicationLogic::onButtonSetSettingsDefaultClicked: ", e);
