@@ -152,7 +152,7 @@ public class ApplicationLogic {
 
     //method that is invoked if the confirm button is clicked
     public void onButtonConfirmSettingsClicked() {
-        //Read values for user chosen period EditText and time unit Spinner
+        //read values for user chosen period EditText and time unit Spinner
         String chosenPeriodClass1 = mGui.getmPeriodClass1().getText().toString();
         String chosenTimeUnitClass1 = mGui.getTimeUnit1().getSelectedItem().toString();
         String chosenPeriodClass2 = mGui.getmPeriodClass2().getText().toString();
@@ -166,6 +166,7 @@ public class ApplicationLogic {
         String chosenPeriodClass6 = mGui.getmPeriodClass6().getText().toString();
         String chosenTimeUnitClass6 = mGui.getTimeUnit6().getSelectedItem().toString();
 
+        //variables to store chosen period classes as integer
         int chosenPeriodClass1Int = 0;
         int chosenPeriodClass2Int = 0;
         int chosenPeriodClass3Int = 0;
@@ -173,7 +174,10 @@ public class ApplicationLogic {
         int chosenPeriodClass5Int = 0;
         int chosenPeriodClass6Int = 0;
 
-        //if not empty convert these into minutes - check whether user chosen period classes are numerical is not necessary because Layout defines that only numerical inputs are possible
+        //variable to store whether all period classes are filled in
+        boolean isEveryPeriodClassFilled;
+
+        //if not empty convert period classes into minutes - check whether user chosen period classes are numerical is not necessary because Layout defines that only numerical inputs are possible
         if (!chosenPeriodClass1.isEmpty() &&
                 !chosenPeriodClass2.isEmpty() &&
                 !chosenPeriodClass3.isEmpty() &&
@@ -181,6 +185,8 @@ public class ApplicationLogic {
                 !chosenPeriodClass5.isEmpty() &&
                 !chosenPeriodClass6.isEmpty()
                 ) {
+            isEveryPeriodClassFilled = true;
+
             //store user chosen period classes in local variables in minutes
             chosenPeriodClass1Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass1), chosenTimeUnitClass1, "Minute(n)");
             chosenPeriodClass2Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass2), chosenTimeUnitClass2, "Minute(n)");
@@ -189,7 +195,8 @@ public class ApplicationLogic {
             chosenPeriodClass5Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass5), chosenTimeUnitClass5, "Minute(n)");
             chosenPeriodClass6Int = convertChosenPeriod(Integer.valueOf(chosenPeriodClass6), chosenTimeUnitClass6, "Minute(n)");
         } else {
-            //nothing to do, one chosen period class is empty and therefore not valid - invalid period classes are dealt in else-statement of next if-statement
+            Toast.makeText(mData.getActivity(), "Bitte sämtliche Werte ausfüllen und anschließend erneut speichern.", Toast.LENGTH_SHORT).show();
+            isEveryPeriodClassFilled = false;
         }
 
         //determine whether chosen periods are valid (first period greater than 0 and other periods greater than all lower periods)
@@ -217,7 +224,11 @@ public class ApplicationLogic {
 
         } else {
             //chosen periods are not valid
-            Toast.makeText(mData.getActivity(), "Bitte prüfen Sie die eingegebenen Werte und Einheiten.", Toast.LENGTH_SHORT).show();
+            if (!isEveryPeriodClassFilled) {
+                //this case is already handled above
+            } else {
+                Toast.makeText(mData.getActivity(), "Bitte die Werte der Zeitklassen so wählen, dass der Wert der höheren Klasse größer ist als der Wert aller niedrigeren Klassen.", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
