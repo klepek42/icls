@@ -173,7 +173,7 @@ public class ApplicationLogic {
         int chosenPeriodClass5Int = 0;
         int chosenPeriodClass6Int = 0;
 
-        //if not empty convert these into minutes
+        //if not empty convert these into minutes - check whether user chosen period classes are numerical is not necessary because Layout defines that only numerical inputs are possible
         if (!chosenPeriodClass1.isEmpty() &&
                 !chosenPeriodClass2.isEmpty() &&
                 !chosenPeriodClass3.isEmpty() &&
