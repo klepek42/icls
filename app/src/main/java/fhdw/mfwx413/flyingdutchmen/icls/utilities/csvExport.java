@@ -58,7 +58,9 @@ public class csvExport {
                     copyFile(in, out);
                 } catch (IOException e) {
                     Log.e("IOException", "Failed to copy asset file: " + filename, e);
-                } finally {
+                }
+                // Ensure to close the streams
+                finally {
                     if (in != null) {
                         try {
                             in.close();
@@ -86,7 +88,9 @@ public class csvExport {
                         copyFile(in, out);
                     } catch (IOException e) {
                         Log.e("IOException", "Failed to copy asset file: " + filename, e);
-                    } finally {
+                    }
+                    // Ensure to close the streams
+                    finally {
                         if (in != null) {
                             try {
                                 in.close();

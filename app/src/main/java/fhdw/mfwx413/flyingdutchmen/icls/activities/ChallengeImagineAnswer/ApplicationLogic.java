@@ -24,6 +24,7 @@ public class ApplicationLogic {
         Challenge challenge;
         int currentChallengeId;
 
+        // Get the current challenge id from Data and then all Challenges from the current user and current IndexCard
         currentChallengeId = mData.getCurrentChallengeId();
         challenge = mData.getDueChallengesOfUserInFile().getChallenge(currentChallengeId);
 

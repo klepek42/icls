@@ -27,6 +27,7 @@ public class Data {
     private ChallengeCollection mAllChallenges;
     private UserProgressCollection mCurrentUserUserProgresses;
 
+    // Constructor
     public Data(Activity activity, Bundle bundle) {
         mActivity = activity;
         Intent intent;
